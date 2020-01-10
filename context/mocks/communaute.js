@@ -1,3 +1,5 @@
+import { SmallSubtitle } from "../../styled/typos";
+
 export default {
   members: [
     {
@@ -96,5 +98,22 @@ export default {
         linkedin: "https://linkedin.com"
       }
     }
-  ]
+  ],
+  strategicComite: {
+    smallSubtitle: "Le comité stratégique",
+    members: [
+      {
+        name: "Bertrand BADRE",
+        status:
+          "— CEO de BlueLikeanOrange, Parrain du Planet Lab et précédemment Directeur général de la Banque Mondiale -"
+      },
+      {
+        name: "Véronique BOUREZ",
+        status:
+          "— Présidente et fondatrice de View Beyond, précédemment Présidente de Coca-Cola France -"
+      },
+      { name: "Robert ZARADER", status: "— CEO d’Equancy and Co -" },
+      { name: "Erick ROCHE", status: "— Teva Pharmaceuticals." }
+    ]
+  }
 };

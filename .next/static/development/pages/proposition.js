@@ -313,6 +313,8 @@ function useMocks() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _styled_typos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styled/typos */ "./styled/typos.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   members: [{
     subTitle: "présidente et co-fondatrice",
@@ -392,7 +394,23 @@ __webpack_require__.r(__webpack_exports__);
       twitter: "https://twiter.com",
       linkedin: "https://linkedin.com"
     }
-  }]
+  }],
+  strategicComite: {
+    smallSubtitle: "Le comité stratégique",
+    members: [{
+      name: "Bertrand BADRE",
+      status: "— CEO de BlueLikeanOrange, Parrain du Planet Lab et précédemment Directeur général de la Banque Mondiale -"
+    }, {
+      name: "Véronique BOUREZ",
+      status: "— Présidente et fondatrice de View Beyond, précédemment Présidente de Coca-Cola France -"
+    }, {
+      name: "Robert ZARADER",
+      status: "— CEO d’Equancy and Co -"
+    }, {
+      name: "Erick ROCHE",
+      status: "— Teva Pharmaceuticals."
+    }]
+  }
 });
 
 /***/ }),
@@ -3064,7 +3082,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var qs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(qs__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var lodash_isPlainObject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/isPlainObject */ "./node_modules/lodash/isPlainObject.js");
 /* harmony import */ var lodash_isPlainObject__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_isPlainObject__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var os__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! os */ 1);
+/* harmony import */ var os__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! os */ 2);
 /* harmony import */ var os__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(os__WEBPACK_IMPORTED_MODULE_3__);
 
 
@@ -17775,19 +17793,41 @@ var ThirdPart = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.wi
 /*!*************************!*\
   !*** ./styled/space.js ***!
   \*************************/
-/*! exports provided: Wrapper, FatWrapper */
+/*! exports provided: Wrapper, WrapperMediumPlus, FatWrapper, ShowOnMediumPlus */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Wrapper", function() { return Wrapper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WrapperMediumPlus", function() { return WrapperMediumPlus; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FatWrapper", function() { return FatWrapper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShowOnMediumPlus", function() { return ShowOnMediumPlus; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
 
+function _templateObject4() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display:none;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    padding:", ";\n  "]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    padding:", ";\n\n  "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    padding:0 30px;\n  "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -17813,15 +17853,27 @@ var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.with
 })(["padding:0 10%;margin:0 auto;width:100%;left:0;right:0;", ""], function (props) {
   return props.theme.medias.medium(_templateObject());
 });
+var WrapperMediumPlus = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "space__WrapperMediumPlus",
+  componentId: "sc-9h1sc-1"
+})(["padding:0 10%;margin:0 auto;width:100%;left:0;right:0;", ""], function (props) {
+  return props.theme.medias.mediumPlus(_templateObject2());
+});
 var FatWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "space__FatWrapper",
-  componentId: "sc-9h1sc-1"
+  componentId: "sc-9h1sc-2"
 })(["padding:", ";margin:0 auto;width:100%;left:0;right:0;", ""], function (props) {
   return props.noWrapperDesktop ? "0" : "0 20%";
 }, function (props) {
-  return props.theme.medias.medium(_templateObject2(), function (props) {
+  return props.theme.medias.medium(_templateObject3(), function (props) {
     return props.noWrapperOnMobile ? "0" : "0 30px";
   });
+});
+var ShowOnMediumPlus = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "space__ShowOnMediumPlus",
+  componentId: "sc-9h1sc-3"
+})(["display:flex;", ""], function (props) {
+  return props.theme.medias.mediumPlus(_templateObject4());
 });
 
 /***/ }),
@@ -17991,18 +18043,7 @@ var ArticleInterTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"
 
 /***/ }),
 
-/***/ 1:
-/*!********************!*\
-  !*** os (ignored) ***!
-  \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ 2:
+/***/ 0:
 /*!************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fproposition&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fproposition.js ***!
   \************************************************************************************************************************************************/
@@ -18011,6 +18052,17 @@ var ArticleInterTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"
 
 module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fproposition&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fproposition.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fproposition&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fproposition.js!./");
 
+
+/***/ }),
+
+/***/ 2:
+/*!********************!*\
+  !*** os (ignored) ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ }),
 
@@ -18025,5 +18077,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=proposition.js.map

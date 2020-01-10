@@ -377,12 +377,14 @@ __webpack_require__.r(__webpack_exports__);
 var ScreenSizes = {
   SMALL: 375,
   MEDIUM: 768,
+  MEDIUMPLUS: 850,
   LARGE: 1224,
   XLARGE: 1824
 };
 var sizes = {
   small: ScreenSizes.SMALL,
   medium: ScreenSizes.MEDIUM,
+  mediumPlus: ScreenSizes.MEDIUMPLUS,
   large: ScreenSizes.LARGE,
   xlarge: ScreenSizes.XLARGE
 };
@@ -474,6 +476,8 @@ function useMocks() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _styled_typos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styled/typos */ "./styled/typos.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   members: [{
     subTitle: "présidente et co-fondatrice",
@@ -553,7 +557,23 @@ __webpack_require__.r(__webpack_exports__);
       twitter: "https://twiter.com",
       linkedin: "https://linkedin.com"
     }
-  }]
+  }],
+  strategicComite: {
+    smallSubtitle: "Le comité stratégique",
+    members: [{
+      name: "Bertrand BADRE",
+      status: "— CEO de BlueLikeanOrange, Parrain du Planet Lab et précédemment Directeur général de la Banque Mondiale -"
+    }, {
+      name: "Véronique BOUREZ",
+      status: "— Présidente et fondatrice de View Beyond, précédemment Présidente de Coca-Cola France -"
+    }, {
+      name: "Robert ZARADER",
+      status: "— CEO d’Equancy and Co -"
+    }, {
+      name: "Erick ROCHE",
+      status: "— Teva Pharmaceuticals."
+    }]
+  }
 });
 
 /***/ }),

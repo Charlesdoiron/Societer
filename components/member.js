@@ -1,5 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
+
+import { Wrapper, WrapperMediumPlus } from "../styled/space";
+import { ScreenSizes } from "../config/theme/medias";
 import {
   SmallSubtitle,
   FatTitle,
@@ -13,10 +16,15 @@ const member = props => {
 
   useEffect(() => {
     const changeImgHeight = () => {
-      const containerHeight = containerRef.current.offsetHeight;
+      const containerHeight =
+        containerRef.current && containerRef.current.offsetHeight;
       const image = imageRef.current;
-      image.style.height = containerHeight / 1.4 + "px";
+
+      if (image && window.innerWidth > ScreenSizes.MEDIUMPLUS) {
+        image.style.height = containerHeight / 1.37 + "px";
+      }
     };
+
     changeImgHeight();
     if (typeof window !== undefined) {
       window.addEventListener("resize", () => changeImgHeight(), {
@@ -26,6 +34,14 @@ const member = props => {
         window.removeEventListener("resize", () => changeImgHeight());
     }
   });
+
+  const TabletImage = styled.img`
+    display: none;
+    ${props => props.theme.medias.mediumPlus`
+      display:block;
+      width:100%;
+`}
+  `;
 
   const Titles = styled.div`
     display: flex;
@@ -38,14 +54,19 @@ const member = props => {
   const MemberSmallSubtitle = styled(SmallSubtitle)`
     padding: ${props => (props.withWrapper ? "0 20%" : "0")};
     display: flex;
-    justify-content: ${props.even && (props => props.withWrapper)
-      ? "flex-end"
-      : "flex-start"};
+    justify-content: flex-start;
     color: ${props.even
       ? props => props.theme.colors.black
       : props => props.theme.colors.white};
     margin: ${props => (props.insideDescription ? " 50px 0 25px 0" : 0)};
+    margin-left: ${props.even && (props => props.withWrapper) ? "22%" : "0"};
+    ${props => props.theme.medias.mediumPlus`
+      padding: 0 30px;
+      justify-content: flex-start;
+      margin-left:0;
+    `}
   `;
+
   const Container = styled.div`
     padding-top: 125px;
     position: relative;
@@ -53,7 +74,12 @@ const member = props => {
       ? props => props.theme.colors.white
       : props => props.theme.colors.black};
     flex-direction: ${props.even ? "row" : "row-reverse"};
+
+    ${props => props.theme.medias.mediumPlus`
+      padding-top: 45px;
+    `}
   `;
+
   const Line = styled.div`
     margin-left: ${props.even && (props => props.withWrapper) ? "70%" : "25%"};
     display: flex;
@@ -65,8 +91,11 @@ const member = props => {
     width: 1px;
     height: 115px;
     position: relative;
-
     margin-bottom: 20px;
+
+    ${props => props.theme.medias.mediumPlus`
+      display:none;
+    `}
   `;
 
   const MemberLabor = styled(Labor)`
@@ -74,18 +103,28 @@ const member = props => {
     color: ${props.even
       ? props => props.theme.colors.black
       : props => props.theme.colors.white};
+
+    ${props => props.theme.medias.mediumPlus`
+      padding: 0 30px;
+    `}
   `;
 
   const MemberFatTitle = styled(FatTitle)`
     padding: 0 20%;
     margin-top: 10px;
-    justify-content: ${props.even && (props => props.withWrapper)
-      ? "flex-end"
-      : "flex-start"};
+    justify-content: flex-start;
+    margin-left: ${props.even && (props => props.withWrapper) ? "22%" : "0"};
+    white-space: nowrap;
     display: flex;
     color: ${props.even
       ? props => props.theme.colors.black
       : props => props.theme.colors.white};
+    ${props => props.theme.medias.mediumPlus`
+      padding:0 30px;
+      justify-content: flex-start;
+       margin-left:0;
+      };
+    `}
   `;
 
   const MemberHr = styled.hr`
@@ -95,6 +134,9 @@ const member = props => {
         ? props => props.theme.colors.black
         : props => props.theme.colors.white};
     margin: 50px 0 25px 10px;
+    ${props => props.theme.medias.mediumPlus`
+      margin-right: 30px;
+    `}
   `;
   const Content = styled.div`
     display: flex;
@@ -102,11 +144,20 @@ const member = props => {
     align-items: flex-start;
     flex-direction: ${props.even ? "row-reverse" : "row"};
     height: 100%;
+
+    ${props => props.theme.medias.mediumPlus`
+     flex-direction:column;
+    `}
   `;
 
   const Description = styled.div`
     padding: ${props.even ? "0 0 60px 10%" : "0 10% 60px 0"};
     width: 100%;
+
+    ${props => props.theme.medias.mediumPlus`
+      margin-top:25px;
+      padding:0 0 60px 0;
+    `}
   `;
   const Socials = styled.div`
     width: 40%;
@@ -115,7 +166,15 @@ const member = props => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    ${props => props.theme.medias.mediumPlus`
+      top:0;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+
+    `}
   `;
+
   const Social = styled(SmallNavigation)`
     border: 1px solid
       ${props.even
@@ -140,6 +199,9 @@ const member = props => {
       border: 1px solid ${props => props.theme.colors.blue};
       color: ${props => props.theme.colors.blue};
     }
+    ${props => props.theme.medias.mediumPlus`
+      margin: 30px 30px 30px 0 ;
+    `}
   `;
 
   const ImgContainer = styled.div`
@@ -147,11 +209,14 @@ const member = props => {
     width: 90%;
     height: 100%;
     margin-bottom: -330px;
+
+    ${props => props.theme.medias.mediumPlus`
+      display:none;
+    `}
   `;
 
   const Img = styled.div`
     background-image: url("${dataMember.img}");
-    
     background-size: cover;
     background-position: center;
     background-repeat:no-repeat;
@@ -160,7 +225,10 @@ const member = props => {
     position: absolute;
     z-index: 9;
     top:0;
- 
+    ${props => props.theme.medias.mediumPlus`
+      position:relative;
+      height:100%;
+    `}
   `;
   const Flex = styled.div`
     display: flex;
@@ -168,6 +236,16 @@ const member = props => {
     align-items: center;
   `;
 
+  const ReverseColumn = styled.div`
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    ${props => props.theme.medias.mediumPlus`
+      flex-direction: column-reverse;
+      width:100%;
+      padding: 0 30px;
+    `}
+  `;
   return (
     <Container ref={containerRef}>
       <Titles>
@@ -180,14 +258,20 @@ const member = props => {
       <Line />
 
       <Content>
+        {/* Hide on mobile  */}
         <ImgContainer>
           <Img ref={imageRef} alt={dataMember.name} />
         </ImgContainer>
 
-        <Socials>
-          <Social>{dataMember.socials.twitter && "Tw"}</Social>
-          <Social>{dataMember.socials.linkedin && "Li"}</Social>
-        </Socials>
+        <ReverseColumn>
+          <TabletImage src={dataMember.img} alt="" />
+
+          <Socials>
+            <Social>{dataMember.socials.twitter && "Tw"}</Social>
+            <Social>{dataMember.socials.linkedin && "Li"}</Social>
+          </Socials>
+        </ReverseColumn>
+
         <Description>
           <MemberLabor>{dataMember.description}</MemberLabor>
           <Flex>

@@ -356,12 +356,14 @@ __webpack_require__.r(__webpack_exports__);
 const ScreenSizes = {
   SMALL: 375,
   MEDIUM: 768,
+  MEDIUMPLUS: 850,
   LARGE: 1224,
   XLARGE: 1824
 };
 const sizes = {
   small: ScreenSizes.SMALL,
   medium: ScreenSizes.MEDIUM,
+  mediumPlus: ScreenSizes.MEDIUMPLUS,
   large: ScreenSizes.LARGE,
   xlarge: ScreenSizes.XLARGE
 };

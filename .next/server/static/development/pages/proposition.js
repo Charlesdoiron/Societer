@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -345,6 +345,8 @@ function useMocks() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _styled_typos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styled/typos */ "./styled/typos.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   members: [{
     subTitle: "présidente et co-fondatrice",
@@ -424,7 +426,23 @@ __webpack_require__.r(__webpack_exports__);
       twitter: "https://twiter.com",
       linkedin: "https://linkedin.com"
     }
-  }]
+  }],
+  strategicComite: {
+    smallSubtitle: "Le comité stratégique",
+    members: [{
+      name: "Bertrand BADRE",
+      status: "— CEO de BlueLikeanOrange, Parrain du Planet Lab et précédemment Directeur général de la Banque Mondiale -"
+    }, {
+      name: "Véronique BOUREZ",
+      status: "— Présidente et fondatrice de View Beyond, précédemment Présidente de Coca-Cola France -"
+    }, {
+      name: "Robert ZARADER",
+      status: "— CEO d’Equancy and Co -"
+    }, {
+      name: "Erick ROCHE",
+      status: "— Teva Pharmaceuticals."
+    }]
+  }
 });
 
 /***/ }),
@@ -778,13 +796,15 @@ const ThirdPart = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.w
 /*!*************************!*\
   !*** ./styled/space.js ***!
   \*************************/
-/*! exports provided: Wrapper, FatWrapper */
+/*! exports provided: Wrapper, WrapperMediumPlus, FatWrapper, ShowOnMediumPlus */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Wrapper", function() { return Wrapper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WrapperMediumPlus", function() { return WrapperMediumPlus; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FatWrapper", function() { return FatWrapper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShowOnMediumPlus", function() { return ShowOnMediumPlus; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -794,13 +814,24 @@ const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.wit
 })(["padding:0 10%;margin:0 auto;width:100%;left:0;right:0;", ""], props => props.theme.medias.medium`
     padding:0 30px;
   `);
+const WrapperMediumPlus = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "space__WrapperMediumPlus",
+  componentId: "sc-9h1sc-1"
+})(["padding:0 10%;margin:0 auto;width:100%;left:0;right:0;", ""], props => props.theme.medias.mediumPlus`
+    padding:0 30px;
+  `);
 const FatWrapper = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "space__FatWrapper",
-  componentId: "sc-9h1sc-1"
+  componentId: "sc-9h1sc-2"
 })(["padding:", ";margin:0 auto;width:100%;left:0;right:0;", ""], props => props.noWrapperDesktop ? "0" : "0 20%", props => props.theme.medias.medium`
     padding:${props => props.noWrapperOnMobile ? "0" : "0 30px"};
-
   `);
+const ShowOnMediumPlus = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "space__ShowOnMediumPlus",
+  componentId: "sc-9h1sc-3"
+})(["display:flex;", ""], props => props.theme.medias.mediumPlus`
+  display:none;
+`);
 
 /***/ }),
 
@@ -900,7 +931,7 @@ const ArticleInterTitle = styled_components__WEBPACK_IMPORTED_MODULE_0___default
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!************************************!*\
   !*** multi ./pages/proposition.js ***!
   \************************************/
