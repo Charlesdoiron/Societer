@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default {\n  title: \"Societer\"\n};","map":{"version":3,"sources":["/Users/charlesdoiron/Sites/societer/next-seo.config.js"],"names":["title"],"mappings":"AAAA,eAAe;AACbA,EAAAA,KAAK,EAAE;AADM,CAAf","sourcesContent":["export default {\n  title: \"Societer\"\n};\n"]},"metadata":{},"sourceType":"module"}
