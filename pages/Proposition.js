@@ -28,7 +28,7 @@ function Proposition() {
         </FirstPart>
       </Wrapper>
       <SecondPart>
-        <Wrapper>
+        <Wrapper isWhite>
           <Subtitle>{proposition.secondPartSubtitle}</Subtitle>
           <FatTitle>{proposition.secondPartFatTitle}</FatTitle>
         </Wrapper>

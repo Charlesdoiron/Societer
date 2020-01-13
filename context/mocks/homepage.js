@@ -1,4 +1,4 @@
 export default {
   subtitle: "Maison de conseil en",
-  title: "Sustainable leadership"
+  title: "Sustainable leaders"
 };

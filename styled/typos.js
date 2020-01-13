@@ -32,15 +32,20 @@ export const FatTitle = styled.h1`
 `;
 
 export const Navigation = styled.p`
+  margin: 0;
   font-family: "garnett_regular";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
   list-style-type: none;
-  margin-right: 60px;
   cursor: pointer;
-  color: ${props => props.theme.colors.white};
+  color: ${props =>
+    props.isBlack ? props.theme.colors.black : props.theme.colors.white};
+  ${props => props.theme.medias.medium`
+    font-size: 12px;
+    line-height: 17px;
+   `}
 
   &.isActive {
     border-bottom: 1px solid ${props => props.theme.colors.white};
@@ -74,6 +79,19 @@ export const Subtitle = styled.h3`
    `}
 `;
 
+export const MediumSubtitle = styled.h4`
+  font-family: "garnett_regular";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0;
+  color: ${props =>
+    props.isBlack ? props.theme.colors.black : props.theme.colors.white};
+`;
+
 export const SmallSubtitle = styled.h4`
   font-family: "garnett_regular";
   font-style: normal;
@@ -93,7 +111,8 @@ export const Chapeau = styled.h3`
   font-size: 28px;
   line-height: 43px;
   margin: 0;
-  color: ${props => props.theme.colors.white};
+  color: ${props =>
+    props.isBlack ? props.theme.colors.black : props.theme.colors.white};
   transition: all 500ms;
   ${props => props.theme.medias.medium`
     transition: all 500ms;
@@ -136,6 +155,11 @@ export const ArticleTitle = styled.h3`
   font-size: 50px;
   line-height: 71px;
   color: ${props => props.theme.colors.blue};
+
+  ${props => props.theme.medias.medium`
+    font-size: 30px;
+    line-height: 42px;
+   `}
 `;
 
 export const Labor = styled.p`
@@ -145,7 +169,8 @@ export const Labor = styled.p`
   font-size: 16px;
   line-height: 25px;
   margin: 0;
-  color: ${props => props.theme.colors.black};
+  color: ${props =>
+    props.isWhite ? props.theme.colors.white : props.theme.colors.black};
   transition: all 500ms;
 `;
 
@@ -164,5 +189,38 @@ export const ArticleInterTitle = styled.h4`
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
+  margin: 0;
   color: ${props => props.theme.colors.blue};
+`;
+
+export const ManifestLabor = styled.p`
+  margin: 0;
+  font-family: "garnett_regular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 40px;
+  color: ${props => props.theme.colors.white};
+
+  ${props => props.theme.medias.medium`
+    font-size: 18px;
+    line-height: 25px;
+   `}
+
+  a {
+    text-decoration: none;
+    color: ${props => props.theme.colors.white};
+    border-bottom: 1px solid ${props => props.theme.colors.white};
+    cursor: pointer;
+  }
+`;
+
+export const PopUpTitle = styled.p`
+  font-family: "garnett_medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  margin: 0%;
+  color: ${props => props.theme.colors.white};
 `;

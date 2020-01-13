@@ -900,7 +900,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   subtitle: "Maison de conseil en",
-  title: "Sustainable leadership"
+  title: "Sustainable leaders"
 });
 
 /***/ }),
@@ -943,14 +943,59 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ([{
-  id: "seamless-integration",
-  title: "Seamless Integration with Google Forms",
-  icon: "../../static/images/icons/features/Illu_1.svg",
-  subtitle: "When users fill your Google Form, Form Publisher creates documents based on their responses.",
-  action: "More Details",
-  link: "https://support.form-publisher.com/hc/en-us/articles/115002733225"
-}]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  firstPart: {
+    subtitle: "Le Manifeste",
+    odd: {
+      title: "Agenda 2030",
+      content: "<strong>Les 17 Objectifs de Développement Durable sont issus de l’Agenda 2030 des Nations Unies </strong>; ils indiquent la marche à suivre et les sous-objectifs à atteindre pour s’attaquer aux problématiques telles que le réchauffement climatique, la biodiversité, la pauvreté, l’assainissement de l’eau, l’égalité entre les sexes, une éducation de qualité pour tous… Le 17e objectif est celui des partenariats, qui suppose l’alliance et le dialogue de l’ensemble des acteurs au service de cet agenda commun : il est essentiel dans la réussite de tous les ODD. C’est notamment dans cette dynamique collaborative que Societer s’engage.",
+      link: {
+        label: "En savoir plus",
+        url: "https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/"
+      }
+    },
+    agenda: {
+      title: "17 objectifs de développement durable ",
+      content: "L’Agenda 2030 des Nations Unies correspond au Programme de développement durable à l’horizon 2030 adopté par l’Assemblée Générale des Nations Unies. A l’aide de 17 Objectifs de Développement Durables <strong> (ODD)</strong> l’Agenda 2030 fixe un cap à la communauté internationale en termes de développement durable. <strong>Il constitue selon nous le seul agenda de référence pour définir un engagement sociétal, sous-tendu par une réelle volonté d’impact.</strong> Nous croyons que des coalitions entre tous les acteurs doivent se former autour de ces objectifs pour réussir et voir nos luttes contre la pauvreté, les inégalités et le réchauffement climatique aboutir.",
+      link: {
+        label: "En savoir plus",
+        url: "https://www.un.org/sustainabledevelopment/fr/development-agenda/"
+      }
+    }
+  },
+  secondPart: {
+    subtitle: "Tribune Fondatrice",
+    title: "Dirigeants d'entreprise, engagez-vous pour sauver le monde… et votre business",
+    media: {
+      logo: "images/manifeste/les-echos.svg",
+      width: 18
+    },
+    authors: [{
+      name: "Bertrand Badré",
+      slug: "bertrand-badre"
+    }, {
+      name: "Nathalie de Gaulle",
+      slug: "nathalie-de-gaulle"
+    }, {
+      name: "Aurélie Motta-Rivey",
+      slug: "aurelie-motta-rivey"
+    }, {
+      name: "Mathilde Oliveau",
+      slug: "mathilde-oliveau"
+    }],
+    published: "19 Juillet 2019",
+    sections: [{
+      title: "LE CERCLE - Le dernier sommet du G20 a mis en lumière l'urgence de promouvoir de nouvelles formes de coopération entre secteurs public, privé et société civile. Selon un collectif de personnalités, les dirigeants d'entreprise ont plus que jamais un rôle déterminant à jouer dans l'émergence de ce multilatéralisme nouvelle génération, qui seul permettra d'apporter des solutions durables aux grands défis de notre planète",
+      content: "Le 29 juin dernier, à Osaka, au Japon, les membres du G20 ont fini par arracher un accord a minima sur le climat. Au-delà des Etats, des formes inédites de coopération entre les territoires, les entreprises, les ONG montent en puissance pour agir face à l'urgence. Partout, les entreprises se mobilisent, du Global Business Forum, à New York, à cette coalition inattendue de grands investisseurs mondiaux qui, en marge du sommet d'Osaka, a réclamé aux gouvernements une indispensable concertation climatique. C'est précisément dans cette capacité à former des coalitions innovantes entre secteur public, secteur privé et société civile que réside l'avenir de notre planète. Face aux défis cruciaux de notre temps (climat, biodiversité, éducation, alimentation, croissance durable, santé, égalité femmes-hommes, ruptures technologiques…), aucun Etat, si puissant soit-il, ne peut imaginer agir seul. Les instances nationales et multilatérales analysent, alertent, fixent des caps indispensables. A l'heure de la tentation du repli sur soi, les Nations unies restent le seul modèle de gouvernance mondial inclusif. Les objectifs du développement durable (ODD) des Nations unies sont l'unique agenda planétaire qui permette d'envisager, pour la planète et l'humanité, une sortie de crise coordonnée. Mais le système multilatéral n'a ni la vocation ni les moyens de les traduire en actes sur le terrain pour transformer en profondeur les cultures et les organisations."
+    }, {
+      title: "Exigences socétales",
+      content: "De leur côté, les dirigeants d'entreprise sont sous le feu d'exigences sociétales sans précédent. Les citoyens veulent consommer mieux, soucieux de circuits de production et de consommation responsables. Les nouvelles générations exigent de leurs employeurs une capacité à donner du sens. En France, le rapport Senard-Notat ainsi que la loi Pacte, ensuite, ont consacré sur le plan normatif la raison d'être des entreprises. Pour les dirigeants, placer et incarner pro-activement l'engagement sociétal au coeur de la stratégie est devenu une condition sine qua non de performance durable. Mais, pour livrer tout son potentiel économique et sociétal, la définition et la révélation de ce « business purpose » doivent être sincères et ciblées avec une extrême pertinence au regard tant des attentes citoyennes que de l'agenda planétaire. Aucun des 17 ODD ne sera atteint sans y associer la société civile. Aucune croissance durable n'est désormais possible sans engagement des entreprises dans la société."
+    }, {
+      title: "Une diplomatie à structurer",
+      content: "Pour relever les défis immenses qui nous attendent, les initiatives qui émergent en ce sens doivent être structurées et coordonnées à grande échelle. Une rupture de méthode, dans la lignée des Accords de Paris, est indispensable pour créer un électrochoc dans le débat public et esquisser une nouvelle gouvernance mondiale. La France, compte tenu de son influence sur la scène internationale, a un leadership singulier à prendre pour structurer cette diplomatie nouvelle génération. A cet égard, l'approche adoptée pour le prochain G7, à Biarritz, avec la création d'un Business 7 (B7) qui réunit le Medef et des organisations syndicales des six autres pays du G7 va dans le bon sens. Avec le One Planet Summit impulsé par le président Macron, Paris est devenu le premier promoteur d'une diplomatie collaborative sur le climat et un ambassadeur naturel de la co-construction public-privé. Outre un acte politique fort et visionnaire, ce « sustainable new deal » est la seule voie pour apporter des solutions concrètes à chacun des grands défis mondiaux. Et pour y parvenir l'engagement des dirigeants d'entreprise est tout simplement vital."
+    }]
+  }
+});
 
 /***/ }),
 
@@ -972,6 +1017,17 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   item: "la communauté",
   path: "/communaute"
+}, {
+  socials: [{
+    title: "twitter",
+    url: "www.twiter.fr"
+  }, {
+    title: "twitter",
+    url: "www.twiter.fr"
+  }, {
+    title: "twitter",
+    url: "www.twiter.fr"
+  }]
 }]);
 
 /***/ }),
@@ -17705,7 +17761,7 @@ var client = __webpack_require__(/*! contentful */ "./node_modules/contentful/di
   accessToken: "fs65wT3qwmrz2Rcyh0fFkJE2uukw1N5mxY9_IzljpH0"
 });
 
-function Communaute() {
+var Communaute = function Communaute() {
   var _useMocks = Object(_context_mock_context__WEBPACK_IMPORTED_MODULE_7__["useMocks"])(),
       communaute = _useMocks.communaute;
 
@@ -17713,8 +17769,10 @@ function Communaute() {
       menuHeight = _useState[0],
       setMenuHeight = _useState[1];
 
+  var partTrigger = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     setMenuHeight(document.querySelector(".menu").offsetHeight);
+    console.log(partTrigger);
   }, []);
   var FirstPart = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
     displayName: "communaute__FirstPart",
@@ -17723,31 +17781,31 @@ function Communaute() {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 33
     },
     __self: this
   }, __jsx("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 34
     },
     __self: this
   }, "Societer | la Communaut\xE9")), __jsx(ShowOnMediumPlus, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 36
     },
     __self: this
   }, __jsx(FirstPart, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 37
     },
     __self: this
   }, __jsx(_components_backgroundImage__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 38
     },
     __self: this
   }))), communaute.members.map(function (member, i) {
@@ -17755,9 +17813,10 @@ function Communaute() {
       dataMember: member,
       key: i,
       even: i % 2 == !0,
+      ref: partTrigger,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 43
       },
       __self: this
     });
@@ -17766,11 +17825,11 @@ function Communaute() {
     subtitle: communaute.strategicComite.smallSubtitle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 50
     },
     __self: this
   }));
-}
+};
 
 var ShowOnMediumPlus = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
   displayName: "communaute__ShowOnMediumPlus",
@@ -17843,7 +17902,9 @@ function _templateObject() {
 var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "space__Wrapper",
   componentId: "sc-9h1sc-0"
-})(["padding:0 10%;margin:0 auto;width:100%;left:0;right:0;", ""], function (props) {
+})(["padding:0 10%;margin:0 auto;width:100%;left:0;right:0;background-color:", ";", ";"], function (props) {
+  return props.isWhite ? props.theme.colors.white : props.theme.colors.black;
+}, function (props) {
   return props.theme.medias.medium(_templateObject());
 });
 var WrapperMediumPlus = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
@@ -17875,7 +17936,7 @@ var ShowOnMediumPlus = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"]
 /*!*************************!*\
   !*** ./styled/typos.js ***!
   \*************************/
-/*! exports provided: BigTitle, FatTitle, Navigation, SmallNavigation, Subtitle, SmallSubtitle, Chapeau, ExpertiseTitle, ArticleTitle, Labor, FatLabor, ArticleInterTitle */
+/*! exports provided: BigTitle, FatTitle, Navigation, SmallNavigation, Subtitle, MediumSubtitle, SmallSubtitle, Chapeau, ExpertiseTitle, ArticleTitle, Labor, FatLabor, ArticleInterTitle, ManifestLabor, PopUpTitle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17885,6 +17946,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Navigation", function() { return Navigation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SmallNavigation", function() { return SmallNavigation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Subtitle", function() { return Subtitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MediumSubtitle", function() { return MediumSubtitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SmallSubtitle", function() { return SmallSubtitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Chapeau", function() { return Chapeau; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpertiseTitle", function() { return ExpertiseTitle; });
@@ -17892,12 +17954,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Labor", function() { return Labor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FatLabor", function() { return FatLabor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArticleInterTitle", function() { return ArticleInterTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManifestLabor", function() { return ManifestLabor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopUpTitle", function() { return PopUpTitle; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
 
-function _templateObject5() {
+function _templateObject8() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: 18px;\n    line-height: 25px;\n   "]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: 30px;\n    line-height: 42px;\n   "]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
   var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 22px;\n    line-height: 34px;\n    margin-bottom: 30px;\n   "]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 18px;\n    line-height: 25px;\n   "]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -17907,7 +18001,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 18px;\n    line-height: 25px;\n   "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 14px;\n    line-height: 22px;\n   "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -17917,7 +18011,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 14px;\n    line-height: 22px;\n   "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: 12px;\n    line-height: 17px;\n   "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -17966,8 +18060,10 @@ var FatTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h1.with
 var Navigation = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
   displayName: "typos__Navigation",
   componentId: "sc-4ublue-2"
-})(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:14px;line-height:20px;list-style-type:none;margin-right:60px;cursor:pointer;color:", ";&.isActive{border-bottom:1px solid ", ";}"], function (props) {
-  return props.theme.colors.white;
+})(["margin:0;font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:14px;line-height:20px;list-style-type:none;cursor:pointer;color:", ";", " &.isActive{border-bottom:1px solid ", ";}"], function (props) {
+  return props.isBlack ? props.theme.colors.black : props.theme.colors.white;
+}, function (props) {
+  return props.theme.medias.medium(_templateObject3());
 }, function (props) {
   return props.theme.colors.white;
 });
@@ -17983,68 +18079,82 @@ var Subtitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.with
 })(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:16px;line-height:25px;letter-spacing:0.1em;text-transform:uppercase;color:", ";transition:all 500ms;margin:0;", ""], function (props) {
   return props.theme.colors.black;
 }, function (props) {
-  return props.theme.medias.medium(_templateObject3());
+  return props.theme.medias.medium(_templateObject4());
+});
+var MediumSubtitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h4.withConfig({
+  displayName: "typos__MediumSubtitle",
+  componentId: "sc-4ublue-5"
+})(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:12px;line-height:17px;letter-spacing:0.15em;text-transform:uppercase;margin:0;color:", ";"], function (props) {
+  return props.isBlack ? props.theme.colors.black : props.theme.colors.white;
 });
 var SmallSubtitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h4.withConfig({
   displayName: "typos__SmallSubtitle",
-  componentId: "sc-4ublue-5"
+  componentId: "sc-4ublue-6"
 })(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:10px;line-height:15px;letter-spacing:0.1em;text-transform:uppercase;margin:0;color:", ";"], function (props) {
   return props.theme.colors.black;
 });
 var Chapeau = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.withConfig({
   displayName: "typos__Chapeau",
-  componentId: "sc-4ublue-6"
+  componentId: "sc-4ublue-7"
 })(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:28px;line-height:43px;margin:0;color:", ";transition:all 500ms;", ""], function (props) {
-  return props.theme.colors.white;
+  return props.isBlack ? props.theme.colors.black : props.theme.colors.white;
 }, function (props) {
-  return props.theme.medias.medium(_templateObject4());
+  return props.theme.medias.medium(_templateObject5());
 });
 var ExpertiseTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.withConfig({
   displayName: "typos__ExpertiseTitle",
-  componentId: "sc-4ublue-7"
+  componentId: "sc-4ublue-8"
 })(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:28px;line-height:31px;color:", ";margin-bottom:25px;margin-top:0;cursor:pointer;transition:all 500ms;", " &.isActive{transition:all 500ms;position:relative;transform:translateX(10px);color:", ";}"], function (props) {
   return props.theme.colors.black;
 }, function (props) {
-  return props.theme.medias.medium(_templateObject5());
+  return props.theme.medias.medium(_templateObject6());
 }, function (props) {
   return props.theme.colors.blue;
 });
 var ArticleTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.withConfig({
   displayName: "typos__ArticleTitle",
-  componentId: "sc-4ublue-8"
-})(["font-family:\"garnett_bold\";font-style:normal;font-weight:bold;font-size:50px;line-height:71px;color:", ";"], function (props) {
+  componentId: "sc-4ublue-9"
+})(["font-family:\"garnett_bold\";font-style:normal;font-weight:bold;font-size:50px;line-height:71px;color:", ";", ""], function (props) {
   return props.theme.colors.blue;
+}, function (props) {
+  return props.theme.medias.medium(_templateObject7());
 });
 var Labor = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
   displayName: "typos__Labor",
-  componentId: "sc-4ublue-9"
+  componentId: "sc-4ublue-10"
 })(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:16px;line-height:25px;margin:0;color:", ";transition:all 500ms;"], function (props) {
-  return props.theme.colors.black;
+  return props.isWhite ? props.theme.colors.white : props.theme.colors.black;
 });
 var FatLabor = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
   displayName: "typos__FatLabor",
-  componentId: "sc-4ublue-10"
+  componentId: "sc-4ublue-11"
 })(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:28px;line-height:40px;color:", ";"], function (props) {
   return props.theme.colors.white;
 });
 var ArticleInterTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h4.withConfig({
   displayName: "typos__ArticleInterTitle",
-  componentId: "sc-4ublue-11"
-})(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:20px;line-height:28px;color:", ";"], function (props) {
+  componentId: "sc-4ublue-12"
+})(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:20px;line-height:28px;margin:0;color:", ";"], function (props) {
   return props.theme.colors.blue;
 });
-
-/***/ }),
-
-/***/ 1:
-/*!**********************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fcommunaute&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fcommunaute.js ***!
-  \**********************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fcommunaute&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fcommunaute.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcommunaute&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fcommunaute.js!./");
-
+var ManifestLabor = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
+  displayName: "typos__ManifestLabor",
+  componentId: "sc-4ublue-13"
+})(["margin:0;font-family:\"garnett_regular\";font-style:normal;font-weight:500;font-size:28px;line-height:40px;color:", ";", " a{text-decoration:none;color:", ";border-bottom:1px solid ", ";cursor:pointer;}"], function (props) {
+  return props.theme.colors.white;
+}, function (props) {
+  return props.theme.medias.medium(_templateObject8());
+}, function (props) {
+  return props.theme.colors.white;
+}, function (props) {
+  return props.theme.colors.white;
+});
+var PopUpTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
+  displayName: "typos__PopUpTitle",
+  componentId: "sc-4ublue-14"
+})(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:18px;line-height:25px;margin:0%;color:", ";"], function (props) {
+  return props.theme.colors.white;
+});
 
 /***/ }),
 
@@ -18059,6 +18169,18 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fcommun
 
 /***/ }),
 
+/***/ 4:
+/*!**********************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fcommunaute&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fcommunaute.js ***!
+  \**********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fcommunaute&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fcommunaute.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcommunaute&absolutePagePath=%2FUsers%2Fcharlesdoiron%2FSites%2Fsocieter%2Fpages%2Fcommunaute.js!./");
+
+
+/***/ }),
+
 /***/ "dll-reference dll_5f137288facb1107b491":
 /*!*******************************************!*\
   !*** external "dll_5f137288facb1107b491" ***!
@@ -18070,5 +18192,5 @@ module.exports = dll_5f137288facb1107b491;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=communaute.js.map

@@ -6,10 +6,11 @@ export const Wrapper = styled.div`
   width: 100%;
   left: 0;
   right: 0;
-
+  background-color: ${props =>
+    props.isWhite ? props.theme.colors.white : props.theme.colors.black};
   ${props => props.theme.medias.medium`
     padding:0 30px;
-  `}
+  `};
 `;
 
 export const WrapperMediumPlus = styled.div`

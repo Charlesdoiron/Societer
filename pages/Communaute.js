@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 
 import styled from "styled-components";
@@ -12,12 +12,16 @@ const client = require("contentful").createClient({
   accessToken: "fs65wT3qwmrz2Rcyh0fFkJE2uukw1N5mxY9_IzljpH0"
 });
 
-function Communaute() {
+const Communaute = () => {
   const { communaute } = useMocks();
   const [menuHeight, setMenuHeight] = useState("");
+  const partTrigger = useRef(null);
+
   useEffect(() => {
     setMenuHeight(document.querySelector(".menu").offsetHeight);
+    console.log(partTrigger);
   }, []);
+
   const FirstPart = styled.div`
     position: relative;
     height: 100vh;
@@ -36,7 +40,12 @@ function Communaute() {
       </ShowOnMediumPlus>
 
       {communaute.members.map((member, i) => (
-        <Member dataMember={member} key={i} even={i % 2 == !0} />
+        <Member
+          dataMember={member}
+          key={i}
+          even={i % 2 == !0}
+          ref={partTrigger}
+        />
       ))}
       <StrategicComite
         dataMember={communaute.strategicComite.members}
@@ -44,7 +53,7 @@ function Communaute() {
       />
     </>
   );
-}
+};
 const ShowOnMediumPlus = styled.div`
   display: block;
   ${props => props.theme.medias.mediumPlus`

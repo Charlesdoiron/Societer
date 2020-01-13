@@ -12,8 +12,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu */ "./components/menu.js");
+/* harmony import */ var _socials__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./socials */ "./components/socials.js");
 var _jsxFileName = "/Users/charlesdoiron/Sites/societer/components/layout.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -21,7 +23,13 @@ var Layout = function Layout(props) {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_menu__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 7
+    },
+    __self: this
+  }), __jsx(_socials__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
     },
     __self: this
   }), props.children);
@@ -46,16 +54,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _context_mock_context__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../context/mock-context */ "./context/mock-context.js");
-/* harmony import */ var _styled_typos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styled/typos */ "./styled/typos.js");
+/* harmony import */ var _components_menuMobile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/menuMobile */ "./components/menuMobile.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _context_mock_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../context/mock-context */ "./context/mock-context.js");
+/* harmony import */ var _styled_typos__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styled/typos */ "./styled/typos.js");
 
 var _jsxFileName = "/Users/charlesdoiron/Sites/societer/components/menu.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
-function _templateObject4() {
+function _templateObject5() {
   var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n   padding-left: 30px;\n\n  "]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    display: none;\n   "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -65,7 +84,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    display: none;\n   "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    height: 30px;\n   "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -85,7 +104,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    height: 30px;\n   "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    display:block;\n  "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -101,57 +120,90 @@ function _templateObject() {
 
 
 
+
 var Menu = function Menu(props) {
-  var _useMocks = Object(_context_mock_context__WEBPACK_IMPORTED_MODULE_5__["useMocks"])(),
+  var _useMocks = Object(_context_mock_context__WEBPACK_IMPORTED_MODULE_6__["useMocks"])(),
       menu = _useMocks.menu;
 
-  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_4__["useRouter"])();
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_5__["useRouter"])();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      isOpen = _useState[0],
+      setOpen = _useState[1];
+
   var currentPage = router.pathname;
   var currentTitle = router.query.title;
   return __jsx(MenuDesktop, {
     className: "menu",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 21
+    },
+    __self: this
+  }, __jsx(MobileNavigation, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 23
     },
     __self: this
   }, currentPage === "/" ? __jsx(Logo, {
     src: "pictos/logo.svg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 25
     },
     __self: this
   }) : __jsx(Flex, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 27
     },
     __self: this
   }, __jsx(MinimalLogo, {
     src: "pictos/minimal_logo.svg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 28
     },
     __self: this
-  }), __jsx(_styled_typos__WEBPACK_IMPORTED_MODULE_6__["Navigation"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 24
-    },
-    __self: this
-  }, currentTitle))), __jsx(Items, {
+  }), __jsx(CurrentPage, {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29
+    },
+    __self: this
+  }, currentTitle))), __jsx(Burger, {
+    src: "pictos/burger.svg",
+    onClick: function onClick() {
+      return setOpen(!isOpen);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: this
+  })), __jsx(_components_menuMobile__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    isOpen: isOpen,
+    onClick: function onClick() {
+      return setOpen(!isOpen);
+    },
+    content: menu,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }), __jsx(Items, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40
     },
     __self: this
   }, menu.map(function (item) {
@@ -165,14 +217,14 @@ var Menu = function Menu(props) {
       key: item.item,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 42
       },
       __self: this
-    }, __jsx(_styled_typos__WEBPACK_IMPORTED_MODULE_6__["Navigation"], {
+    }, __jsx(CustomNavigation, {
       className: currentPage === item.path && "isActive",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 46
       },
       __self: this
     }, item.item));
@@ -180,36 +232,272 @@ var Menu = function Menu(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Menu);
-var Logo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img.withConfig({
-  displayName: "menu__Logo",
+var Burger = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img.withConfig({
+  displayName: "menu__Burger",
   componentId: "sc-1aarm2u-0"
-})(["height:40px;cursor:pointer;", ""], function (props) {
+})(["width:24px;right:30px;position:relative;cursor:pointer;display:none;", ""], function (props) {
   return props.theme.medias.medium(_templateObject());
 });
+var Logo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img.withConfig({
+  displayName: "menu__Logo",
+  componentId: "sc-1aarm2u-1"
+})(["height:40px;cursor:pointer;", ""], function (props) {
+  return props.theme.medias.medium(_templateObject2());
+});
+var CurrentPage = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_styled_typos__WEBPACK_IMPORTED_MODULE_7__["Navigation"]).withConfig({
+  displayName: "menu__CurrentPage",
+  componentId: "sc-1aarm2u-2"
+})(["top:12px;position:relative;font-family:\"garnett_medium\";"]);
+var CustomNavigation = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_styled_typos__WEBPACK_IMPORTED_MODULE_7__["Navigation"]).withConfig({
+  displayName: "menu__CustomNavigation",
+  componentId: "sc-1aarm2u-3"
+})(["margin-right:60px;white-space:nowrap;"]);
 var Flex = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "menu__Flex",
-  componentId: "sc-1aarm2u-1"
+  componentId: "sc-1aarm2u-4"
 })(["display:flex;color:", ";p{margin-left:15px;}"], function (props) {
   return props.theme.colors.white;
 });
+var MobileNavigation = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+  displayName: "menu__MobileNavigation",
+  componentId: "sc-1aarm2u-5"
+})(["display:flex;width:100%;justify-content:space-between;align-items:center;"]);
 var MinimalLogo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img.withConfig({
   displayName: "menu__MinimalLogo",
-  componentId: "sc-1aarm2u-2"
+  componentId: "sc-1aarm2u-6"
 })(["height:35px;width:auto;top:5px;position:relative;cursor:pointer;", ""], function (props) {
-  return props.theme.medias.medium(_templateObject2());
+  return props.theme.medias.medium(_templateObject3());
 });
 var Items = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "menu__Items",
-  componentId: "sc-1aarm2u-3"
-})(["display:flex;", ""], function (props) {
-  return props.theme.medias.medium(_templateObject3());
+  componentId: "sc-1aarm2u-7"
+})(["display:flex;width:100%;align-items:center;", ""], function (props) {
+  return props.theme.medias.medium(_templateObject4());
 });
 var MenuDesktop = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "menu__MenuDesktop",
-  componentId: "sc-1aarm2u-4"
+  componentId: "sc-1aarm2u-8"
 })(["display:flex;position:relative;justify-content:space-between;width:100%;padding-top:35px;padding-left:10%;z-index:10;", ""], function (props) {
-  return props.theme.medias.medium(_templateObject4());
+  return props.theme.medias.medium(_templateObject5());
 });
+
+/***/ }),
+
+/***/ "./components/menuMobile.js":
+/*!**********************************!*\
+  !*** ./components/menuMobile.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styled_typos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styled/typos */ "./styled/typos.js");
+var _jsxFileName = "/Users/charlesdoiron/Sites/societer/components/menuMobile.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+var isOpening = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["0%{transform:translateX(100%);}100%{transform:translateX(0);}"]);
+
+var MenuMobile = function MenuMobile(props) {
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_3__["useRouter"])();
+  var currentPage = router.pathname;
+  var menuContainer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+
+  var handleClick = function handleClick(e) {
+    menuContainer.current.style.transform = "translateX(100%)";
+    setTimeout(function (e) {
+      props.onClick(e);
+    }, 600);
+  };
+
+  var Container = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+    displayName: "menuMobile__Container",
+    componentId: "sc-1lqetr6-0"
+  })(["position:fixed;width:70%;height:100vh;right:0;top:0;padding:35px;background-color:", ";transition:all 500ms ease-in-out;animation:", " 500ms ease-in-out;overflow:hidden;"], function (props) {
+    return props.theme.colors.white;
+  }, isOpening);
+
+  if (!props.isOpen) {
+    return null;
+  }
+
+  return __jsx(Container, {
+    ref: menuContainer,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }, __jsx(Flex, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
+    },
+    __self: this
+  }, __jsx(Logo, {
+    src: "pictos/logo_mobile.svg",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }), __jsx(Close, {
+    src: "pictos/close_mobile.svg",
+    onClick: function onClick() {
+      return handleClick();
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: this
+  })), __jsx(Items, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: this
+  }, props.content.map(function (item) {
+    return __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      key: item.item,
+      href: {
+        pathname: "".concat(item.path),
+        query: {
+          title: item.item
+        }
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: this
+    }, __jsx(CustomNavigation, {
+      className: currentPage === item.path && "isActive",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 56
+      },
+      __self: this
+    }, item.item));
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MenuMobile);
+var Flex = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "menuMobile__Flex",
+  componentId: "sc-1lqetr6-1"
+})(["display:flex;justify-content:space-between;width:100%;align-items:center;"]);
+var Logo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img.withConfig({
+  displayName: "menuMobile__Logo",
+  componentId: "sc-1lqetr6-2"
+})(["width:68px;"]);
+var Close = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img.withConfig({
+  displayName: "menuMobile__Close",
+  componentId: "sc-1lqetr6-3"
+})(["width:13px;right:2px;position:relative;cursor:pointer;"]);
+var Items = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "menuMobile__Items",
+  componentId: "sc-1lqetr6-4"
+})(["display:flex;width:100%;align-items:flex-start;flex-direction:column;margin-top:160px;"]);
+var CustomNavigation = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(_styled_typos__WEBPACK_IMPORTED_MODULE_4__["Navigation"]).withConfig({
+  displayName: "menuMobile__CustomNavigation",
+  componentId: "sc-1lqetr6-5"
+})(["margin-bottom:30px;color:", ";font-size:20px !important;line-height:28px !important;font-family:\"garnett_medium\";&.isActive{color:", ";}"], function (props) {
+  return props.theme.colors.black;
+}, function (props) {
+  return props.theme.colors.blue;
+});
+
+/***/ }),
+
+/***/ "./components/socials.js":
+/*!*******************************!*\
+  !*** ./components/socials.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styled_typos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styled/typos */ "./styled/typos.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+var _jsxFileName = "/Users/charlesdoiron/Sites/societer/components/socials.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    display:none;\n   "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+
+var rsx = [{
+  name: "Twitter",
+  url: "https://twitter.fr"
+}, {
+  name: "Linkedin",
+  url: "https://linkedin.fr"
+}, {
+  name: "Instagram",
+  url: "https://instagram.fr"
+}];
+
+var socials = function socials() {
+  return __jsx(Container, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  }, rsx.map(function (el) {
+    return __jsx(Limit, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      },
+      __self: this
+    }, __jsx(_styled_typos__WEBPACK_IMPORTED_MODULE_2__["SmallNavigation"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }, el.name));
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (socials);
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "socials__Container",
+  componentId: "sc-1utpp6v-0"
+})(["position:fixed;z-index:200;right:40px;top:50%;transform:translateY(-50%);", ""], function (props) {
+  return props.theme.medias.medium(_templateObject());
+});
+var Limit = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "socials__Limit",
+  componentId: "sc-1utpp6v-1"
+})(["transition:all 500ms;position:relative;text-align:right;width:80px;overflow:hidden;text-align:left;p{left:65px;position:relative;transition:all 500ms;&:hover{left:10px;cursor:pointer;transition:all 500ms;}}"]);
 
 /***/ }),
 
@@ -589,7 +877,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   subtitle: "Maison de conseil en",
-  title: "Sustainable leadership"
+  title: "Sustainable leaders"
 });
 
 /***/ }),
@@ -632,14 +920,59 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ([{
-  id: "seamless-integration",
-  title: "Seamless Integration with Google Forms",
-  icon: "../../static/images/icons/features/Illu_1.svg",
-  subtitle: "When users fill your Google Form, Form Publisher creates documents based on their responses.",
-  action: "More Details",
-  link: "https://support.form-publisher.com/hc/en-us/articles/115002733225"
-}]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  firstPart: {
+    subtitle: "Le Manifeste",
+    odd: {
+      title: "Agenda 2030",
+      content: "<strong>Les 17 Objectifs de Développement Durable sont issus de l’Agenda 2030 des Nations Unies </strong>; ils indiquent la marche à suivre et les sous-objectifs à atteindre pour s’attaquer aux problématiques telles que le réchauffement climatique, la biodiversité, la pauvreté, l’assainissement de l’eau, l’égalité entre les sexes, une éducation de qualité pour tous… Le 17e objectif est celui des partenariats, qui suppose l’alliance et le dialogue de l’ensemble des acteurs au service de cet agenda commun : il est essentiel dans la réussite de tous les ODD. C’est notamment dans cette dynamique collaborative que Societer s’engage.",
+      link: {
+        label: "En savoir plus",
+        url: "https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/"
+      }
+    },
+    agenda: {
+      title: "17 objectifs de développement durable ",
+      content: "L’Agenda 2030 des Nations Unies correspond au Programme de développement durable à l’horizon 2030 adopté par l’Assemblée Générale des Nations Unies. A l’aide de 17 Objectifs de Développement Durables <strong> (ODD)</strong> l’Agenda 2030 fixe un cap à la communauté internationale en termes de développement durable. <strong>Il constitue selon nous le seul agenda de référence pour définir un engagement sociétal, sous-tendu par une réelle volonté d’impact.</strong> Nous croyons que des coalitions entre tous les acteurs doivent se former autour de ces objectifs pour réussir et voir nos luttes contre la pauvreté, les inégalités et le réchauffement climatique aboutir.",
+      link: {
+        label: "En savoir plus",
+        url: "https://www.un.org/sustainabledevelopment/fr/development-agenda/"
+      }
+    }
+  },
+  secondPart: {
+    subtitle: "Tribune Fondatrice",
+    title: "Dirigeants d'entreprise, engagez-vous pour sauver le monde… et votre business",
+    media: {
+      logo: "images/manifeste/les-echos.svg",
+      width: 18
+    },
+    authors: [{
+      name: "Bertrand Badré",
+      slug: "bertrand-badre"
+    }, {
+      name: "Nathalie de Gaulle",
+      slug: "nathalie-de-gaulle"
+    }, {
+      name: "Aurélie Motta-Rivey",
+      slug: "aurelie-motta-rivey"
+    }, {
+      name: "Mathilde Oliveau",
+      slug: "mathilde-oliveau"
+    }],
+    published: "19 Juillet 2019",
+    sections: [{
+      title: "LE CERCLE - Le dernier sommet du G20 a mis en lumière l'urgence de promouvoir de nouvelles formes de coopération entre secteurs public, privé et société civile. Selon un collectif de personnalités, les dirigeants d'entreprise ont plus que jamais un rôle déterminant à jouer dans l'émergence de ce multilatéralisme nouvelle génération, qui seul permettra d'apporter des solutions durables aux grands défis de notre planète",
+      content: "Le 29 juin dernier, à Osaka, au Japon, les membres du G20 ont fini par arracher un accord a minima sur le climat. Au-delà des Etats, des formes inédites de coopération entre les territoires, les entreprises, les ONG montent en puissance pour agir face à l'urgence. Partout, les entreprises se mobilisent, du Global Business Forum, à New York, à cette coalition inattendue de grands investisseurs mondiaux qui, en marge du sommet d'Osaka, a réclamé aux gouvernements une indispensable concertation climatique. C'est précisément dans cette capacité à former des coalitions innovantes entre secteur public, secteur privé et société civile que réside l'avenir de notre planète. Face aux défis cruciaux de notre temps (climat, biodiversité, éducation, alimentation, croissance durable, santé, égalité femmes-hommes, ruptures technologiques…), aucun Etat, si puissant soit-il, ne peut imaginer agir seul. Les instances nationales et multilatérales analysent, alertent, fixent des caps indispensables. A l'heure de la tentation du repli sur soi, les Nations unies restent le seul modèle de gouvernance mondial inclusif. Les objectifs du développement durable (ODD) des Nations unies sont l'unique agenda planétaire qui permette d'envisager, pour la planète et l'humanité, une sortie de crise coordonnée. Mais le système multilatéral n'a ni la vocation ni les moyens de les traduire en actes sur le terrain pour transformer en profondeur les cultures et les organisations."
+    }, {
+      title: "Exigences socétales",
+      content: "De leur côté, les dirigeants d'entreprise sont sous le feu d'exigences sociétales sans précédent. Les citoyens veulent consommer mieux, soucieux de circuits de production et de consommation responsables. Les nouvelles générations exigent de leurs employeurs une capacité à donner du sens. En France, le rapport Senard-Notat ainsi que la loi Pacte, ensuite, ont consacré sur le plan normatif la raison d'être des entreprises. Pour les dirigeants, placer et incarner pro-activement l'engagement sociétal au coeur de la stratégie est devenu une condition sine qua non de performance durable. Mais, pour livrer tout son potentiel économique et sociétal, la définition et la révélation de ce « business purpose » doivent être sincères et ciblées avec une extrême pertinence au regard tant des attentes citoyennes que de l'agenda planétaire. Aucun des 17 ODD ne sera atteint sans y associer la société civile. Aucune croissance durable n'est désormais possible sans engagement des entreprises dans la société."
+    }, {
+      title: "Une diplomatie à structurer",
+      content: "Pour relever les défis immenses qui nous attendent, les initiatives qui émergent en ce sens doivent être structurées et coordonnées à grande échelle. Une rupture de méthode, dans la lignée des Accords de Paris, est indispensable pour créer un électrochoc dans le débat public et esquisser une nouvelle gouvernance mondiale. La France, compte tenu de son influence sur la scène internationale, a un leadership singulier à prendre pour structurer cette diplomatie nouvelle génération. A cet égard, l'approche adoptée pour le prochain G7, à Biarritz, avec la création d'un Business 7 (B7) qui réunit le Medef et des organisations syndicales des six autres pays du G7 va dans le bon sens. Avec le One Planet Summit impulsé par le président Macron, Paris est devenu le premier promoteur d'une diplomatie collaborative sur le climat et un ambassadeur naturel de la co-construction public-privé. Outre un acte politique fort et visionnaire, ce « sustainable new deal » est la seule voie pour apporter des solutions concrètes à chacun des grands défis mondiaux. Et pour y parvenir l'engagement des dirigeants d'entreprise est tout simplement vital."
+    }]
+  }
+});
 
 /***/ }),
 
@@ -661,6 +994,17 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   item: "la communauté",
   path: "/communaute"
+}, {
+  socials: [{
+    title: "twitter",
+    url: "www.twiter.fr"
+  }, {
+    title: "twitter",
+    url: "www.twiter.fr"
+  }, {
+    title: "twitter",
+    url: "www.twiter.fr"
+  }]
 }]);
 
 /***/ }),
@@ -14052,7 +14396,7 @@ function (_App) {
 /*!*************************!*\
   !*** ./styled/typos.js ***!
   \*************************/
-/*! exports provided: BigTitle, FatTitle, Navigation, SmallNavigation, Subtitle, SmallSubtitle, Chapeau, ExpertiseTitle, ArticleTitle, Labor, FatLabor, ArticleInterTitle */
+/*! exports provided: BigTitle, FatTitle, Navigation, SmallNavigation, Subtitle, MediumSubtitle, SmallSubtitle, Chapeau, ExpertiseTitle, ArticleTitle, Labor, FatLabor, ArticleInterTitle, ManifestLabor, PopUpTitle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14062,6 +14406,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Navigation", function() { return Navigation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SmallNavigation", function() { return SmallNavigation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Subtitle", function() { return Subtitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MediumSubtitle", function() { return MediumSubtitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SmallSubtitle", function() { return SmallSubtitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Chapeau", function() { return Chapeau; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpertiseTitle", function() { return ExpertiseTitle; });
@@ -14069,12 +14414,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Labor", function() { return Labor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FatLabor", function() { return FatLabor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArticleInterTitle", function() { return ArticleInterTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManifestLabor", function() { return ManifestLabor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopUpTitle", function() { return PopUpTitle; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
 
-function _templateObject5() {
+function _templateObject8() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: 18px;\n    line-height: 25px;\n   "]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: 30px;\n    line-height: 42px;\n   "]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
   var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 22px;\n    line-height: 34px;\n    margin-bottom: 30px;\n   "]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 18px;\n    line-height: 25px;\n   "]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -14084,7 +14461,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 18px;\n    line-height: 25px;\n   "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 14px;\n    line-height: 22px;\n   "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -14094,7 +14471,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    transition: all 500ms;\n    font-size: 14px;\n    line-height: 22px;\n   "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: 12px;\n    line-height: 17px;\n   "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -14143,8 +14520,10 @@ var FatTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h1.with
 var Navigation = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
   displayName: "typos__Navigation",
   componentId: "sc-4ublue-2"
-})(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:14px;line-height:20px;list-style-type:none;margin-right:60px;cursor:pointer;color:", ";&.isActive{border-bottom:1px solid ", ";}"], function (props) {
-  return props.theme.colors.white;
+})(["margin:0;font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:14px;line-height:20px;list-style-type:none;cursor:pointer;color:", ";", " &.isActive{border-bottom:1px solid ", ";}"], function (props) {
+  return props.isBlack ? props.theme.colors.black : props.theme.colors.white;
+}, function (props) {
+  return props.theme.medias.medium(_templateObject3());
 }, function (props) {
   return props.theme.colors.white;
 });
@@ -14160,55 +14539,81 @@ var Subtitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.with
 })(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:16px;line-height:25px;letter-spacing:0.1em;text-transform:uppercase;color:", ";transition:all 500ms;margin:0;", ""], function (props) {
   return props.theme.colors.black;
 }, function (props) {
-  return props.theme.medias.medium(_templateObject3());
+  return props.theme.medias.medium(_templateObject4());
+});
+var MediumSubtitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h4.withConfig({
+  displayName: "typos__MediumSubtitle",
+  componentId: "sc-4ublue-5"
+})(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:12px;line-height:17px;letter-spacing:0.15em;text-transform:uppercase;margin:0;color:", ";"], function (props) {
+  return props.isBlack ? props.theme.colors.black : props.theme.colors.white;
 });
 var SmallSubtitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h4.withConfig({
   displayName: "typos__SmallSubtitle",
-  componentId: "sc-4ublue-5"
+  componentId: "sc-4ublue-6"
 })(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:10px;line-height:15px;letter-spacing:0.1em;text-transform:uppercase;margin:0;color:", ";"], function (props) {
   return props.theme.colors.black;
 });
 var Chapeau = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.withConfig({
   displayName: "typos__Chapeau",
-  componentId: "sc-4ublue-6"
+  componentId: "sc-4ublue-7"
 })(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:28px;line-height:43px;margin:0;color:", ";transition:all 500ms;", ""], function (props) {
-  return props.theme.colors.white;
+  return props.isBlack ? props.theme.colors.black : props.theme.colors.white;
 }, function (props) {
-  return props.theme.medias.medium(_templateObject4());
+  return props.theme.medias.medium(_templateObject5());
 });
 var ExpertiseTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.withConfig({
   displayName: "typos__ExpertiseTitle",
-  componentId: "sc-4ublue-7"
+  componentId: "sc-4ublue-8"
 })(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:28px;line-height:31px;color:", ";margin-bottom:25px;margin-top:0;cursor:pointer;transition:all 500ms;", " &.isActive{transition:all 500ms;position:relative;transform:translateX(10px);color:", ";}"], function (props) {
   return props.theme.colors.black;
 }, function (props) {
-  return props.theme.medias.medium(_templateObject5());
+  return props.theme.medias.medium(_templateObject6());
 }, function (props) {
   return props.theme.colors.blue;
 });
 var ArticleTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.withConfig({
   displayName: "typos__ArticleTitle",
-  componentId: "sc-4ublue-8"
-})(["font-family:\"garnett_bold\";font-style:normal;font-weight:bold;font-size:50px;line-height:71px;color:", ";"], function (props) {
+  componentId: "sc-4ublue-9"
+})(["font-family:\"garnett_bold\";font-style:normal;font-weight:bold;font-size:50px;line-height:71px;color:", ";", ""], function (props) {
   return props.theme.colors.blue;
+}, function (props) {
+  return props.theme.medias.medium(_templateObject7());
 });
 var Labor = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
   displayName: "typos__Labor",
-  componentId: "sc-4ublue-9"
+  componentId: "sc-4ublue-10"
 })(["font-family:\"garnett_regular\";font-style:normal;font-weight:normal;font-size:16px;line-height:25px;margin:0;color:", ";transition:all 500ms;"], function (props) {
-  return props.theme.colors.black;
+  return props.isWhite ? props.theme.colors.white : props.theme.colors.black;
 });
 var FatLabor = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
   displayName: "typos__FatLabor",
-  componentId: "sc-4ublue-10"
+  componentId: "sc-4ublue-11"
 })(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:28px;line-height:40px;color:", ";"], function (props) {
   return props.theme.colors.white;
 });
 var ArticleInterTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h4.withConfig({
   displayName: "typos__ArticleInterTitle",
-  componentId: "sc-4ublue-11"
-})(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:20px;line-height:28px;color:", ";"], function (props) {
+  componentId: "sc-4ublue-12"
+})(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:20px;line-height:28px;margin:0;color:", ";"], function (props) {
   return props.theme.colors.blue;
+});
+var ManifestLabor = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
+  displayName: "typos__ManifestLabor",
+  componentId: "sc-4ublue-13"
+})(["margin:0;font-family:\"garnett_regular\";font-style:normal;font-weight:500;font-size:28px;line-height:40px;color:", ";", " a{text-decoration:none;color:", ";border-bottom:1px solid ", ";cursor:pointer;}"], function (props) {
+  return props.theme.colors.white;
+}, function (props) {
+  return props.theme.medias.medium(_templateObject8());
+}, function (props) {
+  return props.theme.colors.white;
+}, function (props) {
+  return props.theme.colors.white;
+});
+var PopUpTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
+  displayName: "typos__PopUpTitle",
+  componentId: "sc-4ublue-14"
+})(["font-family:\"garnett_medium\";font-style:normal;font-weight:500;font-size:18px;line-height:25px;margin:0%;color:", ";"], function (props) {
+  return props.theme.colors.white;
 });
 
 /***/ }),
