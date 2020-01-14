@@ -14,6 +14,14 @@ const nextConfig = {
       fs: "empty"
     };
     return config;
+  },
+  exportPathMap: function() {
+    return {
+      "/": { page: "/index.html" },
+      "/communaute": { page: "/communaute" },
+      "/manifeste": { page: "/manifeste" },
+      "/proposition": { page: "/proposition" }
+    };
   }
 };
 
