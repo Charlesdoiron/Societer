@@ -14,13 +14,6 @@ const nextConfig = {
       fs: "empty"
     };
     return config;
-  },
-  exportPathMap: function() {
-    return {
-      "/communaute": { page: "/communaute.html" },
-      "/manifeste": { page: "/manifeste.html" },
-      "/proposition": { page: "/proposition.html" }
-    };
   }
 };
 
