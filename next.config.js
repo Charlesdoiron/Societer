@@ -17,10 +17,9 @@ const nextConfig = {
   },
   exportPathMap: function() {
     return {
-      "/": { page: "/index.html" },
-      "/communaute": { page: "/communaute" },
-      "/manifeste": { page: "/manifeste" },
-      "/proposition": { page: "/proposition" }
+      "/communaute": { page: "/communaute.html" },
+      "/manifeste": { page: "/manifeste.html" },
+      "/proposition": { page: "/proposition.html" }
     };
   }
 };
