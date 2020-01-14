@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default [{\n  item: \"seamless-integration\"\n}];","map":{"version":3,"sources":["/Users/charlesdoiron/Sites/societer/context/mocks/menu.js"],"names":["item"],"mappings":"AAAA,eAAe,CACb;AACEA,EAAAA,IAAI,EAAE;AADR,CADa,CAAf","sourcesContent":["export default [\n  {\n    item: \"seamless-integration\"\n  }\n];\n"]},"metadata":{},"sourceType":"module"}

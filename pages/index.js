@@ -18,7 +18,7 @@ function HomePage() {
   return (
     <Container>
       <Head>
-        <title>Societer | Sustanable leadership</title>
+        <title>Societer | Sustainable leaders</title>
       </Head>
       <BackgroundImage />
       <Wrapper>

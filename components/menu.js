@@ -41,6 +41,7 @@ const Menu = props => {
         {menu.map(item => (
           <Link
             href={{ pathname: `${item.path}`, query: { title: item.item } }}
+            as={`${item.path}`}
             key={item.item}
           >
             <CustomNavigation

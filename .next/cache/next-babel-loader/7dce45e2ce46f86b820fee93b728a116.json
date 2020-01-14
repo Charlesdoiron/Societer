@@ -1,0 +1,1 @@
+{"ast":null,"code":"import colors from \"./colors\";\nimport globalStyles from \"./globalStyles\";\nimport medias from \"./medias\";\nimport fonts from \"./fonts\";\nexport default {\n  colors,\n  medias,\n  fonts\n};","map":null,"metadata":{},"sourceType":"module"}

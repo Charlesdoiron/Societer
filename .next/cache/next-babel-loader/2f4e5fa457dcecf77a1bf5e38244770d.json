@@ -1,0 +1,1 @@
+{"ast":null,"code":"import menu from \"./menu\";\nimport communaute from \"./communaute\";\nimport manifeste from \"./manifeste\";\nimport proposition from \"./proposition\";\nimport homepage from \"./homepage\";\nexport default {\n  menu,\n  homepage,\n  communaute,\n  manifeste,\n  proposition\n};","map":null,"metadata":{},"sourceType":"module"}
