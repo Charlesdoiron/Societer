@@ -1,15 +1,19 @@
 export default [
   {
-    item: "le manifeste",
-    path: "/manifeste"
+    item: "Vision",
+    path: "/vision"
   },
   {
-    item: "la proposition",
-    path: "/proposition"
+    item: "Mission",
+    path: "/mission"
   },
   {
-    item: "la communauté",
+    item: "Communauté",
     path: "/communaute"
+  },
+  {
+    item: "Contact",
+    path: "/contact"
   },
   {
     socials: [

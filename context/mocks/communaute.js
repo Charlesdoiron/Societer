@@ -11,11 +11,12 @@ export default {
       engagements: {
         subTitle: "engagements",
         description:
-          "Elle est engagée à titre personnel dans la valorisation des institutions internationales comme membre du board du think- tank européen EuropaNova et Vice - Présidente de l’Association Française pour les Nations Unies(AFNU).Elle a notamment contribué à l’essai 60 idées pour Emmanuel Macron, Éditions Débats Publics, dans lequel elle plaide pour l’émergence d’une « diplomatie nouvelle génération », collaborative entre le secteur privé et la société civile."
+          "Elle est engagée à titre personnel dans la valorisation des institutions internationales comme membre du board du think- tank européen <a href='https://www.europanova.eu/' target='_blank'>EuropaNova</a> et Vice - Présidente de l’Association Française pour les Nations Unies (<a href='https://www.afnu.fr/' target='_blank'>AFNU</a>).Elle a notamment contribué à l’essai 60 idées pour Emmanuel Macron, Éditions Débats Publics, dans lequel elle plaide pour l’émergence d’une « diplomatie nouvelle génération », collaborative entre le secteur privé et la société civile."
       },
       socials: {
-        twitter: "https://twiter.com",
-        linkedin: "https://linkedin.com"
+        twitter: "https://twitter.com/amottarivey",
+        linkedin:
+          "https://www.linkedin.com/in/aur%C3%A9lie-motta-rivey-0b904a33/"
       }
     },
     {
@@ -30,8 +31,8 @@ export default {
           "Ancienne élève de Sciences Po Paris, de l’École des Hautes Études en Sciences Sociales et de l’École du Louvre, elle fait de la transmission l’un de ses engagements. Elle a ainsi enseigné à Sciences Po en histoire des idées politiques et intervient régulièrement pour des communications en milieu universitaire, notamment sur la culture flamenca."
       },
       socials: {
-        twitter: "https://twiter.com",
-        linkedin: "https://linkedin.com"
+        twitter: "",
+        linkedin: "https://www.linkedin.com/in/mathilde-oliveau-84bb52157/"
       }
     },
     {
@@ -43,11 +44,11 @@ export default {
       engagements: {
         subTitle: "engagements",
         description:
-          "Nathalie de Gaulle est Vice-présidente de la fédération de clubs de femmes d’affaires FEMININ PLURIEL GLOBAL, et ancienne élue des Français de l’étranger. Elle est par ailleurs membre du COMEX40, le Comité Exécutif du MEDEF qui regroupe 45 dirigeants et fondateurs de moins de 40 ans, et membre du Comité exécutif de la Fondation Croissance Responsable."
+          "Nathalie de Gaulle est Vice-présidente de la fédération de clubs de femmes d’affaires <a href='https://femininpluriel.org/' target='_blank'> Féminin Pluriel Global</a>, et ancienne élue des Français de l’étranger. Elle est par ailleurs membre du COMEX40, le Comité Exécutif du MEDEF qui regroupe 45 dirigeants et fondateurs de moins de 40 ans, et membre du Comité exécutif de la Fondation <a href='www.croissance-responsable.fr/' target='_blank'>Croissance Responsable</a>."
       },
       socials: {
-        twitter: "https://twiter.com",
-        linkedin: "https://linkedin.com"
+        twitter: "https://twitter.com/NGaulle",
+        linkedin: "https://www.linkedin.com/in/nathalie-de-gaulle-33706421/"
       }
     },
     {
@@ -59,11 +60,11 @@ export default {
       engagements: {
         subTitle: "engagements",
         description:
-          "Myassa Djebara est membre depuis 2016 du Young Transatlantic Network for Future Leaders du German Marshall Fund, dédié aux relations transatlantiques. Elle a également été membre du programme Middle East-North Africa d’Open Diplomacy, institut qui favorise la participation de la société civile aux affaires internationales, et fait partie de la première promotion d’ alumni de la Middle East Mediterranean Freethinking Platform, dirigée par le Professeur Gilles Kepel, dédiée aux enjeux géopolitiques du monde arabe. En tant qu’ alumni, elle a été sollicitée comme représentante de la société civile lors de rencontres diplomatiques internationales. En 2011, elle cofonde, à Sciences Po, l’association Noise, la ville dédiée aux cultures urbaines et aux enjeux des villes de demain."
+          "Myassa Djebara est membre depuis 2016 du <a href='www.gmfus.org/transatlantic-leadership-initiatives/young-transatlantic-network-future-leaders' target='_blank'>Young Transatlantic Network for Future Leaders</a> du German Marshall Fund, dédié aux relations transatlantiques. Elle a également été membre du programme Middle East-North Africa d’<a href='www.open-diplomacy.eu/' target='_blank'>Open Diplomacy</a>, institut qui favorise la participation de la société civile aux affaires internationales, et fait partie de la première promotion d’ alumni de la <a href='https://www.usi.ch/en/mem' target='_blank'>Middle East Mediterranean Freethinking Platform</a>, dirigée par le Professeur Gilles Kepel, dédiée aux enjeux géopolitiques du monde arabe. En tant qu’ alumni, elle a été sollicitée comme représentante de la société civile lors de rencontres diplomatiques internationales. En 2011, elle cofonde, à Sciences Po, l’association <a href='https://www.noise-laville.fr/' target='_blank'>Noise</a>, la ville dédiée aux cultures urbaines et aux enjeux des villes de demain."
       },
       socials: {
-        twitter: "https://twiter.com",
-        linkedin: "https://linkedin.com"
+        twitter: "https://twitter.com/MyassaDjebara",
+        linkedin: "https://www.linkedin.com/in/myassa-djebara/"
       }
     },
     {
@@ -71,15 +72,15 @@ export default {
       img: "images/communaute/tess_pettavino.jpg",
       name: "Tess Pettavino",
       description:
-        "Diplômée d’un double master Sciences Po et HEC Paris en Corporate and Public Management, Tess Pettavino a une forte sensibilité internationale : de nationalités française et canadienne, elle fait ses études en milieu anglophone, apprend le mandarin, étudie et travaille à Singapour. Après une collaboration avec l’agence de communication créative Fred & Farid auprès de la Direction Luxe et International, elle rejoint le mouvement En Marche ! à ses débuts en avril 2016. Elle contribue à la structuration du mouvement et à celle de sa communication, notamment digitale. Lors de la campagne pour les élections présidentielle et législatives de 2017, elle devient responsable des Relations Adhérents & Citoyens, et se forme notamment au Nudge. À l’issue des élections, elle devient Responsable Marketing et Planning Stratégique du mouvement et coordonne les effectifs du Pôle Communication. En 2018, elle devient Directrice de la Communication d’En Marche ! et siège à ce titre au Comité de Direction du mouvement. Sous la direction du Délégué Général, elle prend la responsabilité d’une équipe de 25 personnes (presse, porte-parolat, digital, événementiel, relations publiques), qu’elle anime sur la promotion des actions du mouvement, les temps forts politiques et les séquences de crise.",
+        "Diplômée d’un double master Sciences Po et HEC Paris en Corporate and Public Management, Tess Pettavino a une forte sensibilité internationale : de nationalités française et canadienne, elle fait ses études en milieu anglophone, apprend le mandarin, étudie et travaille à Singapour. Après une collaboration avec l’agence de communication créative <a href='https://www.ffcreative.com/' target='_blank'>Fred & Farid</a> auprès de la Direction Luxe et International, elle rejoint le mouvement <a href='en-marche.fr/' target='_blank'>En Marche !</a> à ses débuts en avril 2016. Elle contribue à la structuration du mouvement et à celle de sa communication, notamment digitale. Lors de la campagne pour les élections présidentielle et législatives de 2017, elle devient responsable des Relations Adhérents & Citoyens, et se forme notamment au Nudge. À l’issue des élections, elle devient Responsable Marketing et Planning Stratégique du mouvement et coordonne les effectifs du Pôle Communication. En 2018, elle devient Directrice de la Communication d’En Marche ! et siège à ce titre au Comité de Direction du mouvement. Sous la direction du Délégué Général, elle prend la responsabilité d’une équipe de 25 personnes (presse, porte-parolat, digital, événementiel, relations publiques), qu’elle anime sur la promotion des actions du mouvement, les temps forts politiques et les séquences de crise.",
       engagements: {
         subTitle: "engagements",
         description:
-          "Membre du projet ONLY WATCH depuis sa genèse - vente aux enchères caritative de montres pièces uniques au profit de la recherche contre les myopathies, qui a permis de lever plus de 70 millions d’euros en 8 éditions et de se rapprocher de manière substantielle des essais cliniques -, elle accompagne l’événement pour sa communication stratégique et son organisation. Elle conseille également à titre non-profit plusieurs associations et projets à vocation caritative."
+          "Membre du projet <a href='onlywatch.com/' target='_blank'>ONLY WATCH</a> depuis sa genèse - vente aux enchères caritative de montres pièces uniques au profit de la recherche contre les myopathies, qui a permis de lever plus de 70 millions d’euros en 8 éditions et de se rapprocher de manière substantielle des essais cliniques -, elle accompagne l’événement pour sa communication stratégique et son organisation. Elle conseille également à titre non-profit plusieurs associations et projets à vocation caritative."
       },
       socials: {
-        twitter: "https://twiter.com",
-        linkedin: "https://linkedin.com"
+        twitter: "https://twitter.com/TessPettavino",
+        linkedin: "https://www.linkedin.com/in/tess-pettavino-8608a2a7/"
       }
     },
     {
@@ -87,15 +88,16 @@ export default {
       img: "images/communaute/lea_tallien_de_cabarrus.jpg",
       name: "Léa Tallien de Cabarrus",
       description:
-        "Diplômée de Sciences Po Paris en International Public Management et Communication, Médias et Industries Créatives, Léa Tallien de Cabarrus a étudié les Relations Internationales à l’Université de Bath avant de rejoindre l’Ambassade de France en Irlande en Chancellerie diplomatique. Elle a ensuite intégré la start-up Pandacraft en tant que responsable achats et logistiques, puis Orange Digital Ventures en tant qu’analyste. Avant d’intégrer Societer, Léa était à la direction de la Communication et des Affaires Publiques de General Electric France, en charge de la communication de la CEO, des réseaux sociaux, de la communication interne et des communications de crise",
+        "Diplômée de Sciences Po Paris en International Public Management et Communication, Médias et Industries Créatives, Léa Tallien de Cabarrus a étudié les Relations Internationales à l’Université de Bath avant de rejoindre l’Ambassade de France en Irlande en Chancellerie diplomatique. Elle a ensuite intégré la start-up <a href='https://www.pandacraft.fr/' target='_blank'>Pandacraft</a> en tant que responsable achats et logistiques, puis <a href='https://digitalventures.orange.com/' target='_blank'>Orange Digital Ventures</a> en tant qu’analyste. Avant d’intégrer Societer, Léa était à la direction de la Communication et des Affaires Publiques de <a href='https://www.ge.com/fr/' target='_blank'>General Electric France</a>, en charge de la communication de la CEO, des réseaux sociaux, de la communication interne et des communications de crise",
       engagements: {
         subTitle: "engagements",
         description:
           "Particulièrement sensible aux enjeux d’écologie et d‘égalité femmes-hommes, Léa a mené différents travaux de recherche et s’engage sur ces sujets dans de nombreuses actions non-profit."
       },
       socials: {
-        twitter: "https://twiter.com",
-        linkedin: "https://linkedin.com"
+        twitter: "https://twitter.com/LeaTalliendeCab",
+        linkedin:
+          "https://www.linkedin.com/in/l%C3%A9a-tallien-de-cabarrus-387251b8/"
       }
     }
   ],

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Image = styled.div`
-  background-image: url("images/home/bkg_prehome.jpg");
+  background-image: url(${props => props.image});
   width: 100%;
   height: 100vh;
   background-position: center;
@@ -10,10 +10,14 @@ const Image = styled.div`
   background-repeat: no-repeat;
   position: absolute;
   top: 0;
+
+  ${props => props.theme.medias.medium`
+  background-image: ${props.noImageOnMobile && "unset"}; 
+   `}
 `;
 
 const BackgroundImage = props => {
-  return <Image />;
+  return <Image {...props} />;
 };
 
 export default BackgroundImage;

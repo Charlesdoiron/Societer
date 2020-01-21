@@ -15,11 +15,9 @@ const client = require("contentful").createClient({
 const Communaute = () => {
   const { communaute } = useMocks();
   const [menuHeight, setMenuHeight] = useState("");
-  const partTrigger = useRef(null);
 
   useEffect(() => {
     setMenuHeight(document.querySelector(".menu").offsetHeight);
-    console.log(partTrigger);
   }, []);
 
   const FirstPart = styled.div`
@@ -31,21 +29,16 @@ const Communaute = () => {
   return (
     <>
       <Head>
-        <title>Societer | la Communauté</title>
+        <title>Societer | Communauté</title>
       </Head>
       <ShowOnMediumPlus>
         <FirstPart>
-          <BackgroundImage />
+          <BackgroundImage image="images/home/bkg_prehome.jpg" />
         </FirstPart>
       </ShowOnMediumPlus>
 
       {communaute.members.map((member, i) => (
-        <Member
-          dataMember={member}
-          key={i}
-          even={i % 2 == !0}
-          ref={partTrigger}
-        />
+        <Member dataMember={member} key={i} even={i % 2 == !0} />
       ))}
       <StrategicComite
         dataMember={communaute.strategicComite.members}

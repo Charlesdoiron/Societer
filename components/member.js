@@ -59,12 +59,14 @@ const member = props => {
       ? props => props.theme.colors.black
       : props => props.theme.colors.white};
     margin: ${props => (props.insideDescription ? " 50px 0 25px 0" : 0)};
+
     margin-left: ${props.even && (props => props.withWrapper) ? "22%" : "0"};
+
     ${props => props.theme.medias.mediumPlus`
       padding: 0 30px;
       justify-content: flex-start;
       margin-left:0;
-    `}
+    `};
   `;
 
   const Container = styled.div`
@@ -110,19 +112,22 @@ const member = props => {
   `;
 
   const MemberFatTitle = styled(FatTitle)`
+    width: 100%;
     padding: 0 20%;
     margin-top: 10px;
     justify-content: flex-start;
     margin-left: ${props.even && (props => props.withWrapper) ? "22%" : "0"};
-    white-space: nowrap;
+    white-space: normal;
     display: flex;
     color: ${props.even
       ? props => props.theme.colors.black
       : props => props.theme.colors.white};
+
     ${props => props.theme.medias.mediumPlus`
-      padding:0 30px;
-      justify-content: flex-start;
-       margin-left:0;
+     white-space:normal;
+    padding:0 30px;
+    justify-content: flex-start;
+      margin-left:0;
       };
     `}
   `;
@@ -153,6 +158,15 @@ const member = props => {
   const Description = styled.div`
     padding: ${props.even ? "0 0 60px 10%" : "0 10% 60px 0"};
     width: 100%;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid
+        ${props.even
+          ? props => props.theme.colors.black
+          : props => props.theme.colors.white};
+    }
 
     ${props => props.theme.medias.mediumPlus`
       margin-top:25px;
@@ -267,21 +281,39 @@ const member = props => {
           <TabletImage src={dataMember.img} alt="" />
 
           <Socials>
-            <Social>{dataMember.socials.twitter && "Tw"}</Social>
-            <Social>{dataMember.socials.linkedin && "Li"}</Social>
+            {dataMember.socials.linkedin && (
+              <a href={dataMember.socials.linkedin} target="_blank">
+                <Social>Lk</Social>
+              </a>
+            )}
+
+            {dataMember.socials.twitter && (
+              <a href={dataMember.socials.twitter} target="_blank">
+                <Social>Tw</Social>
+              </a>
+            )}
           </Socials>
         </ReverseColumn>
 
         <Description>
-          <MemberLabor>{dataMember.description}</MemberLabor>
+          <MemberLabor
+            dangerouslySetInnerHTML={{ __html: dataMember.description }}
+          />
           <Flex>
-            <MemberSmallSubtitle insideDescription>
+            <MemberSmallSubtitle
+              insideDescription
+              style={props.even ? { marginLeft: "0" } : {}}
+            >
               {dataMember.engagements.subTitle}
             </MemberSmallSubtitle>
             <MemberHr />
           </Flex>
 
-          <MemberLabor>{dataMember.engagements.description}</MemberLabor>
+          <MemberLabor
+            dangerouslySetInnerHTML={{
+              __html: dataMember.engagements.description
+            }}
+          />
         </Description>
       </Content>
     </Container>

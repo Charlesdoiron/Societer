@@ -86,6 +86,7 @@ const GlobalStyles = createGlobalStyle`
       margin:0;
       padding:0;
       background-color: #101010;
+      overflow-x:hidden;
     }
     body {
       margin:0;
@@ -97,10 +98,20 @@ const GlobalStyles = createGlobalStyle`
       -moz-osx-font-smoothing: grayscale;
 
     }
+    .isBlue {
+      color : #492EFA !important;
+    }
     html,
     body {
       min-height: 100%;
+      width:100%;
+      
+      -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+  scroll-behavior: smooth;
     }
+    
     *,
     *:before,
     *:after {

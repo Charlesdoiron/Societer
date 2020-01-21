@@ -20,7 +20,11 @@ function HomePage() {
       <Head>
         <title>Societer | Sustainable leaders</title>
       </Head>
-      <BackgroundImage />
+      <BackgroundImage
+        image="images/home/bkg_prehome.jpg"
+        noImageOnMobile
+        alt="Societer Team"
+      />
       <Wrapper>
         <Titles>
           <Subtitle>{homepage.subtitle}</Subtitle>
@@ -33,11 +37,16 @@ function HomePage() {
 
 export default HomePage;
 
-const Container = styled.div``;
+const Container = styled.div`
+  /* background-color: ${props => props.theme.colors.blue};
+  width: 100%;
+  height: 100vh;
+  margin-top: -80px; */
+`;
 
 const Titles = styled.div`
   width: 100%;
-  z-index: 10;
+  z-index: 9;
   position: absolute;
   top: 50%;
   h1 {

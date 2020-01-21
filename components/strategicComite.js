@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Chapeau, SmallSubtitle } from "../styled/typos";
 import { Wrapper } from "../styled/space";
+
 const strategicComite = props => {
   return (
     <CustomWrapper>
@@ -12,12 +13,12 @@ const strategicComite = props => {
         </Flex>
 
         <div>
-          {props.dataMember.map(member => {
+          {props.dataMember.map((member, i) => {
             return (
-              <>
+              <div key={i}>
                 <BlueChapeau>{member.name}</BlueChapeau>
                 <BlackChapeau>{member.status}</BlackChapeau>
-              </>
+              </div>
             );
           })}
         </div>

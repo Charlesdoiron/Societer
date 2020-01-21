@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import React, { useRef, useState, useEffect } from "react";
+import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 
 import MenuMobile from "../components/menuMobile";
@@ -12,11 +12,46 @@ import { Navigation } from "../styled/typos";
 const Menu = props => {
   const { menu } = useMocks();
   const router = useRouter();
+
   const [isOpen, setOpen] = useState(false);
 
   const currentPage = router.pathname;
   const currentTitle = router.query.title;
 
+  const MenuDesktop = styled.div`
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 35px;
+    padding-left: 10%;
+    z-index: 10;
+    background-color: transparent;
+    transition: all 200ms;
+
+    &:hover {
+      transition: all 500ms;
+      background-color: ${currentPage !== "/"
+        ? props => props.theme.colors.black
+        : "unset"};
+      padding-bottom: 30px;
+      margin-bottom: -30px;
+    }
+
+    ${props => props.theme.medias.medium`
+   background-color: ${
+     currentPage !== "/" ? props => props.theme.colors.black : "unset"
+   };
+    padding: 25px 30px ;
+    &:hover{
+     background-color: ${
+       currentPage !== "/" ? props => props.theme.colors.black : "unset"
+     };
+    } 
+
+  `}
+  `;
   return (
     <MenuDesktop className="menu">
       <MobileNavigation>
@@ -37,12 +72,13 @@ const Menu = props => {
         onClick={() => setOpen(!isOpen)}
         content={menu}
       />
+
       <Items>
-        {menu.map(item => (
+        {menu.map((item, i) => (
           <Link
+            key={i}
             href={{ pathname: `${item.path}`, query: { title: item.item } }}
             as={`${item.path}`}
-            key={item.item}
           >
             <CustomNavigation
               className={currentPage === item.path && "isActive"}
@@ -59,7 +95,6 @@ export default Menu;
 
 const Burger = styled.img`
   width: 24px;
-  right: 30px;
   position: relative;
   cursor: pointer;
   display: none;
@@ -77,10 +112,23 @@ const Logo = styled.img`
    `}
 `;
 
+const MobileNavigation = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 500ms;
+  ${props =>
+    props.theme.medias.medium`
+    transition: all 500ms;s
+   `}
+`;
+
 const CurrentPage = styled(Navigation)`
-  top: 12px;
+  top: 7px;
   position: relative;
   font-family: "garnett_medium";
+  white-space: nowrap;
 `;
 const CustomNavigation = styled(Navigation)`
   margin-right: 60px;
@@ -94,17 +142,10 @@ const Flex = styled.div`
   }
 `;
 
-const MobileNavigation = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const MinimalLogo = styled.img`
   height: 35px;
   width: auto;
-  top: 5px;
+
   position: relative;
   cursor: pointer;
 
@@ -121,18 +162,4 @@ const Items = styled.div`
   ${props => props.theme.medias.medium`
     display: none;
    `}
-`;
-const MenuDesktop = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  width: 100%;
-  padding-top: 35px;
-  padding-left: 10%;
-  z-index: 10;
-
-  ${props => props.theme.medias.medium`
-   padding-left: 30px;
-
-  `}
 `;

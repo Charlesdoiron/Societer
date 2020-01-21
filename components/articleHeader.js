@@ -36,11 +36,11 @@ const ArticleHeader = props => {
           Co-signée par{" "}
           {props.authors.map((author, i) => {
             return (
-              <>
+              <span key={i}>
                 {" "}
                 {author.name}
                 {i < props.authors.length - 1 ? ", " : "."}
-              </>
+              </span>
             );
           })}
         </Navigation>

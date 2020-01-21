@@ -11,8 +11,8 @@ const rsx = [
 const socials = () => {
   return (
     <Container>
-      {rsx.map(el => (
-        <Limit>
+      {rsx.map((el, i) => (
+        <Limit key={i}>
           <SmallNavigation>{el.name}</SmallNavigation>
         </Limit>
       ))}

@@ -18,9 +18,9 @@ const Accordion = props => {
             <ExpertiseSubtitle>{props.subTitle}</ExpertiseSubtitle>
           </FatWrapper>
 
-          {props.content.map(el => {
+          {props.content.map((el, i) => {
             return (
-              <>
+              <div key={i}>
                 <FatWrapper noWrapperDesktop>
                   <ExpertiseTitle
                     className={el.slug === expertiseActive && "isActive"}
@@ -44,7 +44,7 @@ const Accordion = props => {
                     </Collapse>
                   </ShowOnMobile>
                 )}
-              </>
+              </div>
             );
           })}
         </Titles>

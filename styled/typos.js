@@ -58,6 +58,7 @@ export const SmallNavigation = styled.p`
   font-weight: normal;
   font-size: 12px;
   line-height: 17px;
+
   color: ${props => props.theme.colors.white};
 `;
 
@@ -88,6 +89,7 @@ export const MediumSubtitle = styled.h4`
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin: 0;
+  white-space: nowrap;
   color: ${props =>
     props.isBlack ? props.theme.colors.black : props.theme.colors.white};
 `;
@@ -223,4 +225,63 @@ export const PopUpTitle = styled.p`
   line-height: 25px;
   margin: 0%;
   color: ${props => props.theme.colors.white};
+`;
+
+export const ContactTitle = styled.h1`
+  font-family: "garnett_regular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 93px;
+  margin: 0%;
+  color: ${props => props.theme.colors.white};
+
+  ${props => props.theme.medias.medium`
+    font-size: 30px;
+    line-height: 46px;
+   `}
+`;
+export const ContactBtn = styled.p`
+  font-family: "garnett_medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  margin: 0%;
+  color: ${props => props.theme.colors.white};
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  ${props => props.theme.medias.medium`
+    font-size: 10px;
+    line-height: 15px;
+   
+   `}
+`;
+
+export const LinkTitle = styled.p`
+  font-family: "garnett_regular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 19px;
+  margin: 0%;
+  color: ${props => props.theme.colors.white};
+  opacity: 0.7;
+  letter-spacing: 0.1em;
+`;
+
+export const LinkItem = styled.p`
+  font-family: "garnett_regular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 19px;
+  margin: 0%;
+  color: ${props => props.theme.colors.white};
+  letter-spacing: 0.1em;
+
+  a {
+    border-bottom: 1px solid ${props => props.theme.colors.white};
+  }
 `;

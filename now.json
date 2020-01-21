@@ -10,15 +10,9 @@
         "Service-Worker-Allowed": "/"
       }
     },
-    { "src": "/index", "dest": "/index.html" },
-    { "src": "/communaute", "dest": "/communaute.html" },
-    { "src": "/manifeste", "dest": "/manifeste.html" },
-    { "src": "/proposition", "dest": "/proposition.html" }
-  ],
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/static-build"
-    }
+    { "src": "/index", "dest": "/index" },
+    { "src": "/communaute", "dest": "/communaute" },
+    { "src": "/manifeste", "dest": "/manifeste" },
+    { "src": "/proposition", "dest": "/proposition" }
   ]
 }
