@@ -52,9 +52,9 @@ const Accordion = props => {
         <Content>
           <HideOnMobile>
             <ExpertiseSubtitle>{props.subTitleTwo}</ExpertiseSubtitle>
-            {props.content.map(el => {
+            {props.content.map((el, i) => {
               if (el.slug === expertiseActive) {
-                return <Labor>{el.description}</Labor>;
+                return <Labor key={i}>{el.description}</Labor>;
               }
             })}
           </HideOnMobile>

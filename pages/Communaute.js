@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
 import BackgroundImage from "../components/backgroundImage";
@@ -18,6 +18,9 @@ const Communaute = () => {
 
   useEffect(() => {
     setMenuHeight(document.querySelector(".menu").offsetHeight);
+    if (window !== undefined) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }, []);
 
   const FirstPart = styled.div`
@@ -28,9 +31,11 @@ const Communaute = () => {
   `;
   return (
     <>
-      <Head>
-        <title>Societer | Communauté</title>
-      </Head>
+      <NextSeo
+        title={communaute.seo.title}
+        description={communaute.seo.description}
+        canonical={communaute.seo.canonical}
+      />
       <ShowOnMediumPlus>
         <FirstPart>
           <BackgroundImage image="images/home/bkg_prehome.jpg" />

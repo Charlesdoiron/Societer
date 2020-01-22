@@ -40,14 +40,17 @@ const Menu = props => {
     }
 
     ${props => props.theme.medias.medium`
-   background-color: ${
-     currentPage !== "/" ? props => props.theme.colors.black : "unset"
-   };
+      background-color: ${
+        currentPage !== "/" ? props => props.theme.colors.black : "unset"
+      };
     padding: 25px 30px ;
+    
     &:hover{
-     background-color: ${
-       currentPage !== "/" ? props => props.theme.colors.black : "unset"
-     };
+      padding-bottom: 25px;
+      margin-bottom: 0;
+      background-color: ${
+        currentPage !== "/" ? props => props.theme.colors.black : "unset"
+      };
     } 
 
   `}
@@ -57,7 +60,7 @@ const Menu = props => {
       <MobileNavigation>
         <Link href="/">
           {currentPage === "/" ? (
-            <Logo src="pictos/logo.svg" />
+            <Logo src="pictos/logo.svg" alt="Societer Logo" />
           ) : (
             <Flex>
               <MinimalLogo src="pictos/minimal_logo.svg" />

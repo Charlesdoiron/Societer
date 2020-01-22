@@ -1,6 +1,11 @@
 import { SmallSubtitle } from "../../styled/typos";
 
 export default {
+  seo: {
+    title: "Societer | Communauté",
+    description: "Maison de conseil en sustainable leadership",
+    canonical: "https://www.societer.co/communaute"
+  },
   members: [
     {
       subTitle: "présidente et co-fondatrice",

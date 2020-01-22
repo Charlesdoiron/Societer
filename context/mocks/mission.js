@@ -1,4 +1,9 @@
 export default {
+  seo: {
+    title: "Societer | Mission",
+    description: "Maison de conseil en sustainable leadership",
+    canonical: "https://www.societer.co/mission"
+  },
   chapeau:
     "Pour les entreprises, l’incarnation d’un engagement sociétal au plus haut niveau n’est plus une option, mais la condition sine qua non d’une <strong> performance économique durable</strong>. Aux avant-postes de cette <strong>nouvelle donne</strong>, SOCIETER, première Maison de conseil en sustainable leadership, spécialisée en <strong>communication engagée, impact sociétal et diplomatie collaborative </strong>, révèle l’engagement du dirigeant et de l’entreprise dans le débat public mondial.",
   firstPartLabor:

@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useMocks } from "../context/mock-context";
 import { Wrapper } from "../styled/space";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import {
   ManifestLabor,
   MediumSubtitle,
@@ -20,7 +20,11 @@ const Vision = () => {
   const [definition, setDefinition] = useState("");
   const manifestLaborRef = useRef(null);
   const titleRef = useRef(null);
-
+  useEffect(() => {
+    if (window !== undefined) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, []);
   // useEffect(() => {
   //   const fixEl = () => {
   //     const laborTop = manifestLaborRef.current.getBoundingClientRect().top;
@@ -46,9 +50,11 @@ const Vision = () => {
         popIsOpen={popIsOpen}
         handleClick={() => setPopOpen(false)}
       />
-      <Head>
-        <title>Societer | Vision</title>
-      </Head>
+      <NextSeo
+        title={vision.seo.title}
+        description={vision.seo.description}
+        canonical={vision.seo.canonical}
+      />
       <Wrapper>
         <FirstPart>
           <Fixed>
@@ -201,6 +207,8 @@ const Fixed = styled.div`
     position: absolute;
     margin-left: 36%;
     top: 50px;
+    left: 0;
+    right: 0;
 
     ${props => props.theme.medias.medium`
     position:relative;

@@ -239,6 +239,8 @@ const member = props => {
     position: absolute;
     z-index: 9;
     top:0;
+    left: 0;
+    right: 0;
     ${props => props.theme.medias.mediumPlus`
       position:relative;
       height:100%;

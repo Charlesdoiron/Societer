@@ -17,9 +17,18 @@ export default [
   },
   {
     socials: [
-      { title: "twitter", url: "www.twiter.fr" },
-      { title: "twitter", url: "www.twiter.fr" },
-      { title: "twitter", url: "www.twiter.fr" }
+      {
+        title: "Linkedin",
+        url: "https://www.linkedin.com/company/societer/about/"
+      },
+      {
+        title: "Instagram",
+        url: "https://www.instagram.com/societer_paris/"
+      },
+      {
+        title: "Twitter",
+        url: "https://twitter.com/Societer_Paris"
+      }
     ]
   }
 ];

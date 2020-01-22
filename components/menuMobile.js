@@ -108,10 +108,10 @@ const MenuMobile = props => {
             </CustomNavigation>
           ))}
         </Items>
-        <Languages>
+        {/* <Languages>
           <Language>Fr</Language>
           <Language>En</Language>
-        </Languages>
+        </Languages> */}
         <Absolute>
           <Socials>
             {socials.map((social, i) => (
@@ -122,7 +122,7 @@ const MenuMobile = props => {
           </Socials>
         </Absolute>
       </Container>
-      <Shape ref={shapeRef} />
+      <Shape ref={shapeRef} onClick={() => closeMenu("close")} />
     </>
   );
 };

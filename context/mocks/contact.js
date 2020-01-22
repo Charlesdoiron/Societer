@@ -1,4 +1,9 @@
 export default {
+  seo: {
+    title: "Societer | Contact",
+    description: "Maison de conseil en sustainable leadership",
+    canonical: "https://www.societer.co/contact"
+  },
   title: "138 bd Haussmann 75008 Paris",
   cta: "nous localiser",
   url:
@@ -28,10 +33,24 @@ export default {
       links: [
         {
           title: "Telegram",
-          url: "https://www.linkedin.com/company/societer/about/"
+          url: "https://t.me/YOURCONTACTSOMETHING"
         },
-        { title: "Whatsapp", url: "https://www.instagram.com/societer_paris/" }
+        { title: "Whatsapp", url: "https://wa.me/033772448991" }
       ]
+    },
+    design: {
+      title: "Design & developpement",
+      links: {
+        title: "Fragile",
+        url: "https://t.me/YOURCONTACTSOMETHING"
+      }
+    },
+    photography: {
+      title: "Photographie",
+      links: {
+        title: "Ginette Bunschel",
+        url: "https://t.me/YOURCONTACTSOMETHING"
+      }
     },
     press: {
       title: "Presse",
@@ -39,8 +58,12 @@ export default {
       url: "document/societer_communique-de-presse"
     },
     others: {
-      legals: "Mentions légales",
-      credits: "Crédits"
+      legals: {
+        title: "Mentions légales",
+        links: {
+          title: "Voir les mentions légales"
+        }
+      }
     }
   }
 };

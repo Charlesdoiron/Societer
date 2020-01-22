@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
 import { ContactTitle, ContactBtn, LinkTitle, LinkItem } from "../styled/typos";
@@ -17,8 +17,11 @@ const client = require("contentful").createClient({
 
 function HomePage() {
   const { contact } = useMocks();
-
-  console.log(getWindowWidth());
+  useEffect(() => {
+    if (window !== undefined) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, []);
   const Image = styled(BackgroundImage)`
     position: relative;
     height: 100vh;
@@ -28,10 +31,16 @@ function HomePage() {
 
   return (
     <Container>
-      <Head>
-        <title>Societer | Contact</title>
-      </Head>
-      <Image alt="Societer Contact" image="images/contact/contact.jpg" />
+      <NextSeo
+        title={contact.seo.title}
+        description={contact.seo.description}
+        canonical={contact.seo.canonical}
+      />
+      <Image
+        alt="Societer Contact"
+        image="images/contact/contact.jpg"
+        imageMobile="images/contact/contact_mobile.jpg"
+      />
       <Wrapper isWhite>
         <Titles>
           <ContactTitle>{contact.title}</ContactTitle>
@@ -80,7 +89,7 @@ function HomePage() {
                 })}
               </Flex>
             </Sub>
-            <Sub style={{ margin: "0" }}>
+            <Sub>
               <LinkTitle>{contact.footer.press.title}</LinkTitle>
               <Flex>
                 <a href={contact.footer.press.url} target="_blank">
@@ -90,6 +99,33 @@ function HomePage() {
                 </a>
               </Flex>
             </Sub>
+            <Sub>
+              <LinkTitle>{contact.footer.others.legals.title}</LinkTitle>
+              <Flex>
+                <a href="#">
+                  <LinkItem style={{ whiteSpace: "nowrap" }}>
+                    {contact.footer.others.legals.links.title}
+                  </LinkItem>
+                </a>
+              </Flex>
+            </Sub>
+            <Sub>
+              <LinkTitle>{contact.footer.design.title}</LinkTitle>
+              <Flex>
+                <a href={contact.footer.design.links.url}>
+                  <LinkItem>{contact.footer.design.links.title}</LinkItem>
+                </a>
+              </Flex>
+            </Sub>
+            <Sub>
+              <LinkTitle>{contact.footer.photography.title}</LinkTitle>
+              <Flex>
+                <a href={contact.footer.photography.links.url}>
+                  <LinkItem>{contact.footer.photography.links.title}</LinkItem>
+                </a>
+              </Flex>
+            </Sub>
+
             {/* <div>
               <LinkTitle>&nbsp;</LinkTitle>
               <Flex>
@@ -129,8 +165,9 @@ const Flex = styled.div`
 `;
 
 const Sub = styled.div`
-  margin-bottom: 60px;
-  flex: 0 30%;
+  margin: 30px 0;
+  flex: 0 40%;
+  flex-wrap: wrap;
 
   ${props => props.theme.medias.medium`
     flex: 0 100%;
@@ -152,6 +189,8 @@ const RightPart = styled.div`
 const LeftPart = styled.div`
   background-color: ${props => props.theme.colors.white};
   padding: 10%;
+  display: flex;
+  align-items: center;
 `;
 
 const Links = styled.div`
@@ -160,7 +199,7 @@ const Links = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   height: 100%;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const Titles = styled.div`
@@ -168,6 +207,13 @@ const Titles = styled.div`
   z-index: 9;
   position: absolute;
   top: 40%;
+  left: 0;
+  right: 0;
+  padding-left: 10%;
+
+  ${props => props.theme.medias.medium`
+  padding-left:30px;
+`}
   h1 {
     width: 50%;
   }

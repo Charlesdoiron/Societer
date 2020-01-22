@@ -228,7 +228,7 @@ export const PopUpTitle = styled.p`
 `;
 
 export const ContactTitle = styled.h1`
-  font-family: "garnett_regular";
+  font-family: "garnett_medium";
   font-style: normal;
   font-weight: 500;
   font-size: 60px;

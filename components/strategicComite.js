@@ -15,10 +15,10 @@ const strategicComite = props => {
         <div>
           {props.dataMember.map((member, i) => {
             return (
-              <div key={i}>
+              <React.Fragment key={i}>
                 <BlueChapeau>{member.name}</BlueChapeau>
                 <BlackChapeau>{member.status}</BlackChapeau>
-              </div>
+              </React.Fragment>
             );
           })}
         </div>

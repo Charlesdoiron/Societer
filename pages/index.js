@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
 
+import { NextSeo } from "next-seo";
 import styled from "styled-components";
 import { Subtitle, BigTitle } from "../styled/typos";
 import { Wrapper } from "../styled/space";
@@ -14,15 +14,21 @@ const client = require("contentful").createClient({
 
 function HomePage() {
   const { homepage } = useMocks();
-
+  useEffect(() => {
+    if (window !== undefined) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, []);
   return (
     <Container>
-      <Head>
-        <title>Societer | Sustainable leaders</title>
-      </Head>
+      <NextSeo
+        title={homepage.seo.title}
+        description={homepage.seo.description}
+        canonical={homepage.seo.canonical}
+      />
+
       <BackgroundImage
-        image="images/home/bkg_prehome.jpg"
-        noImageOnMobile
+        image="images/home/societer_bureau.jpg"
         alt="Societer Team"
       />
       <Wrapper>
@@ -38,10 +44,10 @@ function HomePage() {
 export default HomePage;
 
 const Container = styled.div`
-  /* background-color: ${props => props.theme.colors.blue};
-  width: 100%;
-  height: 100vh;
-  margin-top: -80px; */
+  ${props => props.theme.medias.medium`
+overflow: hidden;
+ -webkit-overflow-scrolling: touch;
+`}
 `;
 
 const Titles = styled.div`
@@ -49,6 +55,13 @@ const Titles = styled.div`
   z-index: 9;
   position: absolute;
   top: 50%;
+  left: 0;
+  right: 0;
+  padding-left: 10%;
+
+  ${props => props.theme.medias.medium`
+  padding-left:30px;
+`}
   h1 {
     width: 50%;
   }

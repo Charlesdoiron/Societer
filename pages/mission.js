@@ -1,5 +1,5 @@
-import React from "react";
-import Head from "next/head";
+import React, { useEffect } from "react";
+import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
 import { Chapeau, Labor, Subtitle, FatTitle } from "../styled/typos";
@@ -16,11 +16,18 @@ const client = require("contentful").createClient({
 function Mission() {
   const { mission } = useMocks();
 
+  useEffect(() => {
+    if (window !== undefined) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, []);
   return (
     <>
-      <Head>
-        <title>Societer | Mission</title>
-      </Head>
+      <NextSeo
+        title={mission.seo.title}
+        description={mission.seo.description}
+        canonical={mission.seo.canonical}
+      />
       <Wrapper>
         <FirstPart>
           <Chapeau dangerouslySetInnerHTML={{ __html: mission.chapeau }} />

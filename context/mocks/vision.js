@@ -1,4 +1,9 @@
 export default {
+  seo: {
+    title: "Societer | Vision",
+    description: "Maison de conseil en sustainable leadership",
+    canonical: "https://www.societer.co/vision"
+  },
   firstPart: {
     subtitle: "Le Manifeste",
     agenda: {
