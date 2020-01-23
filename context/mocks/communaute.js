@@ -12,11 +12,11 @@ export default {
       img: "images/communaute/aurelie_motta-rivey.jpg",
       name: "Aurélie Motta-Rivey",
       description:
-        "Jusqu’ici Conseillère pour la Communication et les Partenariats auprès de la Directrice générale de l’UNESCO, Audrey AZOULAY. Elle a commencé sa carrière au Quai d’Orsay, comme Conseillère presse internationale de ministres de l’Europe et des Affaires étrangères, avant de rejoindre la Mission permanente de la France auprès Nations Unies à New York comme conseillère presse et Porte-Parole adjointe. Elle a ensuite mis son expertise en stratégie de communication au service du Ministère des Affaires sociales, notamment sur les enjeux d’égalité femmes hommes et de droits des femmes. Avant de rejoindre l’UNESCO, elle était Associée et membre du Comité exécutif du cabinet de conseil en stratégie de Communication TILDER. Diplômée de Droit et de Sciences Po Paris, elle est aujourd’hui Maître de conférences à Sciences Po dans le Master international de l’École du Management et de l’Innovation sur les sujets de stratégies d’influence et de communication de crise.",
+        "Précédemment Conseillère pour la Communication et les Partenariats auprès de la Directrice générale de l’UNESCO, Audrey Azoulay, Aurélie Motta-Rivey a commencé sa carrière au Quai d’Orsay comme Conseillère presse internationale de ministres de l’Europe et des Affaires étrangères, avant de rejoindre la Mission permanente de la France auprès Nations Unies à New York comme Conseillère presse et Porte-Parole adjointe. Elle a ensuite mis son expertise en stratégie de communication au service du Ministère des Affaires sociales, notamment sur les enjeux d’égalité femmes hommes et de droits des femmes. Avant de rejoindre l’UNESCO, elle était Associée et membre du Comité exécutif du cabinet de conseil en stratégie de Communication Tilder. Diplômée de Droit et de Sciences Po Paris, elle est aujourd’hui Maître de conférences à Sciences Po dans le Master international de l’École du Management et de l’Innovation sur les sujets de stratégies d’influence et de communication de crise.",
       engagements: {
         subTitle: "engagements",
         description:
-          "Elle est engagée à titre personnel dans la valorisation des institutions internationales comme membre du board du think- tank européen <a href='https://www.europanova.eu/' target='_blank'>EuropaNova</a> et Vice - Présidente de l’Association Française pour les Nations Unies (<a href='https://www.afnu.fr/' target='_blank'>AFNU</a>).Elle a notamment contribué à l’essai 60 idées pour Emmanuel Macron, Éditions Débats Publics, dans lequel elle plaide pour l’émergence d’une « diplomatie nouvelle génération », collaborative entre le secteur privé et la société civile."
+          "Aurélie est engagée à titre personnel dans la valorisation des institutions internationales comme membre du board du think-tank européen <a href='https://www.europanova.eu/' target='_blank'>EuropaNova</a> et Vice - Présidente de l’Association Française pour les Nations Unies (<a href='https://www.afnu.fr/' target='_blank'>AFNU</a>). Elle a notamment contribué à l’essai <em>60 idées pour Emmanuel Macron</em>, Éditions Débats Publics, dans lequel elle plaide pour l’émergence d’une « diplomatie nouvelle génération », collaborative entre le secteur privé et la société civile."
       },
       socials: {
         twitter: "https://twitter.com/amottarivey",
@@ -29,14 +29,14 @@ export default {
       img: "images/communaute/mathilde_olivey.jpg",
       name: "Mathilde Oliveau",
       description:
-        "A fondé et dirige SENSIBLE, maison de conseil en stratégie éditoriale et de contenus dédiée à la prise de parole des dirigeants et des marques. Elle était dans ses précédentes fonctions directrice générale de la société de conseil aux dirigeants ALTERMIND, ancrée dans le monde académique, et plume de plusieurs personnalités publiques. Auparavant, elle a été Conseiller Discours du Président de l’Assemblée nationale, et Conseiller pour la communication de la Commission pour la libération de la croissance française présidée par Jacques ATTALI. En début de carrière, elle a mené plusieurs missions de conseil en communication dans le champ des affaires publiques - Ministère de l’économie, Médiation du Crédit aux entreprises, et des affaires culturelles – Établissement public du musée et domaine national de Versailles, Musée du Louvre, Centre Pompidou.",
+        "Mathilde Oliveau a fondé et dirige SENSIBLE, maison de conseil en stratégie éditoriale et de contenus dédiée à la prise de parole des dirigeants et des marques. Elle était dans ses précédentes fonctions directrice générale de la société de conseil aux dirigeants Altermind , ancrée dans le monde académique, et plume de plusieurs personnalités publiques. Auparavant, elle a été Conseiller Discours du Président de l’Assemblée nationale, et responsable de la communication de la Commission pour la libération de la croissance française présidée par Jacques Attali. En début de carrière, elle a mené plusieurs missions de conseil en communication dans le champ des affaires publiques - Ministère de l’économie, Médiation du Crédit aux entreprises, et des affaires culturelles – Établissement public du musée et domaine national de Versailles, Musée du Louvre, Centre Pompidou.",
       engagements: {
         subTitle: "engagements",
         description:
-          "Ancienne élève de Sciences Po Paris, de l’École des Hautes Études en Sciences Sociales et de l’École du Louvre, elle fait de la transmission l’un de ses engagements. Elle a ainsi enseigné à Sciences Po en histoire des idées politiques et intervient régulièrement pour des communications en milieu universitaire, notamment sur la culture flamenca."
+          "Ancienne élève de Sciences Po Paris, de l’École des Hautes Études en Sciences Sociales et de l’École du Louvre, Mathilde est très attachée aux sujets de transmission. Elle a ainsi enseigné plusieurs années à Sciences Po en histoire des idées politiques et intervient régulièrement pour des communications en milieu universitaire, notamment sur la culture flamenca."
       },
       socials: {
-        twitter: "",
+        twitter: "https://twitter.com/OliveauMathilde",
         linkedin: "https://www.linkedin.com/in/mathilde-oliveau-84bb52157/"
       }
     },
@@ -45,11 +45,11 @@ export default {
       img: "images/communaute/nathalie_de_gaulle.jpg",
       name: "Nathalie de Gaulle",
       description:
-        "A commencé sa carrière à la SOCIETE GENERALE CIB de Londres, avant de rejoindre la Direction financière du groupe ENGIE dans le cadre de son programme de cadres à haut potentiel. En 2012, elle crée Baynuna Economic Consulting , société d’Intelligence stratégique aux Emirats arabes unis, en partenariat avec le groupe technologique BAYNUNA. En 2018, après une expérience comme Directrice des Affaires gouvernementales et Banques centrales de la start-up LEDGER, elle co-fonde la société de Recherche & Développement NB-INOV, une société de biotechnologie, visant à développer des bioplastiques dans des secteurs industriels à haute performance. En 2019, elle intègre le Board d’ANTAEUS TECHNOLOGIES, société américaine spécialisée en Cloud et en Intelligence Artificielle sur le secteur énergétique, et établit PRINCEPS STRATEGY, société de conseil en Développement stratégique et Affaires institutionnelles. Diplômée de Sciences Po Paris et d’HEC, elle également certifiée par le Massachusetts Institute of Technology (MIT).",
+        "Nathalie de Gaulle a commencé sa carrière à la Société Générale CIB de Londres, avant de rejoindre la Direction financière du groupe Engie dans le cadre de son programme de cadres à haut potentiel. En 2012, elle crée Baynuna Economic Consulting, société d’Intelligence stratégique aux Émirats arabes Unis, en partenariat avec le groupe technologique Baynuna. En 2018, après une expérience comme Directrice des Affaires gouvernementales et Banques centrales de la start-up Ledger, elle co-fonde la société de Recherche & Développement NB-inov, une société de biotechnologie, visant à développer des bioplastiques dans des secteurs industriels à haute performance. En 2019, elle intègre le Board d’Antaeus Technologies, société américaine spécialisée en Cloud et en Intelligence Artificielle sur le secteur énergétique, et établit Princeps Strategy, société de conseil en Développement stratégique et Affaires institutionnelles. Diplômée de Sciences Po Paris et d’HEC, elle également certifiée par le Massachusetts Institute of Technology (MIT).",
       engagements: {
         subTitle: "engagements",
         description:
-          "Nathalie de Gaulle est Vice-présidente de la fédération de clubs de femmes d’affaires <a href='https://femininpluriel.org/' target='_blank'> Féminin Pluriel Global</a>, et ancienne élue des Français de l’étranger. Elle est par ailleurs membre du COMEX40, le Comité Exécutif du MEDEF qui regroupe 45 dirigeants et fondateurs de moins de 40 ans, et membre du Comité exécutif de la Fondation <a href='www.croissance-responsable.fr/' target='_blank'>Croissance Responsable</a>."
+          "Nathalie est Vice-présidente de la fédération de clubs de femmes d’affaires <a href='https://femininpluriel.org/' target='_blank'> Féminin Pluriel Global</a>, et ancienne élue des Français de l’étranger. Elle est par ailleurs membre du Comex40, le Comité Exécutif du MEDEF qui regroupe 45 dirigeants et fondateurs de moins de 40 ans, et membre du Comité exécutif de la Fondation <a href='www.croissance-responsable.fr/' target='_blank'>Croissance Responsable</a>."
       },
       socials: {
         twitter: "https://twitter.com/NGaulle",
@@ -65,7 +65,7 @@ export default {
       engagements: {
         subTitle: "engagements",
         description:
-          "Myassa Djebara est membre depuis 2016 du <a href='www.gmfus.org/transatlantic-leadership-initiatives/young-transatlantic-network-future-leaders' target='_blank'>Young Transatlantic Network for Future Leaders</a> du German Marshall Fund, dédié aux relations transatlantiques. Elle a également été membre du programme Middle East-North Africa d’<a href='www.open-diplomacy.eu/' target='_blank'>Open Diplomacy</a>, institut qui favorise la participation de la société civile aux affaires internationales, et fait partie de la première promotion d’ alumni de la <a href='https://www.usi.ch/en/mem' target='_blank'>Middle East Mediterranean Freethinking Platform</a>, dirigée par le Professeur Gilles Kepel, dédiée aux enjeux géopolitiques du monde arabe. En tant qu’ alumni, elle a été sollicitée comme représentante de la société civile lors de rencontres diplomatiques internationales. En 2011, elle cofonde, à Sciences Po, l’association <a href='https://www.noise-laville.fr/' target='_blank'>Noise</a>, la ville dédiée aux cultures urbaines et aux enjeux des villes de demain."
+          "Myassa est membre depuis 2016 du <a href='www.gmfus.org/transatlantic-leadership-initiatives/young-transatlantic-network-future-leaders' target='_blank'>Young Transatlantic Network for Future Leaders</a> du German Marshall Fund, dédié aux relations transatlantiques. Elle a également été membre du programme Middle East-North Africa d’<a href='www.open-diplomacy.eu/' target='_blank'>Open Diplomacy</a>, institut qui favorise la participation de la société civile aux affaires internationales, et fait partie de la première promotion d’ alumni de la <a href='https://www.usi.ch/en/mem' target='_blank'>Middle East Mediterranean Freethinking Platform</a>, dirigée par le Professeur Gilles Kepel, dédiée aux enjeux géopolitiques du monde arabe. En tant qu’ alumni, elle a été sollicitée comme représentante de la société civile lors de rencontres diplomatiques internationales. En 2011, elle cofonde, à Sciences Po, l’association <a href='https://www.noise-laville.fr/' target='_blank'>Noise, la ville </a>dédiée aux cultures urbaines et aux enjeux des villes de demain."
       },
       socials: {
         twitter: "https://twitter.com/MyassaDjebara",
@@ -77,11 +77,11 @@ export default {
       img: "images/communaute/tess_pettavino.jpg",
       name: "Tess Pettavino",
       description:
-        "Diplômée d’un double master Sciences Po et HEC Paris en Corporate and Public Management, Tess Pettavino a une forte sensibilité internationale : de nationalités française et canadienne, elle fait ses études en milieu anglophone, apprend le mandarin, étudie et travaille à Singapour. Après une collaboration avec l’agence de communication créative <a href='https://www.ffcreative.com/' target='_blank'>Fred & Farid</a> auprès de la Direction Luxe et International, elle rejoint le mouvement <a href='en-marche.fr/' target='_blank'>En Marche !</a> à ses débuts en avril 2016. Elle contribue à la structuration du mouvement et à celle de sa communication, notamment digitale. Lors de la campagne pour les élections présidentielle et législatives de 2017, elle devient responsable des Relations Adhérents & Citoyens, et se forme notamment au Nudge. À l’issue des élections, elle devient Responsable Marketing et Planning Stratégique du mouvement et coordonne les effectifs du Pôle Communication. En 2018, elle devient Directrice de la Communication d’En Marche ! et siège à ce titre au Comité de Direction du mouvement. Sous la direction du Délégué Général, elle prend la responsabilité d’une équipe de 25 personnes (presse, porte-parolat, digital, événementiel, relations publiques), qu’elle anime sur la promotion des actions du mouvement, les temps forts politiques et les séquences de crise.",
+        "Diplômée d’un double master Sciences Po et HEC Paris en Corporate and Public Management, Tess Pettavino a une forte sensibilité internationale : de nationalités française et canadienne, elle fait ses études en milieu anglophone, apprend le mandarin, étudie et travaille à Singapour. Après une collaboration avec l’agence de communication créative Fred & Farid auprès de la Direction Luxe et International, elle rejoint le mouvement En Marche ! à ses débuts en avril 2016. Elle contribue à la structuration du mouvement et à celle de sa communication, notamment digitale. Lors de la campagne pour les élections présidentielle et législatives de 2017, elle devient responsable des Relations Adhérents & Citoyens, et se forme notamment au Nudge. À l’issue des élections, elle devient Responsable Marketing et Planning Stratégique du mouvement et coordonne les effectifs du Pôle Communication. En 2018, elle devient Directrice de la Communication d’En Marche ! et siège à ce titre au Comité de Direction du mouvement. Sous la direction du Délégué Général, elle prend la responsabilité de l'équipe Communication (presse, porte-parolat, digital, événementiel, relations publiques), qu’elle anime sur la promotion des actions du mouvement, les temps forts politiques et les séquences de crise.",
       engagements: {
         subTitle: "engagements",
         description:
-          "Membre du projet <a href='onlywatch.com/' target='_blank'>ONLY WATCH</a> depuis sa genèse - vente aux enchères caritative de montres pièces uniques au profit de la recherche contre les myopathies, qui a permis de lever plus de 70 millions d’euros en 8 éditions et de se rapprocher de manière substantielle des essais cliniques -, elle accompagne l’événement pour sa communication stratégique et son organisation. Elle conseille également à titre non-profit plusieurs associations et projets à vocation caritative."
+          "Membre du projet <a href='onlywatch.com/' target='_blank'>Only Watch</a> depuis sa genèse - vente aux enchères caritative de montres pièces uniques au profit de la recherche contre les myopathies, qui a permis de lever plus de 70 millions d’euros en 8 éditions et de se rapprocher de manière substantielle des essais cliniques, elle accompagne l’événement pour sa communication stratégique et son organisation. Elle conseille également à titre <em>non-profit</em> plusieurs associations et projets à vocation caritative."
       },
       socials: {
         twitter: "https://twitter.com/TessPettavino",
@@ -93,7 +93,7 @@ export default {
       img: "images/communaute/lea_tallien_de_cabarrus.jpg",
       name: "Léa Tallien de Cabarrus",
       description:
-        "Diplômée de Sciences Po Paris en International Public Management et Communication, Médias et Industries Créatives, Léa Tallien de Cabarrus a étudié les Relations Internationales à l’Université de Bath avant de rejoindre l’Ambassade de France en Irlande en Chancellerie diplomatique. Elle a ensuite intégré la start-up <a href='https://www.pandacraft.fr/' target='_blank'>Pandacraft</a> en tant que responsable achats et logistiques, puis <a href='https://digitalventures.orange.com/' target='_blank'>Orange Digital Ventures</a> en tant qu’analyste. Avant d’intégrer Societer, Léa était à la direction de la Communication et des Affaires Publiques de <a href='https://www.ge.com/fr/' target='_blank'>General Electric France</a>, en charge de la communication de la CEO, des réseaux sociaux, de la communication interne et des communications de crise",
+        "Diplômée de Sciences Po Paris en International Public Management et Communication, Médias et Industries Créatives, Léa Tallien de Cabarrus a étudié les Relations Internationales à l’Université de Bath au Royaume-Uni avant de rejoindre l’Ambassade de France en Irlande en Chancellerie diplomatique. Elle a ensuite intégré la start-up Pandacraft en tant que responsable achats et logistiques, puis Orange Digital Ventures en tant qu’analyste. Avant d’intégrer Societer, Léa était à la direction de la Communication et des Affaires Publiques de General Electric France, en charge de la communication de la CEO, des réseaux sociaux, de la communication interne et des communications de crise",
       engagements: {
         subTitle: "engagements",
         description:
@@ -112,15 +112,15 @@ export default {
       {
         name: "Bertrand BADRE",
         status:
-          "— CEO de BlueLikeanOrange, Parrain du Planet Lab et précédemment Directeur général de la Banque Mondiale -"
+          " — CEO de Blue like an Orange, Parrain du one Planet Lab et précédemment Directeur général de la Banque Mondiale - "
       },
       {
         name: "Véronique BOUREZ",
         status:
-          "— Présidente et fondatrice de View Beyond, précédemment Présidente de Coca-Cola France -"
+          " — Présidente et fondatrice de View Beyond, précédemment Présidente de Coca-Cola France - "
       },
-      { name: "Robert ZARADER", status: "— CEO d’Equancy and Co -" },
-      { name: "Erick ROCHE", status: "— Teva Pharmaceuticals." }
+      { name: "Robert ZARADER", status: " — CEO d’Equancy and Co - " },
+      { name: "Erick ROCHE", status: " — Teva Pharmaceuticals." }
     ]
   }
 };

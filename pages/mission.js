@@ -36,7 +36,7 @@ function Mission() {
       </Wrapper>
       <SecondPart>
         <Wrapper isWhite>
-          <Subtitle>{mission.secondPartSubtitle}</Subtitle>
+          {/* <Subtitle>{mission.secondPartSubtitle}</Subtitle> */}
           <FatTitle
             dangerouslySetInnerHTML={{ __html: mission.secondPartFatTitle }}
           />

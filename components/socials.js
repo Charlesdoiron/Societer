@@ -1,19 +1,16 @@
 import React from "react";
 import { SmallNavigation } from "../styled/typos";
 import styled from "styled-components";
-
-const rsx = [
-  { name: "Twitter", url: "https://twitter.fr" },
-  { name: "Linkedin", url: "https://linkedin.fr" },
-  { name: "Instagram", url: "https://instagram.fr" }
-];
-
+import { useMocks } from "../context/mock-context";
 const socials = () => {
+  const { socials } = useMocks();
   return (
     <Container>
-      {rsx.map((el, i) => (
+      {socials.map((el, i) => (
         <Limit key={i}>
-          <SmallNavigation>{el.name}</SmallNavigation>
+          <a href={el.url} target="_blank">
+            <SmallNavigation>{el.title}</SmallNavigation>
+          </a>
         </Limit>
       ))}
     </Container>
@@ -39,9 +36,13 @@ const Limit = styled.div`
   text-align: right;
   width: 80px;
   overflow: hidden;
-  text-align: left;
+  text-align: right;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-  p {
+  /* p {
     left: 65px;
     position: relative;
     transition: all 500ms;
@@ -50,5 +51,5 @@ const Limit = styled.div`
       cursor: pointer;
       transition: all 500ms;
     }
-  }
+  } */
 `;

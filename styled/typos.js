@@ -39,9 +39,10 @@ export const Navigation = styled.p`
   font-size: 14px;
   line-height: 20px;
   list-style-type: none;
-  cursor: pointer;
+  cursor: ${props => (props.noLink ? "auto" : "pointer")};
   color: ${props =>
     props.isBlack ? props.theme.colors.black : props.theme.colors.white};
+
   ${props => props.theme.medias.medium`
     font-size: 12px;
     line-height: 17px;

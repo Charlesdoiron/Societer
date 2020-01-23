@@ -5,5 +5,5 @@ export default {
     canonical: "https://www.societer.co"
   },
   subtitle: "Maison de conseil en",
-  title: "Sustainable leaders"
+  title: "sustainable leadership"
 };

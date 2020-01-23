@@ -64,8 +64,8 @@ const Vision = () => {
           </Fixed>
           <ManifestLabor ref={manifestLaborRef}>
             <Part>
-              Les dirigeants font face à des attentes croissantes : alignement,
-              sincérité, capacité à écouter et donner du sens.
+              Les dirigeants font face à des attentes croissantes&nbsp;:
+              alignement, sincérité, capacité à écouter et donner du sens.
             </Part>
             <Part>
               Incarner pro-activement un engagement sociétal n’est plus une
@@ -74,19 +74,19 @@ const Vision = () => {
               innover et de renouvellement de la culture d’entreprise.
             </Part>
             <Part>
-              Business purpose et Business plan sont devenus indissociables et
-              l’engagement sociétal une question de performance durable.
-              S’engager, c’est à la fois faire une différence sociétale et
-              business et être capable d’imprimer sa marque dans un débat public
-              mondial saturé.
+              <em>Business purpose</em> et <em>business plan</em> sont désormais
+              indissociables. L’engagement sociétal est devenu une question de
+              performance durable. S’engager, c’est à la fois faire une
+              différence sociétale et business et être capable d’imprimer sa
+              marque dans un débat public mondial saturé.
             </Part>
             <Part>
-              Face à cette nouvelle donne, SOCIETER propose de repenser les
-              stratégies de communication et le leadership pour un impact
-              durable dans la société et le débat public à l’échelle mondiale. À
-              la notion descendante de leader, nous préférons celle de societer
-              : un dirigeant nouvelle génération, résolument engagé dans la
-              société.
+              Face à cette nouvelle donne, Societer propose de repenser le
+              leadership pour un impact durable dans la société et le débat
+              public à l’échelle mondiale. À la notion descendante de leader,
+              nous préférons celle de
+              <em>societer</em>&nbsp;: Le dirigeant nouvelle génération est un
+              societer, un sustainable leader résolument engagé dans la société.
             </Part>
             <Part>
               Nous avons la conviction que cette incarnation sincère et
@@ -99,26 +99,26 @@ const Vision = () => {
               climatique, éducation, alimentation, santé, égalité des genres,
               ruptures technologiques ou encore accès aux ressources - appelle à
               unir toutes les énergies, privées, publiques, diplomatiques et
-              citoyennes, pour répondre efficacement aux enjeux du XXIe Siècle.
+              citoyennes.
             </Part>
             <Part>
               C’est pourquoi nous souhaitons favoriser l’émergence de coalitions
-              ad hoc entre ces différents univers pour répondre aux défis de
-              demain, résumés par les{" "}
+              <em>ad hoc</em> entre ces différents univers pour répondre aux
+              défis de demain, résumés par les{" "}
               <a onClick={() => handleClick("odd")}>
-                17 Objectifs du Développement Durable
+                17 Objectifs de Développement Durable
               </a>{" "}
               (ODD) des Nations Unies. Nous voulons accélérer le cercle vertueux
-              d’engagement pour un sustainable new deal.
+              d’engagement pour un <em>sustainable new deal</em>.
             </Part>
             <Part>
-              SOCIETER est aux côtés des dirigeants pour les aider à révéler et
-              porter un combat dans le débat public mondial, tout en apportant
-              des réponses concrètes au compte à rebours qui nous lie toutes et
-              tous : <a onClick={e => handleClick("agenda")}>l’agenda 2030 </a>
+              Societer Societer est aux côtés des dirigeants pour les aider à
+              porter un combat dans le débat public mondial, en ligne avec le
+              seul agenda de référence pour l’engagement sociétal&nbsp;:{" "}
+              <a onClick={e => handleClick("agenda")}>l’Agenda 2030 </a>
               des Nations Unies.
             </Part>
-            IN SOCIETY WE TRUST !
+            IN SOCIETY WE TRUST
           </ManifestLabor>
         </FirstPart>
       </Wrapper>
@@ -127,6 +127,7 @@ const Vision = () => {
           <MediumSubtitle isBlack>{vision.secondPart.subtitle}</MediumSubtitle>
           <ArticleTitle>{vision.secondPart.title}</ArticleTitle>
           <ArticleHeader
+            url="https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046"
             media={vision.secondPart.media}
             authors={vision.secondPart.authors}
             published={vision.secondPart.published}

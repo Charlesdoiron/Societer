@@ -12,7 +12,7 @@ const PopUp = props => {
     width: 100%;
     padding: 30px 0;
     ${props => props.theme.medias.medium`
-    padding: 10px 0 30px 0;
+    padding: 20px 0 30px 0;
   `}
   `;
 

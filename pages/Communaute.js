@@ -38,7 +38,7 @@ const Communaute = () => {
       />
       <ShowOnMediumPlus>
         <FirstPart>
-          <BackgroundImage image="images/home/bkg_prehome.jpg" />
+          <BackgroundImage image="images/communaute/societer_bureau.jpg" />
         </FirstPart>
       </ShowOnMediumPlus>
 

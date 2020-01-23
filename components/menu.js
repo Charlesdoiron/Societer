@@ -63,12 +63,16 @@ const Menu = props => {
             <Logo src="pictos/logo.svg" alt="Societer Logo" />
           ) : (
             <Flex>
-              <MinimalLogo src="pictos/minimal_logo.svg" />
+              <MinimalLogo src="pictos/minimal_logo.svg" alt="Societer Logo" />
               <CurrentPage>{currentTitle}</CurrentPage>
             </Flex>
           )}
         </Link>
-        <Burger src="pictos/burger.svg" onClick={() => setOpen(!isOpen)} />
+        <Burger
+          src="pictos/burger.svg"
+          onClick={() => setOpen(!isOpen)}
+          alt="burger menu"
+        />
       </MobileNavigation>
       <MenuMobile
         isOpen={isOpen}
@@ -128,10 +132,14 @@ const MobileNavigation = styled.div`
 `;
 
 const CurrentPage = styled(Navigation)`
-  top: 7px;
+  top: 10px;
   position: relative;
   font-family: "garnett_medium";
   white-space: nowrap;
+
+  ${props => props.theme.medias.medium`
+    top:7.5px;
+   `}
 `;
 const CustomNavigation = styled(Navigation)`
   margin-right: 60px;
@@ -146,7 +154,7 @@ const Flex = styled.div`
 `;
 
 const MinimalLogo = styled.img`
-  height: 35px;
+  height: 40px;
   width: auto;
 
   position: relative;

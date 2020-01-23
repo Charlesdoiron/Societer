@@ -116,7 +116,7 @@ const MenuMobile = props => {
           <Socials>
             {socials.map((social, i) => (
               <a key={i} href={social.url} target="_blank">
-                <Social>{social.name}</Social>
+                <Social>{social.title}</Social>
               </a>
             ))}
           </Socials>

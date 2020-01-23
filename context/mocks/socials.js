@@ -1,5 +1,14 @@
 export default [
-  { name: "Twitter", url: "https://twitter.fr" },
-  { name: "Linkedin", url: "https://linkedin.fr" },
-  { name: "Instagram", url: "https://instagram.fr" }
+  {
+    title: "Linkedin",
+    url: "https://www.linkedin.com/company/societer/about/"
+  },
+  {
+    title: "Instagram",
+    url: "https://www.instagram.com/societer_paris/"
+  },
+  {
+    title: "Twitter",
+    url: "https://twitter.com/Societer_Paris"
+  }
 ];

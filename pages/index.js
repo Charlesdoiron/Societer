@@ -28,7 +28,7 @@ function HomePage() {
       />
 
       <BackgroundImage
-        image="images/home/societer_bureau.jpg"
+        image="images/home/bkg_prehome.jpg"
         alt="Societer Team"
       />
       <Wrapper>

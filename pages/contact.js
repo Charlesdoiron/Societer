@@ -45,7 +45,11 @@ function HomePage() {
         <Titles>
           <ContactTitle>{contact.title}</ContactTitle>
           <Button>
-            <ContactBtn>{contact.cta}</ContactBtn>
+            <ContactBtn>
+              <a target="_blank" href={contact.url} target="_blank">
+                {contact.cta}
+              </a>
+            </ContactBtn>
           </Button>
         </Titles>
       </Wrapper>
@@ -70,7 +74,7 @@ function HomePage() {
               <Flex>
                 {contact.footer.socials.links.map((link, i) => {
                   return (
-                    <a href={link.url} key={i}>
+                    <a target="_blank" href={link.url} key={i}>
                       <LinkItem>{link.title}</LinkItem>
                     </a>
                   );
@@ -82,7 +86,7 @@ function HomePage() {
               <Flex>
                 {contact.footer.contact.links.map((link, i) => {
                   return (
-                    <a href={link.url} key={i}>
+                    <a target="_blank" href={link.url} key={i}>
                       <LinkItem>{link.title}</LinkItem>
                     </a>
                   );
@@ -92,7 +96,11 @@ function HomePage() {
             <Sub>
               <LinkTitle>{contact.footer.press.title}</LinkTitle>
               <Flex>
-                <a href={contact.footer.press.url} target="_blank">
+                <a
+                  target="_blank"
+                  href={contact.footer.press.url}
+                  target="_blank"
+                >
                   <LinkItem style={{ whiteSpace: "nowrap" }}>
                     {contact.footer.press.cta}
                   </LinkItem>
@@ -102,7 +110,7 @@ function HomePage() {
             <Sub>
               <LinkTitle>{contact.footer.others.legals.title}</LinkTitle>
               <Flex>
-                <a href="#">
+                <a target="_blank" href="#">
                   <LinkItem style={{ whiteSpace: "nowrap" }}>
                     {contact.footer.others.legals.links.title}
                   </LinkItem>
@@ -112,7 +120,7 @@ function HomePage() {
             <Sub>
               <LinkTitle>{contact.footer.design.title}</LinkTitle>
               <Flex>
-                <a href={contact.footer.design.links.url}>
+                <a target="_blank" href={contact.footer.design.links.url}>
                   <LinkItem>{contact.footer.design.links.title}</LinkItem>
                 </a>
               </Flex>
@@ -120,7 +128,7 @@ function HomePage() {
             <Sub>
               <LinkTitle>{contact.footer.photography.title}</LinkTitle>
               <Flex>
-                <a href={contact.footer.photography.links.url}>
+                <a target="_blank" href={contact.footer.photography.links.url}>
                   <LinkItem>{contact.footer.photography.links.title}</LinkItem>
                 </a>
               </Flex>
@@ -129,10 +137,10 @@ function HomePage() {
             {/* <div>
               <LinkTitle>&nbsp;</LinkTitle>
               <Flex>
-                <a href="#">
+                <a target="_blank" href="#">
                   <LinkItem>{contact.footer.others.legals}</LinkItem>
                 </a>
-                <a href="#">
+                <a target="_blank" href="#">
                   <LinkItem>{contact.footer.others.credits}</LinkItem>
                 </a>
               </Flex>
@@ -231,6 +239,10 @@ const Button = styled.button`
   margin-top: 55px;
   cursor: pointer;
   transition: all 500ms;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
   &:hover {
     transition: all 500ms;
     background-color: ${props => props.theme.colors.white};

@@ -6,11 +6,14 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const optimizedImages = require("next-optimized-images");
 const withFonts = require("next-fonts");
 const withCSS = require("@zeit/next-css");
+const withOffline = require("next-offline");
+const withManifest = require("next-manifest");
 
 module.exports = withPlugins([
   withSourceMaps(),
   withBundleAnalyzer(),
   optimizedImages(),
   withCSS(),
-  withFonts()
+  withFonts(),
+  withOffline()
 ]);

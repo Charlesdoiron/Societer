@@ -30,19 +30,25 @@ const ArticleHeader = props => {
 
   return (
     <Container>
-      <Media src={props.media.logo}></Media>
+      <Media src={props.media.logo} alt="Logo Média"></Media>
       <Author>
-        <Navigation isBlack>
-          Co-signée par{" "}
-          {props.authors.map((author, i) => {
-            return (
-              <span key={i}>
-                {" "}
-                {author.name}
-                {i < props.authors.length - 1 ? ", " : "."}
-              </span>
-            );
-          })}
+        <Navigation isBlack noLink>
+          <a
+            href={props.url}
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            {" "}
+            Co-signée par{" "}
+            {props.authors.map((author, i) => {
+              return (
+                <span key={i}>
+                  {" "}
+                  {author.name}
+                  {i < props.authors.length - 1 ? ", " : "."}
+                </span>
+              );
+            })}
+          </a>
         </Navigation>
       </Author>
 

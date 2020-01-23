@@ -39,7 +39,9 @@ const Accordion = props => {
                         <ExpertiseSubtitleCollapse>
                           {props.subTitleTwo}
                         </ExpertiseSubtitleCollapse>
-                        <Labor>{el.description}</Labor>
+                        <Labor
+                          dangerouslySetInnerHTML={{ __html: el.description }}
+                        />
                       </CollapseContent>
                     </Collapse>
                   </ShowOnMobile>
@@ -54,7 +56,12 @@ const Accordion = props => {
             <ExpertiseSubtitle>{props.subTitleTwo}</ExpertiseSubtitle>
             {props.content.map((el, i) => {
               if (el.slug === expertiseActive) {
-                return <Labor key={i}>{el.description}</Labor>;
+                return (
+                  <Labor
+                    key={i}
+                    dangerouslySetInnerHTML={{ __html: el.description }}
+                  />
+                );
               }
             })}
           </HideOnMobile>
