@@ -78,7 +78,7 @@ const Menu = props => {
     right: 0;
     z-index: 1;
   `;
-  console.log(menuHeight);
+
   return (
     <MenuDesktop className="menu" ref={menuRef}>
       <AnimationMenu className="animation-menu__bkg"></AnimationMenu>

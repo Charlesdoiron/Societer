@@ -100,7 +100,7 @@ export default {
           "Particulièrement sensible aux enjeux d’écologie et d‘égalité femmes-hommes, Léa a mené différents travaux de recherche et s’engage sur ces sujets dans de nombreuses actions non-profit."
       },
       socials: {
-        twitter: "https://twitter.com/LeaTalliendeCab",
+        twitter: "https://twitter.com/TdC_Lea",
         linkedin:
           "https://www.linkedin.com/in/l%C3%A9a-tallien-de-cabarrus-387251b8/"
       }

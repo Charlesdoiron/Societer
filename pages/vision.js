@@ -26,18 +26,6 @@ const Vision = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
-  // useEffect(() => {
-  //   const fixEl = () => {
-  //     const laborTop = manifestLaborRef.current.getBoundingClientRect().top;
-
-  //     titleRef.current.style.top = laborTop + "px";
-  //   };
-
-  //   console.log(window.scrollY);
-  //   console.log(manifestLaborRef.current.getBoundingClientRect());
-
-  //   fixEl();
-  // });
 
   const handleClick = e => {
     setDefinition(vision.firstPart[e]);
