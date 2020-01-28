@@ -7,7 +7,7 @@ export default {
   chapeau:
     "Pour les entreprises, l’incarnation d’un engagement sociétal au plus haut niveau n’est plus une option, mais la condition <em>sine qua non</em> d’une <strong> performance économique durable</strong>. Aux avant-postes de cette <strong>nouvelle donne</strong>, Societer, première Maison de conseil en sustainable leadership, spécialisée en <strong>communication engagée, impact sociétal et diplomatie collaborative </strong>, révèle l’engagement du dirigeant et de l’entreprise dans le débat public mondial.",
   firstPartLabor:
-    "Societer conçoit ses recommandations stratégiques aux Objectifs du Développement Durable (ODD) de l’Agenda 2030 des Nations Unies, seul agenda de référence pour l’engagement sociétal.",
+    "Societer conçoit ses recommandations stratégiques en ligne avec les Objectifs de Développement Durable (ODD) de l’Agenda 2030 des Nations Unies, seul agenda de référence pour l’engagement sociétal.",
   secondPartSubtitle: "Societer intervient sur mesure",
   secondPartFatTitle:
     "<span class='isBlue'>Societer</span> intervient sur mesure et réunit l’ensemble des expertises stratégiques nécessaires à un leadership durable &nbsp;: communication engagée, impact sociétal et diplomatie collaborative.",
@@ -37,7 +37,7 @@ export default {
         title: "Coalitions",
         slug: "creation-de-coalitions",
         description:
-          "Constitution de coalitions internationales ad hoc autour d’engagements sociétaux, environnementaux, économiques, impliquant acteurs publics, privés et société civile. "
+          "Constitution de coalitions internationales <em>ad hoc</em> autour d’engagements sociétaux, environnementaux, économiques, impliquant acteurs publics, privés et société civile. "
       },
       {
         title: "Diplomatie économique",

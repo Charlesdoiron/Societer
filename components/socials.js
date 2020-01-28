@@ -8,7 +8,7 @@ const socials = () => {
     <Container>
       {socials.map((el, i) => (
         <Limit key={i}>
-          <a href={el.url} target="_blank">
+          <a href={el.url} target="_blank" rel="noopener">
             <SmallNavigation>{el.title}</SmallNavigation>
           </a>
         </Limit>

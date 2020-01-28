@@ -35,7 +35,7 @@ const PopUp = props => {
           dangerouslySetInnerHTML={{ __html: props.content.content }}
         ></Labor>
         <Link isWhite>
-          <a href={props.content.link.url} target="_blank">
+          <a href={props.content.link.url} target="_blank" rel="noopener">
             {props.content.link.label}
           </a>
         </Link>

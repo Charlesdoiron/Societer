@@ -16,7 +16,7 @@ export default {
       engagements: {
         subTitle: "engagements",
         description:
-          "Aurélie est engagée à titre personnel dans la valorisation des institutions internationales comme membre du board du think-tank européen <a href='https://www.europanova.eu/' target='_blank'>EuropaNova</a> et Vice - Présidente de l’Association Française pour les Nations Unies (<a href='https://www.afnu.fr/' target='_blank'>AFNU</a>). Elle a notamment contribué à l’essai <em>60 idées pour Emmanuel Macron</em>, Éditions Débats Publics, dans lequel elle plaide pour l’émergence d’une « diplomatie nouvelle génération », collaborative entre le secteur privé et la société civile."
+          "Aurélie est engagée à titre personnel dans la valorisation des institutions internationales comme membre du board du think-tank européen <a href='https://www.europanova.eu/' target='_blank'>EuropaNova</a> et Vice - Présidente de l’Association Française pour les Nations Unies (<a href='https://www.afnu.fr/' target='_blank'>AFNU</a>). Elle a notamment contribué à l’essai <em>60 idées pour Emmanuel Macron</em>, Éditions Débats Publics, dans lequel elle plaide pour l’émergence d’une «&nbsp;diplomatie nouvelle génération&nbsp;», collaborative entre le secteur privé et la société civile."
       },
       socials: {
         twitter: "https://twitter.com/amottarivey",
@@ -29,7 +29,7 @@ export default {
       img: "images/communaute/mathilde_olivey.jpg",
       name: "Mathilde Oliveau",
       description:
-        "Mathilde Oliveau a fondé et dirige SENSIBLE, maison de conseil en stratégie éditoriale et de contenus dédiée à la prise de parole des dirigeants et des marques. Elle était dans ses précédentes fonctions directrice générale de la société de conseil aux dirigeants Altermind , ancrée dans le monde académique, et plume de plusieurs personnalités publiques. Auparavant, elle a été Conseiller Discours du Président de l’Assemblée nationale, et responsable de la communication de la Commission pour la libération de la croissance française présidée par Jacques Attali. En début de carrière, elle a mené plusieurs missions de conseil en communication dans le champ des affaires publiques - Ministère de l’économie, Médiation du Crédit aux entreprises, et des affaires culturelles – Établissement public du musée et domaine national de Versailles, Musée du Louvre, Centre Pompidou.",
+        "Mathilde Oliveau a fondé et dirige Sensible, maison de conseil en stratégie éditoriale et de contenus dédiée à la prise de parole des dirigeants et des marques. Elle était dans ses précédentes fonctions directrice générale de la société de conseil aux dirigeants Altermind , ancrée dans le monde académique, et plume de plusieurs personnalités publiques. Auparavant, elle a été Conseiller Discours du Président de l’Assemblée nationale, et responsable de la communication de la Commission pour la libération de la croissance française présidée par Jacques Attali. Elle a également mené plusieurs missions de conseil en communication dans le champ des affaires publiques - Ministère de l’économie, Médiation du Crédit aux entreprises, et des affaires culturelles – Établissement public du musée et domaine national de Versailles, Musée du Louvre, Centre Pompidou.",
       engagements: {
         subTitle: "engagements",
         description:
@@ -61,7 +61,7 @@ export default {
       img: "images/communaute/myassa_djebara.jpg",
       name: "Myassa Djebara",
       description:
-        "Diplômée de Sciences Po en Affaires publiques et de l’Université Paris-Sorbonne en Droit, Myassa Djebara a travaillé au Sénat auprès du Président de la Commission des Lois, puis au sein d’Altermind, cabinet de conseil aux dirigeants en stratégie ancré dans le monde académique. Elle a ensuite été nommée chargée de mission pour le European Forum For Urban Security, réseau international de collectivités locales dédié à la prévention de la criminalité. Spécialisée notamment dans la lutte contre l’extrémisme violent - en particulier dans l’espace numérique, elle a mené des études de terrain et des campagnes locales de discours alternatifs dans plusieurs pays européens (Allemagne, Espagne, France notamment). Depuis 2018, elle est partenaire de Sensible, Maison de conseil en stratégie éditoriale.",
+        "Diplômée de Sciences Po en Affaires publiques et de l’Université Paris-Sorbonne en Droit, Myassa Djebara a travaillé au Sénat auprès du Président de la Commission des Lois, puis au sein d’Altermind, cabinet de conseil aux dirigeants en stratégie. Elle a ensuite été nommée chargée de mission pour le European Forum For Urban Security, réseau international de collectivités locales dédié à la prévention de la criminalité. Spécialisée notamment dans la lutte contre l’extrémisme violent - en particulier dans l’espace numérique, elle a mené des études de terrain et des campagnes locales de discours alternatifs dans plusieurs pays européens (Allemagne, Espagne, France notamment). Depuis 2018, elle est partenaire de Sensible, Maison de conseil en stratégie éditoriale.",
       engagements: {
         subTitle: "engagements",
         description:
@@ -81,7 +81,7 @@ export default {
       engagements: {
         subTitle: "engagements",
         description:
-          "Membre du projet <a href='onlywatch.com/' target='_blank'>Only Watch</a> depuis sa genèse - vente aux enchères caritative de montres pièces uniques au profit de la recherche contre les myopathies, qui a permis de lever plus de 70 millions d’euros en 8 éditions et de se rapprocher de manière substantielle des essais cliniques, elle accompagne l’événement pour sa communication stratégique et son organisation. Elle conseille également à titre <em>non-profit</em> plusieurs associations et projets à vocation caritative."
+          "Membre du projet <a href='onlywatch.com/' target='_blank'>Only Watch</a> depuis sa genèse - vente aux enchères caritative de montres pièces uniques au profit de la recherche contre les myopathies, qui a permis de lever plus de 70 millions d’euros en 8 éditions et de se rapprocher de manière substantielle des essais cliniques, Tess accompagne l’événement pour sa communication stratégique et son organisation. Elle conseille également à titre <em>non-profit</em> plusieurs associations et projets à vocation caritative."
       },
       socials: {
         twitter: "https://twitter.com/TessPettavino",
@@ -93,7 +93,7 @@ export default {
       img: "images/communaute/lea_tallien_de_cabarrus.jpg",
       name: "Léa Tallien de Cabarrus",
       description:
-        "Diplômée de Sciences Po Paris en International Public Management et Communication, Médias et Industries Créatives, Léa Tallien de Cabarrus a étudié les Relations Internationales à l’Université de Bath au Royaume-Uni avant de rejoindre l’Ambassade de France en Irlande en Chancellerie diplomatique. Elle a ensuite intégré la start-up Pandacraft en tant que responsable achats et logistiques, puis Orange Digital Ventures en tant qu’analyste. Avant d’intégrer Societer, Léa était à la direction de la Communication et des Affaires Publiques de General Electric France, en charge de la communication de la CEO, des réseaux sociaux, de la communication interne et des communications de crise",
+        "Diplômée de Sciences Po Paris en International Public Management et Communication, Médias et Industries Créatives, Léa Tallien de Cabarrus a étudié les Relations Internationales à l’Université de Bath au Royaume-Uni avant de rejoindre l’Ambassade de France en Irlande en Chancellerie diplomatique. Elle a ensuite intégré la start-up Pandacraft en tant que responsable achats et logistiques, puis Orange Digital Ventures en tant qu’analyste. Avant d’intégrer Societer, Léa était à la direction de la Communication et des Affaires Publiques de General Electric France, en charge de la communication de la CEO, des réseaux sociaux, de la communication interne et des communications de crise.",
       engagements: {
         subTitle: "engagements",
         description:
@@ -112,7 +112,7 @@ export default {
       {
         name: "Bertrand BADRE",
         status:
-          " — CEO de Blue like an Orange, Parrain du one Planet Lab et précédemment Directeur général de la Banque Mondiale - "
+          " — CEO de Blue like an Orange, Parrain du One Planet Lab et précédemment Directeur général de la Banque Mondiale - "
       },
       {
         name: "Véronique BOUREZ",

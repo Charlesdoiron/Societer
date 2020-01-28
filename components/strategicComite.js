@@ -54,9 +54,14 @@ const CustomWrapper = styled(Wrapper)`
 `;
 
 const Container = styled.div`
+  padding-top: 500px;
   background-color: ${props => props.theme.colors.white};
-  padding-top: 300px;
   padding-bottom: 120px;
+
+  ${props => props.theme.medias.largePlus`
+     padding-top: 300px;
+    `}
+
   ${props => props.theme.medias.mediumPlus`
       padding:50px 0 100px 0;
        background-color: ${props => props.theme.colors.black};

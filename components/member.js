@@ -13,30 +13,66 @@ const member = props => {
   const { dataMember } = props;
   const containerRef = useRef(null);
   const imageRef = useRef(null);
+  const socialsRef = useRef(null);
+  const commitmentRef = useRef(null);
+  const descriptionContent = useRef(null);
 
   useEffect(() => {
-    const changeImgHeight = () => {
+    const fixImageHeight = () => {
       const containerHeight =
         containerRef.current && containerRef.current.offsetHeight;
       const image = imageRef.current;
 
-      if (image && window.innerWidth > ScreenSizes.MEDIUMPLUS) {
+      if (
+        image &&
+        window.innerWidth > ScreenSizes.MEDIUMPLUS &&
+        image &&
+        window.innerWidth < ScreenSizes.LARGEPLUS
+      ) {
         image.style.height = containerHeight / 1.37 + "px";
+      } else {
+        if (imageRef.current !== null) {
+          image.style.height = "1000px";
+        }
       }
     };
 
-    changeImgHeight();
     if (typeof window !== undefined) {
-      window.addEventListener("resize", () => changeImgHeight(), {
-        passive: true
-      });
+      fixImageHeight();
+      window.addEventListener("resize", () => fixImageHeight());
+      return () => window.removeEventListener("resize", () => fixImageHeight());
+    }
+  });
+
+  useEffect(() => {
+    const fixSocialPosition = () => {
+      if (
+        window.innerWidth > ScreenSizes.MEDIUMPLUS &&
+        descriptionContent.current &&
+        commitmentRef.current &&
+        socialsRef.current
+      ) {
+        socialsRef.current.style.top =
+          commitmentRef.current.getBoundingClientRect().top -
+          descriptionContent.current.getBoundingClientRect().top +
+          "px";
+      } else {
+        if (descriptionContent.current !== null) {
+          socialsRef.current.style.top = "0px";
+        }
+      }
+    };
+    if (typeof window !== undefined) {
+      fixSocialPosition();
+      window.addEventListener("resize", () => fixSocialPosition());
       return () =>
-        window.removeEventListener("resize", () => changeImgHeight());
+        window.removeEventListener("resize", () => fixSocialPosition());
     }
   });
 
   const TabletImage = styled.img`
     display: none;
+
     ${props => props.theme.medias.mediumPlus`
       display:block;
       width:100%;
@@ -49,18 +85,26 @@ const member = props => {
       ? "flex-end"
       : "flex-start"};
     flex-direction: column;
+
+    ${props => props.theme.medias.largePlus`
+      margin-right: ${props.even ? "33%" : "0"};
+      `};
   `;
 
   const MemberSmallSubtitle = styled(SmallSubtitle)`
-    padding: ${props => (props.withWrapper ? "0 20%" : "0")};
+    width: ${props => (props.insideDescription ? "unset" : "100%")};
+    padding: ${props => (props.withWrapper ? "0 0 0 20%" : "0")};
     display: flex;
     justify-content: flex-start;
     color: ${props.even
       ? props => props.theme.colors.black
       : props => props.theme.colors.white};
     margin: ${props => (props.insideDescription ? " 50px 0 25px 0" : 0)};
+    margin-left: ${props.even && (props => props.withWrapper) ? "45%" : "0"};
 
-    margin-left: ${props.even && (props => props.withWrapper) ? "22%" : "0"};
+    ${props => props.theme.medias.large`
+
+    `};
 
     ${props => props.theme.medias.mediumPlus`
       padding: 0 30px;
@@ -70,16 +114,27 @@ const member = props => {
   `;
 
   const Container = styled.div`
-    padding-top: 125px;
+    padding: 300px 0;
     position: relative;
-    background-color: ${props.even
-      ? props => props.theme.colors.white
-      : props => props.theme.colors.black};
+    background-color: ${
+      props.even
+        ? props => props.theme.colors.white
+        : props => props.theme.colors.black
+    };
     flex-direction: ${props.even ? "row" : "row-reverse"};
+
+    ${props => props.theme.medias.largePlus`
+    padding: 220px 0;
+    `}
+    
+    ${props => props.theme.medias.large`
+      padding: 120px 0 0 0 ;
+    `}
 
     ${props => props.theme.medias.mediumPlus`
       padding-top: 45px;
     `}
+
   `;
 
   const Line = styled.div`
@@ -113,20 +168,21 @@ const member = props => {
 
   const MemberFatTitle = styled(FatTitle)`
     width: 100%;
-    padding: 0 20%;
+    padding: 0 0 0 20%;
     margin-top: 10px;
     justify-content: flex-start;
-    margin-left: ${props.even && (props => props.withWrapper) ? "22%" : "0"};
-    white-space: normal;
+    margin-left: ${props.even && (props => props.withWrapper) ? "45%" : "0"};
+
     display: flex;
     color: ${props.even
       ? props => props.theme.colors.black
       : props => props.theme.colors.white};
 
     ${props => props.theme.medias.mediumPlus`
+    
      white-space:normal;
-    padding:0 30px;
-    justify-content: flex-start;
+      padding:0 30px;
+      justify-content: flex-start;
       margin-left:0;
       };
     `}
@@ -156,9 +212,8 @@ const member = props => {
   `;
 
   const Description = styled.div`
-    padding: ${props.even ? "0 0 60px 10%" : "0 10% 60px 0"};
+    padding: ${props.even ? "0 0 60px 13%" : "0 13% 60px 0"};
     width: 100%;
-
     a {
       color: inherit;
       text-decoration: none;
@@ -173,9 +228,10 @@ const member = props => {
       padding:0 0 60px 0;
     `}
   `;
+
   const Socials = styled.div`
     width: 40%;
-    top: 30vh;
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -220,7 +276,7 @@ const member = props => {
 
   const ImgContainer = styled.div`
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 100%;
     margin-bottom: -330px;
 
@@ -232,7 +288,7 @@ const member = props => {
   const Img = styled.div`
     background-image: url("${dataMember.img}");
     background-size: cover;
-    background-position: center;
+
     background-repeat:no-repeat;
     width:100%;
     height:120%;
@@ -241,11 +297,20 @@ const member = props => {
     top:0;
     left: 0;
     right: 0;
+    background-position: top;
+
+
+    ${props => props.theme.medias.largePlus`
+     height:1000px
+    `}
+
+
     ${props => props.theme.medias.mediumPlus`
       position:relative;
       height:100%;
     `}
   `;
+
   const Flex = styled.div`
     display: flex;
     justify-content: space-around;
@@ -264,16 +329,16 @@ const member = props => {
   `;
   return (
     <Container ref={containerRef}>
-      <Titles>
+      <Titles even={props.even}>
         <MemberSmallSubtitle withWrapper>
           {dataMember.subTitle}
         </MemberSmallSubtitle>
-        <MemberFatTitle>{dataMember.name}</MemberFatTitle>
+        <MemberFatTitle even={props.even}>{dataMember.name}</MemberFatTitle>
       </Titles>
 
       <Line />
 
-      <Content>
+      <Content ref={descriptionContent}>
         {/* Hide on mobile  */}
         <ImgContainer>
           <Img ref={imageRef} alt={dataMember.name} />
@@ -282,15 +347,23 @@ const member = props => {
         <ReverseColumn>
           <TabletImage src={dataMember.img} alt="" />
 
-          <Socials>
+          <Socials ref={socialsRef}>
             {dataMember.socials.linkedin && (
-              <a href={dataMember.socials.linkedin} target="_blank">
+              <a
+                href={dataMember.socials.linkedin}
+                target="_blank"
+                rel="noopener"
+              >
                 <Social>Lk</Social>
               </a>
             )}
 
             {dataMember.socials.twitter && (
-              <a href={dataMember.socials.twitter} target="_blank">
+              <a
+                href={dataMember.socials.twitter}
+                target="_blank"
+                rel="noopener"
+              >
                 <Social>Tw</Social>
               </a>
             )}
@@ -301,7 +374,7 @@ const member = props => {
           <MemberLabor
             dangerouslySetInnerHTML={{ __html: dataMember.description }}
           />
-          <Flex>
+          <Flex ref={commitmentRef}>
             <MemberSmallSubtitle
               insideDescription
               style={props.even ? { marginLeft: "0" } : {}}

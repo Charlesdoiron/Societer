@@ -28,6 +28,7 @@ function HomePage() {
       />
 
       <BackgroundImage
+        noImageOnMobile
         image="images/home/bkg_prehome.jpg"
         alt="Societer Team"
       />
@@ -54,7 +55,7 @@ const Titles = styled.div`
   width: 100%;
   z-index: 9;
   position: absolute;
-  top: 50%;
+  top: 58%;
   left: 0;
   right: 0;
   padding-left: 10%;

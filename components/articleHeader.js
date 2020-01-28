@@ -23,6 +23,7 @@ const ArticleHeader = props => {
   `;
 
   const Author = styled.div`
+    margin-left: 20px;
     ${props => props.theme.medias.medium`
     display:none;
    `}

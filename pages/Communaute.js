@@ -24,10 +24,9 @@ const Communaute = () => {
   }, []);
 
   const FirstPart = styled.div`
-    position: relative;
-    height: 100vh;
-    top: -${menuHeight}px;
-    margin-bottom: -${menuHeight}px;
+    img {
+      width: 100%;
+    }
   `;
   return (
     <>
@@ -36,11 +35,11 @@ const Communaute = () => {
         description={communaute.seo.description}
         canonical={communaute.seo.canonical}
       />
-      <ShowOnMediumPlus>
+      <HideOnMediumPlus>
         <FirstPart>
-          <BackgroundImage image="images/communaute/societer_bureau.jpg" />
+          <img src="images/home/bkg_prehome.jpg" alt="Societer Communaute" />
         </FirstPart>
-      </ShowOnMediumPlus>
+      </HideOnMediumPlus>
 
       {communaute.members.map((member, i) => (
         <Member dataMember={member} key={i} even={i % 2 == !0} />
@@ -52,10 +51,11 @@ const Communaute = () => {
     </>
   );
 };
-const ShowOnMediumPlus = styled.div`
-  display: block;
+
+const HideOnMediumPlus = styled.div`
+  display: none;
   ${props => props.theme.medias.mediumPlus`
-  display:none;
+  display:block;
 `}
 `;
 export default Communaute;

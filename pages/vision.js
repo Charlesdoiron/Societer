@@ -9,7 +9,8 @@ import {
   ArticleTitle,
   Chapeau,
   Labor,
-  ArticleInterTitle
+  ArticleInterTitle,
+  Navigation
 } from "../styled/typos";
 import ArticleHeader from "../components/articleHeader";
 import PopUp from "../components/popUp";
@@ -83,10 +84,9 @@ const Vision = () => {
             <Part>
               Face à cette nouvelle donne, Societer propose de repenser le
               leadership pour un impact durable dans la société et le débat
-              public à l’échelle mondiale. À la notion descendante de leader,
-              nous préférons celle de
-              <em>societer</em>&nbsp;: Le dirigeant nouvelle génération est un
-              societer, un sustainable leader résolument engagé dans la société.
+              public à l’échelle mondiale. Le dirigeant nouvelle génération est
+              un <em>societer</em>, un sustainable leader résolument engagé dans
+              la société.
             </Part>
             <Part>
               Nous avons la conviction que cette incarnation sincère et
@@ -103,7 +103,7 @@ const Vision = () => {
             </Part>
             <Part>
               C’est pourquoi nous souhaitons favoriser l’émergence de coalitions
-              <em>ad hoc</em> entre ces différents univers pour répondre aux
+              <em> ad hoc</em> entre ces différents univers pour répondre aux
               défis de demain, résumés par les{" "}
               <a onClick={() => handleClick("odd")}>
                 17 Objectifs de Développement Durable
@@ -112,13 +112,13 @@ const Vision = () => {
               d’engagement pour un <em>sustainable new deal</em>.
             </Part>
             <Part>
-              Societer Societer est aux côtés des dirigeants pour les aider à
-              porter un combat dans le débat public mondial, en ligne avec le
-              seul agenda de référence pour l’engagement sociétal&nbsp;:{" "}
+              Societer est aux côtés des dirigeants pour les aider à porter un
+              combat dans le débat public mondial, en ligne avec le seul agenda
+              de référence pour l’engagement sociétal&nbsp;:{" "}
               <a onClick={e => handleClick("agenda")}>l’Agenda 2030 </a>
               des Nations Unies.
             </Part>
-            IN SOCIETY WE TRUST
+            IN SOCIETY WE TRUST.
           </ManifestLabor>
         </FirstPart>
       </Wrapper>
@@ -139,7 +139,33 @@ const Vision = () => {
                 __html: vision.secondPart.sections[0].title
               }}
             ></CustomChapeau>
-            <CustomLabor>{vision.secondPart.sections[0].content}</CustomLabor>
+
+            <Author>
+              <Navigation isBlack noLink>
+                <a
+                  href="https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  {" "}
+                  Co-signée par{" "}
+                  {vision.secondPart.authors.map((author, i) => {
+                    return (
+                      <span key={i}>
+                        {" "}
+                        {author.name}
+                        {i < vision.secondPart.authors.length - 1 ? ", " : "."}
+                      </span>
+                    );
+                  })}
+                </a>
+              </Navigation>
+            </Author>
+
+            <CustomLabor
+              dangerouslySetInnerHTML={{
+                __html: vision.secondPart.sections[0].content
+              }}
+            />
           </ArticleSection>
 
           {vision.secondPart.sections.map((section, i) => {
@@ -147,7 +173,11 @@ const Vision = () => {
               i > 0 && (
                 <ArticleSection key={i}>
                   <ArticleInterTitle>{section.title}</ArticleInterTitle>
-                  <CustomLabor>{section.content}</CustomLabor>
+                  <CustomLabor
+                    dangerouslySetInnerHTML={{
+                      __html: section.content
+                    }}
+                  />
                 </ArticleSection>
               )
             );
@@ -178,6 +208,13 @@ const CustomLabor = styled(Labor)`
     padding-top:20px;
     padding-bottom:45px;
   `}
+`;
+
+const Author = styled.div`
+  display: none;
+  ${props => props.theme.medias.medium`
+    display:block;
+   `}
 `;
 const CustomChapeau = styled(Chapeau)`
   width: 35%;

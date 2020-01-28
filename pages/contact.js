@@ -46,7 +46,7 @@ function HomePage() {
           <ContactTitle>{contact.title}</ContactTitle>
           <Button>
             <ContactBtn>
-              <a target="_blank" href={contact.url} target="_blank">
+              <a target="_blank" href={contact.url} rel="noopener">
                 {contact.cta}
               </a>
             </ContactBtn>
@@ -74,7 +74,7 @@ function HomePage() {
               <Flex>
                 {contact.footer.socials.links.map((link, i) => {
                   return (
-                    <a target="_blank" href={link.url} key={i}>
+                    <a target="_blank" href={link.url} key={i} rel="noopener">
                       <LinkItem>{link.title}</LinkItem>
                     </a>
                   );
@@ -86,7 +86,7 @@ function HomePage() {
               <Flex>
                 {contact.footer.contact.links.map((link, i) => {
                   return (
-                    <a target="_blank" href={link.url} key={i}>
+                    <a target="_blank" href={link.url} key={i} rel="noopener">
                       <LinkItem>{link.title}</LinkItem>
                     </a>
                   );
@@ -99,7 +99,7 @@ function HomePage() {
                 <a
                   target="_blank"
                   href={contact.footer.press.url}
-                  target="_blank"
+                  rel="noopener"
                 >
                   <LinkItem style={{ whiteSpace: "nowrap" }}>
                     {contact.footer.press.cta}
@@ -110,7 +110,7 @@ function HomePage() {
             <Sub>
               <LinkTitle>{contact.footer.others.legals.title}</LinkTitle>
               <Flex>
-                <a target="_blank" href="#">
+                <a target="_blank" href="#" rel="noopener">
                   <LinkItem style={{ whiteSpace: "nowrap" }}>
                     {contact.footer.others.legals.links.title}
                   </LinkItem>
@@ -120,7 +120,11 @@ function HomePage() {
             <Sub>
               <LinkTitle>{contact.footer.design.title}</LinkTitle>
               <Flex>
-                <a target="_blank" href={contact.footer.design.links.url}>
+                <a
+                  target="_blank"
+                  href={contact.footer.design.links.url}
+                  rel="noopener"
+                >
                   <LinkItem>{contact.footer.design.links.title}</LinkItem>
                 </a>
               </Flex>
@@ -128,7 +132,11 @@ function HomePage() {
             <Sub>
               <LinkTitle>{contact.footer.photography.title}</LinkTitle>
               <Flex>
-                <a target="_blank" href={contact.footer.photography.links.url}>
+                <a
+                  target="_blank"
+                  href={contact.footer.photography.links.url}
+                  rel="noopener"
+                >
                   <LinkItem>{contact.footer.photography.links.title}</LinkItem>
                 </a>
               </Flex>

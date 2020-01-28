@@ -5,6 +5,7 @@ export const ScreenSizes = {
   MEDIUM: 768,
   MEDIUMPLUS: 850,
   LARGE: 1224,
+  LARGEPLUS: 1700,
   XLARGE: 1824
 };
 const sizes = {
@@ -12,6 +13,7 @@ const sizes = {
   medium: ScreenSizes.MEDIUM,
   mediumPlus: ScreenSizes.MEDIUMPLUS,
   large: ScreenSizes.LARGE,
+  largePlus: ScreenSizes.LARGEPLUS,
   xlarge: ScreenSizes.XLARGE
 };
 

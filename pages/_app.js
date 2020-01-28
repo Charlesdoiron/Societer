@@ -20,23 +20,26 @@ export default class MyApp extends App {
               openGraph={{
                 type: "website",
                 url: "https://www.societer.co",
-                title: "Open Graph Title",
-                description: "Open Graph Description",
+                title: "Societer",
+                description: "Maison de conseil en sustainable leadership",
                 images: [
                   {
                     url: "og-image-01.jpg",
                     width: 800,
                     height: 600,
-                    alt: "Og Image Alt"
+                    alt:
+                      "Societer | Maison de conseil en sustainable leadership"
                   },
                   {
                     url: "og-image-02.jpg",
                     width: 900,
                     height: 800,
-                    alt: "Og Image Alt Second"
+                    alt:
+                      "Societer | Maison de conseil en sustainable leadership"
                   }
                 ],
-                site_name: "Societer"
+                site_name:
+                  "Societer | Maison de conseil en sustainable leadership"
               }}
               twitter={{
                 handle: "@handle",
