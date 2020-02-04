@@ -1,17 +1,27 @@
 import Document, { Html, Main, NextScript, Head } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import GlobalStyles from "../config/theme/globalStyles";
+
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
+    const isProduction = process.env.NODE_ENV === "production";
     const page = renderPage(App => props =>
       sheet.collectStyles(<App {...props} />)
     );
     const styleTags = sheet.getStyleElement();
-    return { ...page, styleTags };
+    return { ...page, styleTags, isProduction };
   }
-
+  setGoogleTags() {
+    return {
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-157382765-1');`
+    };
+  }
   render() {
+    const { isProduction } = this.props;
     return (
       <Html lang="en">
         <Head>
@@ -38,6 +48,16 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#492efa" />
 
           {this.props.styleTags}
+          {isProduction && (
+            <React.Fragment>
+              <script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=UA-157382765-1"
+              />
+
+              <script dangerouslySetInnerHTML={this.setGoogleTags()} />
+            </React.Fragment>
+          )}
         </Head>
         <body>
           <Main />
