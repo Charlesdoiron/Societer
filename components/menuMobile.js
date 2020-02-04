@@ -85,9 +85,9 @@ const MenuMobile = props => {
     <>
       <Container ref={menuContainer}>
         <Flex>
-          <Logo src="pictos/logo_mobile.svg" />
+          <Logo src="/pictos/logo_mobile.svg" />
           <Close
-            src="pictos/close_mobile.svg"
+            src="/pictos/close_mobile.svg"
             onClick={() => closeMenu("close")}
           />
         </Flex>
@@ -122,7 +122,11 @@ const MenuMobile = props => {
           </Socials>
         </Absolute>
       </Container>
-      <Shape ref={shapeRef} onClick={() => closeMenu("close")} />
+      <Shape
+        ref={shapeRef}
+        onClick={() => closeMenu("close")}
+        menuHeight={props.menuHeight}
+      />
     </>
   );
 };
@@ -136,7 +140,7 @@ const Shape = styled.div`
   position: fixed;
   left: 0;
   right: 0;
-  top: 0;
+  top: ${props => props.menuHeight}px;
   bottom: 0;
   z-index: 0;
   opacity: 0.9;

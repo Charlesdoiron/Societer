@@ -58,7 +58,7 @@ function Mission() {
 export default Mission;
 
 const FirstPart = styled.div`
-  padding: 200px 0 120px 0;
+  padding: 280px 0 140px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

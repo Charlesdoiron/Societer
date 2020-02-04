@@ -32,8 +32,7 @@ export default {
     title:
       "Dirigeants d'entreprise, engagez-vous pour sauver le monde… et votre business",
     media: {
-      logo: "images/vision/les-echos.svg",
-      width: 18
+      logo: "images/vision/les-echos.svg"
     },
     authors: [
       {

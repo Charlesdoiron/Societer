@@ -1,1 +1,0 @@
-{"ast":null,"code":"var __jsx = React.createElement;\nimport React from \"react\";\nimport Menu from \"./menu\";\nimport Socials from \"./socials\";\n\nvar Layout = function Layout(props) {\n  return __jsx(React.Fragment, null, __jsx(Menu, null), __jsx(Socials, null), props.children);\n};\n\nexport default Layout;","map":null,"metadata":{},"sourceType":"module"}

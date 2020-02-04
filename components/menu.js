@@ -18,8 +18,16 @@ const Menu = props => {
   const [isOpen, setOpen] = useState(false);
 
   const currentPage = router.pathname;
-  const currentTitle = router.query.title;
+  let currentTitle;
 
+  if (currentPage !== "/article/[id]") {
+    currentTitle = router.query.title;
+  } else {
+    currentTitle = "article";
+  }
+
+  console.log(currentPage);
+  console.log(currentTitle);
   useEffect(() => {
     const getMenuHeight = () => {
       if (menuRef.current) {
@@ -40,11 +48,15 @@ const Menu = props => {
     justify-content: space-between;
     width: 100%;
     padding: 30px 0;
-    padding-left: 5%;
+    padding-left: 8%;
     z-index: 10;
     background-color: transparent;
     transition: all 200ms;
+    margin-bottom: -${menuHeight}px;
 
+    background-color: ${currentPage === "/article/[id]"
+      ? "white"
+      : "transparent"};
     &:hover {
       .animation-menu__bkg {
         transform: translateY(0px);
@@ -77,6 +89,7 @@ const Menu = props => {
     left: 0;
     right: 0;
     z-index: 1;
+    mix-blend-mode: difference;
   `;
 
   return (
@@ -85,16 +98,16 @@ const Menu = props => {
       <MobileNavigation>
         <Link href="/">
           {currentPage === "/" ? (
-            <Logo src="pictos/logo.svg" alt="Societer Logo" />
+            <Logo src="/pictos/logo.svg" alt="Societer Logo" />
           ) : (
-            <Flex>
-              <MinimalLogo src="pictos/minimal_logo.svg" alt="Societer Logo" />
+            <Flex style={{ height: "35px" }}>
+              <MinimalLogo src="/pictos/minimal_logo.svg" alt="Societer Logo" />
               <CurrentPage>{currentTitle}</CurrentPage>
             </Flex>
           )}
         </Link>
         <Burger
-          src="pictos/burger.svg"
+          src="/pictos/burger.svg"
           onClick={() => setOpen(!isOpen)}
           alt="burger menu"
         />
@@ -103,6 +116,7 @@ const Menu = props => {
         isOpen={isOpen}
         onClick={() => setOpen(!isOpen)}
         content={menu}
+        menuHeight={menuHeight}
       />
 
       <Items>
@@ -151,6 +165,8 @@ const MobileNavigation = styled.div`
   align-items: center;
   transition: all 500ms;
   z-index: 10;
+  mix-blend-mode: difference;
+
   ${props =>
     props.theme.medias.medium`
     transition: all 500ms;s
@@ -158,13 +174,13 @@ const MobileNavigation = styled.div`
 `;
 
 const CurrentPage = styled(Navigation)`
-  top: 10px;
+  top: 8px;
   position: relative;
   font-family: "garnett_medium";
   white-space: nowrap;
 
   ${props => props.theme.medias.medium`
-    top:7.5px;
+    top:14px;
    `}
 `;
 const CustomNavigation = styled(Navigation)`
@@ -180,8 +196,9 @@ const Flex = styled.div`
 `;
 
 const MinimalLogo = styled.img`
-  height: 40px;
+  height: 27px;
   width: auto;
+  top: 4px;
 
   position: relative;
   cursor: pointer;
@@ -189,6 +206,7 @@ const MinimalLogo = styled.img`
   ${props => props.theme.medias.medium`
     transition: all 500ms;
     height: 30px;
+    top:6px;
    `}
 `;
 
@@ -198,6 +216,7 @@ const Items = styled.div`
   align-items: center;
   justify-content: flex-end;
   z-index: 10;
+  mix-blend-mode: difference;
   ${props => props.theme.medias.medium`
     display: none;
    `}

@@ -12,6 +12,10 @@ export default [
     path: "/communaute"
   },
   {
+    item: "Débat public",
+    path: "/debat-public"
+  },
+  {
     item: "Contact",
     path: "/contact"
   },

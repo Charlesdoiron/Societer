@@ -12,7 +12,7 @@ import {
   ArticleInterTitle,
   Navigation
 } from "../styled/typos";
-import ArticleHeader from "../components/articleHeader";
+import VisionArticleHeader from "../components/visionArticleHeader";
 import PopUp from "../components/popUp";
 
 const Vision = () => {
@@ -114,9 +114,9 @@ const Vision = () => {
         <SecondPart>
           <MediumSubtitle isBlack>{vision.secondPart.subtitle}</MediumSubtitle>
           <ArticleTitle>{vision.secondPart.title}</ArticleTitle>
-          <ArticleHeader
+          <VisionArticleHeader
             url="https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046"
-            media={vision.secondPart.media}
+            media={vision.secondPart.media.logo}
             authors={vision.secondPart.authors}
             published={vision.secondPart.published}
           />
@@ -232,7 +232,7 @@ const Fixed = styled.div`
     transform: rotate(-90deg);
     position: absolute;
     margin-left: 36%;
-    top: 50px;
+    top: 35px;
     left: 0;
     right: 0;
 
@@ -246,7 +246,7 @@ const Fixed = styled.div`
   }
 `;
 const FirstPart = styled.div`
-  padding-top: 150px;
+  padding-top: 230px;
   padding-bottom: 180px;
   position: relative;
   display: flex;

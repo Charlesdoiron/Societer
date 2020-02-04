@@ -286,3 +286,34 @@ export const LinkItem = styled.p`
     border-bottom: 1px solid ${props => props.theme.colors.white};
   }
 `;
+
+export const Filter = styled.p`
+  font-family: "garnett_regular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+  color: ${props => props.theme.colors.black};
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  &.isActive {
+    border-bottom: 1px solid ${props => props.theme.colors.blue};
+    color: ${props => props.theme.colors.blue};
+  }
+`;
+
+export const ArtcileTitleHeader = styled.p`
+  margin: 0;
+  font-family: "garnett_medium";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: ${props => props.theme.colors.black};
+
+  ${props => props.theme.medias.medium`
+    font-size: 14px;
+    line-height: 22px;
+   `}
+`;
