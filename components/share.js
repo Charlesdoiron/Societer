@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useSpring, animated } from "react-spring";
+import { useTrail, useSpring, animated } from "react-spring";
 import { ArtcileTitleHeader, SmallNavigation } from "../styled/typos";
 import { Wrapper } from "../styled/space";
 import useMeasure from "../utils/useMeasure";
@@ -9,23 +9,45 @@ let socials = [
   { name: "Tw", url: "www.facebook.fr" },
   { name: "Lk", url: "www.facebook.fr" }
 ];
-const Share = props => {
-  const [open, toggle] = useState(false);
-  const [bind, { width }] = useMeasure();
 
-  const animation = useSpring({ width: open ? width : 0 });
+const Share = props => {
+  const config = { mass: 5, tension: 1000, friction: 500, duration: 600 };
+  const trail = useTrail(socials.length, {
+    config,
+    opacity: props.isFinished ? 1 : 0,
+    x: props.isFinished ? -15 : 100,
+
+    from: { opacity: 0, x: 100, height: 0 }
+  });
+
+  const [translateShare, set, stop] = useSpring(() => ({
+    transform: "translateY(110px)"
+  }));
+  set({
+    transform: props.isFinished ? "translateY(0px)" : "translateY(110px)"
+  });
+  stop();
 
   return (
-    <div {...bind}>
-      <Container>
-        <CustomWrapper>
-          <Title>Partager cet article sur les réseaux sociaux</Title>
-          {socials.map((social, i) => (
-            <Social key={i}>{social.name}</Social>
-          ))}
-        </CustomWrapper>
-      </Container>
-    </div>
+    <Container style={translateShare}>
+      <CustomWrapper>
+        <Title>Partager cet article sur les réseaux sociaux</Title>
+
+        {trail.map(({ x, height, ...rest }, index) => (
+          <animated.div
+            key={index}
+            style={{
+              ...rest,
+              transform: x.interpolate(x => `translate3d(0,${x}px,0)`)
+            }}
+          >
+            <animated.div style={{ height }}>
+              <Social>{socials[index].name}</Social>
+            </animated.div>
+          </animated.div>
+        ))}
+      </CustomWrapper>
+    </Container>
   );
 };
 
@@ -79,4 +101,11 @@ const Container = styled(animated.div)`
   background-color: ${props => props.theme.colors.blue};
   display: flex;
   align-items: center;
+  height: 100%;
 `;
+
+/* {socials.map((social, i) => (
+          <Social key={i} style={translateShare}>
+            {social.name}
+          </Social>
+        ))} */

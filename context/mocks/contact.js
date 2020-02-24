@@ -1,9 +1,8 @@
 export default {
-  seo: {
-    title: "Societer | Contact",
-    description: "Maison de conseil en sustainable leadership",
-    canonical: "https://www.societer.co/contact"
-  },
+  seo_title: "Societer | Contact",
+  seo_description: "Maison de conseil en sustainable leadership",
+  seo_canonical: "https://www.societer.co/contact",
+
   title: "138 Haussmann 75008 Paris",
   cta: "nous localiser",
   url:

@@ -1,38 +1,25 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
-import { useStateValue } from "../context/state";
-import MenuMobile from "./menuMobile";
-import { fetchPage } from "../api/call";
+
+import MenuMobile from "../components/menuMobile";
+
 import { useRouter } from "next/router";
 import { useMocks } from "../context/mock-context";
 
 import { Navigation } from "../styled/typos";
 
 const Menu = props => {
-  const [{ locale }, dispatch] = useStateValue();
-  let { menu } = useMocks();
-
+  const { menu } = useMocks();
   const router = useRouter();
   const menuRef = useRef(null);
   const [menuHeight, setMenuHeight] = useState(false);
-  const [isOpen, setOpen] = useState(false);
-  const currentQuerryLang = router.query.lang;
-  const currentPage = router.pathname;
-  const { asPath } = router;
-  const removeQuery = url => {
-    return url
-      .replace("fr/", "")
-      .replace("en/", "")
-      .replace("[lang]/", "");
-  };
 
-  let currentTitle;
-  if (currentPage !== "/article/[id]") {
-    currentTitle = router.query.title;
-  } else {
-    currentTitle = "article";
-  }
+  const [isOpen, setOpen] = useState(false);
+
+  const currentPage = router.pathname;
+  const currentTitle = router.query.title;
+  const currentQuerryLang = router.query.lang;
 
   useEffect(() => {
     const getMenuHeight = () => {
@@ -47,12 +34,6 @@ const Menu = props => {
     }
   });
 
-  const handleLocale = value => {
-    router.replace(`/${value}${removeQuery(asPath)}`);
-  };
-
-  const currentLanguage = router.query.lang;
-
   const MenuDesktop = styled.div`
     display: flex;
     position: sticky;
@@ -60,15 +41,11 @@ const Menu = props => {
     justify-content: space-between;
     width: 100%;
     padding: 30px 0;
-    padding-left: 8%;
+    padding-left: 5%;
     z-index: 10;
     background-color: transparent;
     transition: all 200ms;
-    margin-bottom: -${menuHeight}px;
 
-    background-color: ${currentPage === "/article/[id]"
-      ? "white"
-      : "transparent"};
     &:hover {
       .animation-menu__bkg {
         transform: translateY(0px);
@@ -83,6 +60,8 @@ const Menu = props => {
         currentPage !== "/" ? props => props.theme.colors.black : "unset"
       };
     padding: 25px 30px ;
+    
+    
 
   `}
   `;
@@ -99,19 +78,17 @@ const Menu = props => {
     left: 0;
     right: 0;
     z-index: 1;
-    mix-blend-mode: difference;
   `;
 
-  console.log(removeQuery(currentPage));
   return (
     <MenuDesktop className="menu" ref={menuRef}>
       <AnimationMenu className="animation-menu__bkg"></AnimationMenu>
       <MobileNavigation>
         <Link href={`/[lang]/`} as={`/${currentQuerryLang}/`}>
-          {currentPage === "/[lang]" ? (
+          {currentPage === "/" ? (
             <Logo src="/pictos/logo.svg" alt="Societer Logo" />
           ) : (
-            <Flex style={{ height: "35px" }}>
+            <Flex>
               <MinimalLogo src="/pictos/minimal_logo.svg" alt="Societer Logo" />
               <CurrentPage>{currentTitle}</CurrentPage>
             </Flex>
@@ -127,33 +104,23 @@ const Menu = props => {
         isOpen={isOpen}
         onClick={() => setOpen(!isOpen)}
         content={menu}
-        menuHeight={menuHeight}
       />
 
       <Items>
-        {currentLanguage &&
-          menu.items[currentLanguage].map((item, i) => (
+        {currentQuerryLang &&
+          menu.items[currentQuerryLang].map((item, i) => (
             <Link
               key={i}
-              href={`/[lang]${item.path}`}
-              as={`/${currentQuerryLang}${item.path}`}
+              href={`/[lang]/${item.path}`}
+              as={`/${currentQuerryLang}/${item.path}`}
             >
               <CustomNavigation
-                className={removeQuery(currentPage) === item.path && "isActive"}
+                className={currentPage === item.path && "isActive"}
               >
                 {item.label}
               </CustomNavigation>
             </Link>
           ))}
-        {menu.locales.map((item, i) => (
-          <CustomNavigation
-            key={i}
-            className={router.query.lang === item.value && "isActive"}
-            onClick={() => handleLocale(item.value)}
-          >
-            {item.label}
-          </CustomNavigation>
-        ))}
       </Items>
     </MenuDesktop>
   );
@@ -186,8 +153,6 @@ const MobileNavigation = styled.div`
   align-items: center;
   transition: all 500ms;
   z-index: 10;
-  mix-blend-mode: difference;
-
   ${props =>
     props.theme.medias.medium`
     transition: all 500ms;s
@@ -195,13 +160,13 @@ const MobileNavigation = styled.div`
 `;
 
 const CurrentPage = styled(Navigation)`
-  top: 8px;
+  top: 10px;
   position: relative;
   font-family: "garnett_medium";
   white-space: nowrap;
 
   ${props => props.theme.medias.medium`
-    top:14px;
+    top:7.5px;
    `}
 `;
 const CustomNavigation = styled(Navigation)`
@@ -217,9 +182,8 @@ const Flex = styled.div`
 `;
 
 const MinimalLogo = styled.img`
-  height: 27px;
+  height: 40px;
   width: auto;
-  top: 4px;
 
   position: relative;
   cursor: pointer;
@@ -227,7 +191,6 @@ const MinimalLogo = styled.img`
   ${props => props.theme.medias.medium`
     transition: all 500ms;
     height: 30px;
-    top:6px;
    `}
 `;
 
@@ -237,7 +200,6 @@ const Items = styled.div`
   align-items: center;
   justify-content: flex-end;
   z-index: 10;
-  mix-blend-mode: difference;
   ${props => props.theme.medias.medium`
     display: none;
    `}

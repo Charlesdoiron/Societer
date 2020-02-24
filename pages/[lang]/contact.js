@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
-import { ContactTitle, ContactBtn, LinkTitle, LinkItem } from "../styled/typos";
-import { Wrapper } from "../styled/space";
-import BackgroundImage from "../components/backgroundImage";
-import { useMocks } from "../context/mock-context";
+import {
+  ContactTitle,
+  ContactBtn,
+  LinkTitle,
+  LinkItem
+} from "../../styled/typos";
+import { Wrapper } from "../../styled/space";
+import BackgroundImage from "../../components/backgroundImage";
+import { useMocks } from "../../context/mock-context";
 
-import { getMenuHeight } from "../utils/menuHeight";
-import { getWindowWidth } from "../utils/windowWidth";
+import { getMenuHeight } from "../../utils/menuHeight";
+import { getWindowWidth } from "../../utils/windowWidth";
 
 const client = require("contentful").createClient({
   space: "86i03dw6wwwc",
@@ -32,9 +37,9 @@ function HomePage() {
   return (
     <Container>
       <NextSeo
-        title={contact.seo.title}
-        description={contact.seo.description}
-        canonical={contact.seo.canonical}
+        title={contact.seo_title}
+        description={contact.seo_description}
+        canonical={contact.seo_canonical}
       />
       <Image
         alt="Societer Contact"

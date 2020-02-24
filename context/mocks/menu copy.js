@@ -3,45 +3,45 @@ export default {
     fr: [
       {
         label: "Vision",
-        path: "/vision"
+        path: "vision"
       },
       {
         label: "Mission",
-        path: "/mission"
+        path: "mission"
       },
       {
         label: "Communauté",
-        path: "/community"
+        path: "community"
       },
       {
         label: "Débat public",
-        path: "/public-debat"
+        path: "public-debat"
       },
       {
         label: "Contact",
-        path: "/contact"
+        path: "contact"
       }
     ],
     en: [
       {
         label: "Vision",
-        path: "/vision"
+        path: "vision"
       },
       {
         label: "Mission",
-        path: "/mission"
+        path: "mission"
       },
       {
         label: "Community",
-        path: "/community"
+        path: "community"
       },
       {
         label: "Public Debat",
-        path: "/public-debat"
+        path: "public-debat"
       },
       {
         label: "Contact",
-        path: "/contact"
+        path: "contact"
       }
     ]
   },

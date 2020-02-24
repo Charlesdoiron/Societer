@@ -9,6 +9,7 @@ import debat_public from "./debat_public";
 import categories from "./categories";
 import articles from "./articles";
 import article from "./article";
+import articleHeader from "./articleHeader";
 
 export default {
   menu,
@@ -21,5 +22,6 @@ export default {
   debat_public,
   categories,
   articles,
-  article
+  article,
+  articleHeader
 };

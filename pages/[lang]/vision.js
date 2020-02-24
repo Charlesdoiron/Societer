@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
-import { useMocks } from "../context/mock-context";
-import { Wrapper } from "../styled/space";
+import { useMocks } from "../../context/mock-context";
+import { Wrapper } from "../../styled/space";
 import { NextSeo } from "next-seo";
 import {
   ManifestLabor,
@@ -11,9 +11,9 @@ import {
   Labor,
   ArticleInterTitle,
   Navigation
-} from "../styled/typos";
-import VisionArticleHeader from "../components/visionArticleHeader";
-import PopUp from "../components/popUp";
+} from "../../styled/typos";
+import VisionArticleHeader from "../../components/visionArticleHeader";
+import PopUp from "../../components/popUp";
 
 const Vision = () => {
   const { vision } = useMocks();
@@ -40,9 +40,9 @@ const Vision = () => {
         handleClick={() => setPopOpen(false)}
       />
       <NextSeo
-        title={vision.seo.title}
-        description={vision.seo.description}
-        canonical={vision.seo.canonical}
+        title={vision.seo_title}
+        description={vision.seo_description}
+        canonical={vision.seo_canonical}
       />
       <Wrapper>
         <FirstPart>

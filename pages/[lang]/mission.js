@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
-import { Chapeau, Labor, Subtitle, FatTitle } from "../styled/typos";
-import { Wrapper } from "../styled/space";
-import Accordion from "../components/accordion";
+import { Chapeau, Labor, Subtitle, FatTitle } from "../../styled/typos";
+import { Wrapper } from "../../styled/space";
+import Accordion from "../../components/accordion";
 
-import { useMocks } from "../context/mock-context";
+import { useMocks } from "../../context/mock-context";
 
 const client = require("contentful").createClient({
   space: "86i03dw6wwwc",
@@ -24,9 +24,9 @@ function Mission() {
   return (
     <>
       <NextSeo
-        title={mission.seo.title}
-        description={mission.seo.description}
-        canonical={mission.seo.canonical}
+        title={mission.seo_title}
+        description={mission.seo_description}
+        canonical={mission.seo_canonical}
       />
       <Wrapper>
         <FirstPart>
@@ -42,7 +42,7 @@ function Mission() {
           />
         </Wrapper>
         <Img
-          src="images/mission/mission_img.jpg"
+          src="/images/mission/mission_img.jpg"
           alt="Societer intervient sur mesure"
         />
         <Accordion

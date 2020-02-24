@@ -9,11 +9,18 @@ const withCSS = require("@zeit/next-css");
 const withOffline = require("next-offline");
 const withManifest = require("next-manifest");
 
-module.exports = withPlugins([
-  withSourceMaps(),
-  withBundleAnalyzer(),
-  optimizedImages(),
-  withCSS(),
-  withFonts(),
-  withOffline()
-]);
+(module.exports = {
+  env: {
+    SPACE_ID: "86i03dw6wwwc",
+    CONTENTFUL_TOKEN: "fs65wT3qwmrz2Rcyh0fFkJE2uukw1N5mxY9_IzljpH0",
+    CONTENTFUL_ENV: "master"
+  }
+}),
+  withPlugins([
+    withSourceMaps(),
+    withBundleAnalyzer(),
+    optimizedImages(),
+    withCSS(),
+    withFonts(),
+    withOffline()
+  ]);

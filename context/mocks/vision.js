@@ -1,9 +1,8 @@
 export default {
-  seo: {
-    title: "Societer | Vision",
-    description: "Maison de conseil en sustainable leadership",
-    canonical: "https://www.societer.co/vision"
-  },
+  seo_title: "Societer | Vision",
+  seo_description: "Maison de conseil en sustainable leadership",
+  seo_canonical: "https://www.societer.co/vision",
+
   firstPart: {
     subtitle: "Le Manifeste",
     agenda: {
@@ -32,7 +31,7 @@ export default {
     title:
       "Dirigeants d'entreprise, engagez-vous pour sauver le monde… et votre business",
     media: {
-      logo: "images/vision/les-echos.svg"
+      logo: "/images/vision/les-echos.svg"
     },
     authors: [
       {

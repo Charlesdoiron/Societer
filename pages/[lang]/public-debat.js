@@ -2,14 +2,19 @@ import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
-import { ContactTitle, ContactBtn, LinkTitle, LinkItem } from "../styled/typos";
-import { Wrapper } from "../styled/space";
-import BackgroundImage from "../components/backgroundImage";
-import { useMocks } from "../context/mock-context";
-import Categories from "../components/categories";
-import Article from "../components/article";
-import { getMenuHeight } from "../utils/menuHeight";
-import { getWindowWidth } from "../utils/windowWidth";
+import {
+  ContactTitle,
+  ContactBtn,
+  LinkTitle,
+  LinkItem
+} from "../../styled/typos";
+import { Wrapper } from "../../styled/space";
+import BackgroundImage from "../../components/backgroundImage";
+import { useMocks } from "../../context/mock-context";
+import Categories from "../../components/categories";
+import Article from "../../components/article";
+import { getMenuHeight } from "../../utils/menuHeight";
+import { getWindowWidth } from "../../utils/windowWidth";
 
 function DebatPublic() {
   const { debat_public } = useMocks();
@@ -41,14 +46,14 @@ function DebatPublic() {
   return (
     <Container>
       <NextSeo
-        title={debat_public.seo.title}
-        description={debat_public.seo.description}
-        canonical={debat_public.seo.canonical}
+        title={debat_public.seo_title}
+        description={debat_public.seo_description}
+        canonical={debat_public.seo_canonical}
       />
       <ImageContainer style={{ height: "80vh" }}>
         <Image
           alt="Societer Contact"
-          image="images/debat_public/debat_public.jpg"
+          image="/images/debat_public/debat_public.jpg"
         />
       </ImageContainer>
 

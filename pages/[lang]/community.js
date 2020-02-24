@@ -2,10 +2,10 @@ import { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
-import BackgroundImage from "../components/backgroundImage";
-import Member from "../components/member";
-import StrategicComite from "../components/strategicComite";
-import { useMocks } from "../context/mock-context";
+import BackgroundImage from "../../components/backgroundImage";
+import Member from "../../components/member";
+import StrategicComite from "../../components/strategicComite";
+import { useMocks } from "../../context/mock-context";
 
 const client = require("contentful").createClient({
   space: "86i03dw6wwwc",
@@ -31,13 +31,13 @@ const Communaute = () => {
   return (
     <>
       <NextSeo
-        title={communaute.seo.title}
-        description={communaute.seo.description}
-        canonical={communaute.seo.canonical}
+        title={communaute.seo_title}
+        description={communaute.seo_description}
+        canonical={communaute.seo_canonical}
       />
       <HideOnMediumPlus>
         <FirstPart>
-          <img src="images/home/bkg_prehome.jpg" alt="Societer Communaute" />
+          <img src="/images/home/bkg_prehome.jpg" alt="Societer Communaute" />
         </FirstPart>
       </HideOnMediumPlus>
 

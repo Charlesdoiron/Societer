@@ -12,7 +12,7 @@ import {
   Labor,
   ArticleInterTitle
 } from "../../styled/typos";
-import ArticleHeader from "../../components/articleHeader";
+import ArticleHeader from "../../components/articleHeader/";
 
 const Article = props => {
   const { article } = useMocks();
@@ -48,11 +48,17 @@ const Article = props => {
     const showArticleHeader = () => {
       if (titleRef.current && articleHeaderRef.current) {
         const titleTop = titleRef.current.getBoundingClientRect().top;
-        if (window.scrollY > titleTop) {
+        let total =
+          99 - articleHeaderRef.current.getBoundingClientRect().height;
+
+        // 99 = header.height (95) + 4px of border.
+
+        if (window.scrollY >= titleTop) {
           articleHeaderRef.current.style.position = "sticky";
           articleHeaderRef.current.style.top = "95px";
         } else {
-          articleHeaderRef.current.style.top = "15px";
+          console.log(total);
+          articleHeaderRef.current.style.top = `${total}px`;
         }
       }
     };
@@ -74,14 +80,14 @@ const Article = props => {
   return (
     <>
       <NextSeo
-        title={currentArticle.seo.title}
-        description={currentArticle.seo.description}
-        canonical={currentArticle.seo.canonical}
+        title={currentArticle.seo_title}
+        description={currentArticle.seo_description}
+        canonical={currentArticle.seo_canonical}
       />
       <Sticky ref={articleHeaderRef}>
         <ArticleHeader
           category={currentArticle.category.label}
-          url="https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046"
+          url={currentArticle.url}
           media={currentArticle.media.logo}
           articleTitle={currentArticle.title}
           authors={currentArticle.authors}
@@ -153,6 +159,7 @@ const Sticky = styled.div`
   right: 0;
   z-index: 9;
   position: sticky;
+  overflow: hidden;
 `;
 
 const CustomCategoryTitle = styled(MediumSubtitle)`

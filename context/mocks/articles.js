@@ -1,7 +1,7 @@
 export default [
   {
     title:
-      "G7 : quand la France prend le leadership d’une diplomatie économique nouvelle génération",
+      "Dirigeants d'entreprise, engagez-vous pour sauver le monde… et votre business",
     slug: "article-1",
     published: "Tribune publiée en ligne le 27 août 2019",
     categorie: [{ label: "Tribune", id: "tribune" }],

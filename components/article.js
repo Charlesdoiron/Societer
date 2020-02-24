@@ -9,13 +9,6 @@ const Article = props => {
   const [isHover, setIsHover] = useState("");
 
   let articlesFiltered;
-  // if (props.filter === "all") {
-  //   articlesFiltered = articles;
-  // } else {
-  //   articlesFiltered = articles.filter(
-  //     article => article.categorie.id === "tribune"
-  //   );
-  // }
 
   if (props.filter === "all") {
     articlesFiltered = articles;

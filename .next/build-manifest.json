@@ -1,58 +1,40 @@
 {
-  "devFiles": [],
+  "devFiles": [
+    "static/development/dll/dll_4b8bef20edde04f98d3f.js",
+    "static/development/dll/dll_4b8bef20edde04f98d3f.js.map"
+  ],
   "pages": {
-    "/": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
+    "/[lang]": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/community": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/mission": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/public-debat": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/vision": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/_app": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/_error": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/_polyfills": [
-      "static/runtime/polyfills-ad5933a8045e80e683a7.js"
-    ],
-    "/article/[id]": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
-    ],
-    "/communaute": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
-    ],
-    "/contact": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
-    ],
-    "/debat-public": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
-    ],
-    "/index": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
-    ],
-    "/mission": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
-    ],
-    "/vision": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.7a196f0cd7ec07dd5de5.js",
-      "static/runtime/main-0a9d73e78331492ac878.js"
+      "static/runtime/polyfills.js",
+      "static/runtime/polyfills.js.map"
     ]
   }
 }

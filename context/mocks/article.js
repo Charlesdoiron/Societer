@@ -1,10 +1,8 @@
 export default {
   "article-1": {
-    seo: {
-      title: "Societer | Vision",
-      description: "Maison de conseil en sustainable leadership",
-      canonical: "https://www.societer.co/vision"
-    },
+    seo_title: "Societer | Vision",
+    seo_description: "Maison de conseil en sustainable leadership",
+    seo_canonical: "https://www.societer.co/vision",
     category: { label: "Tribune", id: "tribune" },
     title:
       "Dirigeants d'entreprise, engagez-vous pour sauver le monde… et votre business",
@@ -15,6 +13,8 @@ export default {
     media: {
       logo: "/pictos/les-echos.svg"
     },
+    url:
+      "https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046",
     authors: [
       {
         name: "Bertrand Badré",
@@ -56,11 +56,9 @@ export default {
   },
 
   "article-2": {
-    seo: {
-      title: "Societer | Vision",
-      description: "Maison de conseil en sustainable leadership",
-      canonical: "https://www.societer.co/vision"
-    },
+    seo_title: "Societer | Vision",
+    seo_description: "Maison de conseil en sustainable leadership",
+    seo_canonical: "https://www.societer.co/vision",
     category: { label: "Média", id: "media" },
     title:
       "Le dernier sommet du G20 a mis en lumière l'urgence de promouvoir de nouvelles formes de coopération.",
@@ -71,6 +69,8 @@ export default {
     media: {
       logo: "/pictos/les-echos.svg"
     },
+    url:
+      "https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046",
     authors: [
       {
         name: "Bertrand Badré",
@@ -107,11 +107,9 @@ export default {
   },
 
   "article-3": {
-    seo: {
-      title: "Societer | Vision",
-      description: "Maison de conseil en sustainable leadership",
-      canonical: "https://www.societer.co/vision"
-    },
+    seo_title: "Societer | Vision",
+    seo_description: "Maison de conseil en sustainable leadership",
+    seo_canonical: "https://www.societer.co/vision",
     category: { label: "Tribune", id: "tribune" },
     title: "Les membres du G20 ont fini par arracher un accord.",
     images: {
@@ -121,6 +119,8 @@ export default {
     media: {
       logo: "/pictos/les-echos.svg"
     },
+    url:
+      "https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046",
     authors: [
       {
         name: "Bertrand Badré",
@@ -156,17 +156,38 @@ export default {
     ]
   },
   "article-4": {
-    seo: {
-      title: "Societer | Vision",
-      description: "Maison de conseil en sustainable leadership",
-      canonical: "https://www.societer.co/vision"
-    },
+    seo_title: "Societer | Vision",
+    seo_description: "Maison de conseil en sustainable leadership",
+    seo_canonical: "https://www.societer.co/vision",
     category: { label: "Curration", id: "curation" },
     title: "Article 3",
     images: {
       big: "/images/article/big.jpg",
       small: "/images/article/small.jpg"
     },
+    media: {
+      logo: "/pictos/les-echos.svg"
+    },
+    url:
+      "https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046",
+    authors: [
+      {
+        name: "Bertrand Badré",
+        slug: "bertrand-badre"
+      },
+      {
+        name: "Nathalie de Gaulle",
+        slug: "nathalie-de-gaulle"
+      },
+      {
+        name: "Aurélie Motta-Rivey",
+        slug: "aurelie-motta-rivey"
+      },
+      {
+        name: "Mathilde Oliveau",
+        slug: "mathilde-oliveau"
+      }
+    ],
     chapeau:
       "LE CERCLE - Le dernier sommet du G20 a mis en lumière l'urgence de promouvoir de nouvelles formes de coopération entre secteurs public, privé et société civile. Selon un collectif de personnalités, les dirigeants d'entreprise ont plus que jamais un rôle déterminant à jouer dans l'émergence de ce multilatéralisme nouvelle génération, qui seul permettra d'apporter des solutions durables aux grands défis de notre planète.",
     content: [
@@ -183,11 +204,9 @@ export default {
     ]
   },
   "article-5": {
-    seo: {
-      title: "Societer | Vision",
-      description: "Maison de conseil en sustainable leadership",
-      canonical: "https://www.societer.co/vision"
-    },
+    seo_title: "Societer | Vision",
+    seo_description: "Maison de conseil en sustainable leadership",
+    seo_canonical: "https://www.societer.co/vision",
     category: { label: "Tribune", id: "tribune" },
     title: "Article 4",
     images: {
@@ -197,6 +216,8 @@ export default {
     media: {
       logo: "/pictos/les-echos.svg"
     },
+    url:
+      "https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046",
     authors: [
       {
         name: "Bertrand Badré",

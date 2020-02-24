@@ -1,8 +1,6 @@
 export default {
-  seo: {
-    title: "Societer | Débat Public",
-    description: "Maison de conseil en sustainable leadership",
-    canonical: "https://www.societer.co/debat-public"
-  },
+  seo_title: "Societer | Débat Public",
+  seo_description: "Maison de conseil en sustainable leadership",
+  seo_canonical: "https://www.societer.co/debat-public",
   title: "Nos engagements dans le débat public"
 };
