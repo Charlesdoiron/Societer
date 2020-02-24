@@ -25,7 +25,7 @@ const PopUp = props => {
         <Flex>
           <PopUpTitle>{props.content.title}</PopUpTitle>
           <Close
-            src="pictos/close.svg"
+            src="/pictos/close.svg"
             onClick={() => props.handleClick(false)}
           />
         </Flex>

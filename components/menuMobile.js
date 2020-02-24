@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Navigation, SmallNavigation } from "../styled/typos";
 import { useMocks } from "../context/mock-context";
-
+import { removeQuery } from "../utils/query";
 const TIME_TRANSITION = 600;
 
 const isOpening = keyframes`
@@ -55,10 +55,13 @@ const MenuMobile = props => {
 
       setTimeout(() => {
         props.onClick();
-        router.push({
-          pathname: item.path,
-          query: { title: item.item }
-        });
+        router.push(
+          {
+            pathname: `/[lang]${item.path}`,
+            query: { title: item.item }
+          },
+          `/${router.query.lang}${item.path}`
+        );
       }, TIME_TRANSITION);
     }
   };
@@ -80,7 +83,9 @@ const MenuMobile = props => {
   if (!props.isOpen) {
     return null;
   }
-
+  const handleLocale = value => {
+    router.replace(`/${value}${removeQuery(router.asPath)}`);
+  };
   return (
     <>
       <Container ref={menuContainer}>
@@ -104,14 +109,14 @@ const MenuMobile = props => {
               onClick={() => closeMenu(item)}
               className={currentPage === item.path && "isActive"}
             >
-              {item.item}
+              {item.label}
             </CustomNavigation>
           ))}
         </Items>
-        {/* <Languages>
-          <Language>Fr</Language>
-          <Language>En</Language>
-        </Languages> */}
+        <Languages>
+          <Language onClick={() => handleLocale("fr")}>Fr</Language>
+          <Language onClick={() => handleLocale("en")}>En</Language>
+        </Languages>
         <Absolute>
           <Socials>
             {socials.map((social, i) => (

@@ -43,8 +43,8 @@ function HomePage() {
       />
       <Image
         alt="Societer Contact"
-        image="images/contact/contact.jpg"
-        imageMobile="images/contact/contact_mobile.jpg"
+        image="/images/contact/contact.jpg"
+        imageMobile="/images/contact/contact_mobile.jpg"
       />
       <Wrapper isWhite>
         <Titles>

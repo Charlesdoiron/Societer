@@ -348,22 +348,14 @@ const member = props => {
           <TabletImage src={dataMember.img} alt="" />
 
           <Socials ref={socialsRef}>
-            {dataMember.socials.linkedin && (
-              <a
-                href={dataMember.socials.linkedin}
-                target="_blank"
-                rel="noopener"
-              >
+            {dataMember.linkedin && (
+              <a href={dataMember.linkedin} target="_blank" rel="noopener">
                 <Social>Lk</Social>
               </a>
             )}
 
-            {dataMember.socials.twitter && (
-              <a
-                href={dataMember.socials.twitter}
-                target="_blank"
-                rel="noopener"
-              >
+            {dataMember.twitter && (
+              <a href={dataMember.twitter} target="_blank" rel="noopener">
                 <Social>Tw</Social>
               </a>
             )}
@@ -386,7 +378,7 @@ const member = props => {
 
           <MemberLabor
             dangerouslySetInnerHTML={{
-              __html: dataMember.engagements.description
+              __html: dataMember.engagements
             }}
           />
         </Description>

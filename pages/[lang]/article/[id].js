@@ -1,18 +1,18 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
-import { useMocks } from "../../context/mock-context";
-import { Wrapper } from "../../styled/space";
+import { useMocks } from "../../../context/mock-context";
+import { Wrapper } from "../../../styled/space";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
-import { ScreenSizes } from "../../config/theme/medias";
+import { ScreenSizes } from "../../../config/theme/medias";
 import {
   MediumSubtitle,
   ArticleTitle,
   Chapeau,
   Labor,
   ArticleInterTitle
-} from "../../styled/typos";
-import ArticleHeader from "../../components/articleHeader/";
+} from "../../../styled/typos";
+import ArticleHeader from "../../../components/articleHeader";
 
 const Article = props => {
   const { article } = useMocks();

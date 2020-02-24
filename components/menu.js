@@ -6,11 +6,10 @@ import MenuMobile from "./menuMobile";
 import { fetchPage } from "../api/call";
 import { useRouter } from "next/router";
 import { useMocks } from "../context/mock-context";
-
+import { removeQuery } from "../utils/query";
 import { Navigation } from "../styled/typos";
 
 const Menu = props => {
-  const [{ locale }, dispatch] = useStateValue();
   let { menu } = useMocks();
 
   const router = useRouter();
@@ -20,12 +19,6 @@ const Menu = props => {
   const currentQuerryLang = router.query.lang;
   const currentPage = router.pathname;
   const { asPath } = router;
-  const removeQuery = url => {
-    return url
-      .replace("fr/", "")
-      .replace("en/", "")
-      .replace("[lang]/", "");
-  };
 
   let currentTitle;
   if (currentPage !== "/article/[id]") {
@@ -50,8 +43,6 @@ const Menu = props => {
   const handleLocale = value => {
     router.replace(`/${value}${removeQuery(asPath)}`);
   };
-
-  const currentLanguage = router.query.lang;
 
   const MenuDesktop = styled.div`
     display: flex;
@@ -102,7 +93,6 @@ const Menu = props => {
     mix-blend-mode: difference;
   `;
 
-  console.log(removeQuery(currentPage));
   return (
     <MenuDesktop className="menu" ref={menuRef}>
       <AnimationMenu className="animation-menu__bkg"></AnimationMenu>
@@ -113,29 +103,32 @@ const Menu = props => {
           ) : (
             <Flex style={{ height: "35px" }}>
               <MinimalLogo src="/pictos/minimal_logo.svg" alt="Societer Logo" />
-              <CurrentPage>{currentTitle}</CurrentPage>
+              <CurrentPage>{removeQuery(currentPage)}</CurrentPage>
             </Flex>
           )}
         </Link>
         <Burger
           src="/pictos/burger.svg"
           onClick={() => setOpen(!isOpen)}
-          alt="burger menu"
+          alt="Burger Menu"
         />
       </MobileNavigation>
       <MenuMobile
         isOpen={isOpen}
         onClick={() => setOpen(!isOpen)}
-        content={menu}
+        content={menu.items[currentQuerryLang]}
         menuHeight={menuHeight}
       />
 
       <Items>
-        {currentLanguage &&
-          menu.items[currentLanguage].map((item, i) => (
+        {currentQuerryLang &&
+          menu.items[currentQuerryLang].map((item, i) => (
             <Link
               key={i}
-              href={`/[lang]${item.path}`}
+              href={{
+                pathname: `/[lang]${item.path}`,
+                query: { title: "plaf" }
+              }}
               as={`/${currentQuerryLang}${item.path}`}
             >
               <CustomNavigation

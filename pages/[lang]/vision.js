@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useMocks } from "../../context/mock-context";
 import { Wrapper } from "../../styled/space";
 import { NextSeo } from "next-seo";
+
+import { fetchPage } from "../../api/call";
+
 import {
   ManifestLabor,
   MediumSubtitle,
@@ -14,13 +17,31 @@ import {
 } from "../../styled/typos";
 import VisionArticleHeader from "../../components/visionArticleHeader";
 import PopUp from "../../components/popUp";
+import { Manifesto } from "../../static/vision";
 
-const Vision = () => {
+import { useRouter } from "next/router";
+
+const Vision = props => {
+  console.log(props, "vision");
+
+  const router = useRouter();
   const { vision } = useMocks();
   const [popIsOpen, setPopOpen] = useState(false);
   const [definition, setDefinition] = useState("");
   const manifestLaborRef = useRef(null);
   const titleRef = useRef(null);
+  const currentQuerryLang = router.query.lang;
+
+  const {
+    secondPartSubtitle,
+    secondPartArticleTitle,
+    secondPartLogo,
+    secondPartAuthors,
+    secondPartPublished,
+    secondPartChapeau,
+    secondPartArticleContent
+  } = props.fields;
+
   useEffect(() => {
     if (window !== undefined) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -28,10 +49,11 @@ const Vision = () => {
   }, []);
 
   const handleClick = e => {
-    setDefinition(vision.firstPart[e]);
+    setDefinition(vision.firstPart[currentQuerryLang][e]);
     setPopOpen(true);
   };
 
+  if (!props) return;
   return (
     <>
       <PopUp
@@ -48,86 +70,34 @@ const Vision = () => {
         <FirstPart>
           <Fixed>
             <MediumSubtitle ref={titleRef}>
-              {vision.firstPart.subtitle}
+              {vision.firstPart[currentQuerryLang].subtitle}
             </MediumSubtitle>
           </Fixed>
-          <ManifestLabor ref={manifestLaborRef}>
-            <Part>
-              Les dirigeants font face à des attentes croissantes&nbsp;:
-              alignement, sincérité, capacité à écouter et donner du sens.
-            </Part>
-            <Part>
-              Incarner pro-activement un engagement sociétal n’est plus une
-              option. Au-delà des questions d’image et de réputation, c’est un
-              enjeu d’attractivité et de fidélisation des talents, de capacité à
-              innover et de renouvellement de la culture d’entreprise.
-            </Part>
-            <Part>
-              <em>Business purpose</em> et <em>business plan</em> sont désormais
-              indissociables. L’engagement sociétal est devenu une question de
-              performance durable. S’engager, c’est à la fois faire une
-              différence sociétale et business et être capable d’imprimer sa
-              marque dans un débat public mondial saturé.
-            </Part>
-            <Part>
-              Face à cette nouvelle donne, Societer propose de repenser le
-              leadership pour un impact durable dans la société et le débat
-              public à l’échelle mondiale. Le dirigeant nouvelle génération est
-              un <em>societer</em>, un sustainable leader résolument engagé dans
-              la société.
-            </Part>
-            <Part>
-              Nous avons la conviction que cette incarnation sincère et
-              proactive d’une raison d’être n’est crédible et impactante que si
-              elle est pensée à la lumière de l’agenda diplomatique
-              multilatéral.
-            </Part>
-            <Part>
-              L’ampleur des défis mondiaux qui sont devant nous - changement
-              climatique, éducation, alimentation, santé, égalité des genres,
-              ruptures technologiques ou encore accès aux ressources - appelle à
-              unir toutes les énergies, privées, publiques, diplomatiques et
-              citoyennes.
-            </Part>
-            <Part>
-              C’est pourquoi nous souhaitons favoriser l’émergence de coalitions
-              <em> ad hoc</em> entre ces différents univers pour répondre aux
-              défis de demain, résumés par les{" "}
-              <a onClick={() => handleClick("odd")}>
-                17 Objectifs de Développement Durable
-              </a>{" "}
-              (ODD) des Nations Unies. Nous voulons accélérer le cercle vertueux
-              d’engagement pour un <em>sustainable new deal</em>.
-            </Part>
-            <Part>
-              Societer est aux côtés des dirigeants pour les aider à porter un
-              combat dans le débat public mondial, en ligne avec le seul agenda
-              de référence pour l’engagement sociétal&nbsp;:{" "}
-              <a onClick={e => handleClick("agenda")}>l’Agenda 2030 </a>
-              des Nations Unies.
-            </Part>
-            IN SOCIETY WE TRUST.
-          </ManifestLabor>
+          <Manifesto
+            handleClick={e => handleClick(e)}
+            currentQuerryLang={currentQuerryLang}
+          />
         </FirstPart>
       </Wrapper>
       <Wrapper isWhite>
         <SecondPart>
-          <MediumSubtitle isBlack>{vision.secondPart.subtitle}</MediumSubtitle>
-          <ArticleTitle>{vision.secondPart.title}</ArticleTitle>
+          <MediumSubtitle isBlack>{secondPartSubtitle}</MediumSubtitle>
+          <ArticleTitle>{secondPartArticleTitle}</ArticleTitle>
           <VisionArticleHeader
             url="https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046"
-            media={vision.secondPart.media.logo}
-            authors={vision.secondPart.authors}
-            published={vision.secondPart.published}
+            media={secondPartLogo}
+            authors={secondPartAuthors}
+            published={secondPartPublished}
           />
           <ArticleSection>
             <CustomChapeau
               isBlack
               dangerouslySetInnerHTML={{
-                __html: vision.secondPart.sections[0].title
+                __html: secondPartChapeau
               }}
             ></CustomChapeau>
 
+            {/* MOBILE */}
             <Author>
               <Navigation isBlack noLink>
                 <a
@@ -148,47 +118,46 @@ const Vision = () => {
                 </a>
               </Navigation>
             </Author>
+            {/*  */}
 
             <CustomLabor
               dangerouslySetInnerHTML={{
-                __html: vision.secondPart.sections[0].content
+                __html: secondPartArticleContent[0].content
               }}
             />
           </ArticleSection>
 
-          {vision.secondPart.sections.map((section, i) => {
-            return (
-              i > 0 && (
-                <ArticleSection key={i}>
-                  <ArticleInterTitle>{section.title}</ArticleInterTitle>
-                  <CustomLabor
-                    dangerouslySetInnerHTML={{
-                      __html: section.content
-                    }}
-                  />
-                </ArticleSection>
-              )
-            );
-          })}
+          <ArticleSection>
+            <ArticleInterTitle>
+              {secondPartArticleContent[1].title}
+            </ArticleInterTitle>
+            <CustomLabor
+              dangerouslySetInnerHTML={{
+                __html: secondPartArticleContent[2].content
+              }}
+            />
+          </ArticleSection>
+          <ArticleSection>
+            <ArticleInterTitle>
+              {secondPartArticleContent[3].title}
+            </ArticleInterTitle>
+            <CustomLabor
+              dangerouslySetInnerHTML={{
+                __html: secondPartArticleContent[4].content
+              }}
+            />
+          </ArticleSection>
         </SecondPart>
       </Wrapper>
     </>
   );
 };
+Vision.getInitialProps = async function(context) {
+  const currentLocale = context.query.lang;
+  return fetchPage({ page: "vision", locale: currentLocale });
+};
 export default Vision;
 
-const Part = styled.span`
-  margin-bottom: 25px;
-  display: block;
-  a {
-    transition: all 500ms;
-    &:hover {
-      transition: all 500ms;
-      border-bottom: 1px solid ${props => props.theme.colors.blue};
-      color: ${props => props.theme.colors.blue};
-    }
-  }
-`;
 const CustomLabor = styled(Labor)`
   width: 50%;
   ${props => props.theme.medias.medium`

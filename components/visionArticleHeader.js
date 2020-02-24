@@ -43,21 +43,14 @@ const VisionArticleHeader = props => {
             style={{ color: "inherit", textDecoration: "none" }}
           >
             {" "}
-            Co-signée par{" "}
             {props.authors.map((author, i) => {
-              return (
-                <span key={i}>
-                  {" "}
-                  {author.name}
-                  {i < props.authors.length - 1 ? ", " : "."}
-                </span>
-              );
+              return <span key={i}>{author.name}</span>;
             })}
           </a>
         </Navigation>
       </Author>
 
-      <Published>publiée le {props.published}</Published>
+      <Published>{props.published}</Published>
     </Container>
   );
 };

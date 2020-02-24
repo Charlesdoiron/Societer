@@ -6,13 +6,9 @@ import BackgroundImage from "../../components/backgroundImage";
 import Member from "../../components/member";
 import StrategicComite from "../../components/strategicComite";
 import { useMocks } from "../../context/mock-context";
+import { fetchPage } from "../../api/call";
 
-const client = require("contentful").createClient({
-  space: "86i03dw6wwwc",
-  accessToken: "fs65wT3qwmrz2Rcyh0fFkJE2uukw1N5mxY9_IzljpH0"
-});
-
-const Communaute = () => {
+const Community = props => {
   const { communaute } = useMocks();
   const [menuHeight, setMenuHeight] = useState("");
 
@@ -23,11 +19,10 @@ const Communaute = () => {
     }
   }, []);
 
-  const FirstPart = styled.div`
-    img {
-      width: 100%;
-    }
-  `;
+  if (!props) return;
+
+  const { members, strategicComiteeSubtitle, strategicComite } = props;
+  console.log(props, "communaute");
   return (
     <>
       <NextSeo
@@ -41,7 +36,7 @@ const Communaute = () => {
         </FirstPart>
       </HideOnMediumPlus>
 
-      {communaute.members.map((member, i) => (
+      {members.map((member, i) => (
         <Member dataMember={member} key={i} even={i % 2 == !0} />
       ))}
       <StrategicComite
@@ -52,10 +47,21 @@ const Communaute = () => {
   );
 };
 
+Community.getInitialProps = async function(context) {
+  const currentLocale = context.query.lang;
+  return fetchPage({ page: "community", locale: currentLocale });
+};
+
+const FirstPart = styled.div`
+  img {
+    width: 100%;
+  }
+`;
+
 const HideOnMediumPlus = styled.div`
   display: none;
   ${props => props.theme.medias.mediumPlus`
   display:block;
 `}
 `;
-export default Communaute;
+export default Community;

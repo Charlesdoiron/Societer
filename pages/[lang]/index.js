@@ -1,48 +1,35 @@
 import { useEffect, useState } from "react";
-import "isomorphic-unfetch";
-
+import fetch from "isomorphic-unfetch";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
-import { useStateValue } from "../../context/state";
 import { Subtitle, BigTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
-import { useMocks } from "../../context/mock-context";
 import { fetchPage } from "../../api/call";
-import { useRouter } from "next/router";
-const HomePage = props => (
-  <Container>
-    <ul>
-      {props.shows.map(show => (
-        <li key={show.id}>
-          <a>{show.name}</a>
-        </li>
-      ))}
-    </ul>
-    <BackgroundImage
-      noImageOnMobile
-      image={props.fields && props.fields.backgroundImage}
-      alt="Societer Team"
-    />
-    <Wrapper>
-      <Titles>
-        <Subtitle>{props.fields && props.fields.subtitle}</Subtitle>
-        <BigTitle>{props.fields && props.fields.tagline}</BigTitle>
-      </Titles>
-    </Wrapper>
-  </Container>
-);
+
+const HomePage = props => {
+  if (!props) return;
+
+  return (
+    <Container>
+      <BackgroundImage
+        noImageOnMobile
+        image={props.fields.backgroundImage}
+        alt="Societer Team"
+      />
+      <Wrapper>
+        <Titles>
+          <Subtitle>{props.fields.subtitle}</Subtitle>
+          <BigTitle>{props.fields.tagline}</BigTitle>
+        </Titles>
+      </Wrapper>
+    </Container>
+  );
+};
 
 HomePage.getInitialProps = async function(context) {
   const currentLocale = context.query.lang;
-  const res = await fetch("https://api.tvmaze.com/search/shows?q=batman");
-  const data = await res.json();
-
-  return {
-    shows: data.map(entry => entry.show)
-  };
-
-  // await fetchPage({ page: "homepage", locale: currentLocale });
+  return fetchPage({ page: "homepage", locale: currentLocale });
 };
 
 export default HomePage;

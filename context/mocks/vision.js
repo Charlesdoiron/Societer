@@ -4,25 +4,52 @@ export default {
   seo_canonical: "https://www.societer.co/vision",
 
   firstPart: {
-    subtitle: "Le Manifeste",
-    agenda: {
-      title: "Agenda 2030",
-      content:
-        "L’Agenda 2030 des Nations Unies correspond au Programme de développement durable à l’horizon 2030 adopté par l’Assemblée Générale des Nations Unies. A l’aide de 17 Objectifs de Développement Durables <strong> (ODD)</strong>, l’Agenda 2030 fixe un cap à la communauté internationale en termes de développement durable. <strong>Il constitue selon nous le seul agenda de référence pour définir un engagement sociétal, sous-tendu par une réelle volonté d’impact.</strong> Nous croyons que des coalitions entre tous les acteurs doivent se former autour de ces objectifs pour voir la lutte contre la pauvreté, les inégalités et le réchauffement climatique aboutir.",
-      link: {
-        label: "En savoir plus",
-        url: "https://www.un.org/sustainabledevelopment/fr/development-agenda/"
+    fr: {
+      subtitle: "Le Manifeste",
+      agenda: {
+        title: "Agenda 2030",
+        content:
+          "L’Agenda 2030 des Nations Unies correspond au Programme de développement durable à l’horizon 2030 adopté par l’Assemblée Générale des Nations Unies. A l’aide de 17 Objectifs de Développement Durables <strong> (ODD)</strong>, l’Agenda 2030 fixe un cap à la communauté internationale en termes de développement durable. <strong>Il constitue selon nous le seul agenda de référence pour définir un engagement sociétal, sous-tendu par une réelle volonté d’impact.</strong> Nous croyons que des coalitions entre tous les acteurs doivent se former autour de ces objectifs pour voir la lutte contre la pauvreté, les inégalités et le réchauffement climatique aboutir.",
+        link: {
+          label: "En savoir plus",
+          url:
+            "https://www.un.org/sustainabledevelopment/fr/development-agenda/"
+        }
+      },
+      odd: {
+        title: "17 Objectifs de Développement Durable ",
+        content:
+          "<strong>Les 17 Objectifs de Développement Durable sont issus de l’Agenda 2030 des Nations Unies </strong>:  ils indiquent la marche à suivre et les sous-objectifs à atteindre pour s’attaquer aux problématiques telles que le réchauffement climatique, la biodiversité, la pauvreté, l’assainissement de l’eau, l’égalité entre les sexes, une éducation de qualité pour tous… Le 17e objectif est celui des partenariats, qui suppose l’alliance et le dialogue de l’ensemble des acteurs au service de cet agenda commun : il est essentiel dans la réussite de tous les ODD. C’est notamment dans cette dynamique collaborative que SOCIETER s’engage.",
+
+        link: {
+          label: "En savoir plus",
+          url:
+            "https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/"
+        }
       }
     },
-    odd: {
-      title: "17 Objectifs de Développement Durable ",
-      content:
-        "<strong>Les 17 Objectifs de Développement Durable sont issus de l’Agenda 2030 des Nations Unies </strong>:  ils indiquent la marche à suivre et les sous-objectifs à atteindre pour s’attaquer aux problématiques telles que le réchauffement climatique, la biodiversité, la pauvreté, l’assainissement de l’eau, l’égalité entre les sexes, une éducation de qualité pour tous… Le 17e objectif est celui des partenariats, qui suppose l’alliance et le dialogue de l’ensemble des acteurs au service de cet agenda commun : il est essentiel dans la réussite de tous les ODD. C’est notamment dans cette dynamique collaborative que SOCIETER s’engage.",
+    en: {
+      subtitle: "The Manifest",
+      agenda: {
+        title: "Agenda 2030",
+        content:
+          "L’Agenda 2030 des Nations Unies correspond au Programme de développement durable à l’horizon 2030 adopté par l’Assemblée Générale des Nations Unies. A l’aide de 17 Objectifs de Développement Durables <strong> (ODD)</strong>, l’Agenda 2030 fixe un cap à la communauté internationale en termes de développement durable. <strong>Il constitue selon nous le seul agenda de référence pour définir un engagement sociétal, sous-tendu par une réelle volonté d’impact.</strong> Nous croyons que des coalitions entre tous les acteurs doivent se former autour de ces objectifs pour voir la lutte contre la pauvreté, les inégalités et le réchauffement climatique aboutir.",
+        link: {
+          label: "See More",
+          url:
+            "https://www.un.org/sustainabledevelopment/fr/development-agenda/"
+        }
+      },
+      odd: {
+        title: "17 Objectifs de Développement Durable ",
+        content:
+          "<strong>Les 17 Objectifs de Développement Durable sont issus de l’Agenda 2030 des Nations Unies </strong>:  ils indiquent la marche à suivre et les sous-objectifs à atteindre pour s’attaquer aux problématiques telles que le réchauffement climatique, la biodiversité, la pauvreté, l’assainissement de l’eau, l’égalité entre les sexes, une éducation de qualité pour tous… Le 17e objectif est celui des partenariats, qui suppose l’alliance et le dialogue de l’ensemble des acteurs au service de cet agenda commun : il est essentiel dans la réussite de tous les ODD. C’est notamment dans cette dynamique collaborative que SOCIETER s’engage.",
 
-      link: {
-        label: "En savoir plus",
-        url:
-          "https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/"
+        link: {
+          label: "See More",
+          url:
+            "https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/"
+        }
       }
     }
   },

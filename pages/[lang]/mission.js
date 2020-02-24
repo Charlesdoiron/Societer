@@ -1,19 +1,28 @@
 import React, { useEffect } from "react";
 import { NextSeo } from "next-seo";
-
+import fetch from "isomorphic-unfetch";
 import styled from "styled-components";
 import { Chapeau, Labor, Subtitle, FatTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import Accordion from "../../components/accordion";
-
+import { fetchPage } from "../../api/call";
 import { useMocks } from "../../context/mock-context";
 
-const client = require("contentful").createClient({
-  space: "86i03dw6wwwc",
-  accessToken: "fs65wT3qwmrz2Rcyh0fFkJE2uukw1N5mxY9_IzljpH0"
-});
+const Mission = props => {
+  const {
+    title,
+    chapeau,
+    firstPartLabor,
+    secondPartFatTitle,
+    teamImg,
+    subTitle,
+    subTitleTwo,
+    expertise
+  } = props[0];
 
-function Mission() {
+  console.log(props, "mission");
+  console.log(chapeau, "mission");
+  if (!props) return;
   const { mission } = useMocks();
 
   useEffect(() => {
@@ -24,37 +33,38 @@ function Mission() {
   return (
     <>
       <NextSeo
-        title={mission.seo_title}
+        title={title}
         description={mission.seo_description}
         canonical={mission.seo_canonical}
       />
       <Wrapper>
         <FirstPart>
-          <Chapeau dangerouslySetInnerHTML={{ __html: mission.chapeau }} />
-          <Labor>{mission.firstPartLabor}</Labor>
+          <Chapeau dangerouslySetInnerHTML={{ __html: chapeau }} />
+          <Labor>{firstPartLabor}</Labor>
         </FirstPart>
       </Wrapper>
       <SecondPart>
         <Wrapper isWhite>
           {/* <Subtitle>{mission.secondPartSubtitle}</Subtitle> */}
-          <FatTitle
-            dangerouslySetInnerHTML={{ __html: mission.secondPartFatTitle }}
-          />
+          <FatTitle dangerouslySetInnerHTML={{ __html: secondPartFatTitle }} />
         </Wrapper>
         <Img
           src="/images/mission/mission_img.jpg"
           alt="Societer intervient sur mesure"
         />
         <Accordion
-          subTitle={mission.expertise.subTitle}
-          subTitleTwo={mission.expertise.subTitleTwo}
-          content={mission.expertise.content}
+          subTitle={subTitle}
+          subTitleTwo={subTitleTwo}
+          content={expertise}
         />
       </SecondPart>
     </>
   );
-}
-
+};
+Mission.getInitialProps = async function(context) {
+  const currentLocale = context.query.lang;
+  return fetchPage({ page: "mission", locale: currentLocale });
+};
 export default Mission;
 
 const FirstPart = styled.div`
