@@ -4,7 +4,11 @@
     "static/development/dll/dll_4b8bef20edde04f98d3f.js.map"
   ],
   "pages": {
-    "/[lang]/community": [
+    "/[lang]": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/vision": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

@@ -6,7 +6,7 @@ import BackgroundImage from "../../components/backgroundImage";
 import Member from "../../components/member";
 import StrategicComite from "../../components/strategicComite";
 import { useMocks } from "../../context/mock-context";
-import { fetchPage } from "../../api/call";
+import fetch from "../../api/getCommunity";
 
 const Community = props => {
   const { communaute } = useMocks();
@@ -21,8 +21,10 @@ const Community = props => {
 
   if (!props) return;
 
-  const { members, strategicComiteeSubtitle, strategicComite } = props;
-  console.log(props, "communaute");
+  const { members, strategicComiteSubtitle, strategicComitee } = props.data;
+
+  console.log(props, "community");
+  console.log(members, "merbers");
   return (
     <>
       <NextSeo
@@ -37,11 +39,11 @@ const Community = props => {
       </HideOnMediumPlus>
 
       {members.map((member, i) => (
-        <Member dataMember={member} key={i} even={i % 2 == !0} />
+        <Member dataMember={member.fields} key={i} even={i % 2 == !0} />
       ))}
       <StrategicComite
-        dataMember={communaute.strategicComite.members}
-        subtitle={communaute.strategicComite.smallSubtitle}
+        strategicComitee={strategicComitee}
+        subtitle={strategicComiteSubtitle}
       />
     </>
   );
@@ -49,7 +51,10 @@ const Community = props => {
 
 Community.getInitialProps = async function(context) {
   const currentLocale = context.query.lang;
-  return fetchPage({ page: "community", locale: currentLocale });
+  return fetch({
+    c_type_id: "5ASzL8iF6PpZnriSZq8FWJ",
+    locale: currentLocale
+  });
 };
 
 const FirstPart = styled.div`

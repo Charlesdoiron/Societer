@@ -286,7 +286,7 @@ const member = props => {
   `;
 
   const Img = styled.div`
-    background-image: url("${dataMember.img}");
+    background-image: url("${dataMember.img.fields.file.url}");
     background-size: cover;
 
     background-repeat:no-repeat;
@@ -345,7 +345,7 @@ const member = props => {
         </ImgContainer>
 
         <ReverseColumn>
-          <TabletImage src={dataMember.img} alt="" />
+          <TabletImage src={dataMember.img.fields.file.url} alt="" />
 
           <Socials ref={socialsRef}>
             {dataMember.linkedin && (

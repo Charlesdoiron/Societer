@@ -13,14 +13,11 @@ const strategicComite = props => {
         </Flex>
 
         <div>
-          {props.dataMember.map((member, i) => {
-            return (
-              <React.Fragment key={i}>
-                <BlueChapeau>{member.name}</BlueChapeau>
-                <BlackChapeau>{member.status}</BlackChapeau>
-              </React.Fragment>
-            );
-          })}
+          <React.Fragment>
+            <BlackChapeau
+              dangerouslySetInnerHTML={{ __html: props.strategicComitee }}
+            ></BlackChapeau>
+          </React.Fragment>
         </div>
       </Container>
     </CustomWrapper>

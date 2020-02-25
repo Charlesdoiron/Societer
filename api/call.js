@@ -2,14 +2,22 @@ const SPACE_ID = process.env.SPACE_ID;
 const CONTENTFUL_TOKEN = process.env.CONTENTFUL_TOKEN;
 const CONTENTFUL_ENV = process.env.CONTENTFUL_ENV;
 import fetch from "isomorphic-unfetch";
+
+const contentful = require("contentful");
+export const client = contentful.createClient({
+  space: SPACE_ID,
+  accessToken: CONTENTFUL_TOKEN
+});
+
 export const fetchPage = async args => {
-  const { page } = args;
-  const { locale } = args;
+  const { page, locale, c_type_id } = args;
 
   const response = await fetch(
-    `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/${CONTENTFUL_ENV}/entries/?access_token=${CONTENTFUL_TOKEN}&locale=${locale}&content_type=${page}&include=10`
+    `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/${CONTENTFUL_ENV}/entries?access_token=${CONTENTFUL_TOKEN}&locale=${locale}&content_type=${page}&include=10`
   );
+
   const data = await response.json();
+
   switch (page) {
     case "homepage":
       return {
@@ -112,27 +120,7 @@ export const fetchPage = async args => {
       });
 
       break;
-    case "community":
-      return {
-        data,
-        members: data.includes.Entry.map(f => f.fields).map((f, i) => {
-          return {
-            name: f.name,
-            slug: f.slug,
-            subtitle: f.subtitle,
-            description: f.description,
-            engagements: f.engagements,
-            twitter: f.twitter,
-            linkedin: f.linkedin,
-            img: data.includes.Asset[i].fields.file.url
-          };
-        }),
-        strategicComiteeSubtitle: data.items.map(
-          f => f.fields.strategicComiteSubtitle
-        ),
-        strategicComitee: data.items.map(f => f.fields.strategicComitee)
-      };
-      break;
+
     case "public-debat":
       return {
         fields: {
