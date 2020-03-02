@@ -14,11 +14,12 @@ import { useMocks } from "../../context/mock-context";
 import Categories from "../../components/categories";
 import Article from "../../components/article";
 import { getMenuHeight } from "../../utils/menuHeight";
-import { getWindowWidth } from "../../utils/windowWidth";
 
-function DebatPublic() {
+import getPublicDebat from "../../api/getPublicDebat";
+const PublicDebat = props => {
+  console.log(props, "public debat");
   const { debat_public } = useMocks();
-
+  const { bigTitle, categories, articles, backgroundImage } = props.data;
   const [isFilter, setFilter] = useState("all");
 
   useEffect(() => {
@@ -51,24 +52,29 @@ function DebatPublic() {
         canonical={debat_public.seo_canonical}
       />
       <ImageContainer style={{ height: "80vh" }}>
-        <Image
-          alt="Societer Contact"
-          image="/images/debat_public/debat_public.jpg"
-        />
+        <Image alt="Societer Contact" image={backgroundImage.fields.file.url} />
       </ImageContainer>
 
       <CustomWrapper isWhite>
         <Titles>
-          <ContactTitle>{debat_public.title}</ContactTitle>
+          <ContactTitle>{bigTitle}</ContactTitle>
         </Titles>
-        <Categories handleClick={id => setFilter(id)} />
-        <Article filter={isFilter} />
+        <Categories handleClick={id => setFilter(id)} categories={categories} />
+        <Article filter={isFilter} articles={articles} />
       </CustomWrapper>
     </Container>
   );
-}
+};
 
-export default DebatPublic;
+PublicDebat.getInitialProps = async function(context) {
+  const currentLocale = context.query.lang;
+  return getPublicDebat({
+    c_type_id: "6Y1xDPclXIJWOLHsDZEQXS",
+    locale: currentLocale
+  });
+};
+
+export default PublicDebat;
 
 const CustomWrapper = styled(Wrapper)`
   padding: 0 17%;
@@ -87,13 +93,18 @@ const Titles = styled.div`
   right: 0;
   padding-left: 15%;
 
-  ${props => props.theme.medias.medium`
-  padding-left:30px;
-`}
   h1 {
     width: 50%;
   }
   h3 {
     color: ${props => props.theme.colors.white};
   }
+
+  ${props => props.theme.medias.medium`
+  padding-left:30px;
+  top: 45%;
+  h1 {
+    width: 90%;
+  }
+`}
 `;

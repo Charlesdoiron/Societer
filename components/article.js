@@ -5,7 +5,7 @@ import { useMocks } from "../context/mock-context";
 import Link from "next/link";
 import classNames from "classnames";
 const Article = props => {
-  const { articles } = useMocks();
+  const { articles } = props;
   const [isHover, setIsHover] = useState("");
 
   let articlesFiltered;
@@ -14,8 +14,8 @@ const Article = props => {
     articlesFiltered = articles;
   } else {
     articlesFiltered = articles.filter((article, i) => {
-      const hadFilter = article.categorie.filter(
-        cat => cat.id === props.filter
+      const hadFilter = article.fields.categories.filter(
+        cat => cat.fields.slug === props.filter
       );
       if (hadFilter.length > 0) {
         return articles[i];
@@ -28,41 +28,58 @@ const Article = props => {
       {articlesFiltered.map((el, i) => (
         <ArticleContainer
           className={classNames("article__container", {
-            isActive: isHover === el.slug
+            isActive: isHover === el.fields.slug
           })}
           key={i}
-          onMouseOver={() => setIsHover(el.slug)}
-          isActive={isHover === el.slug}
+          onMouseOver={() => setIsHover(el.fields.slug)}
+          isActive={isHover === el.fields.slug}
         >
-          {el.categorie.map((cat, i) => (
-            <CategorieTitle className="categorie__title" key={i}>
-              {cat.label}
-            </CategorieTitle>
-          ))}
           <Flex>
+            {el.fields.categories &&
+              el.fields.categories.map((cat, i) => (
+                <React.Fragment key={i}>
+                  <CategorieTitle className="categorie__title" key={i}>
+                    {cat.fields.label}
+                  </CategorieTitle>
+                  <CategorieTitle>
+                    {i < el.fields.categories.length - 1 && "/"}
+                  </CategorieTitle>
+                </React.Fragment>
+              ))}
+          </Flex>
+
+          <SpaceBetween>
             <div>
               <Link
                 href={{
-                  pathname: `article/${el.slug}`,
-                  query: { title: el.title }
+                  pathname: `article/${el.fields.slug}`,
+                  query: { title: el.fields.title }
                 }}
-                as={`article/${el.slug}`}
+                as={`article/${el.fields.slug}`}
               >
-                <Title className="title">{el.title}</Title>
+                <Title className="title">{el.fields.title}</Title>
               </Link>
-              <Published className="published">{el.published}</Published>
+              <Published className="published">{el.fields.published}</Published>
             </div>
 
-            {el.pdf !== null ? (
+            {el.fields.pdf ? (
               <div className="pdf">
-                <a href={el.pdf.url.toString()} target="_blank" rel="noopener">
-                  <img src="/images/debat_public/pdf.svg" alt="Pdf" />
+                <a
+                  href={el.fields.pdf.fields.file.url}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    src="/images/debat_public/pdf.png"
+                    alt="Pdf"
+                    style={{ width: "40px" }}
+                  />
                 </a>
               </div>
             ) : (
               ""
             )}
-          </Flex>
+          </SpaceBetween>
         </ArticleContainer>
       ))}
     </Container>
@@ -78,8 +95,13 @@ const ArticleContainer = styled.div`
   opacity: 1;
   transition: all 500ms;
 `;
-
 const Flex = styled.div`
+  display: flex;
+  h4 {
+    margin-right: 20px;
+  }
+`;
+const SpaceBetween = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

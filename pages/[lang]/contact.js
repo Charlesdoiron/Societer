@@ -13,20 +13,40 @@ import BackgroundImage from "../../components/backgroundImage";
 import { useMocks } from "../../context/mock-context";
 
 import { getMenuHeight } from "../../utils/menuHeight";
-import { getWindowWidth } from "../../utils/windowWidth";
 
-const client = require("contentful").createClient({
-  space: "86i03dw6wwwc",
-  accessToken: "fs65wT3qwmrz2Rcyh0fFkJE2uukw1N5mxY9_IzljpH0"
-});
+import getContact from "../../api/getContact";
 
-function HomePage() {
-  const { contact } = useMocks();
+const Contact = props => {
+  const contact = props.data;
+
   useEffect(() => {
     if (window !== undefined) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
+
+  const credits = (a, b) => {
+    return (
+      <Sub>
+        <LinkTitle>{contact[a]}</LinkTitle>
+        <Flex>
+          {contact[b].map(({ fields }) => {
+            return (
+              <a
+                target="_blank"
+                href={fields.url}
+                key={fields.label}
+                rel="noopener"
+              >
+                <LinkItem>{fields.label}</LinkItem>
+              </a>
+            );
+          })}
+        </Flex>
+      </Sub>
+    );
+  };
+
   const Image = styled(BackgroundImage)`
     position: relative;
     height: 100vh;
@@ -37,22 +57,22 @@ function HomePage() {
   return (
     <Container>
       <NextSeo
-        title={contact.seo_title}
-        description={contact.seo_description}
-        canonical={contact.seo_canonical}
+        title={contact.title}
+        // description={contact.seo_description}
+        // canonical={contact.seo_canonical}
       />
       <Image
         alt="Societer Contact"
-        image="/images/contact/contact.jpg"
-        imageMobile="/images/contact/contact_mobile.jpg"
+        image={contact.backgroundImage.fields.file.url}
+        imageMobile={contact.backgroundImageMobile.fields.file.url}
       />
       <Wrapper isWhite>
         <Titles>
-          <ContactTitle>{contact.title}</ContactTitle>
+          <ContactTitle>{contact.adress}</ContactTitle>
           <Button>
             <ContactBtn>
-              <a target="_blank" href={contact.url} rel="noopener">
-                {contact.cta}
+              <a target="_blank" href={contact.cta.fields.url} rel="noopener">
+                {contact.cta.fields.label}
               </a>
             </ContactBtn>
           </Button>
@@ -60,114 +80,57 @@ function HomePage() {
       </Wrapper>
       <Footer>
         <LeftPart>
-          <div
+          <Logo
             alt="societer in Societer we trust"
             style={{
-              backgroundImage: `url(${contact.footer.logo})`,
-              backgroundSize: "contain",
-              width: "260px",
-              height: "116px",
-              backgroundRepeat: "no-repeat",
-              margin: "0 auto"
+              backgroundImage: `url(${contact.logo.fields.file.url})`
             }}
           />
         </LeftPart>
         <RightPart>
           <Links>
+            {credits("subtitle1", "credits1")}
+            {credits("subtitle2", "credits2")}
             <Sub>
-              <LinkTitle>{contact.footer.socials.title}</LinkTitle>
-              <Flex>
-                {contact.footer.socials.links.map((link, i) => {
-                  return (
-                    <a target="_blank" href={link.url} key={i} rel="noopener">
-                      <LinkItem>{link.title}</LinkItem>
-                    </a>
-                  );
-                })}
-              </Flex>
-            </Sub>
-            <Sub>
-              <LinkTitle>{contact.footer.contact.title}</LinkTitle>
-              <Flex>
-                {contact.footer.contact.links.map((link, i) => {
-                  return (
-                    <a target="_blank" href={link.url} key={i} rel="noopener">
-                      <LinkItem>{link.title}</LinkItem>
-                    </a>
-                  );
-                })}
-              </Flex>
-            </Sub>
-            <Sub>
-              <LinkTitle>{contact.footer.press.title}</LinkTitle>
+              <LinkTitle>{contact.subtitle3}</LinkTitle>
               <Flex>
                 <a
                   target="_blank"
-                  href={contact.footer.press.url}
+                  href={contact.credits3.fields.file.url}
+                  key={contact.credits3.fields.title}
                   rel="noopener"
                 >
-                  <LinkItem style={{ whiteSpace: "nowrap" }}>
-                    {contact.footer.press.cta}
-                  </LinkItem>
+                  <LinkItem>{contact.credits3.fields.title}</LinkItem>
                 </a>
               </Flex>
             </Sub>
-            <Sub>
-              <LinkTitle>{contact.footer.others.legals.title}</LinkTitle>
-              <Flex>
-                <a target="_blank" href="#" rel="noopener">
-                  <LinkItem style={{ whiteSpace: "nowrap" }}>
-                    {contact.footer.others.legals.links.title}
-                  </LinkItem>
-                </a>
-              </Flex>
-            </Sub>
-            <Sub>
-              <LinkTitle>{contact.footer.design.title}</LinkTitle>
-              <Flex>
-                <a
-                  target="_blank"
-                  href={contact.footer.design.links.url}
-                  rel="noopener"
-                >
-                  <LinkItem>{contact.footer.design.links.title}</LinkItem>
-                </a>
-              </Flex>
-            </Sub>
-            <Sub>
-              <LinkTitle>{contact.footer.photography.title}</LinkTitle>
-              <Flex>
-                <a
-                  target="_blank"
-                  href={contact.footer.photography.links.url}
-                  rel="noopener"
-                >
-                  <LinkItem>{contact.footer.photography.links.title}</LinkItem>
-                </a>
-              </Flex>
-            </Sub>
-
-            {/* <div>
-              <LinkTitle>&nbsp;</LinkTitle>
-              <Flex>
-                <a target="_blank" href="#">
-                  <LinkItem>{contact.footer.others.legals}</LinkItem>
-                </a>
-                <a target="_blank" href="#">
-                  <LinkItem>{contact.footer.others.credits}</LinkItem>
-                </a>
-              </Flex>
-            </div> */}
+            {credits("subtitle4", "credits4")}
+            {credits("subtitle5", "credits5")}
           </Links>
         </RightPart>
       </Footer>
     </Container>
   );
-}
+};
 
-export default HomePage;
+Contact.getInitialProps = async function(context) {
+  const currentLocale = context.query.lang;
+  return getContact({
+    c_type_id: "4EzvFHRWcWOThCzEsyu3jI",
+    locale: currentLocale
+  });
+};
+
+export default Contact;
 
 const Container = styled.div``;
+const Logo = styled.div`
+  background-size: contain;
+  width: 260px;
+  height: 116px;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+`;
 
 const Flex = styled.div`
   display: flex;
@@ -274,3 +237,17 @@ const Footer = styled.div`
    flex-direction: column-reverse;
   `};
 `;
+
+{
+  /* <div>
+              <LinkTitle>&nbsp;</LinkTitle>
+              <Flex>
+                <a target="_blank" href="#">
+                  <LinkItem>{contact.footer.others.legals}</LinkItem>
+                </a>
+                <a target="_blank" href="#">
+                  <LinkItem>{contact.footer.others.credits}</LinkItem>
+                </a>
+              </Flex>
+            </div> */
+}

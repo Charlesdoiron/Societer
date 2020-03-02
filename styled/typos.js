@@ -304,7 +304,7 @@ export const Filter = styled.p`
   }
 `;
 
-export const ArtcileTitleHeader = styled.p`
+export const ArticleTitleHeader = styled.p`
   margin: 0;
   font-family: "garnett_medium";
   font-weight: 500;
@@ -315,5 +315,6 @@ export const ArtcileTitleHeader = styled.p`
   ${props => props.theme.medias.medium`
     font-size: 14px;
     line-height: 22px;
+    padding-left:30px;
    `}
 `;

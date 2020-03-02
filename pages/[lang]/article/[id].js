@@ -1,140 +1,133 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
-import { useMocks } from "../../../context/mock-context";
-import { Wrapper } from "../../../styled/space";
+
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
-import { ScreenSizes } from "../../../config/theme/medias";
-import {
-  MediumSubtitle,
-  ArticleTitle,
-  Chapeau,
-  Labor,
-  ArticleInterTitle
-} from "../../../styled/typos";
+
 import ArticleHeader from "../../../components/articleHeader";
+import { useSpring, animated } from "react-spring";
+import {
+  CustomWrapper,
+  Sticky,
+  CustomCategoryTitle,
+  CustomArticleTitle,
+  ShowOnMobile,
+  HideOnMobile,
+  BigImage,
+  CustomDiv,
+  SmallImage,
+  CustomLabor,
+  CustomChapeau,
+  ArticleSection,
+  Fixed,
+  Part
+} from "./styled";
+import { ArticleInterTitle } from "../../../styled/typos";
+import getArticle from "../../../api/getArticle";
+import { getWindowWidth } from "../../../utils/windowWidth";
+import useMeasure from "react-use-measure";
 
 const Article = props => {
-  const { article } = useMocks();
   const router = useRouter();
   const categoryRef = useRef(null);
   const titleRef = useRef(null);
-  const articleHeaderRef = useRef(null);
 
-  let currentArticle = article[router.query.id];
+  const article = props.data;
+  const device = getWindowWidth();
+  const [showSubMenu, setShowMenu] = useState(false);
 
-  useEffect(() => {
-    const fixCategory = () => {
-      if (
-        titleRef.current &&
-        categoryRef.current &&
-        window.innerWidth > ScreenSizes.MEDIUM
-      ) {
-        const titleTop = titleRef.current.getBoundingClientRect().top;
-        categoryRef.current.style.top = titleTop + 30 + "px";
+  const [subMenuRef, bounds] = useMeasure();
+
+  const handleSubMenu = () => {
+    if (titleRef.current) {
+      // Get Title Position to trigger the animation
+      const titleTopPosition = titleRef.current.getBoundingClientRect().top;
+      // If window's scroll > Title Position we set the state to true
+      if (window.scrollY > titleTopPosition) {
+        setShowMenu(true);
       } else {
-        if (categoryRef.current) return (categoryRef.current.style.top = "0px");
+        setShowMenu(false);
       }
-    };
+    }
+  };
 
+  useEffect(() => {
     if (typeof window !== undefined) {
-      fixCategory();
-      window.addEventListener("resize", () => fixCategory());
-      return () => window.removeEventListener("resize", () => fixCategory());
+      window.addEventListener("scroll", () => handleSubMenu());
+      return () => window.removeEventListener("scroll", () => handleSubMenu());
     }
   });
 
-  useEffect(() => {
-    const showArticleHeader = () => {
-      if (titleRef.current && articleHeaderRef.current) {
-        const titleTop = titleRef.current.getBoundingClientRect().top;
-        let total =
-          99 - articleHeaderRef.current.getBoundingClientRect().height;
-
-        // 99 = header.height (95) + 4px of border.
-
-        if (window.scrollY >= titleTop) {
-          articleHeaderRef.current.style.position = "sticky";
-          articleHeaderRef.current.style.top = "95px";
-        } else {
-          console.log(total);
-          articleHeaderRef.current.style.top = `${total}px`;
-        }
-      }
-    };
-    if (typeof window !== undefined) {
-      showArticleHeader();
-      window.addEventListener("scroll", () => showArticleHeader());
-      return () =>
-        window.removeEventListener("scroll", () => showArticleHeader());
-    }
+  const animate = useSpring({
+    top: showSubMenu ? "85px" : "0px",
+    position: "sticky"
   });
-
-  useEffect(() => {
-    if (window !== undefined) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, []);
-
-  if (currentArticle === undefined) return null;
+  console.log(showSubMenu, "state");
+  console.log(animate, "animate");
   return (
     <>
-      <NextSeo
-        title={currentArticle.seo_title}
-        description={currentArticle.seo_description}
-        canonical={currentArticle.seo_canonical}
-      />
-      <Sticky ref={articleHeaderRef}>
-        <ArticleHeader
-          category={currentArticle.category.label}
-          url={currentArticle.url}
-          media={currentArticle.media.logo}
-          articleTitle={currentArticle.title}
-          authors={currentArticle.authors}
-          published={currentArticle.published}
-        />
-      </Sticky>
+      {/* <NextSeo
+        title={article.title}
+        description={article.seo_description}
+        canonical={article.seo_canonical}
+      /> */}
+      <animated.div style={animate}>
+        <Sticky ref={subMenuRef}>
+          <ArticleHeader
+            categories={article.categories}
+            logo={article.logo.fields.file.url}
+            articleTitle={article.title}
+            authors={article.authors}
+            published={article.published}
+          />
+        </Sticky>
+      </animated.div>
 
       <CustomWrapper isWhite>
         <Part>
+          {/* Only the first category is showing */}
           <CustomCategoryTitle isBlack ref={categoryRef}>
-            {currentArticle.category.label}
+            {article.categories[0].fields.label}
           </CustomCategoryTitle>
 
           <CustomArticleTitle ref={titleRef}>
-            {currentArticle.title}
+            {article.title}
           </CustomArticleTitle>
 
-          <BigImage src={currentArticle.images.big} />
+          <BigImage src={article.coverImage.fields.file.url} />
           <ArticleSection>
             <CustomChapeau
               isBlack
               dangerouslySetInnerHTML={{
-                __html: currentArticle.chapeau
+                __html: article.chapeau
               }}
             ></CustomChapeau>
           </ArticleSection>
-          {currentArticle.content.map((section, i) => {
+          {article.content.map((section, i) => {
             return (
               <ArticleSection key={i}>
-                {section.subtitle && (
+                {section.fields.articleInterTitle && (
                   <CustomDiv>
-                    <ArticleInterTitle>{section.subtitle}</ArticleInterTitle>
+                    <ArticleInterTitle>
+                      {section.fields.articleInterTitle}
+                    </ArticleInterTitle>
                     <HideOnMobile>
                       {i === 0 && (
-                        <SmallImage src={currentArticle.images.small} />
+                        <SmallImage src={article.smallImage.fields.file.url} />
                       )}
                     </HideOnMobile>
                   </CustomDiv>
                 )}
                 <CustomLabor
                   dangerouslySetInnerHTML={{
-                    __html: section.content
+                    __html: section.fields.articleContent
                   }}
                   style={{ width: "100%" }}
                 />
                 <ShowOnMobile>
-                  {i === 0 && <SmallImage src={currentArticle.images.small} />}
+                  {i === 0 && (
+                    <SmallImage src={article.smallImage.fields.file.url} />
+                  )}
                 </ShowOnMobile>
               </ArticleSection>
             );
@@ -144,134 +137,14 @@ const Article = props => {
     </>
   );
 };
+
+Article.getInitialProps = async function(context) {
+  const currentLocale = context.query.lang;
+  const currentSlug = context.query.id;
+
+  return getArticle({
+    slug: currentSlug,
+    locale: currentLocale
+  });
+};
 export default Article;
-
-const CustomWrapper = styled(Wrapper)`
-  padding: 0 17%;
-`;
-
-const Sticky = styled.div`
-  top: 15px;
-  margin-bottom: -95px;
-  transition: all 500ms ease-in-out;
-  width: 100%;
-  left: 0;
-  right: 0;
-  z-index: 9;
-  position: sticky;
-  overflow: hidden;
-`;
-
-const CustomCategoryTitle = styled(MediumSubtitle)`
-  position: absolute;
-  transform: rotate(-90deg);
-  left: 6%;
-  ${props => props.theme.medias.medium`
-    transform: rotate(0);
-    position:relative;
-    left:0;
-`}
-`;
-
-const CustomArticleTitle = styled(ArticleTitle)`
-  color: ${props => props.theme.colors.black};
-  font-size: 60px;
-`;
-const ShowOnMobile = styled.div`
-  display: none;
-  ${props => props.theme.medias.medium`
-  display:block;
-`}
-`;
-const HideOnMobile = styled.div`
-  display: block;
-  ${props => props.theme.medias.medium`
-  display:none;
-`}
-`;
-
-const BigImage = styled.img`
-  width: 100%;
-`;
-const CustomDiv = styled.div`
-  width: 50%;
-  ${props => props.theme.medias.medium`
-      width:100% ;
-    `}
-`;
-const SmallImage = styled.img`
-  margin-top: 45px;
-  margin-left: -52%;
-  width: 130%;
-  transition: all 500ms;
-
-  ${props => props.theme.medias.medium`
-    margin: 20px 0 45px 0;
-    width:100%;
-    transition: all 500ms;
-    `}
-`;
-
-const CustomLabor = styled(Labor)`
-  width: 50%;
-  ${props => props.theme.medias.medium`
-   width:100%;
-    padding-top:20px;
-    padding-bottom:45px;
-  `}
-`;
-
-const CustomChapeau = styled(Chapeau)`
-  width: 100%;
-  ${props => props.theme.medias.medium`
-   width:100%;
-   padding-top:50px;
-   padding-bottom:25px;
-  `}
-`;
-const ArticleSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  padding: 70px 0;
-
-  ${props => props.theme.medias.medium`
-    flex-direction:column;
-    padding:0;
-  `}
-`;
-
-const Fixed = styled.div`
-  width: 30%;
-  position: relative;
-
-  h4 {
-    transform: rotate(-90deg);
-    position: absolute;
-    margin-left: 36%;
-    top: 50px;
-    left: 0;
-    right: 0;
-
-    ${props => props.theme.medias.medium`
-    position:relative;
-    transform: rotate(0deg);
-    margin-left: 0;
-    top: 0px;
-    margin-bottom: 30px;
-  `}
-  }
-`;
-
-const Part = styled.div`
-  top: -${props => props.headerHeight}px;
-  margin-bottom: -${props => props.headerHeight}px;
-  padding: 190px 0;
-  background-color: ${props => props.theme.colors.white};
-
-  ${props => props.theme.medias.medium`
-
-    padding-top: 140px;
-    padding-bottom: 60px;
-  `}
-`;

@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
-import { Navigation, SmallSubtitle } from "../../styled/typos";
+import {
+  Navigation,
+  SmallSubtitle,
+  ArticleTitleHeader
+} from "../../styled/typos";
 
-export const Media = styled.img``;
+export const Media = styled.img`
+  ${props => props.theme.medias.medium`
+    width:60px;
+   `}
+`;
 
 export const Container = styled.div`
   border-top: 1px solid ${props => props.theme.colors.black};
@@ -14,6 +22,19 @@ export const Container = styled.div`
   background-color: ${props => props.theme.colors.white};
   overflow: hidden;
   z-index: 300;
+`;
+
+export const MobileContainer = styled.div`
+  border-top: 1px solid ${props => props.theme.colors.black};
+  border-bottom: none !important;
+  padding: 20px 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: ${props => props.theme.colors.white};
+  overflow: hidden;
+  z-index: 300;
+  flex-direction: column;
 `;
 export const Line = styled.div`
   background-color: ${props => props.theme.colors.blue};
@@ -30,6 +51,10 @@ export const Published = styled(Navigation)`
   opacity: 0.5;
   margin: 0;
   margin-left: 40px;
+
+  ${props => props.theme.medias.medium`
+    margin-left:0px;
+   `}
 `;
 
 export const Author = styled.div`
@@ -40,7 +65,7 @@ export const Author = styled.div`
 
 export const Flex = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${props => (props.isRow ? "row" : "column")};
 `;
 
 export const Row = styled.div`
@@ -52,6 +77,11 @@ export const Row = styled.div`
   h4 {
     margin-right: 15px;
   }
+  ${props => props.theme.medias.medium`
+    width:100%;
+    h4 {
+      margin-right:0;
+   `}
 `;
 export const Category = styled(SmallSubtitle)`
   color: ${props => props.theme.colors.blue};
@@ -64,18 +94,27 @@ export const Back = styled(SmallSubtitle)`
   cursor: pointer;
   width: 17%;
 
+  ${props => props.theme.medias.medium`
+    width:unset;
+   `}
+
   img {
     margin-right: 10px;
     transition: all 500ms;
-    right: 0px;
+    right: ${props => (props.isCross ? "3px" : "0")};
     position: relative;
   }
   &:hover {
     img {
       position: relative;
-      right: 5px;
+      right: ${props => (props.isCross ? "0" : "5px")};
       color: blue;
       transition: all 1000ms;
     }
   }
+`;
+
+export const ArticleTitle = styled(ArticleTitleHeader)`
+  margin-top: 10px;
+  padding: 0 30px;
 `;

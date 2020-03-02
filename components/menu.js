@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { useMocks } from "../context/mock-context";
 import { removeQuery } from "../utils/query";
 import { Navigation } from "../styled/typos";
-
+import pageName from "../static/pageName";
 const Menu = props => {
   let { menu } = useMocks();
 
@@ -16,6 +16,7 @@ const Menu = props => {
   const menuRef = useRef(null);
   const [menuHeight, setMenuHeight] = useState(false);
   const [isOpen, setOpen] = useState(false);
+  const [isTop, setIsTop] = useState(false);
   const currentQuerryLang = router.query.lang;
   const currentPage = router.pathname;
   const { asPath } = router;
@@ -27,16 +28,35 @@ const Menu = props => {
     currentTitle = "article";
   }
 
+  const getMenuHeight = () => {
+    if (menuRef.current) {
+      setMenuHeight(menuRef.current.offsetHeight);
+    }
+  };
+  const getScroll = () => {
+    if (window.scrollY > 120 && isTop === false) {
+      setIsTop(true);
+    } else if (window.scrollY < 120 && isTop === true) {
+      setIsTop(false);
+    }
+  };
+
   useEffect(() => {
-    const getMenuHeight = () => {
-      if (menuRef.current) {
-        setMenuHeight(menuRef.current.offsetHeight);
-      }
-    };
+    getMenuHeight();
+    getScroll();
+  }, []);
+
+  useEffect(() => {
     if (typeof window !== undefined) {
-      getMenuHeight();
       window.addEventListener("resize", () => getMenuHeight());
       return () => window.removeEventListener("resize", () => getMenuHeight());
+    }
+  });
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      window.addEventListener("scroll", () => getScroll(), { passive: true });
+      return () => window.removeEventListener("scroll", () => getScroll());
     }
   });
 
@@ -52,19 +72,14 @@ const Menu = props => {
     width: 100%;
     padding: 30px 0;
     padding-left: 8%;
-    z-index: 10;
+    z-index: 30;
     background-color: transparent;
     transition: all 200ms;
     margin-bottom: -${menuHeight}px;
 
-    background-color: ${currentPage === "/article/[id]"
-      ? "white"
+    background-color: ${currentPage === "/[lang]/article/[id]"
+      ? props => (!props.isTop ? "white" : "black")
       : "transparent"};
-    &:hover {
-      .animation-menu__bkg {
-        transform: translateY(0px);
-      }
-    }
 
     ${props => props.theme.medias.large`
       padding-left: 10%;
@@ -94,16 +109,20 @@ const Menu = props => {
   `;
 
   return (
-    <MenuDesktop className="menu" ref={menuRef}>
+    <MenuDesktop className="menu" ref={menuRef} isTop={isTop}>
       <AnimationMenu className="animation-menu__bkg"></AnimationMenu>
       <MobileNavigation>
         <Link href={`/[lang]/`} as={`/${currentQuerryLang}/`}>
-          {currentPage === "/[lang]" ? (
+          {currentPage === "/" ||
+          currentPage === "/[lang]/" ||
+          currentPage === "/[lang]" ? (
             <Logo src="/pictos/logo.svg" alt="Societer Logo" />
           ) : (
             <Flex style={{ height: "35px" }}>
               <MinimalLogo src="/pictos/minimal_logo.svg" alt="Societer Logo" />
-              <CurrentPage>{removeQuery(currentPage)}</CurrentPage>
+              <CurrentPage>
+                {pageName[currentQuerryLang][removeQuery(currentPage)]}
+              </CurrentPage>
             </Flex>
           )}
         </Link>

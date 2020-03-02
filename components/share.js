@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useTrail, useSpring, animated } from "react-spring";
-import { ArtcileTitleHeader, SmallNavigation } from "../styled/typos";
+import { ArticleTitleHeader, SmallNavigation } from "../styled/typos";
 import { Wrapper } from "../styled/space";
 import useMeasure from "../utils/useMeasure";
 let socials = [
@@ -21,10 +21,10 @@ const Share = props => {
   });
 
   const [translateShare, set, stop] = useSpring(() => ({
-    transform: "translateY(110px)"
+    transform: "translateY(300px)"
   }));
   set({
-    transform: props.isFinished ? "translateY(0px)" : "translateY(110px)"
+    transform: props.isFinished ? "translateY(0px)" : "translateY(300px)"
   });
   stop();
 
@@ -86,7 +86,7 @@ const CustomWrapper = styled(Wrapper)`
   flex-direction: row;
 `;
 
-const Title = styled(ArtcileTitleHeader)`
+const Title = styled(ArticleTitleHeader)`
   color: ${props => props.theme.colors.white};
   display: flex;
   align-items: center;

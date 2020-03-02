@@ -1,85 +1,147 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import { Navigation, ArtcileTitleHeader } from "../../styled/typos";
+import { Navigation, ArticleTitleHeader } from "../../styled/typos";
 import Share from "../share";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 import { useMocks } from "../../context/mock-context";
 import {
   Container,
+  MobileContainer,
   Line,
   Published,
   Author,
   Flex,
   Row,
   Category,
-  Back
+  Back,
+  Media,
+  ArticleTitle
 } from "./styled";
+
+import { getWindowWidth } from "../../utils/windowWidth";
 
 const ArticleHeader = props => {
   const { articleHeader } = useMocks();
   const lineRef = useRef(null);
-  const [isTimeline, setIsTimeline] = useState("");
+  const [scrollPosition, setScrollPosition] = useState("");
 
-  useEffect(() => {
-    const getPosition = () => {
-      let scroll = window.pageYOffset;
+  const router = useRouter();
+  const getScrollPosition = () => {
+    let scroll = window.pageYOffset;
+    setScrollPosition(scroll);
+  };
+
+  const makeLine = scrollPosition => {
+    if (typeof window !== "undefined") {
       let body = document.body;
       let height = body.scrollHeight - body.offsetHeight;
-      let percent = (scroll * 100) / height;
+      let percent = (scrollPosition * 100) / height;
       percent = percent.toFixed(0);
-      setIsTimeline(percent);
-    };
+      return percent;
+    }
+  };
 
-    if (typeof window !== undefined) {
-      getPosition();
-      window.addEventListener("scroll", () => getPosition());
-      return () => window.removeEventListener("scroll", () => getPosition());
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", () => getScrollPosition(), {
+        capture: true,
+        passive: true
+      });
+      return () =>
+        window.removeEventListener("scroll", () => getScrollPosition(), {
+          capture: true,
+          passive: true
+        });
     }
   });
 
-  return (
+  useEffect(() => {
+    getScrollPosition();
+  }, []);
+
+  return getWindowWidth() === "Desktop" ? (
     <Container isSticky={props.isSticky}>
-      <Link href="/debat-public">
+      <Link href={`/${router.query.lang}/public-debat`}>
         <Back>
           <img src="/pictos/arrow_back.svg" alt="Retour" />
           {articleHeader.back}
         </Back>
       </Link>
       <Row>
-        <Category>{props.category}</Category>
+        {props.categories && (
+          <Category className="categorie__title">
+            {props.categories[0].fields.label}
+          </Category>
+        )}
+
         <Flex>
-          <ArtcileTitleHeader>{props.articleTitle}</ArtcileTitleHeader>
+          <ArticleTitleHeader>{props.articleTitle}</ArticleTitleHeader>
 
           <Author>
-            <Navigation isBlack noLink>
-              <a
-                href={props.url}
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                {" "}
-                {articleHeader.publishedBy}{" "}
-                {props.authors.map((author, i) => {
-                  return (
-                    <span key={i}>
-                      {" "}
-                      {author.name}
-                      {i < props.authors.length - 1 ? ", " : "."}
-                    </span>
-                  );
-                })}
-              </a>
-            </Navigation>
+            <Navigation
+              isBlack
+              noLink
+              dangerouslySetInnerHTML={{ __html: props.authors }}
+            ></Navigation>
           </Author>
         </Flex>
-        {/* <Media src={props.media} alt="Logo Média"></Media> */}
+        <Media src={props.logo} alt="Logo Média"></Media>
         <Published>{props.published}</Published>
       </Row>
 
-      <Line ref={lineRef} timeline={isTimeline} />
-      <Share isFinished={isTimeline >= 100} />
+      {/* <Line ref={lineRef} timeline={makeLine(scrollPosition)} /> */}
+      <Share isFinished={makeLine(scrollPosition) >= 100} />
     </Container>
+  ) : (
+    <MobileContainer isSticky={props.isSticky}>
+      <Row style={{ width: "100%", padding: "0 30px" }}>
+        <Row style={{ width: "unset", justifyContent: "space-around" }}>
+          <Link href={`/${router.query.lang}/public-debat`}>
+            <Back isCross>
+              <img src="/pictos/close_article.svg" alt="Retour" />
+            </Back>
+          </Link>
+          <Media src={props.logo} alt="Logo Média"></Media>
+        </Row>
+
+        {props.categories && (
+          <Category className="categorie__title">
+            {props.categories[0].fields.label}
+          </Category>
+        )}
+        <Published>{props.published}</Published>
+      </Row>
+
+      <ArticleTitle>{props.articleTitle}</ArticleTitle>
+
+      {/* <Line ref={lineRef} timeline={makeLine(scrollPosition)} /> */}
+      <Share isFinished={makeLine(scrollPosition) >= 100} />
+    </MobileContainer>
   );
 };
 
 export default ArticleHeader;
+
+//  {
+//    getWindowWidth === "Desktop" ? (
+//      <Back>
+//        <img src="/pictos/arrow_back.svg" alt="Retour" />
+//        {articleHeader.back}
+//      </Back>
+//    ) : (
+//      <Back isCross>
+//        <img src="/pictos/close_article.svg" alt="Retour" />
+//      </Back>
+//    );
+//  }
+
+{
+  /* <Author>
+            <Navigation
+              isBlack
+              noLink
+              dangerouslySetInnerHTML={{ __html: props.authors }}
+            ></Navigation>
+          </Author> */
+}

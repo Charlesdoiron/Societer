@@ -47,7 +47,7 @@ const MenuMobile = props => {
       setTimeout(() => {
         props.onClick();
         router.push({
-          pathname: "/"
+          pathname: `/${router.query.lang}/`
         });
       }, TIME_TRANSITION);
     } else if (currentPage !== item.path) {
