@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useMocks } from "../context/mock-context";
 import Link from "next/link";
 import classNames from "classnames";
+
 const Article = props => {
   const { articles } = props;
   const [isHover, setIsHover] = useState("");
@@ -22,7 +23,7 @@ const Article = props => {
       }
     });
   }
-
+  const pdf = "/images/debat_public/picto_pdf.png";
   return (
     <Container>
       {articlesFiltered.map((el, i) => (
@@ -69,11 +70,7 @@ const Article = props => {
                   target="_blank"
                   rel="noopener"
                 >
-                  <img
-                    src="/images/debat_public/pdf.png"
-                    alt="Pdf"
-                    style={{ width: "40px" }}
-                  />
+                  <img src={pdf} alt="Pdf" style={{ width: "40px" }} />
                 </a>
               </div>
             ) : (

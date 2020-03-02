@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import {
-  MediumSubtitle,
-  ArticleTitle,
-  Chapeau,
-  Labor
-} from "../../../styled/typos";
-import { Wrapper } from "../../../styled/space";
+import { MediumSubtitle, ArticleTitle, Chapeau, Labor } from "../typos";
+import { Wrapper } from "../space";
 
 export const CustomWrapper = styled(Wrapper)`
   padding: 0 17%;

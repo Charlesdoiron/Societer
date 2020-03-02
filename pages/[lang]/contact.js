@@ -11,14 +11,15 @@ import {
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
 import { useMocks } from "../../context/mock-context";
-
+import { useRouter } from "next/router";
 import { getMenuHeight } from "../../utils/menuHeight";
 
 import getContact from "../../api/getContact";
 
 const Contact = props => {
   const contact = props.data;
-
+  const router = useRouter();
+  console.log(contact, "contact");
   useEffect(() => {
     if (window !== undefined) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -106,6 +107,14 @@ const Contact = props => {
             </Sub>
             {credits("subtitle4", "credits4")}
             {credits("subtitle5", "credits5")}
+            <Sub>
+              <LinkTitle>&nbsp;</LinkTitle>
+              <Flex>
+                <a href={`/${router.query.lang}/legals`}>
+                  <LinkItem>{contact.credits6.fields.label}</LinkItem>
+                </a>
+              </Flex>
+            </Sub>
           </Links>
         </RightPart>
       </Footer>

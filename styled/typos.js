@@ -21,7 +21,8 @@ export const FatTitle = styled.h1`
   font-style: normal;
   font-size: 60px;
   line-height: 85px;
-  color: ${props => props.theme.colors.white};
+  color: ${props =>
+    props.isBlack ? props.theme.colors.black : props.theme.colors.white};
   transition: all 500ms;
   margin: 0;
   ${props => props.theme.medias.medium`

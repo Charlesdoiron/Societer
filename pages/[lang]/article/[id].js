@@ -21,7 +21,7 @@ import {
   ArticleSection,
   Fixed,
   Part
-} from "./styled";
+} from "../../../styled/pages/article";
 import { ArticleInterTitle } from "../../../styled/typos";
 import getArticle from "../../../api/getArticle";
 import { getWindowWidth } from "../../../utils/windowWidth";
