@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Collapse } from "react-collapse";
 import { ExpertiseTitle, Labor, SmallSubtitle } from "../styled/typos";
 import { FatWrapper } from "../styled/space";
-
+import ReactMarkdown from "react-markdown";
 const Accordion = props => {
   const [expertiseActive, setExpertiseActive] = useState("engagement-societal");
 
@@ -39,9 +39,19 @@ const Accordion = props => {
                         <ExpertiseSubtitleCollapse>
                           {props.subTitleTwo}
                         </ExpertiseSubtitleCollapse>
-                        <Labor
-                          dangerouslySetInnerHTML={{ __html: el.description }}
-                        />
+                        <Labor>
+                          <ReactMarkdown
+                            source={el.description}
+                            renderers={{
+                              link: props => (
+                                <a href={props.href} target="_blank">
+                                  {props.children}
+                                </a>
+                              )
+                            }}
+                            escapeHtml={false}
+                          />
+                        </Labor>
                       </CollapseContent>
                     </Collapse>
                   </ShowOnMobile>
@@ -57,10 +67,19 @@ const Accordion = props => {
             {props.content.map((el, i) => {
               if (el.slug === expertiseActive) {
                 return (
-                  <Labor
-                    key={i}
-                    dangerouslySetInnerHTML={{ __html: el.description }}
-                  />
+                  <Labor key={i}>
+                    <ReactMarkdown
+                      source={el.description}
+                      renderers={{
+                        link: props => (
+                          <a href={props.href} target="_blank">
+                            {props.children}
+                          </a>
+                        )
+                      }}
+                      escapeHtml={false}
+                    />
+                  </Labor>
                 );
               }
             })}

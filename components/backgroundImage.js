@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Image = styled.div`
-  background-image: url(${props => props.image});
+  background-image: url(${props => props.image.fields.file.url || props.image});
   width: 100%;
   height: 100vh;
   background-position: center;
@@ -12,7 +12,7 @@ const Image = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  background-position: ${props => (props.alignBottom ? "bottom" : "unset")};
+  background-position: ${props => (props.alignBottom ? "bottom" : "center")};
   ${props => props.theme.medias.medium`
    background-image: url(${
      props.imageMobile

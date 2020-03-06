@@ -5,23 +5,37 @@ import styled from "styled-components";
 import { Subtitle, BigTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
-import { fetchPage } from "../../api/call";
+import getPage from "../../api/getPage";
 
 const HomePage = props => {
+  const {
+    canonical,
+    metatitle,
+    metadescription,
+    backgroundImage,
+    tagline,
+    subtitle
+  } = props.data;
   if (!props) return;
 
+  console.log(props, "homepage");
   return (
     <Container>
+      <NextSeo
+        title={metatitle}
+        description={metadescription}
+        canonical={canonical}
+      />
       <BackgroundImage
         alignBottom
         noImageOnMobile
-        image={props.fields.backgroundImage}
-        alt="Societer Team"
+        image={backgroundImage}
+        alt={backgroundImage.fields.description}
       />
       <Wrapper>
         <Titles>
-          <Subtitle>{props.fields.subtitle}</Subtitle>
-          <BigTitle>{props.fields.tagline}</BigTitle>
+          <Subtitle>{subtitle}</Subtitle>
+          <BigTitle>{tagline}</BigTitle>
         </Titles>
       </Wrapper>
     </Container>
@@ -30,7 +44,10 @@ const HomePage = props => {
 
 HomePage.getInitialProps = async function(context) {
   const currentLocale = context.query.lang;
-  return fetchPage({ page: "homepage", locale: currentLocale });
+  return getPage({
+    c_type_id: "5bA22RzOfK9fLA6PbB3xzP",
+    locale: currentLocale
+  });
 };
 
 export default HomePage;

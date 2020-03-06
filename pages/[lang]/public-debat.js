@@ -15,7 +15,7 @@ import Categories from "../../components/categories";
 import Article from "../../components/article";
 import { getMenuHeight } from "../../utils/menuHeight";
 
-import getPublicDebat from "../../api/getPublicDebat";
+import getPage from "../../api/getPage";
 const PublicDebat = props => {
   console.log(props, "public debat");
   const { debat_public } = useMocks();
@@ -28,22 +28,15 @@ const PublicDebat = props => {
     }
   }, []);
 
-  const Image = styled(BackgroundImage)`
+  const ImageContainer = styled.div`
     position: relative;
-    height: 100%;
-    opacity: 0.7;
-    background-position: bottom;
-  `;
-
-  const ImageContainer = styled(BackgroundImage)`
-    position: relative;
-    height: 100%;
+    height: 100vh;
     top: -${getMenuHeight()}px;
     margin-bottom: -${getMenuHeight()}px;
     opacity: 0.7;
-    background-position: bottom;
   `;
 
+  console.log(backgroundImage);
   return (
     <Container>
       <NextSeo
@@ -51,8 +44,11 @@ const PublicDebat = props => {
         description={debat_public.seo_description}
         canonical={debat_public.seo_canonical}
       />
-      <ImageContainer style={{ height: "80vh" }}>
-        <Image alt="Societer Contact" image={backgroundImage.fields.file.url} />
+      <ImageContainer>
+        <BackgroundImage
+          alt={backgroundImage.fields.description}
+          image={backgroundImage}
+        />
       </ImageContainer>
 
       <CustomWrapper isWhite>
@@ -68,7 +64,7 @@ const PublicDebat = props => {
 
 PublicDebat.getInitialProps = async function(context) {
   const currentLocale = context.query.lang;
-  return getPublicDebat({
+  return getPage({
     c_type_id: "6Y1xDPclXIJWOLHsDZEQXS",
     locale: currentLocale
   });

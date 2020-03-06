@@ -4,19 +4,11 @@
     "static/development/dll/dll_4b8bef20edde04f98d3f.js.map"
   ],
   "pages": {
+    "/": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
     "/[lang]": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/[lang]/community": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/[lang]/mission": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/[lang]/public-debat": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
@@ -35,6 +27,10 @@
     "/_polyfills": [
       "static/runtime/polyfills.js",
       "static/runtime/polyfills.js.map"
+    ],
+    "/index": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/next/dist/pages/_error": [
       "static/runtime/webpack.js",

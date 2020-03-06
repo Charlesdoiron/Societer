@@ -86,7 +86,7 @@ const ArticleHeader = props => {
             ></Navigation>
           </Author>
         </Flex>
-        <Media src={props.logo} alt="Logo Média"></Media>
+        <Media src={props.logo} alt={props.alt}></Media>
         <Published>{props.published}</Published>
       </Row>
 
@@ -102,7 +102,7 @@ const ArticleHeader = props => {
               <img src="/pictos/close_article.svg" alt="Retour" />
             </Back>
           </Link>
-          <Media src={props.logo} alt="Logo Média"></Media>
+          <Media src={props.logo} alt={props.alt}></Media>
         </Row>
 
         {props.categories && (

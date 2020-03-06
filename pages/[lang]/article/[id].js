@@ -65,18 +65,20 @@ const Article = props => {
     visibility: showSubMenu ? "visible" : "hidden"
   });
 
+  console.log(props);
   return (
     <>
       <NextSeo
-        title={article.title}
-        // description={article.seo_description}
-        // canonical={article.seo_canonical}
+        title={article.metatitle}
+        description={article.metadescription}
+        canonical={article.canonical}
       />
       <animated.div style={animate}>
         <Sticky ref={subMenuRef}>
           <ArticleHeader
             categories={article.categories}
             logo={article.logo.fields.file.url}
+            alt={article.logo.fields.description}
             articleTitle={article.title}
             authors={article.authors}
             published={article.published}
@@ -95,7 +97,10 @@ const Article = props => {
             {article.title}
           </CustomArticleTitle>
 
-          <BigImage src={article.coverImage.fields.file.url} />
+          <BigImage
+            src={article.coverImage.fields.file.url}
+            alt={article.coverImage.fields.description}
+          />
           <ArticleSection>
             <CustomChapeau
               isBlack
@@ -114,7 +119,10 @@ const Article = props => {
                     </ArticleInterTitle>
                     <HideOnMobile>
                       {i === 0 && (
-                        <SmallImage src={article.smallImage.fields.file.url} />
+                        <SmallImage
+                          src={article.smallImage.fields.file.url}
+                          alt={article.smallImage.fields.description}
+                        />
                       )}
                     </HideOnMobile>
                   </CustomDiv>
@@ -127,7 +135,10 @@ const Article = props => {
                 />
                 <ShowOnMobile>
                   {i === 0 && (
-                    <SmallImage src={article.smallImage.fields.file.url} />
+                    <SmallImage
+                      src={article.smallImage.fields.file.url}
+                      alt={article.smallImage.fields.description}
+                    />
                   )}
                 </ShowOnMobile>
               </ArticleSection>

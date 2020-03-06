@@ -30,6 +30,9 @@ const Vision = props => {
   const titleRef = useRef(null);
   const currentQuerryLang = router.query.lang;
   const {
+    metatitle,
+    metadescription,
+    canonical,
     secondPartSubtitle,
     secondPartArticleTitle,
     secondPartLogo,
@@ -58,16 +61,17 @@ const Vision = props => {
   console.log(props, "vision");
   return (
     <>
+      <NextSeo
+        title={metatitle}
+        description={metadescription}
+        canonical={canonical}
+      />
       <PopUp
         content={definition}
         popIsOpen={popIsOpen}
         handleClick={() => setPopOpen(false)}
       />
-      <NextSeo
-        title={vision.seo_title}
-        description={vision.seo_description}
-        canonical={vision.seo_canonical}
-      />
+
       <Wrapper>
         <FirstPart>
           <Sticky>

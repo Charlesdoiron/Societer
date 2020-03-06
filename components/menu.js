@@ -21,7 +21,6 @@ const Menu = props => {
   const currentPage = router.pathname;
   const { asPath } = router;
 
-  console.log(currentPage);
   let currentTitle;
   if (currentPage !== "/article/[id]") {
     currentTitle = router.query.title;
@@ -77,13 +76,24 @@ const Menu = props => {
     background-color: transparent;
     transition: all 200ms;
     margin-bottom: -${menuHeight}px;
-    mix-blend-mode: ${currentPage !== "/[lang]" && getWindowWidth() !== "Mobile"
-      ? "difference"
-      : "unset"};
-    background-color: ${currentPage === "/[lang]/article/[id]"
-      ? props => (!props.isTop ? "white" : "black")
-      : "transparent"};
+    /* mix-blend-mode: ${
+      currentPage !== "/[lang]" && getWindowWidth() !== "Mobile"
+        ? "difference"
+        : "unset"
+    }; */
+    background-color: ${
+      currentPage === "/[lang]/article/[id]"
+        ? props => (!props.isTop ? "white" : "black")
+        : "transparent"
+    };
 
+    &:hover {
+       background-color: ${
+         currentPage !== "/[lang]"
+           ? props => props.theme.colors.black
+           : "transparent"
+       };
+    }
     ${props => props.theme.medias.large`
       padding-left: 10%;
       `}
@@ -108,14 +118,14 @@ const Menu = props => {
     left: 0;
     right: 0;
     z-index: 1;
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
   `;
 
   const CustomNavigation = styled(Navigation)`
     margin-right: 60px;
     white-space: nowrap;
     color: ${menuColor};
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
     &.isActive {
       border-bottom: 1px solid ${menuColor};
     }

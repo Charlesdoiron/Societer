@@ -21,16 +21,23 @@ const Community = props => {
 
   if (!props) return;
 
-  const { members, strategicComiteSubtitle, strategicComitee } = props.data;
+  const {
+    metatitle,
+    metadescription,
+    canonical,
+    members,
+    strategicComiteSubtitle,
+    strategicComitee
+  } = props.data;
 
   console.log(props, "community");
   console.log(members, "merbers");
   return (
     <>
       <NextSeo
-        title={communaute.seo_title}
-        description={communaute.seo_description}
-        canonical={communaute.seo_canonical}
+        title={metatitle}
+        description={metadescription}
+        canonical={canonical}
       />
       <HideOnMediumPlus>
         <FirstPart>
