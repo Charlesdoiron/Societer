@@ -126,16 +126,9 @@ export const Manifesto = props => {
           framework of a multilateral Diplomatic agenda.
         </Part>
         <Part>
-          The magnitude of the global challenges ahead - climate change,
-          education, food, health, gender equality, technological breakthroughs
-          and access to resources - calls for the synergy of private, public,
-          diplomatic and grass-roots energies to respond effectively to the
-          challenges of the 21st century.
-        </Part>
-        <Part>
-          This is why we are committed to fostering the emergence of ad hoc
-          coalitions between the aforementioned different spheres to meet the
-          challenges of tomorrow, summarized in the{" "}
+          This is why we are committed to fostering the emergence of{" "}
+          <em>ad hoc</em> coalitions between the aforementioned different
+          spheres to meet the challenges of tomorrow, summarized in the{" "}
           <a onClick={e => props.handleClick("odd")}>
             United Nations 17 Sustainable Development Goals
           </a>{" "}
@@ -143,13 +136,12 @@ export const Manifesto = props => {
           Sustainable New Deal.
         </Part>
         <Part>
-          Societer supports corporate leaders in identifying and executing
-          challenges in the global public conversation, aligned with what we
-          believe to be the sole valid international agenda for social
-          engagement:{" "}
+          Societer helps corporate leaders anticipate and prepare for the
+          important challenges the world faces today, in alignment with{" "}
           <a onClick={e => props.handleClick("agenda")}>
             the United Nations 2030 Agenda.
           </a>
+          , the one valid international agenda for social engagement.
         </Part>
         IN SOCIETY WE TRUST.
       </ManifestLabor>

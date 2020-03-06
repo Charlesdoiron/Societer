@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
-
+import ReactMarkdown from "react-markdown";
 import { Wrapper, WrapperMediumPlus } from "../styled/space";
 import { ScreenSizes } from "../config/theme/medias";
 import {
@@ -376,11 +376,19 @@ const member = props => {
             <MemberHr />
           </Flex>
 
-          <MemberLabor
-            dangerouslySetInnerHTML={{
-              __html: dataMember.engagements
-            }}
-          />
+          <MemberLabor>
+            <ReactMarkdown
+              source={dataMember.engagements}
+              renderers={{
+                link: props => (
+                  <a href={props.href} target="_blank">
+                    {props.children}
+                  </a>
+                )
+              }}
+              escapeHtml={false}
+            />
+          </MemberLabor>
         </Description>
       </Content>
     </Container>

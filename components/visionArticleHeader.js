@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Navigation, ArticleTitle, ArtcileTitleHeader } from "../styled/typos";
-
+import ReactMarkdown from "react-markdown";
 const VisionArticleHeader = props => {
   const Media = styled.img``;
 
@@ -12,6 +12,7 @@ const VisionArticleHeader = props => {
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   `;
 
   const Published = styled(Navigation)`
@@ -22,6 +23,9 @@ const VisionArticleHeader = props => {
 
   const Author = styled.div`
     margin-left: 20px;
+    a {
+      color: inherit;
+    }
     ${props => props.theme.medias.medium`
     display:none;
    `}
@@ -38,15 +42,17 @@ const VisionArticleHeader = props => {
 
       <Author>
         <Navigation isBlack noLink>
-          <a
-            href={props.url}
-            style={{ color: "inherit", textDecoration: "none" }}
-          >
-            {" "}
-            {props.authors.map((author, i) => {
-              return <span key={i}>{author.name}</span>;
-            })}
-          </a>
+          <ReactMarkdown
+            source={props.authors}
+            renderers={{
+              link: props => (
+                <a href={props.href} target="_blank">
+                  {props.children}
+                </a>
+              )
+            }}
+            escapeHtml={false}
+          />
         </Navigation>
       </Author>
 

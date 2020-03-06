@@ -47,7 +47,7 @@ export default {
         link: {
           label: "Learn More",
           url:
-            "https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/"
+            "https://www.un.org/sustainabledevelopment/sustainable-development-goals/"
         }
       }
     }

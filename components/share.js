@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useTrail, useSpring, animated } from "react-spring";
 import { ArticleTitleHeader, SmallNavigation } from "../styled/typos";
 import { Wrapper } from "../styled/space";
-import useMeasure from "../utils/useMeasure";
+
 let socials = [
   { name: "Fb", url: "www.facebook.fr" },
   { name: "Tw", url: "www.facebook.fr" },
@@ -90,6 +90,9 @@ const Title = styled(ArticleTitleHeader)`
   color: ${props => props.theme.colors.white};
   display: flex;
   align-items: center;
+  ${props => props.theme.medias.mediumPlus`
+      padding:0;
+    `}
 `;
 
 const Container = styled(animated.div)`

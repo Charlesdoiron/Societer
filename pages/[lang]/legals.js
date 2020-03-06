@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
-
+import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import {
   ContactTitle,
@@ -41,6 +41,7 @@ const Legals = props => {
   `};
   `;
 
+  console.log(props);
   return (
     <Container>
       <NextSeo
@@ -73,25 +74,50 @@ const Legals = props => {
             <Chapeau isBlack style={{ marginBottom: "-10px" }}>
               {legals.subtitle1}
             </Chapeau>
-            <CustomLabor
-              dangerouslySetInnerHTML={{
-                __html: legals.content1.content[0].content[0].value
-              }}
-            ></CustomLabor>
+            <Paragraph>
+              <ReactMarkdown
+                source={legals.contentMkd1}
+                renderers={{
+                  link: props => (
+                    <a href={props.href} target="_blank">
+                      {props.children}
+                    </a>
+                  )
+                }}
+                escapeHtml={false}
+              />
+            </Paragraph>
           </Part>
           <Part>
             <Chapeau isBlack>{legals.subtitle2}</Chapeau>
-            <CustomLabor
-              dangerouslySetInnerHTML={{
-                __html: legals.content2.content[0].content[0].value
-              }}
-            ></CustomLabor>
-            <CustomChapeau isBlack>{legals.subtitle3}</CustomChapeau>
-            <CustomLabor
-              dangerouslySetInnerHTML={{
-                __html: legals.content3.content[0].content[0].value
-              }}
-            ></CustomLabor>
+            <Paragraph>
+              <ReactMarkdown
+                source={legals.contentMkd2}
+                renderers={{
+                  link: props => (
+                    <a href={props.href} target="_blank">
+                      {props.children}
+                    </a>
+                  )
+                }}
+                escapeHtml={false}
+              />
+            </Paragraph>
+            <Chapeau isBlack>{legals.subtitle3}</Chapeau>
+
+            <Paragraph>
+              <ReactMarkdown
+                source={legals.contentMkd3}
+                renderers={{
+                  link: props => (
+                    <a href={props.href} target="_blank">
+                      {props.children}
+                    </a>
+                  )
+                }}
+                escapeHtml={false}
+              />
+            </Paragraph>
           </Part>
         </Flex>
       </Wrapper>
@@ -108,6 +134,17 @@ Legals.getInitialProps = async function(context) {
 };
 
 export default Legals;
+
+const Paragraph = styled.div`
+  margin-top: 30px;
+  font-family: "garnett_regular";
+  span {
+    text-transform: uppercase;
+    display: block;
+    margin-top: 10px;
+    font-size: 11px;
+  }
+`;
 
 const Container = styled.div`
   background-color: white;

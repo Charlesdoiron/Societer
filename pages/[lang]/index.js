@@ -13,6 +13,7 @@ const HomePage = props => {
   return (
     <Container>
       <BackgroundImage
+        alignBottom
         noImageOnMobile
         image={props.fields.backgroundImage}
         alt="Societer Team"

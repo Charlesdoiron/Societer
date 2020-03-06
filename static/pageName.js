@@ -11,7 +11,7 @@ export default {
     "/vision": "Vision",
     "/mission": "Mission",
     "/community": "Community",
-    "/public-debat": "Public Debat",
+    "/public-debat": "Conversations",
     "/contact": "Contact",
     "/article/[id]": "Article"
   }

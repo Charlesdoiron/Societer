@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
-import fetch from "isomorphic-unfetch";
+
 import styled from "styled-components";
-import { Chapeau, Labor, Subtitle, FatTitle } from "../../styled/typos";
+import { Chapeau, Labor, FatTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import Accordion from "../../components/accordion";
 import { fetchPage } from "../../api/call";
@@ -14,15 +14,12 @@ const Mission = props => {
     chapeau,
     firstPartLabor,
     secondPartFatTitle,
-    teamImg,
     subTitle,
     subTitleTwo,
     expertise
   } = props[0];
 
-  console.log(props, "mission");
-  console.log(chapeau, "mission");
-  if (!props) return;
+  const wrapperRef = useRef(null);
   const { mission } = useMocks();
 
   useEffect(() => {
@@ -30,6 +27,9 @@ const Mission = props => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
+
+  if (!props) return;
+
   return (
     <>
       <NextSeo
@@ -40,14 +40,17 @@ const Mission = props => {
       <Wrapper>
         <FirstPart>
           <Chapeau dangerouslySetInnerHTML={{ __html: chapeau }} />
+
           <Labor>{firstPartLabor}</Labor>
         </FirstPart>
       </Wrapper>
+
       <SecondPart>
-        <Wrapper isWhite>
+        <Wrapper isWhite ref={wrapperRef}>
           {/* <Subtitle>{mission.secondPartSubtitle}</Subtitle> */}
           <FatTitle dangerouslySetInnerHTML={{ __html: secondPartFatTitle }} />
         </Wrapper>
+
         <Img
           src="/images/mission/mission_img.jpg"
           alt="Societer intervient sur mesure"

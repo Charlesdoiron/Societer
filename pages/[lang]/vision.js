@@ -3,9 +3,8 @@ import styled from "styled-components";
 import { useMocks } from "../../context/mock-context";
 import { Wrapper } from "../../styled/space";
 import { NextSeo } from "next-seo";
-
-import { fetchPage } from "../../api/call";
-
+import getPage from "../../api/getPage";
+import ReactMarkdown from "react-markdown";
 import {
   ManifestLabor,
   MediumSubtitle,
@@ -18,7 +17,6 @@ import {
 import VisionArticleHeader from "../../components/visionArticleHeader";
 import PopUp from "../../components/popUp";
 import { Manifesto } from "../../static/vision";
-
 import { useRouter } from "next/router";
 
 const Vision = props => {
@@ -31,7 +29,6 @@ const Vision = props => {
   const manifestLaborRef = useRef(null);
   const titleRef = useRef(null);
   const currentQuerryLang = router.query.lang;
-
   const {
     secondPartSubtitle,
     secondPartArticleTitle,
@@ -39,8 +36,12 @@ const Vision = props => {
     secondPartAuthors,
     secondPartPublished,
     secondPartChapeau,
-    secondPartArticleContent
-  } = props.fields;
+    secondPartArticleContent1,
+    secondPartArticleTitle2,
+    secondPartArticleContent2,
+    secondPartArticleTitle3,
+    secondPartArticleContent3
+  } = props.data;
 
   useEffect(() => {
     if (window !== undefined) {
@@ -54,6 +55,7 @@ const Vision = props => {
   };
 
   if (!props) return;
+  console.log(props, "vision");
   return (
     <>
       <PopUp
@@ -68,11 +70,11 @@ const Vision = props => {
       />
       <Wrapper>
         <FirstPart>
-          <Fixed>
+          <Sticky>
             <MediumSubtitle ref={titleRef}>
               {vision.firstPart[currentQuerryLang].subtitle}
             </MediumSubtitle>
-          </Fixed>
+          </Sticky>
           <Manifesto
             handleClick={e => handleClick(e)}
             currentQuerryLang={currentQuerryLang}
@@ -85,7 +87,7 @@ const Vision = props => {
           <ArticleTitle>{secondPartArticleTitle}</ArticleTitle>
           <VisionArticleHeader
             url="https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046"
-            media={secondPartLogo}
+            media={secondPartLogo.fields.file.url}
             authors={secondPartAuthors}
             published={secondPartPublished}
           />
@@ -100,50 +102,44 @@ const Vision = props => {
             {/* MOBILE */}
             <Author>
               <Navigation isBlack noLink>
-                <a
-                  href="https://www.lesechos.fr/idees-debats/cercle/dirigeants-dentreprise-engagez-vous-pour-sauver-le-monde-et-votre-business-1039127#xtor=CS1-3046"
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
-                  {" "}
-                  Co-signée par{" "}
-                  {vision.secondPart.authors.map((author, i) => {
-                    return (
-                      <span key={i}>
-                        {" "}
-                        {author.name}
-                        {i < vision.secondPart.authors.length - 1 ? ", " : "."}
-                      </span>
-                    );
-                  })}
-                </a>
+                <ReactMarkdown
+                  source={secondPartAuthors}
+                  renderers={{
+                    link: props => (
+                      <a href={props.href} target="_blank">
+                        {props.children}
+                      </a>
+                    )
+                  }}
+                  escapeHtml={false}
+                />
               </Navigation>
             </Author>
-            {/*  */}
 
             <CustomLabor
               dangerouslySetInnerHTML={{
-                __html: secondPartArticleContent[0].content
+                __html: secondPartArticleContent1
               }}
             />
           </ArticleSection>
 
           <ArticleSection>
-            <ArticleInterTitle>
-              {secondPartArticleContent[1].title}
-            </ArticleInterTitle>
+            <TitleSticky>
+              <ArticleInterTitle>{secondPartArticleTitle2}</ArticleInterTitle>
+            </TitleSticky>
             <CustomLabor
               dangerouslySetInnerHTML={{
-                __html: secondPartArticleContent[2].content
+                __html: secondPartArticleContent2
               }}
             />
           </ArticleSection>
           <ArticleSection>
-            <ArticleInterTitle>
-              {secondPartArticleContent[3].title}
-            </ArticleInterTitle>
+            <TitleSticky>
+              <ArticleInterTitle>{secondPartArticleTitle3}</ArticleInterTitle>
+            </TitleSticky>
             <CustomLabor
               dangerouslySetInnerHTML={{
-                __html: secondPartArticleContent[4].content
+                __html: secondPartArticleContent3
               }}
             />
           </ArticleSection>
@@ -154,7 +150,10 @@ const Vision = props => {
 };
 Vision.getInitialProps = async function(context) {
   const currentLocale = context.query.lang;
-  return fetchPage({ page: "vision", locale: currentLocale });
+  return getPage({
+    c_type_id: "5pe8WH4Os3Rzel2UfQ247o",
+    locale: currentLocale
+  });
 };
 export default Vision;
 
@@ -193,15 +192,21 @@ const ArticleSection = styled.div`
   `}
 `;
 
-const Fixed = styled.div`
+const TitleSticky = styled.div`
+  h4 {
+    position: sticky;
+    top: 80px;
+  }
+`;
+const Sticky = styled.div`
   width: 30%;
   position: relative;
 
   h4 {
     transform: rotate(-90deg);
-    position: absolute;
+    position: sticky;
     margin-left: 36%;
-    top: 35px;
+    top: 50px;
     left: 0;
     right: 0;
 

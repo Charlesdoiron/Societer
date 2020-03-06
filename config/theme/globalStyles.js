@@ -98,6 +98,7 @@ const GlobalStyles = createGlobalStyle`
       -moz-osx-font-smoothing: grayscale;
       touch-action: manipulation;
       scroll-behavior: smooth;
+      background-color:white;
     }
 
     .isBlue {

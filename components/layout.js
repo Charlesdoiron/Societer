@@ -8,7 +8,7 @@ const Layout = props => {
   return (
     <>
       <Menu />
-      {currentPage !== "/contact" && <Socials />}
+      {currentPage !== "/[lang]/contact" && <Socials />}
 
       {props.children}
     </>

@@ -36,7 +36,7 @@ export default {
         path: "/community"
       },
       {
-        label: "Public Debat",
+        label: "Conversations",
         path: "/public-debat"
       },
       {

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
-
+import { ResizeObserver } from "@juggle/resize-observer";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 
@@ -36,14 +36,14 @@ const Article = props => {
   const device = getWindowWidth();
   const [showSubMenu, setShowMenu] = useState(false);
 
-  const [subMenuRef, bounds] = useMeasure();
+  const [subMenuRef, bounds] = useMeasure({ polyfill: ResizeObserver });
 
   const handleSubMenu = () => {
     if (titleRef.current) {
       // Get Title Position to trigger the animation
       const titleTopPosition = titleRef.current.getBoundingClientRect().top;
       // If window's scroll > Title Position we set the state to true
-      if (window.scrollY > titleTopPosition) {
+      if (window.pageYOffset > titleTopPosition) {
         setShowMenu(true);
       } else {
         setShowMenu(false);
@@ -59,18 +59,19 @@ const Article = props => {
   });
 
   const animate = useSpring({
-    top: showSubMenu ? "85px" : "0px",
-    position: "sticky"
+    top: showSubMenu ? "85px" : "-10px",
+    position: showSubMenu ? "sticky" : "sticky",
+    zIndex: "10",
+    visibility: showSubMenu ? "visible" : "hidden"
   });
-  console.log(showSubMenu, "state");
-  console.log(animate, "animate");
+
   return (
     <>
-      {/* <NextSeo
+      <NextSeo
         title={article.title}
-        description={article.seo_description}
-        canonical={article.seo_canonical}
-      /> */}
+        // description={article.seo_description}
+        // canonical={article.seo_canonical}
+      />
       <animated.div style={animate}>
         <Sticky ref={subMenuRef}>
           <ArticleHeader

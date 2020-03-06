@@ -82,7 +82,9 @@ const CustomWrapper = styled(Wrapper)`
     padding:0 30px;
   `};
 `;
-const Container = styled.div``;
+const Container = styled.div`
+  background-color: ${props => props.theme.colors.black};
+`;
 
 const Titles = styled.div`
   width: 100%;

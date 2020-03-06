@@ -52,6 +52,9 @@ export const Navigation = styled.p`
   &.isActive {
     border-bottom: 1px solid ${props => props.theme.colors.white};
   }
+  a {
+    color: inherit;
+  }
 `;
 
 export const SmallNavigation = styled.p`

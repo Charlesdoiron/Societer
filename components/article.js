@@ -23,7 +23,7 @@ const Article = props => {
       }
     });
   }
-  const pdf = "/images/debat_public/picto_pdf.png";
+  const pdf = "/pictos/picto_pdf.png";
   return (
     <Container>
       {articlesFiltered.map((el, i) => (

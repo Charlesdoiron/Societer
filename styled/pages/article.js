@@ -122,7 +122,7 @@ export const Part = styled.div`
   background-color: ${props => props.theme.colors.white};
 
   ${props => props.theme.medias.medium`
-    padding-top: 140px;
+    padding-top: 50px;
     padding-bottom: 60px;
   `}
 `;

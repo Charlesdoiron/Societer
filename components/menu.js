@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import { useStateValue } from "../context/state";
 import MenuMobile from "./menuMobile";
-import { fetchPage } from "../api/call";
+import { getWindowWidth } from "../utils/windowWidth";
 import { useRouter } from "next/router";
 import { useMocks } from "../context/mock-context";
 import { removeQuery } from "../utils/query";
@@ -11,7 +11,7 @@ import { Navigation } from "../styled/typos";
 import pageName from "../static/pageName";
 const Menu = props => {
   let { menu } = useMocks();
-
+  const [{ menuColor }, dispatch] = useStateValue();
   const router = useRouter();
   const menuRef = useRef(null);
   const [menuHeight, setMenuHeight] = useState(false);
@@ -21,6 +21,7 @@ const Menu = props => {
   const currentPage = router.pathname;
   const { asPath } = router;
 
+  console.log(currentPage);
   let currentTitle;
   if (currentPage !== "/article/[id]") {
     currentTitle = router.query.title;
@@ -76,7 +77,9 @@ const Menu = props => {
     background-color: transparent;
     transition: all 200ms;
     margin-bottom: -${menuHeight}px;
-
+    mix-blend-mode: ${currentPage !== "/[lang]" && getWindowWidth() !== "Mobile"
+      ? "difference"
+      : "unset"};
     background-color: ${currentPage === "/[lang]/article/[id]"
       ? props => (!props.isTop ? "white" : "black")
       : "transparent"};
@@ -106,6 +109,26 @@ const Menu = props => {
     right: 0;
     z-index: 1;
     mix-blend-mode: difference;
+  `;
+
+  const CustomNavigation = styled(Navigation)`
+    margin-right: 60px;
+    white-space: nowrap;
+    color: ${menuColor};
+    mix-blend-mode: difference;
+    &.isActive {
+      border-bottom: 1px solid ${menuColor};
+    }
+  `;
+  const CurrentPage = styled(Navigation)`
+    top: 8px;
+    position: relative;
+    font-family: "garnett_medium";
+    white-space: nowrap;
+    color: ${menuColor};
+    ${props => props.theme.medias.medium`
+    top:14px;
+   `}
   `;
 
   return (
@@ -206,20 +229,6 @@ const MobileNavigation = styled.div`
    `}
 `;
 
-const CurrentPage = styled(Navigation)`
-  top: 8px;
-  position: relative;
-  font-family: "garnett_medium";
-  white-space: nowrap;
-
-  ${props => props.theme.medias.medium`
-    top:14px;
-   `}
-`;
-const CustomNavigation = styled(Navigation)`
-  margin-right: 60px;
-  white-space: nowrap;
-`;
 const Flex = styled.div`
   display: flex;
   color: ${props => props.theme.colors.white};
