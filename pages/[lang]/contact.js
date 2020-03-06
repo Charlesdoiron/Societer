@@ -58,18 +58,20 @@ const Contact = props => {
   return (
     <Container>
       <NextSeo
-        title={contact.title}
-        // description={contact.seo_description}
-        // canonical={contact.seo_canonical}
+        title={contact.metatitle}
+        description={contact.metadescription}
+        canonical={contact.canonical}
       />
       <Image
-        alt="Societer Contact"
-        image={contact.backgroundImage.fields.file.url}
-        imageMobile={contact.backgroundImageMobile.fields.file.url}
+        alt={contact.backgroundImage.fields.description}
+        image={contact.backgroundImage}
+        imageMobile={contact.backgroundImageMobile}
       />
       <Wrapper isWhite>
         <Titles>
-          <ContactTitle>{contact.adress}</ContactTitle>
+          <ContactTitle
+            dangerouslySetInnerHTML={{ __html: contact.adress }}
+          ></ContactTitle>
           <Button>
             <ContactBtn>
               <a target="_blank" href={contact.cta.fields.url} rel="noopener">
@@ -82,7 +84,7 @@ const Contact = props => {
       <Footer>
         <LeftPart>
           <Logo
-            alt="societer in Societer we trust"
+            alt={contact.logo.fields.description}
             style={{
               backgroundImage: `url(${contact.logo.fields.file.url})`
             }}

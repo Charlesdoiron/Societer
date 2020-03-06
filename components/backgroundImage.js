@@ -16,10 +16,10 @@ const Image = styled.div`
   ${props => props.theme.medias.medium`
    background-image: url(${
      props.imageMobile
-       ? props.imageMobile
+       ? props.imageMobile.fields.file.url
        : props.noImageOnMobile
        ? "unset"
-       : props.image
+       : props.image.fields.file.url
    });
    background-color: ${props.noImageOnMobile && props.theme.colors.blue};
 

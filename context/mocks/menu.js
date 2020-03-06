@@ -13,10 +13,10 @@ export default {
         label: "Communauté",
         path: "/community"
       },
-      {
-        label: "Débat public",
-        path: "/public-debat"
-      },
+      // {
+      //   label: "Débat public",
+      //   path: "/public-debat"
+      // },
       {
         label: "Contact",
         path: "/contact"
@@ -35,10 +35,10 @@ export default {
         label: "Community",
         path: "/community"
       },
-      {
-        label: "Conversations",
-        path: "/public-debat"
-      },
+      // {
+      //   label: "Conversations",
+      //   path: "/public-debat"
+      // },
       {
         label: "Contact",
         path: "/contact"

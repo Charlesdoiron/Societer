@@ -87,12 +87,11 @@ const Menu = props => {
         : "transparent"
     };
 
-    &:hover {
-       background-color: ${
-         currentPage !== "/[lang]"
-           ? props => props.theme.colors.black
-           : "transparent"
-       };
+   
+     &:hover {
+      .animation-menu__bkg {
+        transform: translateY(0px);
+      }
     }
     ${props => props.theme.medias.large`
       padding-left: 10%;
