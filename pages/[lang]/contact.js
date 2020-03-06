@@ -88,6 +88,7 @@ const Contact = props => {
             style={{
               backgroundImage: `url(${contact.logo.fields.file.url})`
             }}
+            s
           />
         </LeftPart>
         <RightPart>
