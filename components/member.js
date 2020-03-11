@@ -371,7 +371,7 @@ const member = props => {
               insideDescription
               style={props.even ? { marginLeft: "0" } : {}}
             >
-              {dataMember.engagements.subTitle}
+              Engagements
             </MemberSmallSubtitle>
             <MemberHr />
           </Flex>
