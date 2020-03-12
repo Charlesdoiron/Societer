@@ -2,15 +2,7 @@ import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
-import {
-  ContactTitle,
-  ContactBtn,
-  LinkTitle,
-  LinkItem,
-  Chapeau,
-  Labor,
-  FatTitle
-} from "../../styled/typos";
+import { ContactTitle, Chapeau, Labor, FatTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
 import { useMocks } from "../../context/mock-context";
@@ -28,7 +20,7 @@ const Legals = props => {
     }
   }, []);
 
-  const Hero = styled(BackgroundImage)`
+  const Hero = styled.div`
     position: relative;
     height: 100vh;
     top: -${getMenuHeight()}px;
@@ -41,7 +33,6 @@ const Legals = props => {
   `};
   `;
 
-  console.log(props);
   return (
     <Container>
       <NextSeo

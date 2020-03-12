@@ -17,7 +17,6 @@ import { getMenuHeight } from "../../utils/menuHeight";
 
 import getPage from "../../api/getPage";
 const PublicDebat = props => {
-  console.log(props, "public debat");
   const { debat_public } = useMocks();
   const { bigTitle, categories, articles, backgroundImage } = props.data;
   const [isFilter, setFilter] = useState("all");
@@ -36,7 +35,6 @@ const PublicDebat = props => {
     opacity: 0.7;
   `;
 
-  console.log(backgroundImage);
   return (
     <Container>
       <NextSeo

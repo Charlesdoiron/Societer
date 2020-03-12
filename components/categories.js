@@ -5,7 +5,7 @@ import { useMocks } from "../context/mock-context";
 
 const Categories = props => {
   const { categories } = props;
-  console.log(categories);
+
   const [isActive, setIsActive] = useState("all");
 
   const handleClick = id => {

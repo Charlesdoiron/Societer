@@ -65,7 +65,6 @@ const Article = props => {
     visibility: showSubMenu ? "visible" : "hidden"
   });
 
-  console.log(props);
   return (
     <>
       <NextSeo

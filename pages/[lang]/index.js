@@ -6,7 +6,7 @@ import { Subtitle, BigTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
 import getPage from "../../api/getPage";
-
+import Menu from "../../components/menu";
 const HomePage = props => {
   const {
     canonical,
@@ -18,7 +18,6 @@ const HomePage = props => {
   } = props.data;
   if (!props) return;
 
-  console.log(props, "homepage");
   return (
     <Container>
       <NextSeo

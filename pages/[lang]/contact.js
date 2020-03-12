@@ -19,7 +19,7 @@ import getContact from "../../api/getContact";
 const Contact = props => {
   const contact = props.data;
   const router = useRouter();
-  console.log(contact, "contact");
+
   useEffect(() => {
     if (window !== undefined) {
       window.scrollTo({ top: 0, behavior: "smooth" });

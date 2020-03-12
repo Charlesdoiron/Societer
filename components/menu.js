@@ -11,7 +11,7 @@ import { Navigation } from "../styled/typos";
 import pageName from "../static/pageName";
 const Menu = props => {
   let { menu } = useMocks();
-  const [{ menuColor }, dispatch] = useStateValue();
+
   const router = useRouter();
   const menuRef = useRef(null);
   const [menuHeight, setMenuHeight] = useState(false);
@@ -20,6 +20,8 @@ const Menu = props => {
   const currentQuerryLang = router.query.lang;
   const currentPage = router.pathname;
   const { asPath } = router;
+
+  const menuColor = props.isBlack ? "#101010" : "#FFFFFF";
 
   let currentTitle;
   if (currentPage !== "/article/[id]") {
@@ -76,19 +78,12 @@ const Menu = props => {
     background-color: transparent;
     transition: all 200ms;
     margin-bottom: -${menuHeight}px;
-    /* mix-blend-mode: ${
-      currentPage !== "/[lang]" && getWindowWidth() !== "Mobile"
-        ? "difference"
-        : "unset"
-    }; */
-    background-color: ${
-      currentPage === "/[lang]/article/[id]"
-        ? props => (!props.isTop ? "white" : "black")
-        : "transparent"
-    };
 
-   
-     &:hover {
+    background-color: ${currentPage === "/[lang]/article/[id]"
+      ? props => (!props.isTop ? "white" : "black")
+      : "transparent"};
+
+    &:hover {
       .animation-menu__bkg {
         transform: translateY(0px);
       }

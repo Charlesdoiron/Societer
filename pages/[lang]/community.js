@@ -30,8 +30,6 @@ const Community = props => {
     strategicComitee
   } = props.data;
 
-  console.log(props, "community");
-  console.log(members, "merbers");
   return (
     <>
       <NextSeo

@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useMocks } from "../../context/mock-context";
-import { Wrapper } from "../../styled/space";
+
 import { NextSeo } from "next-seo";
 import getPage from "../../api/getPage";
 import ReactMarkdown from "react-markdown";
+import { Wrapper } from "../../styled/space";
 import {
-  ManifestLabor,
   MediumSubtitle,
   ArticleTitle,
   Chapeau,
@@ -14,14 +14,14 @@ import {
   ArticleInterTitle,
   Navigation
 } from "../../styled/typos";
-import VisionArticleHeader from "../../components/visionArticleHeader";
-import PopUp from "../../components/popUp";
+
 import { Manifesto } from "../../static/vision";
 import { useRouter } from "next/router";
 
-const Vision = props => {
-  console.log(props, "vision");
+import VisionArticleHeader from "../../components/visionArticleHeader";
+import PopUp from "../../components/popUp";
 
+const Vision = props => {
   const router = useRouter();
   const { vision } = useMocks();
   const [popIsOpen, setPopOpen] = useState(false);
@@ -58,7 +58,7 @@ const Vision = props => {
   };
 
   if (!props) return;
-  console.log(props, "vision");
+
   return (
     <>
       <NextSeo

@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#492efa" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#492efa" />
-
+          <script src="//cdn.jsdelivr.net/npm/midnight.js@{version}/dist/midnight.jquery.min.js"></script>
           {this.props.styleTags}
         </Head>
         <body>

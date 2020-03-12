@@ -36,7 +36,6 @@ const socials = () => {
    `}
   `;
 
-  console.log(currentPage);
   return (
     <Container>
       {socials.map((el, i) => (

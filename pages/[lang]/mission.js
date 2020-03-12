@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
-
+import Menu from "../../components/menu";
 import styled from "styled-components";
 import { Chapeau, Labor, FatTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
@@ -73,7 +73,6 @@ const Mission = props => {
     }
   }, []);
 
-  console.log(props, "mission");
   if (!props) return;
 
   return (
@@ -93,6 +92,7 @@ const Mission = props => {
 
       <SecondPart>
         <Wrapper isWhite ref={wrapperRef}>
+          <Menu isBlack />
           <FatTitle dangerouslySetInnerHTML={{ __html: secondPartFatTitle }} />
         </Wrapper>
 

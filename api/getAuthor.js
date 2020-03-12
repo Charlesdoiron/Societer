@@ -1,8 +1,9 @@
 import { client } from "./call";
 export default async args => {
-  const { page, locale, c_type_id, slug } = args;
+  const { currentAuthor, locale } = args;
   const data = await client.getEntries({
-    query: slug,
+    query: currentAuthor,
+    include: 10,
     locale
   });
   return {
