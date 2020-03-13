@@ -8,6 +8,14 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
+    "/[lang]/community": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/mission": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
     "/[lang]/vision": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"

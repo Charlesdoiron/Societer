@@ -95,7 +95,8 @@ const Menu = props => {
       background-color: ${
         currentPage !== "/" ? props => props.theme.colors.black : "unset"
       };
-    padding: 25px 30px ;
+      padding: 25px 30px ;
+          margin-bottom: 0px;
 
   `}
   `;

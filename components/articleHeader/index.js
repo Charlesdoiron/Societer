@@ -74,7 +74,6 @@ const ArticleHeader = props => {
             {props.categories[0].fields.label}
           </Category>
         )}
-
         <Flex>
           <ArticleTitleHeader>{props.articleTitle}</ArticleTitleHeader>
 
@@ -86,7 +85,11 @@ const ArticleHeader = props => {
             ></Navigation>
           </Author>
         </Flex>
-        <Media src={props.logo} alt={props.alt}></Media>
+        <Media
+          src={props.logo}
+          alt={props.alt}
+          style={{ width: "80px" }}
+        ></Media>
         <Published>{props.published}</Published>
       </Row>
 
@@ -115,7 +118,7 @@ const ArticleHeader = props => {
 
       <ArticleTitle>{props.articleTitle}</ArticleTitle>
 
-      <Line ref={lineRef} timeline={makeLine(scrollPosition)} />
+      {/* <Line ref={lineRef} timeline={makeLine(scrollPosition)} /> */}
       <Share isFinished={makeLine(scrollPosition) >= 100} />
     </MobileContainer>
   );

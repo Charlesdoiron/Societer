@@ -90,7 +90,7 @@ const MenuMobile = props => {
     <>
       <Container ref={menuContainer}>
         <Flex>
-          <Logo src="/pictos/logo_mobile.svg" />
+          {/* <Logo src="/pictos/logo_mobile.svg" /> */}
           <Close
             src="/pictos/close_mobile.svg"
             onClick={() => closeMenu("close")}

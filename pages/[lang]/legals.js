@@ -37,8 +37,8 @@ const Legals = props => {
     <Container>
       <NextSeo
         title={legals.title}
-        // description={contact.seo_description}
-        // canonical={contact.seo_canonical}
+        description={legals.metdescription}
+        canonical={legals.canonical}
       />
       <Hero>
         <Flex isCenter>

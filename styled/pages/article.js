@@ -68,6 +68,11 @@ export const SmallImage = styled.img`
 
 export const CustomLabor = styled(Labor)`
   width: 50%;
+  a {
+    color: inherit;
+    border-bottom: 1px solid ${props => props.theme.black};
+    text-decoration: none;
+  }
   ${props => props.theme.medias.medium`
    width:100%;
     padding-top:20px;

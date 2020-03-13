@@ -4,7 +4,8 @@ import { useMocks } from "../../context/mock-context";
 
 import { NextSeo } from "next-seo";
 import getPage from "../../api/getPage";
-import ReactMarkdown from "react-markdown";
+import { ResizeObserver } from "@juggle/resize-observer";
+import useMeasure from "react-use-measure";
 import { Wrapper } from "../../styled/space";
 import {
   MediumSubtitle,
@@ -17,7 +18,7 @@ import {
 
 import { Manifesto } from "../../static/vision";
 import { useRouter } from "next/router";
-
+import ReactMarkdown from "react-markdown";
 import VisionArticleHeader from "../../components/visionArticleHeader";
 import PopUp from "../../components/popUp";
 
@@ -26,8 +27,7 @@ const Vision = props => {
   const { vision } = useMocks();
   const [popIsOpen, setPopOpen] = useState(false);
   const [definition, setDefinition] = useState("");
-  const manifestLaborRef = useRef(null);
-  const titleRef = useRef(null);
+
   const currentQuerryLang = router.query.lang;
   const {
     metatitle,
@@ -46,16 +46,30 @@ const Vision = props => {
     secondPartArticleContent3
   } = props.data;
 
+  const titleRef = useRef(null);
+  const [manifestoRef, bounds] = useMeasure({
+    scroll: true,
+    resize: true,
+    polyfill: ResizeObserver
+  });
   useEffect(() => {
     if (window !== undefined) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
 
+  // useEffect(() => {
+  //   if (titleRef.current) {
+  //     titleRef.current.style.top = `${bounds.top} px`;
+  //   }
+  // }, [bounds.top]);
+
   const handleClick = e => {
     setDefinition(vision.firstPart[currentQuerryLang][e]);
     setPopOpen(true);
   };
+
+  console.log(bounds);
 
   if (!props) return;
 
@@ -79,10 +93,12 @@ const Vision = props => {
               {vision.firstPart[currentQuerryLang].subtitle}
             </MediumSubtitle>
           </Sticky>
-          <Manifesto
-            handleClick={e => handleClick(e)}
-            currentQuerryLang={currentQuerryLang}
-          />
+          <div ref={manifestoRef}>
+            <Manifesto
+              handleClick={e => handleClick(e)}
+              currentQuerryLang={currentQuerryLang}
+            />
+          </div>
         </FirstPart>
       </Wrapper>
       <Wrapper isWhite>
@@ -120,32 +136,57 @@ const Vision = props => {
               </Navigation>
             </Author>
 
-            <CustomLabor
-              dangerouslySetInnerHTML={{
-                __html: secondPartArticleContent1
-              }}
-            />
+            <CustomLabor>
+              <ReactMarkdown
+                source={secondPartArticleContent1}
+                renderers={{
+                  link: props => (
+                    <a href={props.href} target="_blank">
+                      {props.children}
+                    </a>
+                  )
+                }}
+                escapeHtml={false}
+              />
+            </CustomLabor>
           </ArticleSection>
 
           <ArticleSection>
             <TitleSticky>
               <ArticleInterTitle>{secondPartArticleTitle2}</ArticleInterTitle>
             </TitleSticky>
-            <CustomLabor
-              dangerouslySetInnerHTML={{
-                __html: secondPartArticleContent2
-              }}
-            />
+
+            <CustomLabor>
+              <ReactMarkdown
+                source={secondPartArticleContent2}
+                renderers={{
+                  link: props => (
+                    <a href={props.href} target="_blank">
+                      {props.children}
+                    </a>
+                  )
+                }}
+                escapeHtml={false}
+              />
+            </CustomLabor>
           </ArticleSection>
           <ArticleSection>
             <TitleSticky>
               <ArticleInterTitle>{secondPartArticleTitle3}</ArticleInterTitle>
             </TitleSticky>
-            <CustomLabor
-              dangerouslySetInnerHTML={{
-                __html: secondPartArticleContent3
-              }}
-            />
+            <CustomLabor>
+              <ReactMarkdown
+                source={secondPartArticleContent3}
+                renderers={{
+                  link: props => (
+                    <a href={props.href} target="_blank">
+                      {props.children}
+                    </a>
+                  )
+                }}
+                escapeHtml={false}
+              />
+            </CustomLabor>
           </ArticleSection>
         </SecondPart>
       </Wrapper>
@@ -203,14 +244,14 @@ const TitleSticky = styled.div`
   }
 `;
 const Sticky = styled.div`
-  width: 30%;
+  width: 110px;
   position: relative;
-
+  padding-top: 55px;
   h4 {
     transform: rotate(-90deg);
     position: sticky;
-    margin-left: 36%;
-    top: 50px;
+
+    top: 150px;
     left: 0;
     right: 0;
 

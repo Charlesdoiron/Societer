@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import fetch from "isomorphic-unfetch";
+
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 import { Subtitle, BigTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
 import getPage from "../../api/getPage";
-import Menu from "../../components/menu";
+
 const HomePage = props => {
   const {
     canonical,
@@ -32,10 +32,12 @@ const HomePage = props => {
         alt={backgroundImage.fields.description}
       />
       <Wrapper>
-        <Titles>
-          <Subtitle>{subtitle}</Subtitle>
-          <BigTitle>{tagline}</BigTitle>
-        </Titles>
+        <div data-aos="fade-up">
+          <Titles>
+            <Subtitle>{subtitle}</Subtitle>
+            <BigTitle>{tagline}</BigTitle>
+          </Titles>
+        </div>
       </Wrapper>
     </Container>
   );

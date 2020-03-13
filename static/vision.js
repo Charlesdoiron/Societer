@@ -52,8 +52,8 @@ export const Manifesto = props => {
         </Part>
         <Part>
           Nous avons la conviction que cette incarnation sincère et proactive
-          d’une raison d’être n’est crédible et impactante que si elle est
-          pensée à la lumière de l’agenda diplomatique multilatéral.
+          d’une <em>raison d’être</em> n’est crédible et impactante que si elle
+          est pensée à la lumière de l’agenda diplomatique multilatéral.
         </Part>
         <Part>
           L’ampleur des défis mondiaux qui sont devant nous - changement
@@ -97,8 +97,8 @@ export const Manifesto = props => {
         <Part>
           To embody pro-actively social commitment is no longer optional, it is
           essential. Even beyond image and reputation, further issues are the
-          recruitment and retention of talent, ability to anticipate, innovate
-          and lead corporate culture renewal.
+          recruitment and retention of talent, the ability to anticipate,
+          innovate and lead corporate culture renewal.
         </Part>
         <Part>
           Company purpose and business objectives are inseparable, and social
@@ -140,8 +140,8 @@ export const Manifesto = props => {
           important challenges the world faces today, in alignment with{" "}
           <a onClick={e => props.handleClick("agenda")}>
             the United Nations 2030 Agenda.
-          </a>
-          , the one valid international agenda for social engagement.
+          </a>{" "}
+          The one valid international agenda for social engagement.
         </Part>
         IN SOCIETY WE TRUST.
       </ManifestLabor>

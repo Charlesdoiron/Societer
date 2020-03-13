@@ -5,6 +5,7 @@ export default {
     "/community": "Communauté",
     "/public-debat": "Débat public",
     "/contact": "Contact",
+    "/legals": "Mentions légales",
     "/article/[id]": "Article"
   },
   en: {
@@ -13,6 +14,7 @@ export default {
     "/community": "Community",
     "/public-debat": "Conversations",
     "/contact": "Contact",
+    "/legals": "legals",
     "/article/[id]": "Article"
   }
 };

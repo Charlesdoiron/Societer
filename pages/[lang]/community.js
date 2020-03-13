@@ -63,8 +63,11 @@ Community.getInitialProps = async function(context) {
 };
 
 const FirstPart = styled.div`
+  height: 100;
   img {
+    height: 100;
     width: 100%;
+    margin-bottom: -10px;
   }
 `;
 

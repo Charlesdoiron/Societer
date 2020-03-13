@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ResizeObserver } from "@juggle/resize-observer";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
-
+import ReactMarkdown from "react-markdown";
 import ArticleHeader from "../../../components/articleHeader";
 import { useSpring, animated } from "react-spring";
 import {
@@ -59,7 +59,7 @@ const Article = props => {
   });
 
   const animate = useSpring({
-    top: showSubMenu ? "85px" : "-10px",
+    top: showSubMenu ? "95px" : "-10px",
     position: showSubMenu ? "sticky" : "sticky",
     zIndex: "10",
     visibility: showSubMenu ? "visible" : "hidden"
@@ -76,8 +76,8 @@ const Article = props => {
         <Sticky ref={subMenuRef}>
           <ArticleHeader
             categories={article.categories}
-            logo={article.logo.fields.file.url}
-            alt={article.logo.fields.description}
+            logo={article.logo && article.logo.fields.file.url}
+            alt={article.logo && article.logo.fields.description}
             articleTitle={article.title}
             authors={article.authors}
             published={article.published}
@@ -96,10 +96,12 @@ const Article = props => {
             {article.title}
           </CustomArticleTitle>
 
-          <BigImage
-            src={article.coverImage.fields.file.url}
-            alt={article.coverImage.fields.description}
-          />
+          {article.coverImage && (
+            <BigImage
+              src={article.coverImage.fields.file.url}
+              alt={article.coverImage.fields.description}
+            />
+          )}
           <ArticleSection>
             <CustomChapeau
               isBlack
@@ -117,7 +119,7 @@ const Article = props => {
                       {section.fields.articleInterTitle}
                     </ArticleInterTitle>
                     <HideOnMobile>
-                      {i === 0 && (
+                      {i === 0 && article.smallImage && (
                         <SmallImage
                           src={article.smallImage.fields.file.url}
                           alt={article.smallImage.fields.description}
@@ -126,14 +128,22 @@ const Article = props => {
                     </HideOnMobile>
                   </CustomDiv>
                 )}
-                <CustomLabor
-                  dangerouslySetInnerHTML={{
-                    __html: section.fields.articleContent
-                  }}
-                  style={{ width: "100%" }}
-                />
+
+                <CustomLabor style={{ width: "100%" }}>
+                  <ReactMarkdown
+                    source={section.fields.articleContent}
+                    renderers={{
+                      link: props => (
+                        <a href={props.href} target="_blank">
+                          {props.children}
+                        </a>
+                      )
+                    }}
+                    escapeHtml={false}
+                  />
+                </CustomLabor>
                 <ShowOnMobile>
-                  {i === 0 && (
+                  {i === 0 && article.smallImage && (
                     <SmallImage
                       src={article.smallImage.fields.file.url}
                       alt={article.smallImage.fields.description}

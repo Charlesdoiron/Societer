@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
-import Menu from "../../components/menu";
+
 import styled from "styled-components";
 import { Chapeau, Labor, FatTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
@@ -85,14 +85,12 @@ const Mission = props => {
       <Wrapper>
         <FirstPart>
           <Chapeau dangerouslySetInnerHTML={{ __html: chapeau }} />
-
           <Labor>{firstPartLabor}</Labor>
         </FirstPart>
       </Wrapper>
 
       <SecondPart>
         <Wrapper isWhite ref={wrapperRef}>
-          <Menu isBlack />
           <FatTitle dangerouslySetInnerHTML={{ __html: secondPartFatTitle }} />
         </Wrapper>
 
