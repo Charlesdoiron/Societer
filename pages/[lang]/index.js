@@ -6,36 +6,39 @@ import { Subtitle, BigTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
 import getPage from "../../api/getPage";
-
-const HomePage = props => {
+import { ScreenSizes } from "../../config/theme/medias";
+import { useMediaQuery } from "react-responsive";
+const HomePage = (props) => {
   const {
     canonical,
     metatitle,
     metadescription,
     backgroundImage,
     tagline,
-    subtitle
+    subtitle,
   } = props.data;
   if (!props) return;
 
   let items = tagline.split(" ");
-
+  const isDesktopOrLaptop = useMediaQuery({
+    query: `(min-width: ${ScreenSizes.MEDIUM}px)`,
+  });
   const config = { mass: 5, tension: 2000, friction: 200 };
   const [toggle, set] = useState(false);
   const trail = useTrail(items.length, {
     config,
     opacity: toggle ? 1 : 0,
     x: toggle ? 0 : 20,
-    height: toggle ? 80 : 0,
-    from: { opacity: 0, x: 20, height: 0 }
+    height: toggle ? (!isDesktopOrLaptop ? 50 : 80) : 0,
+    from: { opacity: 0, x: 20, height: 0 },
   });
   const appear = useSpring({
     opacity: toggle ? "1" : "0",
-    transform: toggle ? "translateX(10px)" : "translateX(0px)"
+    transform: toggle ? "translateX(10px)" : "translateX(0px)",
   });
 
   useEffect(() => {
-    setTimeout(function() {
+    setTimeout(function () {
       set(true);
     }, 400);
   }, []);
@@ -68,7 +71,7 @@ const HomePage = props => {
                   className="trails-text"
                   style={{
                     ...rest,
-                    transform: x.interpolate(x => `translate3d(0,${x}px,0)`)
+                    transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
                   }}
                 >
                   <animated.div style={{ height }}>
@@ -84,18 +87,18 @@ const HomePage = props => {
   );
 };
 
-HomePage.getInitialProps = async function(context) {
+HomePage.getInitialProps = async function (context) {
   const currentLocale = context.query.lang;
   return getPage({
     c_type_id: "5bA22RzOfK9fLA6PbB3xzP",
-    locale: currentLocale
+    locale: currentLocale,
   });
 };
 
 export default HomePage;
 
 const Container = styled.div`
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
 overflow: hidden;
  -webkit-overflow-scrolling: touch;
 `}
@@ -105,6 +108,11 @@ overflow: hidden;
     height: 80px;
     will-change: transform, opacity;
     overflow: hidden;
+    padding-left: 10px;
+    ${(props) => props.theme.medias.medium`
+      height:50px;
+      
+`}
   }
   .trails-main {
     position: relative;
@@ -130,13 +138,13 @@ const Titles = styled.div`
   right: 0;
   padding-left: 10%;
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
   padding-left:30px;
 `}
   h1 {
     width: 50%;
   }
   h3 {
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
   }
 `;

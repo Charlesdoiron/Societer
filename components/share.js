@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useTrail, useSpring, animated } from "react-spring";
-import { ArticleTitleHeader, SmallNavigation } from "../styled/typos";
+import { ArticleTitleHeader, SmallNavigation, Labor } from "../styled/typos";
 import { Wrapper } from "../styled/space";
 
 let socials = [
   { name: "Fb", url: "www.facebook.fr" },
   { name: "Tw", url: "www.facebook.fr" },
-  { name: "Lk", url: "www.facebook.fr" }
+  { name: "Lk", url: "www.facebook.fr" },
 ];
 
-const Share = props => {
+const Share = (props) => {
   const config = { mass: 5, tension: 1000, friction: 500, duration: 600 };
   const trail = useTrail(socials.length, {
     config,
     opacity: props.isFinished ? 1 : 0,
     x: props.isFinished ? -15 : 100,
 
-    from: { opacity: 0, x: 100, height: 0 }
+    from: { opacity: 0, x: 100, height: 0 },
   });
 
   const [translateShare, set, stop] = useSpring(() => ({
-    transform: "translateY(300px)"
+    transform: "translateY(300px)",
   }));
   set({
-    transform: props.isFinished ? "translateY(0px)" : "translateY(300px)"
+    transform: props.isFinished ? "translateY(0px)" : "translateY(300px)",
   });
   stop();
 
@@ -33,19 +33,21 @@ const Share = props => {
       <CustomWrapper>
         <Title>Partager cet article sur les réseaux sociaux</Title>
 
-        {trail.map(({ x, height, ...rest }, index) => (
-          <animated.div
-            key={index}
-            style={{
-              ...rest,
-              transform: x.interpolate(x => `translate3d(0,${x}px,0)`)
-            }}
-          >
-            <animated.div style={{ height }}>
-              <Social>{socials[index].name}</Social>
+        <SocialContainer>
+          {trail.map(({ x, height, ...rest }, index) => (
+            <animated.div
+              key={index}
+              style={{
+                ...rest,
+                transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
+              }}
+            >
+              <animated.div style={{ height }}>
+                <Social>{socials[index].name}</Social>
+              </animated.div>
             </animated.div>
-          </animated.div>
-        ))}
+          ))}
+        </SocialContainer>
       </CustomWrapper>
     </Container>
   );
@@ -53,11 +55,15 @@ const Share = props => {
 
 export default Share;
 
+const SocialContainer = styled.div`
+  display: flex;
+`;
+
 const Social = styled(SmallNavigation)`
-  border: 1px solid ${props => props.theme.colors.white};
+  border: 1px solid ${(props) => props.theme.colors.white};
   border-radius: 100%;
   margin-bottom: 0 auto 45px auto;
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -66,33 +72,38 @@ const Social = styled(SmallNavigation)`
   padding: 2px;
   line-height: unset;
   transition: all 500ms;
+  margin-left: 45px;
   &:hover {
     transition: all 500ms;
     cursor: pointer;
-    border: 1px solid ${props => props.theme.colors.white};
-    color: ${props => props.theme.colors.blue};
-    background-color: ${props => props.theme.colors.white};
+    border: 1px solid ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.white};
   }
-  ${props => props.theme.medias.mediumPlus`
+
+  ${(props) => props.theme.medias.mediumPlus`
       margin: 30px 30px 30px 0 ;
     `}
-  margin-left: 45px;
 `;
 
 const CustomWrapper = styled(Wrapper)`
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${(props) => props.theme.colors.blue};
   padding: 0 17%;
   display: flex;
   flex-direction: row;
+
+  ${(props) => props.theme.medias.mediumPlus`
+    flex-direction:column;
+    `}
 `;
 
-const Title = styled(ArticleTitleHeader)`
-  color: ${props => props.theme.colors.white};
+const Title = styled(Labor)`
+  color: ${(props) => props.theme.colors.white};
   display: flex;
   align-items: center;
-  ${props => props.theme.medias.mediumPlus`
-      padding:0;
-    `}
+  ${(props) => props.theme.medias.mediumPlus`
+    padding:0;
+  `}
 `;
 
 const Container = styled(animated.div)`
@@ -101,10 +112,15 @@ const Container = styled(animated.div)`
   top: 0;
   left: 0;
   right: 0%;
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${(props) => props.theme.colors.blue};
   display: flex;
   align-items: center;
   height: 100%;
+
+  ${(props) => props.theme.medias.medium`
+    padding-top: 20px;
+    align-items: unset;
+    `}
 `;
 
 /* {socials.map((social, i) => (

@@ -96,21 +96,20 @@ const Menu = (props) => {
   });
 
   const handleLocale = (value) => {
-    console.log(value);
     router.replace(`/${value}${removeQuery(asPath)}`);
   };
 
   const MenuContainer = styled(MenuDesktop)`
     background-color: ${currentPage === "/[lang]/article/[id]"
       ? (props) => (!props.isTop ? "white" : "black")
+      : currentPage === "/[lang]/public-debat"
+      ? (props) => (!props.isTop ? "transparent" : "black")
       : "transparent"};
+
     ${(props) => props.theme.medias.medium`
-      background-color: ${
-        currentPage !== "/" ? (props) => props.theme.colors.black : "unset"
-      };
-    padding: 25px 30px ;
-    margin-bottom: 0px;
-  `}
+      padding: 25px 30px ;
+      margin-bottom: 0px;
+    `}
   `;
 
   const AnimationMenu = styled.div`

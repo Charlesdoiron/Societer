@@ -14,15 +14,14 @@ import {
   Flex,
   Row,
   Category,
-  Date,
   Back,
   Media,
-  ArticleTitle,
+  ArticleTitle
 } from "./styled";
 
 import { getWindowWidth } from "../../utils/windowWidth";
 
-const ArticleHeader = (props) => {
+const ArticleHeader = props => {
   const { articleHeader } = useMocks();
   const lineRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState("");
@@ -33,7 +32,7 @@ const ArticleHeader = (props) => {
     setScrollPosition(scroll);
   };
 
-  const makeLine = (scrollPosition) => {
+  const makeLine = scrollPosition => {
     if (typeof window !== "undefined") {
       let body = document.body;
       let height = body.scrollHeight - body.offsetHeight;
@@ -47,12 +46,12 @@ const ArticleHeader = (props) => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", () => getScrollPosition(), {
         capture: true,
-        passive: true,
+        passive: true
       });
       return () =>
         window.removeEventListener("scroll", () => getScrollPosition(), {
           capture: true,
-          passive: true,
+          passive: true
         });
     }
   });
@@ -78,7 +77,7 @@ const ArticleHeader = (props) => {
         <Flex>
           <ArticleTitleHeader>{props.articleTitle}</ArticleTitleHeader>
 
-          {/* <Author>
+          <Author>
             <Navigation isBlack noLink>
               <ReactMarkdown
                 source={props.authors}
@@ -92,14 +91,14 @@ const ArticleHeader = (props) => {
                 escapeHtml={false}
               />
             </Navigation>
-          </Author> */}
+          </Author>
         </Flex>
-        {/* <Media
+        <Media
           src={props.logo}
           alt={props.alt}
-          style={{ width: "60px", marginLeft: "15px" }}
-        ></Media> */}
-        <Date>{props.published}</Date>
+          style={{ width: "80px" }}
+        ></Media>
+        <Published>{props.published}</Published>
       </Row>
 
       <Line ref={lineRef} timeline={makeLine(scrollPosition)} />
@@ -114,7 +113,7 @@ const ArticleHeader = (props) => {
               <img src="/pictos/close_article.svg" alt="Retour" />
             </Back>
           </Link>
-          {/* <Media src={props.logo} alt={props.alt}></Media> */}
+          <Media src={props.logo} alt={props.alt}></Media>
         </Row>
 
         {props.categories && (

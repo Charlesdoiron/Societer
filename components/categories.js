@@ -40,12 +40,13 @@ export default Categories;
 
 const CategoriesContainer = styled.div`
   width: 50%;
-  padding: 75px 0;
+  padding: 75px 0 50px 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   ${(props) => props.theme.medias.large`
     width: 100%;
+    padding: 75px 0 30px 0;
    
     `}
 `;
@@ -55,10 +56,11 @@ const Container = styled.div`
   width: 100%;
   left: 0;
   right: 0;
-  top: 0px;
+  top: 60px;
   background-color: ${(props) => props.theme.colors.white};
   z-index: 20;
   ${(props) => props.theme.medias.medium`
     width: 100%;
+     top: 40px;
   `};
 `;

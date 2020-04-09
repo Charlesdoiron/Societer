@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 
 import { ResizeObserver } from "@juggle/resize-observer";
 import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import ArticleHeader from "../../../components/articleHeader";
 import { useSpring, animated } from "react-spring";
@@ -19,24 +18,22 @@ import {
   CustomLabor,
   CustomChapeau,
   ArticleSection,
-  Fixed,
-  Part
+  Part,
 } from "../../../styled/pages/article";
 import { ArticleInterTitle } from "../../../styled/typos";
 import getArticle from "../../../api/getArticle";
-import { getWindowWidth } from "../../../utils/windowWidth";
+import { ScreenSizes } from "../../../config/theme/medias";
 import useMeasure from "react-use-measure";
-
-const Article = props => {
+import { useMediaQuery } from "react-responsive";
+const Article = (props) => {
   const categoryRef = useRef(null);
   const titleRef = useRef(null);
-
   const article = props.data;
-
   const [showSubMenu, setShowMenu] = useState(false);
-
   const [subMenuRef, bounds] = useMeasure({ polyfill: ResizeObserver });
-
+  const isDesktopOrLaptop = useMediaQuery({
+    query: `(min-width: ${ScreenSizes.MEDIUM}px)`,
+  });
   const handleSubMenu = () => {
     if (titleRef.current) {
       // Get Title Position to trigger the animation
@@ -58,10 +55,10 @@ const Article = props => {
   });
 
   const animate = useSpring({
-    top: showSubMenu ? "95px" : "-10px",
+    top: showSubMenu ? (!isDesktopOrLaptop ? "85px" : "95px") : "-10px",
     position: showSubMenu ? "sticky" : "sticky",
     zIndex: "10",
-    visibility: showSubMenu ? "visible" : "hidden"
+    visibility: showSubMenu ? "visible" : "hidden",
   });
 
   return (
@@ -101,14 +98,16 @@ const Article = props => {
               alt={article.coverImage.fields.description}
             />
           )}
-          <ArticleSection>
-            <CustomChapeau
-              isBlack
-              dangerouslySetInnerHTML={{
-                __html: article.chapeau
-              }}
-            ></CustomChapeau>
-          </ArticleSection>
+          {article.chapeau && (
+            <ArticleSection>
+              <CustomChapeau
+                isBlack
+                dangerouslySetInnerHTML={{
+                  __html: article.chapeau,
+                }}
+              ></CustomChapeau>
+            </ArticleSection>
+          )}
           {article.content.map((section, i) => {
             return (
               <ArticleSection key={i}>
@@ -132,11 +131,11 @@ const Article = props => {
                   <ReactMarkdown
                     source={section.fields.articleContent}
                     renderers={{
-                      link: props => (
+                      link: (props) => (
                         <a href={props.href} target="_blank">
                           {props.children}
                         </a>
-                      )
+                      ),
                     }}
                     escapeHtml={false}
                   />
@@ -158,13 +157,13 @@ const Article = props => {
   );
 };
 
-Article.getInitialProps = async function(context) {
+Article.getInitialProps = async function (context) {
   const currentLocale = context.query.lang;
   const currentSlug = context.query.id;
 
   return getArticle({
     slug: currentSlug,
-    locale: currentLocale
+    locale: currentLocale,
   });
 };
 export default Article;
