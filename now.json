@@ -13,6 +13,7 @@
     { "src": "/index", "dest": "/index" },
     { "src": "/communaute", "dest": "/communaute" },
     { "src": "/manifeste", "dest": "/manifeste" },
-    { "src": "/proposition", "dest": "/proposition" }
+    { "src": "/proposition", "dest": "/proposition" },
+    { "src": "/sliderHomepage", "dest": "/sliderHomepage" }
   ]
 }

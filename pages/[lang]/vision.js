@@ -69,8 +69,6 @@ const Vision = props => {
     setPopOpen(true);
   };
 
-  console.log(bounds);
-
   if (!props) return;
 
   return (

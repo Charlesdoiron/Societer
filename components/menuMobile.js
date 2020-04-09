@@ -24,7 +24,7 @@ const isShowing = keyframes`
   }
 `;
 
-const MenuMobile = props => {
+const MenuMobile = (props) => {
   const router = useRouter();
   const currentPage = router.pathname;
   const menuContainer = useRef(null);
@@ -36,7 +36,7 @@ const MenuMobile = props => {
     shapeRef.current.style.opacity = "0";
   };
 
-  const closeMenu = item => {
+  const closeMenu = (item) => {
     if (item === "close") {
       transitionOnClose();
       setTimeout(() => {
@@ -47,7 +47,7 @@ const MenuMobile = props => {
       setTimeout(() => {
         props.onClick();
         router.push({
-          pathname: `/${router.query.lang}/`
+          pathname: `/${router.query.lang}/`,
         });
       }, TIME_TRANSITION);
     } else if (currentPage !== item.path) {
@@ -58,7 +58,7 @@ const MenuMobile = props => {
         router.push(
           {
             pathname: `/[lang]${item.path}`,
-            query: { title: item.item }
+            query: { title: item.item },
           },
           `/${router.query.lang}${item.path}`
         );
@@ -73,7 +73,7 @@ const MenuMobile = props => {
     right: 0;
     top: 0;
     padding: 25px 30px;
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.white};
     transition: all 500ms ease-in-out;
     animation: ${isOpening} ${TIME_TRANSITION + 100}ms ease-in-out;
     overflow: hidden;
@@ -83,14 +83,16 @@ const MenuMobile = props => {
   if (!props.isOpen) {
     return null;
   }
-  const handleLocale = value => {
+  const handleLocale = (value) => {
     router.replace(`/${value}${removeQuery(router.asPath)}`);
   };
+
   return (
     <>
       <Container ref={menuContainer}>
         <Flex>
           {/* <Logo src="/pictos/logo_mobile.svg" /> */}
+          <div></div>
           <Close
             src="/pictos/close_mobile.svg"
             onClick={() => closeMenu("close")}
@@ -101,7 +103,7 @@ const MenuMobile = props => {
             onClick={() => closeMenu("/")}
             className={currentPage === "/" && "isActive"}
           >
-            Accueil
+            {router.query.lang === "fr" ? "Accueil" : "Home"}
           </CustomNavigation>
           {props.content.map((item, i) => (
             <CustomNavigation
@@ -114,8 +116,8 @@ const MenuMobile = props => {
           ))}
         </Items>
         <Languages>
-          <Language onClick={() => handleLocale("fr")}>Fr</Language>
-          <Language onClick={() => handleLocale("en")}>En</Language>
+          <Language onClick={() => handleLocale("fr")}>fr</Language>
+          <Language onClick={() => handleLocale("en")}>en</Language>
         </Languages>
         <Absolute>
           <Socials>
@@ -139,18 +141,20 @@ const MenuMobile = props => {
 export default MenuMobile;
 
 const Shape = styled.div`
-  background: ${props => props.theme.colors.blue};
+  background: ${(props) => props.theme.colors.blue};
   width: 100%;
   height: 100vh;
   position: fixed;
   left: 0;
   right: 0;
-  top: ${props => props.menuHeight}px;
+  top: ${(props) => props.menuHeight}px;
   bottom: 0;
   z-index: 0;
   opacity: 0.9;
   transition: all 1000ms;
   animation: ${isShowing} 700ms ease-in-out;
+  pointer-events: none;
+  overflow: hidden;
 `;
 const Absolute = styled.div`
   position: absolute;
@@ -172,16 +176,16 @@ const Socials = styled.div`
   }
 `;
 const Social = styled(SmallNavigation)`
-  color: ${props => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.black};
 `;
 const Languages = styled.div`
   display: flex;
 `;
 const Language = styled(SmallNavigation)`
-  border: 1px solid ${props => props.theme.colors.black};
+  border: 1px solid ${(props) => props.theme.colors.black};
   border-radius: 100%;
   margin-bottom: 0 auto 45px auto;
-  color: ${props => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.black};
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -193,10 +197,11 @@ const Language = styled(SmallNavigation)`
   &:hover {
     transition: all 500ms;
     cursor: pointer;
-    border: 1px solid ${props => props.theme.colors.blue};
-    color: ${props => props.theme.colors.blue};
+    border: 1px solid ${(props) => props.theme.colors.blue};
+    color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.blue};
   }
-  ${props => props.theme.medias.mediumPlus`
+  ${(props) => props.theme.medias.mediumPlus`
       margin: 30px 30px 30px 0 ;
     `}
 `;
@@ -227,12 +232,12 @@ const Items = styled.div`
 
 const CustomNavigation = styled(Navigation)`
   margin-bottom: 30px;
-  color: ${props => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.black};
   font-size: 20px !important;
   line-height: 28px !important;
   font-family: "garnett_regular";
   &.isActive {
-    color: ${props => props.theme.colors.blue};
+    color: ${(props) => props.theme.colors.blue};
     font-family: "garnett_medium";
   }
 `;

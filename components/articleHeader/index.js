@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import ReactMarkdown from "react-markdown";
 import { Navigation, ArticleTitleHeader } from "../../styled/typos";
 import Share from "../share";
 import Link from "next/link";
@@ -78,11 +78,19 @@ const ArticleHeader = props => {
           <ArticleTitleHeader>{props.articleTitle}</ArticleTitleHeader>
 
           <Author>
-            <Navigation
-              isBlack
-              noLink
-              dangerouslySetInnerHTML={{ __html: props.authors }}
-            ></Navigation>
+            <Navigation isBlack noLink>
+              <ReactMarkdown
+                source={props.authors}
+                renderers={{
+                  link: props => (
+                    <a href={props.href} target="_blank">
+                      {props.children}
+                    </a>
+                  )
+                }}
+                escapeHtml={false}
+              />
+            </Navigation>
           </Author>
         </Flex>
         <Media

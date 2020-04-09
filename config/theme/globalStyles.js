@@ -93,12 +93,18 @@ const GlobalStyles = createGlobalStyle`
       padding:0;
       font-weight: 400;
       line-height: 24px;
+      font-size:2vw;
       height:100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       touch-action: manipulation;
       scroll-behavior: smooth;
       background-color:white;
+
+      &.menuIsOpen{
+        touch-action:none;
+        overflow:hidden;
+      }
     }
 
     .isBlue {

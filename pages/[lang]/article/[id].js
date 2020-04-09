@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import styled from "styled-components";
+
 import { ResizeObserver } from "@juggle/resize-observer";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
@@ -28,12 +28,11 @@ import { getWindowWidth } from "../../../utils/windowWidth";
 import useMeasure from "react-use-measure";
 
 const Article = props => {
-  const router = useRouter();
   const categoryRef = useRef(null);
   const titleRef = useRef(null);
 
   const article = props.data;
-  const device = getWindowWidth();
+
   const [showSubMenu, setShowMenu] = useState(false);
 
   const [subMenuRef, bounds] = useMeasure({ polyfill: ResizeObserver });

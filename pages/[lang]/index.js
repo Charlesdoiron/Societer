@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useTrail, useSpring, animated } from "react-spring";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 import { Subtitle, BigTitle } from "../../styled/typos";
@@ -18,6 +18,28 @@ const HomePage = props => {
   } = props.data;
   if (!props) return;
 
+  let items = tagline.split(" ");
+
+  const config = { mass: 5, tension: 2000, friction: 200 };
+  const [toggle, set] = useState(false);
+  const trail = useTrail(items.length, {
+    config,
+    opacity: toggle ? 1 : 0,
+    x: toggle ? 0 : 20,
+    height: toggle ? 80 : 0,
+    from: { opacity: 0, x: 20, height: 0 }
+  });
+  const appear = useSpring({
+    opacity: toggle ? "1" : "0",
+    transform: toggle ? "translateX(10px)" : "translateX(0px)"
+  });
+
+  useEffect(() => {
+    setTimeout(function() {
+      set(true);
+    }, 400);
+  }, []);
+
   return (
     <Container>
       <NextSeo
@@ -25,6 +47,7 @@ const HomePage = props => {
         description={metadescription}
         canonical={canonical}
       />
+
       <BackgroundImage
         alignBottom
         noImageOnMobile
@@ -32,10 +55,28 @@ const HomePage = props => {
         alt={backgroundImage.fields.description}
       />
       <Wrapper>
-        <div data-aos="fade-up">
+        <div>
           <Titles>
-            <Subtitle>{subtitle}</Subtitle>
-            <BigTitle>{tagline}</BigTitle>
+            <animated.div style={appear}>
+              <Subtitle>{subtitle}</Subtitle>
+            </animated.div>
+
+            <div>
+              {trail.map(({ x, height, ...rest }, index) => (
+                <animated.div
+                  key={items[index]}
+                  className="trails-text"
+                  style={{
+                    ...rest,
+                    transform: x.interpolate(x => `translate3d(0,${x}px,0)`)
+                  }}
+                >
+                  <animated.div style={{ height }}>
+                    <BigTitle> {items[index]}</BigTitle>
+                  </animated.div>
+                </animated.div>
+              ))}
+            </div>
           </Titles>
         </div>
       </Wrapper>
@@ -58,6 +99,26 @@ const Container = styled.div`
 overflow: hidden;
  -webkit-overflow-scrolling: touch;
 `}
+  .trails-text {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    will-change: transform, opacity;
+    overflow: hidden;
+  }
+  .trails-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .trails-text > div {
+    overflow: hidden;
+  }
 `;
 
 const Titles = styled.div`

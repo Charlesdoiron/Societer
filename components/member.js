@@ -1,21 +1,28 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
-import { Wrapper, WrapperMediumPlus } from "../styled/space";
+import { useSpring, animated } from "react-spring";
 import { ScreenSizes } from "../config/theme/medias";
 import {
   SmallSubtitle,
   FatTitle,
   Labor,
-  SmallNavigation
+  SmallNavigation,
 } from "../styled/typos";
-const member = props => {
+const member = (props) => {
   const { dataMember } = props;
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const socialsRef = useRef(null);
   const commitmentRef = useRef(null);
   const descriptionContent = useRef(null);
+  const [toggle, setAnimation] = useState(false);
+
+  const animate = useSpring({
+    maxHeight: toggle ? "115px" : "0",
+  });
+
+  console.log(props, "props");
 
   useEffect(() => {
     const fixImageHeight = () => {
@@ -73,7 +80,7 @@ const member = props => {
   const TabletImage = styled.img`
     display: none;
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       display:block;
       width:100%;
 `}
@@ -81,76 +88,78 @@ const member = props => {
 
   const Titles = styled.div`
     display: flex;
-    justify-content: ${props.even && (props => props.withWrapper)
+    justify-content: ${props.even && ((props) => props.withWrapper)
       ? "flex-end"
       : "flex-start"};
     flex-direction: column;
 
-    ${props => props.theme.medias.largePlus`
+    ${(props) => props.theme.medias.largePlus`
       margin-right: ${props.even ? "33%" : "0"};
       `};
   `;
 
   const MemberSmallSubtitle = styled(SmallSubtitle)`
-    width: ${props => (props.insideDescription ? "unset" : "100%")};
-    padding: ${props => (props.withWrapper ? "0 0 0 20%" : "0")};
+    width: ${(props) => (props.insideDescription ? "unset" : "100%")};
+    padding: ${(props) => (props.withWrapper ? "0 0 0 20%" : "0")};
     display: flex;
     justify-content: flex-start;
     color: ${props.even
-      ? props => props.theme.colors.black
-      : props => props.theme.colors.white};
-    margin: ${props => (props.insideDescription ? " 50px 0 25px 0" : 0)};
-    margin-left: ${props.even && (props => props.withWrapper) ? "45%" : "0"};
+      ? (props) => props.theme.colors.black
+      : (props) => props.theme.colors.white};
+    margin: ${(props) => (props.insideDescription ? " 50px 0 25px 0" : 0)};
+    margin-left: ${props.even && ((props) => props.withWrapper) ? "45%" : "0"};
 
-    ${props => props.theme.medias.large`
+    ${(props) => props.theme.medias.large`
 
     `};
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       padding: 0 30px;
       justify-content: flex-start;
       margin-left:0;
     `};
   `;
 
-  const Container = styled.div`
+  const Container = styled(animated.div)`
     padding: 300px 0;
     position: relative;
     background-color: ${
       props.even
-        ? props => props.theme.colors.white
-        : props => props.theme.colors.black
+        ? (props) => props.theme.colors.white
+        : (props) => props.theme.colors.black
     };
     flex-direction: ${props.even ? "row" : "row-reverse"};
 
-    ${props => props.theme.medias.largePlus`
+    ${(props) => props.theme.medias.largePlus`
     padding: 220px 0;
     `}
     
-    ${props => props.theme.medias.large`
+    ${(props) => props.theme.medias.large`
       padding: 120px 0 0 0 ;
     `}
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       padding-top: 45px;
     `}
 
   `;
 
-  const Line = styled.div`
-    margin-left: ${props.even && (props => props.withWrapper) ? "70%" : "25%"};
+  const Line = styled(animated.div)`
+    margin-left: ${props.even && ((props) => props.withWrapper)
+      ? "70%"
+      : "25%"};
     display: flex;
     border: 0.5px solid
       ${props.even
-        ? props => props.theme.colors.black
-        : props => props.theme.colors.white};
+        ? (props) => props.theme.colors.black
+        : (props) => props.theme.colors.white};
 
     width: 1px;
     height: 115px;
     position: relative;
     margin-bottom: 20px;
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       display:none;
     `}
   `;
@@ -158,10 +167,10 @@ const member = props => {
   const MemberLabor = styled(Labor)`
     font-size: 14px;
     color: ${props.even
-      ? props => props.theme.colors.black
-      : props => props.theme.colors.white};
+      ? (props) => props.theme.colors.black
+      : (props) => props.theme.colors.white};
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       padding: 0 30px;
     `}
   `;
@@ -171,14 +180,14 @@ const member = props => {
     padding: 0 0 0 20%;
     margin-top: 10px;
     justify-content: flex-start;
-    margin-left: ${props.even && (props => props.withWrapper) ? "45%" : "0"};
+    margin-left: ${props.even && ((props) => props.withWrapper) ? "45%" : "0"};
 
     display: flex;
     color: ${props.even
-      ? props => props.theme.colors.black
-      : props => props.theme.colors.white};
+      ? (props) => props.theme.colors.black
+      : (props) => props.theme.colors.white};
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
     
      white-space:normal;
       padding:0 30px;
@@ -192,10 +201,10 @@ const member = props => {
     width: 100%;
     border: 0.5px solid
       ${props.even
-        ? props => props.theme.colors.black
-        : props => props.theme.colors.white};
+        ? (props) => props.theme.colors.black
+        : (props) => props.theme.colors.white};
     margin: 50px 0 25px 10px;
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       margin-right: 30px;
     `}
   `;
@@ -206,7 +215,7 @@ const member = props => {
     flex-direction: ${props.even ? "row-reverse" : "row"};
     height: 100%;
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
      flex-direction:column;
     `}
   `;
@@ -219,11 +228,11 @@ const member = props => {
       text-decoration: none;
       border-bottom: 1px solid
         ${props.even
-          ? props => props.theme.colors.black
-          : props => props.theme.colors.white};
+          ? (props) => props.theme.colors.black
+          : (props) => props.theme.colors.white};
     }
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       margin-top:25px;
       padding:0 0 60px 0;
     `}
@@ -236,7 +245,7 @@ const member = props => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       top:0;
       flex-direction: row;
       justify-content: flex-start;
@@ -248,13 +257,13 @@ const member = props => {
   const Social = styled(SmallNavigation)`
     border: 1px solid
       ${props.even
-        ? props => props.theme.colors.black
-        : props => props.theme.colors.white};
+        ? (props) => props.theme.colors.black
+        : (props) => props.theme.colors.white};
     border-radius: 100%;
     margin-bottom: 0 auto 45px auto;
     color: ${props.even
-      ? props => props.theme.colors.black
-      : props => props.theme.colors.white};
+      ? (props) => props.theme.colors.black
+      : (props) => props.theme.colors.white};
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -266,10 +275,10 @@ const member = props => {
     &:hover {
       transition: all 500ms;
       cursor: pointer;
-      border: 1px solid ${props => props.theme.colors.blue};
-      color: ${props => props.theme.colors.blue};
+      border: 1px solid ${(props) => props.theme.colors.blue};
+      color: ${(props) => props.theme.colors.white};
     }
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       margin: 30px 30px 30px 0 ;
     `}
   `;
@@ -280,7 +289,7 @@ const member = props => {
     height: 100%;
     margin-bottom: -330px;
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       display:none;
     `}
   `;
@@ -300,12 +309,12 @@ const member = props => {
     background-position: top;
 
 
-    ${props => props.theme.medias.largePlus`
+    ${(props) => props.theme.medias.largePlus`
      height:1000px
     `}
 
 
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       position:relative;
       height:100%;
     `}
@@ -321,7 +330,7 @@ const member = props => {
     display: flex;
     justify-content: space-around;
     width: 40%;
-    ${props => props.theme.medias.mediumPlus`
+    ${(props) => props.theme.medias.mediumPlus`
       flex-direction: column-reverse;
       width:100%;
       padding: 0 30px;
@@ -331,7 +340,7 @@ const member = props => {
     <Container ref={containerRef}>
       <Titles even={props.even}>
         <MemberSmallSubtitle withWrapper>
-          {dataMember.subTitle}
+          {dataMember.subtitle}
         </MemberSmallSubtitle>
         <MemberFatTitle even={props.even}>{dataMember.name}</MemberFatTitle>
       </Titles>
@@ -380,11 +389,11 @@ const member = props => {
             <ReactMarkdown
               source={dataMember.engagements}
               renderers={{
-                link: props => (
+                link: (props) => (
                   <a href={props.href} target="_blank">
                     {props.children}
                   </a>
-                )
+                ),
               }}
               escapeHtml={false}
             />

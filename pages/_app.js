@@ -22,8 +22,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     const initialState = {
-      locale: "",
-      menuColor: "#FFFFFF"
+      locale: ""
     };
 
     const reducer = (state, action) => {
@@ -33,13 +32,7 @@ class MyApp extends App {
             ...state,
             locale: action.locale
           };
-          break;
-        case "setMenu":
-          return {
-            ...state,
-            menuColor: action.menuColor
-          };
-          break;
+
         default:
           return state;
       }

@@ -2,11 +2,11 @@ import React from "react";
 import { SmallNavigation } from "../styled/typos";
 import styled from "styled-components";
 import { useMocks } from "../context/mock-context";
-import { useStateValue } from "../context/state";
+
 import { useRouter } from "next/router";
 const socials = () => {
   const { socials } = useMocks();
-  const [{ menuColor }, dispatch] = useStateValue();
+
   const router = useRouter();
   const currentPage = router.pathname;
   const CustomNavigation = styled(SmallNavigation)`

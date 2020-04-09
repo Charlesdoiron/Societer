@@ -8,7 +8,7 @@ import StrategicComite from "../../components/strategicComite";
 import { useMocks } from "../../context/mock-context";
 import fetch from "../../api/getCommunity";
 
-const Community = props => {
+const Community = (props) => {
   const { communaute } = useMocks();
   const [menuHeight, setMenuHeight] = useState("");
 
@@ -27,9 +27,10 @@ const Community = props => {
     canonical,
     members,
     strategicComiteSubtitle,
-    strategicComitee
+    strategicComitee,
   } = props.data;
 
+  console.log(props);
   return (
     <>
       <NextSeo
@@ -54,11 +55,11 @@ const Community = props => {
   );
 };
 
-Community.getInitialProps = async function(context) {
+Community.getInitialProps = async function (context) {
   const currentLocale = context.query.lang;
   return fetch({
     c_type_id: "5ASzL8iF6PpZnriSZq8FWJ",
-    locale: currentLocale
+    locale: currentLocale,
   });
 };
 
@@ -73,7 +74,7 @@ const FirstPart = styled.div`
 
 const HideOnMediumPlus = styled.div`
   display: none;
-  ${props => props.theme.medias.mediumPlus`
+  ${(props) => props.theme.medias.mediumPlus`
   display:block;
 `}
 `;
