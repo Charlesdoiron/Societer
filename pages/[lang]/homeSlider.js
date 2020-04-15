@@ -37,7 +37,7 @@ export default HomePage;
 
 const StyledWrapper = styled(Wrapper)`
   background-color: ${(props) => props.theme.colors.blue};
-  padding: 0 20% 0 10%;
+  padding: 0 20% 0 8%;
 `;
 const Container = styled.div`
   background-color: ${(props) => props.theme.colors.blue};

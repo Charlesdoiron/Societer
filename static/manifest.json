@@ -14,7 +14,7 @@
     }
   ],
   "start_url": "/?utm_source=web_app_manifest",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "natural",
   "background_color": "#FFFFFF",
   "theme_color": "#FFFFFF"

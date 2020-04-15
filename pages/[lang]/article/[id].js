@@ -111,21 +111,19 @@ const Article = (props) => {
           {article.content.map((section, i) => {
             return (
               <ArticleSection key={i}>
-                {section.fields.articleInterTitle && (
-                  <CustomDiv>
-                    <ArticleInterTitle>
-                      {section.fields.articleInterTitle}
-                    </ArticleInterTitle>
-                    <HideOnMobile>
-                      {i === 0 && article.smallImage && (
-                        <SmallImage
-                          src={article.smallImage.fields.file.url}
-                          alt={article.smallImage.fields.description}
-                        />
-                      )}
-                    </HideOnMobile>
-                  </CustomDiv>
-                )}
+                <CustomDiv>
+                  <ArticleInterTitle>
+                    {section.fields.articleInterTitle}
+                  </ArticleInterTitle>
+                  <HideOnMobile>
+                    {i === 0 && article.smallImage && (
+                      <SmallImage
+                        src={article.smallImage.fields.file.url}
+                        alt={article.smallImage.fields.description}
+                      />
+                    )}
+                  </HideOnMobile>
+                </CustomDiv>
 
                 <CustomLabor style={{ width: "100%" }}>
                   <ReactMarkdown

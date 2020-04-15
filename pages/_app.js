@@ -22,7 +22,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     const initialState = {
-      locale: ""
+      locale: "",
     };
 
     const reducer = (state, action) => {
@@ -30,7 +30,7 @@ class MyApp extends App {
         case "setLocale":
           return {
             ...state,
-            locale: action.locale
+            locale: action.locale,
           };
 
         default:
@@ -56,23 +56,23 @@ class MyApp extends App {
                       width: 800,
                       height: 600,
                       alt:
-                        "Societer | Maison de conseil en sustainable leadership"
+                        "Societer | Maison de conseil en sustainable leadership",
                     },
                     {
                       url: "og-image-02.jpg",
                       width: 900,
                       height: 800,
                       alt:
-                        "Societer | Maison de conseil en sustainable leadership"
-                    }
+                        "Societer | Maison de conseil en sustainable leadership",
+                    },
                   ],
                   site_name:
-                    "Societer | Maison de conseil en sustainable leadership"
+                    "Societer | Maison de conseil en sustainable leadership",
                 }}
                 twitter={{
                   handle: "@handle",
                   site: "@site",
-                  cardType: "summary_large_image"
+                  cardType: "summary_large_image",
                 }}
               />
 

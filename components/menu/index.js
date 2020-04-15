@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated, useTransition } from "react-spring";
 import {
   Burger,
   Logo,
@@ -34,7 +34,14 @@ const Menu = (props) => {
   const [isOpen, setOpen] = useState(false);
   const [isTop, setIsTop] = useState(false);
   const [animationStart, setAnimationStart] = useState(false);
-  const [animationFinish, setAnimationFinish] = useState(false);
+  // const [animationFinish, setAnimationFinish] = useState(false);
+
+  // const [items, set] = useState(menu.items);
+  // const transitions = useTransition(items, (item) => item.key, {
+  //   from: { transform: "translate3d(0,-40px,0)" },
+  //   enter: { transform: "translate3d(0,0px,0)" },
+  //   leave: { transform: "translate3d(0,-40px,0)" },
+  // });
 
   const menuRef = useRef(null);
 
@@ -80,7 +87,6 @@ const Menu = (props) => {
     };
   }, [currentPage]);
 
-  console.log(animationStart, "animationStart");
   useEffect(() => {
     if (typeof window !== undefined) {
       window.addEventListener("resize", () => getMenuHeight());
@@ -107,6 +113,11 @@ const Menu = (props) => {
       : "transparent"};
 
     ${(props) => props.theme.medias.medium`
+    background-color: ${
+      currentPage !== "/[lang]"
+        ? (props) => props.theme.colors.black
+        : "transparent"
+    };
       padding: 25px 30px ;
       margin-bottom: 0px;
     `}
@@ -140,15 +151,14 @@ const Menu = (props) => {
         <Link href={`/[lang]`} as={`/${currentQuerryLang}/`}>
           {currentPage === "/" ||
           currentPage === "/[lang]/" ||
-          currentPage === "/[lang]" ? (
+          currentPage === "/[lang]" ||
+          currentPage === "/[lang]/homeSlider" ? (
             <animated.div style={animate}>
               <Logo src="/pictos/logo.svg" alt="Societer Logo" />
             </animated.div>
           ) : (
             <Flex style={{ height: "35px" }}>
-              {/* <animated.div style={animate}> */}
               <MinimalLogo src="/pictos/minimal_logo.svg" alt="Societer Logo" />
-              {/* </animated.div> */}
               <animated.div style={animateUp}>
                 <CurrentPage>
                   {pageName[currentQuerryLang][removeQuery(currentPage)]}
@@ -172,21 +182,26 @@ const Menu = (props) => {
 
       <Items>
         {currentQuerryLang &&
-          menu.items[currentQuerryLang].map((item, i) => (
-            <Link
-              key={i}
-              href={{
-                pathname: `/[lang]${item.path}`,
-              }}
-              as={`/${currentQuerryLang}${item.path}`}
-            >
-              <CustomNavigation
-                className={removeQuery(currentPage) === item.path && "isActive"}
+          menu.items[currentQuerryLang].map((item, i) => {
+            return (
+              <Link
+                key={i}
+                href={{
+                  pathname: `/[lang]${item.path}`,
+                }}
+                as={`/${currentQuerryLang}${item.path}`}
               >
-                {item.label}
-              </CustomNavigation>
-            </Link>
-          ))}
+                <CustomNavigation
+                  className={
+                    removeQuery(currentPage) === item.path && "isActive"
+                  }
+                >
+                  {item.label}
+                </CustomNavigation>
+              </Link>
+            );
+          })}
+
         {menu.locales.map((item, i) => (
           <CustomNavigation
             key={i}
@@ -200,4 +215,5 @@ const Menu = (props) => {
     </MenuContainer>
   );
 };
+
 export default Menu;

@@ -1,9 +1,36 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import { QuoteDescription } from "../styled/typos";
 import Quote from "../components/quote";
-import Link from "next/link";
+import useMeasure from "../utils/useMeasure";
+import { ResizeObserver } from "@juggle/resize-observer";
+import { Spring, config } from "react-spring/renderprops.cjs";
+const DURATION = 10000;
+const FAST_DURATION = DURATION / 4;
+const ULTRA_FAST_DURATION = DURATION / 6;
+
+const ProgressBar = (props) => {
+  const [bind, { width }] = useMeasure({ polyfill: ResizeObserver });
+  const { startAnimation } = props;
+  return (
+    <div
+      style={{ width: "100%", position: "absolute", left: "0", top: "0" }}
+      {...bind}
+    >
+      <Spring
+        config={{ duration: startAnimation ? DURATION : ULTRA_FAST_DURATION }}
+        from={{ width: 0, opacity: startAnimation ? 1 : 0 }}
+        to={{
+          width: startAnimation ? width : 0,
+          opacity: startAnimation ? 1 : 0,
+        }}
+      >
+        {(props) => <Line style={props} />}
+      </Spring>
+    </div>
+  );
+};
 
 class SliderHomepage extends Component {
   constructor(props) {
@@ -11,7 +38,7 @@ class SliderHomepage extends Component {
     this.state = {
       nav1: null,
       nav2: null,
-      animate: true,
+      startAnimation: true,
     };
   }
 
@@ -26,19 +53,19 @@ class SliderHomepage extends Component {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
+      speed: FAST_DURATION,
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
       easing: "ease-in",
-      autoplay: false,
-      autoplaySpeed: 6000,
+      autoplay: true,
 
-      beforeChange: () => this.setState({ animate: false }),
-      afterChange: () => this.setState({ animate: true }),
+      autoplaySpeed: DURATION,
+      beforeChange: () => this.setState({ startAnimation: false }),
+      afterChange: () => this.setState({ startAnimation: true }),
 
-      appendDots: (dots) => (
-        <DotsContainer>
+      appendDots: (dots, i) => (
+        <DotsContainer key={i}>
           <ul style={{ margin: "0px", padding: "0px ", color: "#FFF" }}>
             {dots}
           </ul>
@@ -46,6 +73,7 @@ class SliderHomepage extends Component {
       ),
       customPaging: (i) => (
         <div
+          key={i}
           style={{
             width: "30px",
             color: "white",
@@ -58,28 +86,28 @@ class SliderHomepage extends Component {
 
     return (
       <Container>
+        <ProgressBar startAnimation={this.state.startAnimation} />
         <Slider
           {...settings}
           asNavFor={this.state.nav2}
           ref={(slider) => (this.slider1 = slider)}
         >
-          {this.props.quotes.map((quote) => {
+          {this.props.quotes.map((quote, i) => {
             return (
-              <>
-                {/* <Link
+              /* <Link
                   href={{
                     pathname: `article/${article.fields.slug}`,
                     query: { title: quote.fields.title },
                   }}
                   as={`article/${article.fields.slug}`}
-                > */}
-                <Quote
-                  content={quote.fields.quote}
-                  animate={this.state.animate}
-                />
+                > */
+              <Quote
+                key={i}
+                content={quote.fields.quote}
+                animate={this.state.animate}
+              />
 
-                {/* </Link> */}
-              </>
+              /* </Link> */
             );
           })}
         </Slider>
@@ -93,9 +121,9 @@ class SliderHomepage extends Component {
           fade={true}
           swipeToSlide={false}
         >
-          {this.props.quotes.map((quote) => {
+          {this.props.quotes.map((quote, i) => {
             return (
-              <div>
+              <div key={i}>
                 <QuoteDescription>
                   {quote.fields.quoteDescription}
                 </QuoteDescription>
@@ -110,9 +138,16 @@ class SliderHomepage extends Component {
 
 export default SliderHomepage;
 
+const Line = styled.div`
+  height: 2px;
+  background-color: ${(props) => props.theme.colors.white};
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 const Circle = styled.div`
-  width: 13px;
-  height: 13px;
+  width: 8px;
+  height: 8px;
   border: 1px solid ${(props) => props.theme.colors.white};
   border-radius: 50px;
 `;
@@ -134,6 +169,9 @@ const Container = styled.div`
     .circle {
       background-color: white;
     }
+  }
+  .slick-dots li {
+    width: 10px;
   }
   .slick-initialized .slick-slide {
     display: flex;
