@@ -14,7 +14,11 @@ export const Sticky = styled.div`
   position: sticky;
   overflow: hidden;
 `;
-
+export const Author = styled.div`
+  ${(props) => props.theme.medias.medium`
+  margin-bottom:30px;
+   `}
+`;
 export const CustomCategoryTitle = styled(MediumSubtitle)`
   position: absolute;
   transform: rotate(-90deg);

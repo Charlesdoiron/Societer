@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
-
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import withTranslateUp from "../../components/animateHoc/translateUp";
+import Head from "next/head";
 import styled from "styled-components";
 import {
   ContactTitle,
   ContactBtn,
   LinkTitle,
-  LinkItem
+  LinkItem,
 } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
 import { useMocks } from "../../context/mock-context";
 import { useRouter } from "next/router";
 import { getMenuHeight } from "../../utils/menuHeight";
+import { contactJsonLd } from "../../jsonLd";
 
 import getContact from "../../api/getContact";
 
-const Contact = props => {
+const Contact = (props) => {
   const contact = props.data;
   const router = useRouter();
 
@@ -62,33 +65,41 @@ const Contact = props => {
         description={contact.metadescription}
         canonical={contact.canonical}
       />
+
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: contactJsonLd }}
+        />
+      </Head>
+
       <Image
         alt={contact.backgroundImage.fields.description}
         image={contact.backgroundImage}
         imageMobile={contact.backgroundImageMobile}
       />
+
       <Wrapper isWhite>
         <Titles>
-          <ContactTitle
+          <AnimatedContactTitle
             dangerouslySetInnerHTML={{ __html: contact.adress }}
-          ></ContactTitle>
-          <Button>
+          ></AnimatedContactTitle>
+          <AnimatedButton>
             <ContactBtn>
               <a target="_blank" href={contact.cta.fields.url} rel="noopener">
                 {contact.cta.fields.label}
               </a>
             </ContactBtn>
-          </Button>
+          </AnimatedButton>
         </Titles>
       </Wrapper>
       <Footer>
         <LeftPart>
-          <Logo
+          <AnimatedLogo
             alt={contact.logo.fields.description}
             style={{
-              backgroundImage: `url(${contact.logo.fields.file.url})`
+              backgroundImage: `url(${contact.logo.fields.file.url})`,
             }}
-            s
           />
         </LeftPart>
         <RightPart>
@@ -125,15 +136,17 @@ const Contact = props => {
   );
 };
 
-Contact.getInitialProps = async function(context) {
+Contact.getInitialProps = async function (context) {
   const currentLocale = context.query.lang;
   return getContact({
     c_type_id: "4EzvFHRWcWOThCzEsyu3jI",
-    locale: currentLocale
+    locale: currentLocale,
   });
 };
 
 export default Contact;
+
+const AnimatedContactTitle = withTranslateUp(ContactTitle);
 
 const Container = styled.div``;
 const Logo = styled.div`
@@ -144,15 +157,17 @@ const Logo = styled.div`
   margin: 0 auto;
 `;
 
+const AnimatedLogo = withTranslateUp(Logo);
+
 const Flex = styled.div`
   display: flex;
   justify-content: start;
   a {
     margin: 20px 50px 0 0;
     text-decoration: none;
-    border-bottom: 1px solid ${props => props.theme.colors.white};
+    border-bottom: 1px solid ${(props) => props.theme.colors.white};
   }
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
     justify-content: space-between;
     a {
       margin: 12px 0 0 0;
@@ -165,25 +180,25 @@ const Sub = styled.div`
   flex: 0 40%;
   flex-wrap: wrap;
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
     flex: 0 100%;
   `};
 `;
 
 const RightPart = styled.div`
-  background-color: ${props => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.black};
   position: relative;
   width: 70%;
   padding: 100px;
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
    width: 100%;
     padding:40px 30px;
   `};
 `;
 
 const LeftPart = styled.div`
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
   padding: 10%;
   display: flex;
   align-items: center;
@@ -207,20 +222,20 @@ const Titles = styled.div`
   right: 0;
   padding-left: 10%;
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
   padding-left:30px;
 `}
   h1 {
     width: 50%;
   }
   h3 {
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 
 const Button = styled.button`
-  color: ${props => props.theme.colors.white};
-  border: 2px solid ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
+  border: 2px solid ${(props) => props.theme.colors.white};
   border-radius: 50px;
   padding: 12px 35px;
   background-color: transparent;
@@ -233,33 +248,20 @@ const Button = styled.button`
   }
   &:hover {
     transition: all 500ms;
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.white};
     p {
-      color: ${props => props.theme.colors.black};
+      color: ${(props) => props.theme.colors.black};
     }
   }
 `;
+const AnimatedButton = withTranslateUp(Button);
 
 const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
    flex-direction: column-reverse;
   `};
 `;
-
-{
-  /* <div>
-              <LinkTitle>&nbsp;</LinkTitle>
-              <Flex>
-                <a target="_blank" href="#">
-                  <LinkItem>{contact.footer.others.legals}</LinkItem>
-                </a>
-                <a target="_blank" href="#">
-                  <LinkItem>{contact.footer.others.credits}</LinkItem>
-                </a>
-              </Flex>
-            </div> */
-}

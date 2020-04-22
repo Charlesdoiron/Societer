@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
-import { Navigation, ArticleTitleHeader } from "../../styled/typos";
+import { ArticleTitleHeader } from "../../styled/typos";
 import Share from "../share";
 import Link from "next/link";
 import { useRouter } from "next/router";

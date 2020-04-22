@@ -1,12 +1,15 @@
 import { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
-
+import Head from "next/head";
 import styled from "styled-components";
 import BackgroundImage from "../../components/backgroundImage";
 import Member from "../../components/member";
 import StrategicComite from "../../components/strategicComite";
 import { useMocks } from "../../context/mock-context";
 import fetch from "../../api/getCommunity";
+import withTranslateUp from "../../components/animateHoc/translateUp";
+
+import { pageJsonLd } from "../../jsonLd";
 
 const Community = (props) => {
   const { communaute } = useMocks();
@@ -28,9 +31,10 @@ const Community = (props) => {
     members,
     strategicComiteSubtitle,
     strategicComitee,
+    cover,
   } = props.data;
 
-  console.log(props);
+  console.log(props.data);
   return (
     <>
       <NextSeo
@@ -38,11 +42,22 @@ const Community = (props) => {
         description={metadescription}
         canonical={canonical}
       />
-      <HideOnMediumPlus>
-        <FirstPart>
-          <img src="/images/home/bkg_prehome.jpg" alt="Societer Communaute" />
-        </FirstPart>
-      </HideOnMediumPlus>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: pageJsonLd }}
+        />
+      </Head>
+
+      {/* <FirstPart>
+        <BackgroundImage
+          noImageOnMobile
+          style={{ position: "relative" }}
+          alignBottom
+          image={cover}
+          alt={cover.fields.description}
+        />
+      </FirstPart> */}
 
       {members.map((member, i) => (
         <Member dataMember={member.fields} key={i} even={i % 2 == !0} />
@@ -64,18 +79,8 @@ Community.getInitialProps = async function (context) {
 };
 
 const FirstPart = styled.div`
-  height: 100;
-  img {
-    height: 100;
-    width: 100%;
-    margin-bottom: -10px;
-  }
+  height: 100%;
+  position: relative;
 `;
 
-const HideOnMediumPlus = styled.div`
-  display: none;
-  ${(props) => props.theme.medias.mediumPlus`
-  display:block;
-`}
-`;
 export default Community;

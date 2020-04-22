@@ -18,9 +18,10 @@ import {
   CustomLabor,
   CustomChapeau,
   ArticleSection,
+  Author,
   Part,
 } from "../../../styled/pages/article";
-import { ArticleInterTitle } from "../../../styled/typos";
+import { ArticleInterTitle, Navigation } from "../../../styled/typos";
 import getArticle from "../../../api/getArticle";
 import { ScreenSizes } from "../../../config/theme/medias";
 import useMeasure from "react-use-measure";
@@ -67,6 +68,28 @@ const Article = (props) => {
         title={article.metatitle}
         description={article.metadescription}
         canonical={article.canonical}
+        openGraph={{
+          type: "website",
+          url: "https://www.societer.co",
+          title: article.metatitle,
+          description: article.metadescription,
+          images: [
+            {
+              url: article.metaimage
+                ? `https:${article.metaimage.fields.file.url}`
+                : `https://www.societer.co/og-image-02.jpg`,
+              width: 800,
+              height: 600,
+              alt: article.metatitle,
+            },
+          ],
+          site_name: "Societer | Maison de conseil en sustainable leadership",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
       />
       <animated.div style={animate}>
         <Sticky ref={subMenuRef}>
@@ -98,6 +121,23 @@ const Article = (props) => {
               alt={article.coverImage.fields.description}
             />
           )}
+          {article.authors && (
+            <Author>
+              <Navigation isBlack noLink>
+                <ReactMarkdown
+                  source={article.authors}
+                  renderers={{
+                    link: (props) => (
+                      <a href={props.href} target="_blank">
+                        {props.children}
+                      </a>
+                    ),
+                  }}
+                  escapeHtml={false}
+                />
+              </Navigation>
+            </Author>
+          )}
           {article.chapeau && (
             <ArticleSection>
               <CustomChapeau
@@ -108,6 +148,7 @@ const Article = (props) => {
               ></CustomChapeau>
             </ArticleSection>
           )}
+
           {article.content.map((section, i) => {
             return (
               <ArticleSection key={i}>

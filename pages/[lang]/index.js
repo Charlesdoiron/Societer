@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTrail, useSpring, animated } from "react-spring";
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 import styled from "styled-components";
 import { Subtitle, BigTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
@@ -8,6 +9,8 @@ import BackgroundImage from "../../components/backgroundImage";
 import getPage from "../../api/getPage";
 import { ScreenSizes } from "../../config/theme/medias";
 import { useMediaQuery } from "react-responsive";
+
+import { homeJsonLd } from "../../jsonLd";
 const HomePage = (props) => {
   const {
     canonical,
@@ -29,7 +32,7 @@ const HomePage = (props) => {
     config,
     opacity: toggle ? 1 : 0,
     x: toggle ? 0 : 20,
-    height: toggle ? (!isDesktopOrLaptop ? 50 : 80) : 0,
+    height: toggle ? (!isDesktopOrLaptop ? 50 : 90) : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
   const appear = useSpring({
@@ -50,6 +53,12 @@ const HomePage = (props) => {
         description={metadescription}
         canonical={canonical}
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: homeJsonLd }}
+        />
+      </Head>
 
       <BackgroundImage
         alignBottom
@@ -105,7 +114,7 @@ overflow: hidden;
   .trails-text {
     position: relative;
     width: 100%;
-    height: 80px;
+    height: 90px;
     will-change: transform, opacity;
     overflow: hidden;
     padding-left: 10px;

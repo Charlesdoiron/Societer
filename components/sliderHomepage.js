@@ -6,9 +6,9 @@ import Quote from "../components/quote";
 import useMeasure from "../utils/useMeasure";
 import { ResizeObserver } from "@juggle/resize-observer";
 import { Spring, config } from "react-spring/renderprops.cjs";
-const DURATION = 10000;
-const FAST_DURATION = DURATION / 4;
-const ULTRA_FAST_DURATION = DURATION / 6;
+export const DURATION = 10000;
+export const FAST_DURATION = DURATION / 4;
+export const ULTRA_FAST_DURATION = DURATION / 6;
 
 const ProgressBar = (props) => {
   const [bind, { width }] = useMeasure({ polyfill: ResizeObserver });
@@ -20,10 +20,9 @@ const ProgressBar = (props) => {
     >
       <Spring
         config={{ duration: startAnimation ? DURATION : ULTRA_FAST_DURATION }}
-        from={{ width: 0, opacity: startAnimation ? 1 : 0 }}
+        from={{ width: 0 }}
         to={{
           width: startAnimation ? width : 0,
-          opacity: startAnimation ? 1 : 0,
         }}
       >
         {(props) => <Line style={props} />}
@@ -59,8 +58,9 @@ class SliderHomepage extends Component {
       arrows: false,
       easing: "ease-in",
       autoplay: true,
-
       autoplaySpeed: DURATION,
+      pauseOnHover: false,
+      swipeToSlide: true,
       beforeChange: () => this.setState({ startAnimation: false }),
       afterChange: () => this.setState({ startAnimation: true }),
 
@@ -83,7 +83,6 @@ class SliderHomepage extends Component {
         </div>
       ),
     };
-
     return (
       <Container>
         <ProgressBar startAnimation={this.state.startAnimation} />
@@ -101,11 +100,26 @@ class SliderHomepage extends Component {
                   }}
                   as={`article/${article.fields.slug}`}
                 > */
-              <Quote
-                key={i}
-                content={quote.fields.quote}
-                animate={this.state.animate}
-              />
+
+              <Spring
+                config={{
+                  duration: 300,
+                }}
+                delay={DURATION - 500}
+                from={{ opacity: this.state.startAnimation ? 1 : 0 }}
+                to={{
+                  opacity: this.state.startAnimation ? 0 : 1,
+                }}
+              >
+                {({ opacity }) => (
+                  <Quote
+                    style={{ opacity }}
+                    key={i}
+                    content={quote.fields.quote}
+                    startAnimation={this.state.startAnimation}
+                  />
+                )}
+              </Spring>
 
               /* </Link> */
             );
@@ -124,9 +138,30 @@ class SliderHomepage extends Component {
           {this.props.quotes.map((quote, i) => {
             return (
               <div key={i}>
-                <QuoteDescription>
-                  {quote.fields.quoteDescription}
-                </QuoteDescription>
+                <Spring
+                  config={{
+                    duration: 400,
+                  }}
+                  from={{
+                    transform: "translateX(0px)",
+
+                    position: "relative",
+                  }}
+                  to={{
+                    transform: this.state.startAnimation
+                      ? "translateX(0px)"
+                      : "translateX(-10px)",
+                    position: "relative",
+                  }}
+                >
+                  {(props) => (
+                    <div style={props}>
+                      <QuoteDescription>
+                        {quote.fields.quoteDescription}
+                      </QuoteDescription>
+                    </div>
+                  )}
+                </Spring>
               </div>
             );
           })}
@@ -144,6 +179,9 @@ const Line = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  ${(props) => props.theme.medias.mediumPlus`
+      top: 80px;
+    `}
 `;
 const Circle = styled.div`
   width: 8px;

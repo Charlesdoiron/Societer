@@ -1,19 +1,26 @@
 {
   "version": 2,
-
-  "routes": [
+  "redirects": [
     {
-      "src": "^/service-worker.js$",
-      "dest": "/_next/static/service-worker.js",
-      "headers": {
-        "cache-control": "public, max-age=43200, immutable",
-        "Service-Worker-Allowed": "/"
-      }
+      "source": "/document/societer_communique-de-presse",
+      "statusCode": 301,
+      "destination": "https://www.societer.co/document/societer_communique-de-presse.pdf"
     },
-    { "src": "/index", "dest": "/index" },
-    { "src": "/communaute", "dest": "/communaute" },
-    { "src": "/manifeste", "dest": "/manifeste" },
-    { "src": "/proposition", "dest": "/proposition" },
-    { "src": "/sliderHomepage", "dest": "/sliderHomepage" }
-  ]
+    {
+      "source": "/contact",
+      "statusCode": 301,
+      "destination": "https://www.societer.co/fr/contact"
+    },
+    {
+      "source": "/mission",
+      "statusCode": 301,
+      "destination": "https://www.societer.co/fr/mission"
+    },
+    {
+      "source": "/vision",
+      "statusCode": 301,
+      "destination": "https://www.societer.co/fr/vision"
+    }
+  ],
+  "trailingSlash": false
 }

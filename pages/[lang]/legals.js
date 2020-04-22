@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
+import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import { ContactTitle, Chapeau, Labor, FatTitle } from "../../styled/typos";
@@ -8,10 +9,10 @@ import BackgroundImage from "../../components/backgroundImage";
 import { useMocks } from "../../context/mock-context";
 import { getWindowWidth } from "../../utils/windowWidth";
 import { getMenuHeight } from "../../utils/menuHeight";
-
+import { pageJsonLd } from "../../jsonLd";
 import getData from "../../api/getPage";
 
-const Legals = props => {
+const Legals = (props) => {
   const legals = props.data;
 
   useEffect(() => {
@@ -25,9 +26,9 @@ const Legals = props => {
     height: 100vh;
     top: -${getMenuHeight()}px;
     margin-bottom: -${getMenuHeight()}px;
-    background-color: ${props => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.blue};
 
-    ${props => props.theme.medias.medium`
+    ${(props) => props.theme.medias.medium`
         display:none;
         top:0;
   `};
@@ -40,6 +41,12 @@ const Legals = props => {
         description={legals.metdescription}
         canonical={legals.canonical}
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: pageJsonLd }}
+        />
+      </Head>
       <Hero>
         <Flex isCenter>
           <Logo>
@@ -69,11 +76,11 @@ const Legals = props => {
               <ReactMarkdown
                 source={legals.contentMkd1}
                 renderers={{
-                  link: props => (
+                  link: (props) => (
                     <a href={props.href} target="_blank">
                       {props.children}
                     </a>
-                  )
+                  ),
                 }}
                 escapeHtml={false}
               />
@@ -85,11 +92,11 @@ const Legals = props => {
               <ReactMarkdown
                 source={legals.contentMkd2}
                 renderers={{
-                  link: props => (
+                  link: (props) => (
                     <a href={props.href} target="_blank">
                       {props.children}
                     </a>
-                  )
+                  ),
                 }}
                 escapeHtml={false}
               />
@@ -100,11 +107,11 @@ const Legals = props => {
               <ReactMarkdown
                 source={legals.contentMkd3}
                 renderers={{
-                  link: props => (
+                  link: (props) => (
                     <a href={props.href} target="_blank">
                       {props.children}
                     </a>
-                  )
+                  ),
                 }}
                 escapeHtml={false}
               />
@@ -116,11 +123,11 @@ const Legals = props => {
   );
 };
 
-Legals.getInitialProps = async function(context) {
+Legals.getInitialProps = async function (context) {
   const currentLocale = context.query.lang;
   return getData({
     c_type_id: "3ywu7osEe7cUe8TICSDFNo",
-    locale: currentLocale
+    locale: currentLocale,
   });
 };
 
@@ -167,9 +174,9 @@ const Flex = styled.div`
   top: 50%;
   width: 100%;
   justify-content: space-evenly;
-  align-items: ${props => (props.isCenter ? "center" : "")};
+  align-items: ${(props) => (props.isCenter ? "center" : "")};
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
    flex-direction: column;
    margin-top: 80px;
   `};
@@ -180,7 +187,7 @@ const Part = styled.div`
   flex-direction: column;
   padding-top: 70px;
   width: 50%;
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
     width: 100%;
   `};
 `;
@@ -194,8 +201,8 @@ const Titles = styled.div`
 `;
 
 const Button = styled.button`
-  color: ${props => props.theme.colors.white};
-  border: 2px solid ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
+  border: 2px solid ${(props) => props.theme.colors.white};
   border-radius: 50px;
   padding: 12px 35px;
   background-color: transparent;
@@ -208,9 +215,9 @@ const Button = styled.button`
   }
   &:hover {
     transition: all 500ms;
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.white};
     p {
-      color: ${props => props.theme.colors.black};
+      color: ${(props) => props.theme.colors.black};
     }
   }
 `;
@@ -220,7 +227,7 @@ const Footer = styled.div`
   justify-content: space-between;
   position: relative;
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
    flex-direction: column-reverse;
   `};
 `;

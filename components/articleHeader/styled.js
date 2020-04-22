@@ -58,12 +58,6 @@ export const Published = styled(Navigation)`
    `}
 `;
 
-export const Author = styled.div`
-  ${(props) => props.theme.medias.medium`
-    display:none;
-   `}
-`;
-
 export const Flex = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.isRow ? "row" : "column")};

@@ -20,7 +20,7 @@ import Router from "next/router";
 import { useMocks } from "../../context/mock-context";
 import { removeQuery } from "../../utils/query";
 import { Navigation } from "../../styled/typos";
-import pageName from "../../static/pageName";
+import pageName from "../../statik/pageName";
 
 const Menu = (props) => {
   const { menu } = useMocks();
@@ -34,14 +34,6 @@ const Menu = (props) => {
   const [isOpen, setOpen] = useState(false);
   const [isTop, setIsTop] = useState(false);
   const [animationStart, setAnimationStart] = useState(false);
-  // const [animationFinish, setAnimationFinish] = useState(false);
-
-  // const [items, set] = useState(menu.items);
-  // const transitions = useTransition(items, (item) => item.key, {
-  //   from: { transform: "translate3d(0,-40px,0)" },
-  //   enter: { transform: "translate3d(0,0px,0)" },
-  //   leave: { transform: "translate3d(0,-40px,0)" },
-  // });
 
   const menuRef = useRef(null);
 
@@ -153,7 +145,10 @@ const Menu = (props) => {
           currentPage === "/[lang]/" ||
           currentPage === "/[lang]" ||
           currentPage === "/[lang]/homeSlider" ? (
-            <animated.div style={animate}>
+            <animated.div
+              style={animate}
+              style={{ display: "flex", alignItems: "center" }}
+            >
               <Logo src="/pictos/logo.svg" alt="Societer Logo" />
             </animated.div>
           ) : (

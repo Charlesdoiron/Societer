@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
-
+import Head from "next/head";
 import styled from "styled-components";
 import { ContactTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
@@ -9,7 +9,7 @@ import { useMocks } from "../../context/mock-context";
 import Categories from "../../components/categories";
 import Article from "../../components/article";
 import { getMenuHeight } from "../../utils/menuHeight";
-
+import { pageJsonLd } from "../../jsonLd";
 import getPage from "../../api/getPage";
 const PublicDebat = (props) => {
   const { debat_public } = useMocks();
@@ -35,6 +35,12 @@ const PublicDebat = (props) => {
         description={debat_public.seo_description}
         canonical={debat_public.seo_canonical}
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: pageJsonLd }}
+        />
+      </Head>
       <Titles>
         <ContactTitle>{bigTitle}</ContactTitle>
       </Titles>

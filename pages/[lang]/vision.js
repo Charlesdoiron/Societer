@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useMocks } from "../../context/mock-context";
-
+import Head from "next/head";
+import { pageJsonLd } from "../../jsonLd";
 import { NextSeo } from "next-seo";
 import getPage from "../../api/getPage";
 import { ResizeObserver } from "@juggle/resize-observer";
@@ -13,16 +14,16 @@ import {
   Chapeau,
   Labor,
   ArticleInterTitle,
-  Navigation
+  Navigation,
 } from "../../styled/typos";
-
-import { Manifesto } from "../../static/vision";
+import withTranslateUp from "../../components/animateHoc/translateUp";
+import { Manifesto } from "../../statik/vision";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import VisionArticleHeader from "../../components/visionArticleHeader";
 import PopUp from "../../components/popUp";
 
-const Vision = props => {
+const Vision = (props) => {
   const router = useRouter();
   const { vision } = useMocks();
   const [popIsOpen, setPopOpen] = useState(false);
@@ -43,14 +44,14 @@ const Vision = props => {
     secondPartArticleTitle2,
     secondPartArticleContent2,
     secondPartArticleTitle3,
-    secondPartArticleContent3
+    secondPartArticleContent3,
   } = props.data;
 
   const titleRef = useRef(null);
   const [manifestoRef, bounds] = useMeasure({
     scroll: true,
     resize: true,
-    polyfill: ResizeObserver
+    polyfill: ResizeObserver,
   });
   useEffect(() => {
     if (window !== undefined) {
@@ -64,7 +65,7 @@ const Vision = props => {
   //   }
   // }, [bounds.top]);
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     setDefinition(vision.firstPart[currentQuerryLang][e]);
     setPopOpen(true);
   };
@@ -78,6 +79,12 @@ const Vision = props => {
         description={metadescription}
         canonical={canonical}
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: pageJsonLd }}
+        />
+      </Head>
       <PopUp
         content={definition}
         popIsOpen={popIsOpen}
@@ -93,7 +100,7 @@ const Vision = props => {
           </Sticky>
           <div ref={manifestoRef}>
             <Manifesto
-              handleClick={e => handleClick(e)}
+              handleClick={(e) => handleClick(e)}
               currentQuerryLang={currentQuerryLang}
             />
           </div>
@@ -113,7 +120,7 @@ const Vision = props => {
             <CustomChapeau
               isBlack
               dangerouslySetInnerHTML={{
-                __html: secondPartChapeau
+                __html: secondPartChapeau,
               }}
             ></CustomChapeau>
 
@@ -123,11 +130,11 @@ const Vision = props => {
                 <ReactMarkdown
                   source={secondPartAuthors}
                   renderers={{
-                    link: props => (
+                    link: (props) => (
                       <a href={props.href} target="_blank">
                         {props.children}
                       </a>
-                    )
+                    ),
                   }}
                   escapeHtml={false}
                 />
@@ -138,11 +145,11 @@ const Vision = props => {
               <ReactMarkdown
                 source={secondPartArticleContent1}
                 renderers={{
-                  link: props => (
+                  link: (props) => (
                     <a href={props.href} target="_blank">
                       {props.children}
                     </a>
-                  )
+                  ),
                 }}
                 escapeHtml={false}
               />
@@ -158,11 +165,11 @@ const Vision = props => {
               <ReactMarkdown
                 source={secondPartArticleContent2}
                 renderers={{
-                  link: props => (
+                  link: (props) => (
                     <a href={props.href} target="_blank">
                       {props.children}
                     </a>
-                  )
+                  ),
                 }}
                 escapeHtml={false}
               />
@@ -176,11 +183,11 @@ const Vision = props => {
               <ReactMarkdown
                 source={secondPartArticleContent3}
                 renderers={{
-                  link: props => (
+                  link: (props) => (
                     <a href={props.href} target="_blank">
                       {props.children}
                     </a>
-                  )
+                  ),
                 }}
                 escapeHtml={false}
               />
@@ -191,18 +198,18 @@ const Vision = props => {
     </>
   );
 };
-Vision.getInitialProps = async function(context) {
+Vision.getInitialProps = async function (context) {
   const currentLocale = context.query.lang;
   return getPage({
     c_type_id: "5pe8WH4Os3Rzel2UfQ247o",
-    locale: currentLocale
+    locale: currentLocale,
   });
 };
 export default Vision;
 
 const CustomLabor = styled(Labor)`
   width: 50%;
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
    width:100%;
     padding-top:20px;
     padding-bottom:45px;
@@ -211,13 +218,13 @@ const CustomLabor = styled(Labor)`
 
 const Author = styled.div`
   display: none;
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
     display:block;
    `}
 `;
 const CustomChapeau = styled(Chapeau)`
   width: 35%;
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
    width:100%;
    padding-top:50px;
    padding-bottom:25px;
@@ -229,7 +236,7 @@ const ArticleSection = styled.div`
   flex-direction: row;
   padding: 70px 0;
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
     flex-direction:column;
     padding:0;
   `}
@@ -253,7 +260,7 @@ const Sticky = styled.div`
     left: 0;
     right: 0;
 
-    ${props => props.theme.medias.medium`
+    ${(props) => props.theme.medias.medium`
     position:relative;
     transform: rotate(0deg);
     margin-left: 0;
@@ -269,9 +276,9 @@ const FirstPart = styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  background-color: ${props => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.black};
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
     flex-direction:column;
     padding-top: 60px;
     padding-bottom: 90px;
@@ -284,9 +291,9 @@ const FirstPart = styled.div`
 
 const SecondPart = styled.div`
   padding: 120px 0;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
 
     padding-top: 60px;
     padding-bottom: 60px;

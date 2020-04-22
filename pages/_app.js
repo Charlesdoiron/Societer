@@ -52,14 +52,14 @@ class MyApp extends App {
                   description: "Maison de conseil en sustainable leadership",
                   images: [
                     {
-                      url: "og-image-01.jpg",
+                      url: "https://www.societer.co/og-image-02.jpg",
                       width: 800,
                       height: 600,
                       alt:
                         "Societer | Maison de conseil en sustainable leadership",
                     },
                     {
-                      url: "og-image-02.jpg",
+                      url: "https://www.societer.co/og-image-02.jpg",
                       width: 900,
                       height: 800,
                       alt:
