@@ -169,7 +169,7 @@ const member = (props) => {
             from={{
               backgroundColor: "#101010",
               height: "600px",
-              zIndex: "1000",
+              zIndex: "10",
               width: "100%",
               position: "relative",
               opacity: 1,

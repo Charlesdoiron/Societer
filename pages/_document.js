@@ -4,7 +4,7 @@ import { ServerStyleSheet } from "styled-components";
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
-    const page = renderPage(App => props =>
+    const page = renderPage((App) => (props) =>
       sheet.collectStyles(<App {...props} />)
     );
     const styleTags = sheet.getStyleElement();
@@ -50,6 +50,18 @@ export default class MyDocument extends Document {
           />
 
           {this.props.styleTags}
+
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-157382765-1"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments)};
+            gtag('js', new Date()); gtag('config', 'UA-157382765-1')`,
+            }}
+          ></script>
         </Head>
         <body>
           <Main />

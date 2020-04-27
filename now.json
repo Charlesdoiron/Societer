@@ -20,7 +20,12 @@
       "source": "/vision",
       "statusCode": 301,
       "destination": "https://www.societer.co/fr/vision"
+    },
+    { "source": "^/robots.txt", "destination": "/static/robots.txt" },
+    {
+      "source": "/sitemap",
+      "statusCode": 301,
+      "destination": "https://www.societer.co/sitemap.xml"
     }
-  ],
-  "trailingSlash": false
+  ]
 }

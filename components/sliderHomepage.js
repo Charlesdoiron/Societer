@@ -83,6 +83,7 @@ class SliderHomepage extends Component {
         </div>
       ),
     };
+    console.log(this.state.startAnimation, "this.state.startAnimation");
     return (
       <Container>
         <ProgressBar startAnimation={this.state.startAnimation} />
@@ -102,18 +103,23 @@ class SliderHomepage extends Component {
                 > */
 
               <Spring
-                config={{
-                  duration: 300,
+                config={
+                  (config.gentle,
+                  {
+                    duration: this.state.startAnimation ? 500 : 0,
+                  })
+                }
+                delay={this.state.startAnimation ? DURATION - 500 : 1700}
+                from={{
+                  opacity: this.state.startAnimation ? 1 : 0,
                 }}
-                delay={DURATION - 500}
-                from={{ opacity: this.state.startAnimation ? 1 : 0 }}
                 to={{
                   opacity: this.state.startAnimation ? 0 : 1,
                 }}
               >
-                {({ opacity }) => (
+                {({ opacity, fontSize }) => (
                   <Quote
-                    style={{ opacity }}
+                    style={{ opacity, fontSize }}
                     key={i}
                     content={quote.fields.quote}
                     startAnimation={this.state.startAnimation}

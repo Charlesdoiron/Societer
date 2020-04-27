@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Subtitle, BigTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
-import getPage from "../../api/getPage";
+import getPage from "../../endpoints/getPage";
 import { ScreenSizes } from "../../config/theme/medias";
 import { useMediaQuery } from "react-responsive";
 

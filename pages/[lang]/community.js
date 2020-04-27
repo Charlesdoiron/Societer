@@ -6,7 +6,7 @@ import BackgroundImage from "../../components/backgroundImage";
 import Member from "../../components/member";
 import StrategicComite from "../../components/strategicComite";
 import { useMocks } from "../../context/mock-context";
-import fetch from "../../api/getCommunity";
+import fetch from "../../endpoints/getCommunity";
 import withTranslateUp from "../../components/animateHoc/translateUp";
 
 import { pageJsonLd } from "../../jsonLd";

@@ -16,33 +16,38 @@ export const MenuDesktop = styled.div`
   padding: 30px 0;
   padding-left: 8%;
   z-index: 30;
-  background-color: transparent;
+  background-color: ${(props) =>
+    !props.isTop && props.currentPage === "/[lang]/article/[id]"
+      ? props.theme.colors.white
+      : "transparent"};
   transition: all 200ms;
   margin-bottom: -107px;
 
   ${(props) => props.theme.medias.large`
       padding-left: 10%;
-  `}
-
-  &:hover {
+  `}/* &:hover {
     .animation-menu__bkg {
       transform: translateY(0px);
     }
-  }
+  } */
 `;
 
 export const CustomNavigation = styled(Navigation)`
-  margin-right: 60px;
-  white-space: nowrap;
-  color: ${menuColor};
+         margin-right: 60px;
+         white-space: nowrap;
+         /* color: ${menuColor}; */
+         color: ${(props) =>
+           !props.isTop && props.currentPage === "/[lang]/article/[id]"
+             ? props.theme.colors.black
+             : menuColor};
 
-  &:hover {
-    font-weight: bold;
-  }
-  &.isActive {
-    border-bottom: 1px solid ${menuColor};
-  }
-`;
+         &:hover {
+           font-weight: bold;
+         }
+         &.isActive {
+           border-bottom: 1px solid ${menuColor};
+         }
+       `;
 
 export const Burger = styled.img`
   width: 24px;
@@ -67,7 +72,10 @@ export const CurrentPage = styled(Navigation)`
   position: relative;
   font-family: "garnett_medium";
   white-space: nowrap;
-  color: ${menuColor};
+  color: ${(props) =>
+    !props.isTop && props.currentPage === "/[lang]/article/[id]"
+      ? props.theme.colors.black
+      : menuColor} !important;
   ${(props) => props.theme.medias.medium`
     top:14px;
    `}

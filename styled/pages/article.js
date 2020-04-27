@@ -78,9 +78,10 @@ export const CustomLabor = styled(Labor)`
   width: 50%;
   a {
     color: inherit;
-    border-bottom: 1px solid ${(props) => props.theme.black};
+    border-bottom: 1px solid ${(props) => props.theme.blue};
     text-decoration: none;
   }
+
   p {
     margin: 0;
   }
@@ -106,6 +107,16 @@ export const ArticleSection = styled.div`
   flex-direction: row;
   padding: 70px 0;
 
+  img {
+    width: 100%;
+    margin: 50px 0;
+  }
+
+  a {
+    img {
+      border-bottom: none;
+    }
+  }
   ${(props) => props.theme.medias.medium`
     flex-direction:column;
     padding:0;

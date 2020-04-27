@@ -3,7 +3,7 @@ import { useTrail, useSpring, animated } from "react-spring";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
 import { Wrapper } from "../../styled/space";
-import getPage from "../../api/getPage";
+import getPage from "../../endpoints/getPage";
 import SliderHomepage from "../../components/sliderHomepage";
 
 const HomePage = (props) => {

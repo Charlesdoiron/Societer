@@ -22,7 +22,7 @@ import {
   Part,
 } from "../../../styled/pages/article";
 import { ArticleInterTitle, Navigation } from "../../../styled/typos";
-import getArticle from "../../../api/getArticle";
+import getArticle from "../../../endpoints/getArticle";
 import { ScreenSizes } from "../../../config/theme/medias";
 import useMeasure from "react-use-measure";
 import { useMediaQuery } from "react-responsive";

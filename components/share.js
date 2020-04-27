@@ -3,11 +3,46 @@ import styled from "styled-components";
 import { useTrail, useSpring, animated } from "react-spring";
 import { ArticleTitleHeader, SmallNavigation, Labor } from "../styled/typos";
 import { Wrapper } from "../styled/space";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "react-share";
+import { useRouter } from "next/router";
+const Fb = (props) => {
+  return (
+    <FacebookShareButton url={props.path}>
+      <Social>Fb</Social>
+    </FacebookShareButton>
+  );
+};
+
+const Tw = (props) => {
+  return (
+    <TwitterShareButton url={props.path}>
+      <Social>Tw</Social>
+    </TwitterShareButton>
+  );
+};
+
+const Lk = (props) => {
+  return (
+    <LinkedinShareButton url={props.path}>
+      <Social>Lk</Social>
+    </LinkedinShareButton>
+  );
+};
 
 let socials = [
-  { name: "Fb", url: "www.facebook.fr" },
-  { name: "Tw", url: "www.facebook.fr" },
-  { name: "Lk", url: "www.facebook.fr" },
+  {
+    name: <Fb />,
+  },
+  {
+    name: <Tw />,
+  },
+  {
+    name: <Lk />,
+  },
 ];
 
 const Share = (props) => {
@@ -28,6 +63,23 @@ const Share = (props) => {
   });
   stop();
 
+  const getRsx = (index) => {
+    const router = useRouter();
+
+    const path = `https://www.societer.co/${router.asPath}`;
+
+    switch (index) {
+      case 0:
+        return <Fb path={path} />;
+      case 1:
+        return <Tw path={path} />;
+      case 2:
+        return <Lk path={path} />;
+      default:
+        break;
+    }
+  };
+
   return (
     <Container style={translateShare}>
       <CustomWrapper>
@@ -42,9 +94,7 @@ const Share = (props) => {
                 transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
               }}
             >
-              <animated.div style={{ height }}>
-                <Social>{socials[index].name}</Social>
-              </animated.div>
+              <animated.div style={{ height }}>{getRsx(index)}</animated.div>
             </animated.div>
           ))}
         </SocialContainer>
@@ -57,6 +107,9 @@ export default Share;
 
 const SocialContainer = styled.div`
   display: flex;
+  button:focus {
+    outline: 0;
+  }
 `;
 
 const Social = styled(SmallNavigation)`

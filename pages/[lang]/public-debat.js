@@ -10,7 +10,7 @@ import Categories from "../../components/categories";
 import Article from "../../components/article";
 import { getMenuHeight } from "../../utils/menuHeight";
 import { pageJsonLd } from "../../jsonLd";
-import getPage from "../../api/getPage";
+import getPage from "../../endpoints/getPage";
 const PublicDebat = (props) => {
   const { debat_public } = useMocks();
   const { bigTitle, categories, articles, backgroundImage } = props.data;

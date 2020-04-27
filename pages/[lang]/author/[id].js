@@ -7,9 +7,9 @@ import Member from "../../../components/member";
 import WrittenArticle from "../../../components/writtenArticle";
 import { useMocks } from "../../../context/mock-context";
 import { Chapeau } from "../../../styled/typos";
-import getAuthor from "../../../api/getAuthor";
+import getAuthor from "../../../endpoints/getAuthor";
 
-const Community = props => {
+const Community = (props) => {
   const { communaute } = useMocks();
   const [menuHeight, setMenuHeight] = useState("");
   const router = useRouter();
@@ -42,7 +42,7 @@ const Community = props => {
             <Chapeau isBlack>Publications</Chapeau>
           </ShowOnMobile>
 
-          {props.data.articlesAuthor.map(article => (
+          {props.data.articlesAuthor.map((article) => (
             <WrittenArticle
               title={article.fields.title}
               slug={article.fields.slug}
@@ -55,26 +55,26 @@ const Community = props => {
   );
 };
 
-Community.getInitialProps = async function(context) {
+Community.getInitialProps = async function (context) {
   const currentLocale = context.query.lang;
   const currentAuthor = context.query.id;
 
   return getAuthor({
     currentAuthor: currentAuthor,
-    locale: currentLocale
+    locale: currentLocale,
   });
 };
 
 const CustomWrapper = styled(Wrapper)`
   padding: 200px 3%;
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
     padding: 30px ;
 `}
 `;
 
 const ShowOnMobile = styled.div`
   display: none;
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
   display:block;
 `}
 `;

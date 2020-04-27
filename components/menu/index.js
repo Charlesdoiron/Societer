@@ -98,11 +98,15 @@ const Menu = (props) => {
   };
 
   const MenuContainer = styled(MenuDesktop)`
-    background-color: ${currentPage === "/[lang]/article/[id]"
-      ? (props) => (!props.isTop ? "white" : "black")
-      : currentPage === "/[lang]/public-debat"
-      ? (props) => (!props.isTop ? "transparent" : "black")
-      : "transparent"};
+    /* background-color: ${
+      currentPage === "/[lang]/article/[id]"
+        ? (props) => (!props.isTop ? "white" : "black")
+        : currentPage === "/[lang]/public-debat"
+        ? (props) => (!props.isTop ? "transparent" : "black")
+        : "transparent"
+    }; */
+
+  background-color: ${(props) => (!props.isTop ? "transparent" : "#101010")};
 
     ${(props) => props.theme.medias.medium`
     background-color: ${
@@ -136,6 +140,7 @@ const Menu = (props) => {
     document.querySelector("body").classList.toggle("menuIsOpen");
   };
 
+  console.log(isTop, currentPage);
   return (
     <MenuContainer className="menu" ref={menuRef} isTop={isTop}>
       <AnimationMenu className="animation-menu__bkg"></AnimationMenu>
@@ -153,9 +158,16 @@ const Menu = (props) => {
             </animated.div>
           ) : (
             <Flex style={{ height: "35px" }}>
-              <MinimalLogo src="/pictos/minimal_logo.svg" alt="Societer Logo" />
+              <MinimalLogo
+                src={
+                  !isTop && currentPage === "/[lang]/article/[id]"
+                    ? "/pictos/minimal_logo-black.svg"
+                    : "/pictos/minimal_logo.svg"
+                }
+                alt="Societer Logo"
+              />
               <animated.div style={animateUp}>
-                <CurrentPage>
+                <CurrentPage isTop={isTop} currentPage={currentPage}>
                   {pageName[currentQuerryLang][removeQuery(currentPage)]}
                 </CurrentPage>{" "}
               </animated.div>
@@ -187,6 +199,8 @@ const Menu = (props) => {
                 as={`/${currentQuerryLang}${item.path}`}
               >
                 <CustomNavigation
+                  isTop={isTop}
+                  currentPage={currentPage}
                   className={
                     removeQuery(currentPage) === item.path && "isActive"
                   }

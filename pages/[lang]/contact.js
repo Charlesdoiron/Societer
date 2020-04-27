@@ -17,7 +17,7 @@ import { useRouter } from "next/router";
 import { getMenuHeight } from "../../utils/menuHeight";
 import { contactJsonLd } from "../../jsonLd";
 
-import getContact from "../../api/getContact";
+import getContact from "../../endpoints/getContact";
 
 const Contact = (props) => {
   const contact = props.data;

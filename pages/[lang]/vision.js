@@ -4,7 +4,7 @@ import { useMocks } from "../../context/mock-context";
 import Head from "next/head";
 import { pageJsonLd } from "../../jsonLd";
 import { NextSeo } from "next-seo";
-import getPage from "../../api/getPage";
+import getPage from "../../endpoints/getPage";
 import { ResizeObserver } from "@juggle/resize-observer";
 import useMeasure from "react-use-measure";
 import { Wrapper } from "../../styled/space";

@@ -6,11 +6,13 @@ import { useRouter } from "next/router";
 const Index = () => {
   const router = useRouter();
   useEffect(() => {
+    console.log(getInitialLocale());
     router.replace("/[lang]", `/${getInitialLocale()}/`);
   });
   return (
     <Head>
-      <meta name="robots" content="noindex, nofollow" />
+      {/* <meta name="robots" content="noindex, nofollow" /> */}
+      <meta name="robots" />
     </Head>
   );
 };

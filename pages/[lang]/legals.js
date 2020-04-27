@@ -10,7 +10,7 @@ import { useMocks } from "../../context/mock-context";
 import { getWindowWidth } from "../../utils/windowWidth";
 import { getMenuHeight } from "../../utils/menuHeight";
 import { pageJsonLd } from "../../jsonLd";
-import getData from "../../api/getPage";
+import getData from "../../endpoints/getPage";
 
 const Legals = (props) => {
   const legals = props.data;

@@ -5,10 +5,12 @@ import styled from "styled-components";
 import { Chapeau, Labor, FatTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import Accordion from "../../components/accordion";
-import getPage from "../../api/getPage";
+import getPage from "../../endpoints/getPage";
 import { useMocks } from "../../context/mock-context";
 import withTranslateUp from "../../components/animateHoc/translateUp";
 import { pageJsonLd, homeJsonLd } from "../../jsonLd";
+import Menu from "../../components/menu";
+
 const Mission = (props) => {
   const {
     metatitle,
@@ -104,7 +106,6 @@ const Mission = (props) => {
         <Wrapper isWhite ref={wrapperRef}>
           <FatTitle dangerouslySetInnerHTML={{ __html: secondPartFatTitle }} />
         </Wrapper>
-
         <Img src={teamImg.fields.file.url} alt={teamImg.fields.description} />
         <Accordion
           subTitle={subTitle}
