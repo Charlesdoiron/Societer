@@ -5,7 +5,7 @@ import { useMocks } from "../context/mock-context";
 import Link from "next/link";
 import classNames from "classnames";
 
-const Article = props => {
+const Article = (props) => {
   const { articles } = props;
   const [isHover, setIsHover] = useState("");
 
@@ -16,7 +16,7 @@ const Article = props => {
   } else {
     articlesFiltered = articles.filter((article, i) => {
       const hadFilter = article.fields.categories.filter(
-        cat => cat.fields.slug === props.filter
+        (cat) => cat.fields.slug === props.filter
       );
       if (hadFilter.length > 0) {
         return articles[i];
@@ -29,7 +29,7 @@ const Article = props => {
       {articlesFiltered.map((el, i) => (
         <ArticleContainer
           className={classNames("article__container", {
-            isActive: isHover === el.fields.slug
+            isActive: isHover === el.fields.slug,
           })}
           key={i}
           onMouseOver={() => setIsHover(el.fields.slug)}
@@ -54,7 +54,7 @@ const Article = props => {
               <Link
                 href={{
                   pathname: `article/${el.fields.slug}`,
-                  query: { title: el.fields.title }
+                  query: { title: el.fields.title },
                 }}
                 as={`article/${el.fields.slug}`}
               >
@@ -86,7 +86,7 @@ const Article = props => {
 export default Article;
 
 const ArticleContainer = styled.div`
-  border-bottom: 1px solid ${props => props.theme.colors.black};
+  border-bottom: 1px solid ${(props) => props.theme.colors.black};
   margin-top: 35px;
   width: 100%;
   opacity: 1;
@@ -105,17 +105,17 @@ const SpaceBetween = styled.div`
 `;
 
 const CategorieTitle = styled(SmallSubtitle)`
-  color: ${props => props.theme.colors.blue};
+  color: ${(props) => props.theme.colors.blue};
   margin-bottom: 20px;
 `;
 const Title = styled(Chapeau)`
-  color: ${props => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.black};
   margin-bottom: 20px;
   width: 80%;
   cursor: pointer;
 `;
 const Published = styled(Navigation)`
-  color: ${props => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.black};
   margin-bottom: 15px;
   cursor: auto;
 `;
@@ -127,7 +127,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
   transition: all 500ms;
   &:hover {
     .categorie__title,

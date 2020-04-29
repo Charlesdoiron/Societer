@@ -11,7 +11,6 @@ const Index = () => {
   });
   return (
     <Head>
-      {/* <meta name="robots" content="noindex, nofollow" /> */}
       <meta name="robots" />
     </Head>
   );

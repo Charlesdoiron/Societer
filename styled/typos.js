@@ -112,9 +112,9 @@ export const SmallSubtitle = styled.h4`
 `;
 
 export const Quote = styled.h1`
-  font-family: "garnett_medium";
+  font-family: "garnett_bold";
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1.9em;
   line-height: 1.3em;
   cursor: pointer;
