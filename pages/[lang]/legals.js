@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
+
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import { ContactTitle, Chapeau, Labor, FatTitle } from "../../styled/typos";
@@ -9,7 +9,7 @@ import BackgroundImage from "../../components/backgroundImage";
 import { useMocks } from "../../context/mock-context";
 import { getWindowWidth } from "../../utils/windowWidth";
 import { getMenuHeight } from "../../utils/menuHeight";
-import { pageJsonLd } from "../../jsonLd";
+
 import getData from "../../endpoints/getPage";
 
 const Legals = (props) => {
@@ -41,12 +41,7 @@ const Legals = (props) => {
         description={legals.metdescription}
         canonical={legals.canonical}
       />
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: pageJsonLd }}
-        />
-      </Head>
+
       <Hero>
         <Flex isCenter>
           <Logo>

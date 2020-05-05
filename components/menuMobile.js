@@ -116,8 +116,18 @@ const MenuMobile = (props) => {
           ))}
         </Items>
         <Languages>
-          <Language onClick={() => handleLocale("fr")}>fr</Language>
-          <Language onClick={() => handleLocale("en")}>en</Language>
+          <Language
+            onClick={() => handleLocale("fr")}
+            className={router.query.lang === "fr" && "isActive"}
+          >
+            fr
+          </Language>
+          <Language
+            onClick={() => handleLocale("en")}
+            className={router.query.lang === "en" && "isActive"}
+          >
+            en
+          </Language>
         </Languages>
         <Absolute>
           <Socials>
@@ -167,10 +177,12 @@ const Absolute = styled.div`
 
 const Socials = styled.div`
   display: flex;
-  justify-content: space-between;
-  bottom: 80px;
-  position: relative;
+  justify-content: space-around;
+  bottom: 10px;
+  position: absolute;
   width: 100%;
+  left: 0;
+  right: 0;
   a {
     text-decoration: none;
   }
@@ -194,6 +206,11 @@ const Language = styled(SmallNavigation)`
   padding: 2px;
   line-height: unset;
   transition: all 500ms;
+  &.isActive {
+    background-color: ${(props) => props.theme.colors.blue};
+    color: ${(props) => props.theme.colors.white};
+    border: 1px solid ${(props) => props.theme.colors.blue};
+  }
   &:hover {
     transition: all 500ms;
     cursor: pointer;

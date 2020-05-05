@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
+
 import styled from "styled-components";
 import { Chapeau, Labor, FatTitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
@@ -8,7 +8,7 @@ import Accordion from "../../components/accordion";
 import getPage from "../../endpoints/getPage";
 import { useMocks } from "../../context/mock-context";
 import withTranslateUp from "../../components/animateHoc/translateUp";
-import { pageJsonLd, homeJsonLd } from "../../jsonLd";
+
 import Menu from "../../components/menu";
 
 const Mission = (props) => {
@@ -70,8 +70,6 @@ const Mission = (props) => {
   const wrapperRef = useRef(null);
   const { mission } = useMocks();
 
-  const AnimatedChapeau = withTranslateUp(Chapeau);
-
   useEffect(() => {
     if (window !== undefined) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -86,18 +84,15 @@ const Mission = (props) => {
         title={metatitle}
         description={metadescription}
         canonical={canonical}
+        languageAlternates={{
+          hrefLang: "en",
+          href: "https://www.societer.co/en/mission",
+        }}
       />
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: homeJsonLd,
-          }}
-        />
-      </Head>
+
       <Wrapper>
         <FirstPart>
-          <AnimatedChapeau dangerouslySetInnerHTML={{ __html: chapeau }} />
+          <Chapeau dangerouslySetInnerHTML={{ __html: chapeau }} />
           <Labor>{firstPartLabor}</Labor>
         </FirstPart>
       </Wrapper>
@@ -132,7 +127,7 @@ const FirstPart = styled.div`
   justify-content: space-between;
 
   h3 {
-    max-width: 80%;
+    max-width: 60%;
   }
 
   p {

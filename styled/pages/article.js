@@ -22,6 +22,7 @@ export const Author = styled.div`
 export const CustomCategoryTitle = styled(MediumSubtitle)`
   position: absolute;
   transform: rotate(-90deg);
+  transform-origin: 100% 0%;
   left: 6%;
   ${(props) => props.theme.medias.medium`
     transform: rotate(0);
@@ -90,6 +91,12 @@ export const CustomLabor = styled(Labor)`
     padding-top:20px;
     padding-bottom:45px;
   `}
+`;
+
+export const CustomLaborArticle = styled(CustomLabor)`
+  p {
+    margin-bottom: 10px;
+  }
 `;
 
 export const CustomChapeau = styled(Chapeau)`

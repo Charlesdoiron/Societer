@@ -119,10 +119,16 @@ export const Quote = styled.h1`
   line-height: 1.3em;
   cursor: pointer;
   color: ${(props) => props.theme.colors.white};
+
   ${(props) => props.theme.medias.medium`
     font-weight: bold;
     font-size: 25px;
     line-height: 40px;
+`}
+  ${(props) => props.theme.medias.small`
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
 `}
 `;
 

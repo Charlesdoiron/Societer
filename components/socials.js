@@ -9,9 +9,7 @@ const socials = () => {
 
   const router = useRouter();
   const currentPage = router.pathname;
-  const CustomNavigation = styled(SmallNavigation)`
-    mix-blend-mode: ${currentPage !== "/[lang]" ? "difference" : "unset"};
-  `;
+  const CustomNavigation = styled(SmallNavigation)``;
   const Limit = styled.div`
     transition: all 500ms;
     position: relative;
@@ -30,8 +28,11 @@ const socials = () => {
     right: 40px;
     top: 50%; /* poussé de la moitié de hauteur du référent */
     transform: translateY(-50%);
-    mix-blend-mode: ${currentPage !== "/[lang]" ? "difference" : "unset"};
-    ${props => props.theme.medias.medium`
+    mix-blend-mode: ${currentPage !== "/[lang]" &&
+    currentPage !== "/[lang]/homeSlider"
+      ? "difference"
+      : "unset"};
+    ${(props) => props.theme.medias.medium`
     display:none;
    `}
   `;

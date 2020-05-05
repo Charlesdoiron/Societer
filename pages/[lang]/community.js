@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
+
 import styled from "styled-components";
 import BackgroundImage from "../../components/backgroundImage";
 import Member from "../../components/member";
@@ -8,8 +8,6 @@ import StrategicComite from "../../components/strategicComite";
 import { useMocks } from "../../context/mock-context";
 import fetch from "../../endpoints/getCommunity";
 import withTranslateUp from "../../components/animateHoc/translateUp";
-
-import { pageJsonLd } from "../../jsonLd";
 
 const Community = (props) => {
   const { communaute } = useMocks();
@@ -41,26 +39,29 @@ const Community = (props) => {
         title={metatitle}
         description={metadescription}
         canonical={canonical}
+        languageAlternate={{
+          hrefLang: "de-AT",
+          href: "https://www.canonical.ie/de",
+        }}
       />
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: pageJsonLd }}
-        />
-      </Head>
 
-      {/* <FirstPart>
+      <FirstPart>
         <BackgroundImage
-          noImageOnMobile
+          heightDesktop="90vh"
+          height="100%"
           style={{ position: "relative" }}
-          alignBottom
           image={cover}
           alt={cover.fields.description}
         />
-      </FirstPart> */}
+      </FirstPart>
 
       {members.map((member, i) => (
-        <Member dataMember={member.fields} key={i} even={i % 2 == !0} />
+        <Member
+          dataMember={member.fields}
+          key={i}
+          even={i % 2 == !0}
+          position={i}
+        />
       ))}
       <StrategicComite
         strategicComitee={strategicComitee}
@@ -81,6 +82,9 @@ Community.getInitialProps = async function (context) {
 const FirstPart = styled.div`
   height: 100%;
   position: relative;
+  ${(props) => props.theme.medias.medium`
+   height:50vh;
+   `};
 `;
 
 export default Community;

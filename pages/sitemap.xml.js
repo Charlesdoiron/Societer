@@ -2,36 +2,43 @@
 
 import React from "react";
 import getPage from "../endpoints/getPage";
-const EXTERNAL_DATA_URL = "https://jsonplaceholder.typicode.com/posts";
-const URL = "https://societer.co";
+
+const URL = "https://www.societer.co";
 
 const createSitemap = (pages, posts) => {
   const articles = posts.data.articles;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="https://www.w3.org/1999/xhtml">
         
           ${pages
             .map(({ slug }) => {
               return `
-                    <url>
-                        <loc>${`${URL}/fr/${slug}`}</loc>
-                    </url>
-                     <url>
-                        <loc>${`${URL}/en/${slug}`}</loc>
-                    </url>
+              <url>
+              <loc>${`${URL}/fr/${slug}`}</loc>
+                <xhtml:link 
+               rel="alternate"
+               hreflang="en-us"
+               href="${`${URL}/en/${slug}`}"/>
+              </url>
                 `;
             })
             .join("")}
+            
             ${articles
               .map((article) => {
                 return `
                     <url>
-                        <loc>${`${URL}/fr/article/${article.fields.slug}`}</loc>
+                        <loc>${`${URL}/fr/article/${article.fields.slug}`}
+                           <xhtml:link 
+                           rel="alternate"
+                           hreflang="en-us"
+                            href="${`${URL}/en/article/${article.fields.slug}`}"/>
+                        </loc>
+                     
                     </url>
-                    <url>
-                        <loc>${`${URL}/en/article/${article.fields.slug}`}</loc>
-                    </url>
+                   
 
                 `;
               })

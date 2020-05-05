@@ -9,23 +9,25 @@ import {
   MinimalLogo,
   Flex,
   Items,
-  MenuDesktop,
+  MenuContainer,
   CurrentPage,
   CustomNavigation,
 } from "./styed";
 import MenuMobile from "../menuMobile";
-
+import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/router";
 import Router from "next/router";
 import { useMocks } from "../../context/mock-context";
 import { removeQuery } from "../../utils/query";
 import { Navigation } from "../../styled/typos";
 import pageName from "../../statik/pageName";
-
+import { ScreenSizes } from "../../config/theme/medias";
 const Menu = (props) => {
   const { menu } = useMocks();
   const router = useRouter();
-
+  const isDesktopOrLaptop = useMediaQuery({
+    query: `(min-width: ${ScreenSizes.MEDIUM}px)`,
+  });
   const { asPath } = router;
   const currentQuerryLang = router.query.lang;
   const currentPage = router.pathname;
@@ -97,28 +99,6 @@ const Menu = (props) => {
     router.replace(`/${value}${removeQuery(asPath)}`);
   };
 
-  const MenuContainer = styled(MenuDesktop)`
-    /* background-color: ${
-      currentPage === "/[lang]/article/[id]"
-        ? (props) => (!props.isTop ? "white" : "black")
-        : currentPage === "/[lang]/public-debat"
-        ? (props) => (!props.isTop ? "transparent" : "black")
-        : "transparent"
-    }; */
-
-  background-color: ${(props) => (!props.isTop ? "transparent" : "#101010")};
-
-    ${(props) => props.theme.medias.medium`
-    background-color: ${
-      currentPage !== "/[lang]"
-        ? (props) => props.theme.colors.black
-        : "transparent"
-    };
-      padding: 25px 30px ;
-      margin-bottom: 0px;
-    `}
-  `;
-
   const AnimationMenu = styled.div`
     background-color: ${currentPage !== "/[lang]" &&
     currentPage !== "/[lang]/contact"
@@ -140,9 +120,14 @@ const Menu = (props) => {
     document.querySelector("body").classList.toggle("menuIsOpen");
   };
 
-  console.log(isTop, currentPage);
+  console.log(currentPage);
   return (
-    <MenuContainer className="menu" ref={menuRef} isTop={isTop}>
+    <MenuContainer
+      className="menu"
+      ref={menuRef}
+      isTop={isTop}
+      currentPage={currentPage}
+    >
       <AnimationMenu className="animation-menu__bkg"></AnimationMenu>
       <MobileNavigation>
         <Link href={`/[lang]`} as={`/${currentQuerryLang}/`}>
@@ -160,7 +145,9 @@ const Menu = (props) => {
             <Flex style={{ height: "35px" }}>
               <MinimalLogo
                 src={
-                  !isTop && currentPage === "/[lang]/article/[id]"
+                  !isTop &&
+                  currentPage === "/[lang]/article/[id]" &&
+                  isDesktopOrLaptop
                     ? "/pictos/minimal_logo-black.svg"
                     : "/pictos/minimal_logo.svg"
                 }
@@ -168,8 +155,9 @@ const Menu = (props) => {
               />
               <animated.div style={animateUp}>
                 <CurrentPage isTop={isTop} currentPage={currentPage}>
-                  {pageName[currentQuerryLang][removeQuery(currentPage)]}
-                </CurrentPage>{" "}
+                  {pageName[currentQuerryLang] &&
+                    pageName[currentQuerryLang][removeQuery(currentPage)]}
+                </CurrentPage>
               </animated.div>
             </Flex>
           )}

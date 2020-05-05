@@ -1,8 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useMocks } from "../../context/mock-context";
-import Head from "next/head";
-import { pageJsonLd } from "../../jsonLd";
+
 import { NextSeo } from "next-seo";
 import getPage from "../../endpoints/getPage";
 import { ResizeObserver } from "@juggle/resize-observer";
@@ -78,13 +77,12 @@ const Vision = (props) => {
         title={metatitle}
         description={metadescription}
         canonical={canonical}
+        languageAlternates={{
+          hrefLang: "en",
+          href: "https://www.societer.co/en/vision",
+        }}
       />
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: pageJsonLd }}
-        />
-      </Head>
+
       <PopUp
         content={definition}
         popIsOpen={popIsOpen}
@@ -254,6 +252,7 @@ const Sticky = styled.div`
   padding-top: 55px;
   h4 {
     transform: rotate(-90deg);
+    transform-origin: 55% 0%;
     position: sticky;
 
     top: 150px;

@@ -44,7 +44,7 @@ export const MemberSmallSubtitle = styled(SmallSubtitle)`
 `;
 
 export const Container = styled.div`
-    padding: 300px 0;
+    padding: 200px 0;
     position: relative;
     background-color: ${(props) =>
       props.even ? props.theme.colors.white : props.theme.colors.black};

@@ -85,7 +85,7 @@ const GlobalStyles = createGlobalStyle`
       box-sizing: border-box;
       margin:0;
       padding:0;
-      background-color: #101010;
+
       overflow-x:hidden;
     }
     body {
@@ -102,6 +102,7 @@ const GlobalStyles = createGlobalStyle`
       background-color:white;
 
       &.menuIsOpen{
+        /* position:fixed; */
         touch-action:none;
         overflow:hidden;
       }

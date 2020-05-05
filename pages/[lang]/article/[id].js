@@ -15,7 +15,7 @@ import {
   BigImage,
   CustomDiv,
   SmallImage,
-  CustomLabor,
+  CustomLaborArticle,
   CustomChapeau,
   ArticleSection,
   Author,
@@ -140,12 +140,19 @@ const Article = (props) => {
           )}
           {article.chapeau && (
             <ArticleSection>
-              <CustomChapeau
-                isBlack
-                dangerouslySetInnerHTML={{
-                  __html: article.chapeau,
-                }}
-              ></CustomChapeau>
+              <CustomChapeau isBlack>
+                <ReactMarkdown
+                  source={article.chapeau}
+                  renderers={{
+                    link: (props) => (
+                      <a href={props.href} target="_blank">
+                        {props.children}
+                      </a>
+                    ),
+                  }}
+                  escapeHtml={false}
+                />
+              </CustomChapeau>
             </ArticleSection>
           )}
 
@@ -166,7 +173,7 @@ const Article = (props) => {
                   </HideOnMobile>
                 </CustomDiv>
 
-                <CustomLabor style={{ width: "100%" }}>
+                <CustomLaborArticle style={{ width: "100%" }}>
                   <ReactMarkdown
                     source={section.fields.articleContent}
                     renderers={{
@@ -178,7 +185,7 @@ const Article = (props) => {
                     }}
                     escapeHtml={false}
                   />
-                </CustomLabor>
+                </CustomLaborArticle>
                 <ShowOnMobile>
                   {i === 0 && article.smallImage && (
                     <SmallImage

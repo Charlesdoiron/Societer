@@ -101,6 +101,7 @@ const member = (props) => {
               {({ transform, opacity }) => (
                 <div style={{ transform, opacity }}>
                   <MemberSmallSubtitle
+                    style={{ marginBottom: "0px" }}
                     withWrapper
                     insideDescription
                     even={props.even}
@@ -290,13 +291,11 @@ const member = (props) => {
               config={(config.slow, { delay: 100 })}
               from={{
                 transform: !isVisible ? "translateY(0px)" : "translateY(10px)",
-                transform: !isVisible ? "translateX(-10px)" : `translateX(0px)`,
                 opacity: !isVisible ? 0 : 1,
               }}
               to={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(10px)" : "translateY(0px)",
-                transform: isVisible ? "translateX(0px)" : "translateX(0px)",
               }}
             >
               {({ opacity, transform }) => (
@@ -315,19 +314,8 @@ const member = (props) => {
                     >
                       Engagements
                     </MemberSmallSubtitle>
-                    <Spring
-                      config={{ duration: 4500 }}
-                      from={{
-                        width: 0,
-                      }}
-                      to={{
-                        width: "100%",
-                      }}
-                    >
-                      {({ width }) => (
-                        <MemberHr even={props.even} style={{ width }} />
-                      )}
-                    </Spring>
+
+                    <MemberHr even={props.even} />
                   </Flex>
 
                   <MemberLabor even={props.even}>

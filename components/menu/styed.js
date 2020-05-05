@@ -7,7 +7,7 @@ const menuColor = (props) =>
     ? (props) => props.theme.colors.black
     : (props) => props.theme.colors.white;
 
-export const MenuDesktop = styled.div`
+export const MenuContainer = styled.div`
   display: flex;
   position: sticky;
   top: 0;
@@ -16,38 +16,46 @@ export const MenuDesktop = styled.div`
   padding: 30px 0;
   padding-left: 8%;
   z-index: 30;
-  background-color: ${(props) =>
-    !props.isTop && props.currentPage === "/[lang]/article/[id]"
-      ? props.theme.colors.white
-      : "transparent"};
   transition: all 200ms;
-  margin-bottom: -107px;
+  margin-bottom: -100px;
+  background-color: ${(props) => (!props.isTop ? "transparent" : "#101010")};
 
   ${(props) => props.theme.medias.large`
-      padding-left: 10%;
-  `}/* &:hover {
-    .animation-menu__bkg {
-      transform: translateY(0px);
-    }
-  } */
+    padding-left: 10%;
+  `}
+
+  ${(props) => props.theme.medias.medium`
+    padding: 25px 30px ;
+    margin-bottom: ${(props) =>
+      props.currentPage === "/[lang]/homeSlider" ||
+      props.currentPage === "/[lang]"
+        ? "-80px"
+        : "0"};
+    background-color: ${(props) =>
+      props.currentPage === "/[lang]" ||
+      props.currentPage === "/[lang]/homeSlider"
+        ? "transparent"
+        : props.theme.colors.black};
+    
+  `}
 `;
 
 export const CustomNavigation = styled(Navigation)`
-         margin-right: 60px;
-         white-space: nowrap;
-         /* color: ${menuColor}; */
-         color: ${(props) =>
-           !props.isTop && props.currentPage === "/[lang]/article/[id]"
-             ? props.theme.colors.black
-             : menuColor};
+  margin-right: 60px;
+  white-space: nowrap;
+  color: ${(props) =>
+    !props.isTop && props.currentPage === "/[lang]/article/[id]"
+      ? props.theme.colors.black
+      : menuColor};
 
-         &:hover {
-           font-weight: bold;
-         }
-         &.isActive {
-           border-bottom: 1px solid ${menuColor};
-         }
-       `;
+  &:hover {
+    transition: all 400ms;
+    font-weight: bold;
+  }
+  &.isActive {
+    border-bottom: 1px solid ${menuColor};
+  }
+`;
 
 export const Burger = styled.img`
   width: 24px;
@@ -76,8 +84,13 @@ export const CurrentPage = styled(Navigation)`
     !props.isTop && props.currentPage === "/[lang]/article/[id]"
       ? props.theme.colors.black
       : menuColor} !important;
+  ${(props) => props.theme.medias.mediumPlus`
+
+    color ${menuColor} !important;
+   `}
   ${(props) => props.theme.medias.medium`
     top:14px;
+
    `}
 `;
 export const MobileNavigation = styled.div`

@@ -17,6 +17,12 @@
       "destination": "https://www.societer.co/fr/mission"
     },
     {
+      "source": "/communaute",
+      "statusCode": 301,
+      "destination": "https://www.societer.co/fr/community"
+    },
+
+    {
       "source": "/vision",
       "statusCode": 301,
       "destination": "https://www.societer.co/fr/vision"
