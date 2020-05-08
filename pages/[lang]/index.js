@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useTrail, useSpring, animated } from "react-spring";
+import { useEffect } from "react";
+
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import styled from "styled-components";
@@ -7,9 +7,10 @@ import { Wrapper } from "../../styled/space";
 import getPage from "../../endpoints/getPage";
 import SliderHomepage from "../../components/sliderHomepage";
 import { homeJsonLd, pageJsonLd } from "../../jsonLd";
+
 const HomePage = (props) => {
   const { quotes, metatitle, metadescription, canonical } = props.data;
-  if (!props) return;
+
   useEffect(() => {
     document.querySelector("body").style.backgroundColor = "#10101010";
     document.querySelector("html").style.backgroundColor = "#10101010";
@@ -18,7 +19,9 @@ const HomePage = (props) => {
       document.querySelector("body").style.backgroundColor = "#FFFFFF";
       document.querySelector("html").style.backgroundColor = "#FFFFFF";
     };
-  }, []);
+  });
+  if (!props) return;
+
   return (
     <Container>
       <NextSeo

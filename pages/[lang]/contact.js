@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NextSeo } from "next-seo";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+
 import withTranslateUp from "../../components/animateHoc/translateUp";
 import Head from "next/head";
 import styled from "styled-components";
@@ -12,7 +12,7 @@ import {
 } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import BackgroundImage from "../../components/backgroundImage";
-import { useMocks } from "../../context/mock-context";
+
 import { useRouter } from "next/router";
 import { getMenuHeight } from "../../utils/menuHeight";
 import { contactJsonLd } from "../../jsonLd";

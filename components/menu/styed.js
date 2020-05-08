@@ -24,7 +24,7 @@ export const MenuContainer = styled.div`
     padding-left: 10%;
   `}
 
-  ${(props) => props.theme.medias.medium`
+  ${(props) => props.theme.medias.mediumLarge`
     padding: 25px 30px ;
     margin-bottom: ${(props) =>
       props.currentPage === "/[lang]/homeSlider" ||
@@ -62,7 +62,7 @@ export const Burger = styled.img`
   position: relative;
   cursor: pointer;
   display: none;
-  ${(props) => props.theme.medias.medium`
+  ${(props) => props.theme.medias.mediumLarge`
     display:block;
   `}
 `;
@@ -70,7 +70,7 @@ export const Logo = styled.img`
   height: 40px;
   cursor: pointer;
 
-  ${(props) => props.theme.medias.medium`
+  ${(props) => props.theme.medias.mediumLarge`
     transition: all 500ms;
     height: 30px;
    `}
@@ -84,11 +84,11 @@ export const CurrentPage = styled(Navigation)`
     !props.isTop && props.currentPage === "/[lang]/article/[id]"
       ? props.theme.colors.black
       : menuColor} !important;
-  ${(props) => props.theme.medias.mediumPlus`
+  ${(props) => props.theme.medias.mediumLarge`
 
     color ${menuColor} !important;
    `}
-  ${(props) => props.theme.medias.medium`
+  ${(props) => props.theme.medias.mediumLarge`
     top:14px;
 
    `}
@@ -97,13 +97,12 @@ export const MobileNavigation = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   transition: all 500ms;
   z-index: 10;
-  mix-blend-mode: difference;
 
   ${(props) =>
-    props.theme.medias.medium`
+    props.theme.medias.mediumLarge`
     transition: all 500ms;
    `}
 `;
@@ -116,7 +115,7 @@ export const MinimalLogo = styled.img`
   position: relative;
   cursor: pointer;
 
-  ${(props) => props.theme.medias.medium`
+  ${(props) => props.theme.medias.mediumLarge`
     transition: all 500ms;
     height: 30px;
     top:6px;
@@ -138,7 +137,7 @@ export const Items = styled.div`
   justify-content: flex-end;
   z-index: 10;
   mix-blend-mode: difference;
-  ${(props) => props.theme.medias.medium`
+  ${(props) => props.theme.medias.mediumLarge`
     display: none;
    `}
 `;

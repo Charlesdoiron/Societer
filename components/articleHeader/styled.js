@@ -29,11 +29,12 @@ export const MobileContainer = styled.div`
   border-bottom: none !important;
   padding: 20px 0;
   display: flex;
+
   width: 100%;
   align-items: center;
   background-color: ${(props) => props.theme.colors.white};
   overflow: hidden;
-  z-index: 300;
+  z-index: 9999;
   flex-direction: column;
   min-height: 110px;
 `;

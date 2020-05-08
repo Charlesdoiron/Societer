@@ -1,14 +1,17 @@
 export default [
   {
-    title: "Linkedin",
-    url: "https://www.linkedin.com/company/societer/about/"
+    initials: "Lk",
+    fullName: "Linkedin",
+    url: "https://www.linkedin.com/company/societer/about/",
   },
   {
-    title: "Instagram",
-    url: "https://www.instagram.com/societer_paris/"
+    initials: "Tw",
+    fullName: "Twitter",
+    url: "https://twitter.com/Societer_Paris",
   },
   {
-    title: "Twitter",
-    url: "https://twitter.com/Societer_Paris"
-  }
+    initials: "In",
+    fullName: "Instagram",
+    url: "https://www.instagram.com/societer_paris/",
+  },
 ];

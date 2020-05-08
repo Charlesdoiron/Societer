@@ -48,7 +48,11 @@ const FirstSlide = (props) => {
         <div>
           <Titles>
             <animated.div style={appear}>
-              <Subtitle>Maison de conseil en</Subtitle>
+              <Subtitle>
+                {currentQuerryLang === "fr"
+                  ? "Maison de conseil en"
+                  : "consulting house for a "}{" "}
+              </Subtitle>
             </animated.div>
 
             <div>

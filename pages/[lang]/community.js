@@ -1,20 +1,15 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect } from "react";
 import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
 import BackgroundImage from "../../components/backgroundImage";
 import Member from "../../components/member";
 import StrategicComite from "../../components/strategicComite";
-import { useMocks } from "../../context/mock-context";
+
 import fetch from "../../endpoints/getCommunity";
-import withTranslateUp from "../../components/animateHoc/translateUp";
 
 const Community = (props) => {
-  const { communaute } = useMocks();
-  const [menuHeight, setMenuHeight] = useState("");
-
   useEffect(() => {
-    setMenuHeight(document.querySelector(".menu").offsetHeight);
     if (window !== undefined) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -32,17 +27,12 @@ const Community = (props) => {
     cover,
   } = props.data;
 
-  console.log(props.data);
   return (
     <>
       <NextSeo
         title={metatitle}
         description={metadescription}
         canonical={canonical}
-        languageAlternate={{
-          hrefLang: "de-AT",
-          href: "https://www.canonical.ie/de",
-        }}
       />
 
       <FirstPart>

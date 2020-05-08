@@ -1,7 +1,7 @@
-import React, { Component, useState, useRef, useEffect } from "react";
+import React, { Component } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-import Link from "next/link";
+
 import { QuoteDescription } from "../styled/typos";
 import Quote from "../components/quote";
 import useMeasure from "../utils/useMeasure";
@@ -60,7 +60,6 @@ class SliderHomepage extends Component {
   }
 
   render() {
-    console.log(this.props);
     const settings = {
       dots: true,
       infinite: true,

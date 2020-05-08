@@ -1,10 +1,9 @@
 import React from "react";
 import { useRouter } from "next/dist/client/router";
-import { Locale, isLocale } from "../translations/types";
 
 export const LocaleContext = React.createContext({
   locale: "fr",
-  setLocale: () => null
+  setLocale: () => null,
 });
 
 export const LocaleProvider = ({ lang, children }) => {

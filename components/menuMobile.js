@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { Navigation, SmallNavigation } from "../styled/typos";
 import { useMocks } from "../context/mock-context";
 import { removeQuery } from "../utils/query";
+import Div100vh from "react-div-100vh";
 const TIME_TRANSITION = 600;
 
 const isOpening = keyframes`
@@ -31,6 +32,7 @@ const MenuMobile = (props) => {
   const shapeRef = useRef(null);
   const { socials } = useMocks();
 
+  const closePicto = "/pictos/close_mobile.svg";
   const transitionOnClose = () => {
     menuContainer.current.style.transform = "translateX(100%)";
     shapeRef.current.style.opacity = "0";
@@ -69,7 +71,7 @@ const MenuMobile = (props) => {
   const Container = styled.div`
     position: fixed;
     width: 70%;
-    height: 100vh;
+    height: 100%;
     right: 0;
     top: 0;
     padding: 25px 30px;
@@ -84,61 +86,69 @@ const MenuMobile = (props) => {
     return null;
   }
   const handleLocale = (value) => {
-    router.replace(`/${value}${removeQuery(router.asPath)}`);
+    closeMenu("close");
+    setTimeout(() => {
+      router.replace(`/${value}${removeQuery(router.asPath)}`);
+    }, TIME_TRANSITION);
   };
 
   return (
     <>
-      <Container ref={menuContainer}>
-        <Flex>
-          {/* <Logo src="/pictos/logo_mobile.svg" /> */}
-          <div></div>
-          <Close
-            src="/pictos/close_mobile.svg"
-            onClick={() => closeMenu("close")}
-          />
-        </Flex>
-        <Items>
-          <CustomNavigation
-            onClick={() => closeMenu("/")}
-            className={currentPage === "/" && "isActive"}
-          >
-            {router.query.lang === "fr" ? "Accueil" : "Home"}
-          </CustomNavigation>
-          {props.content.map((item, i) => (
+      <Div100vh style={{ position: "absolute" }}>
+        <Container ref={menuContainer}>
+          <Flex>
+            {/* <Logo src="/pictos/logo_mobile.svg" /> */}
+            <div></div>
+            <Close src={closePicto} onClick={() => closeMenu("close")} />
+          </Flex>
+          <Items>
             <CustomNavigation
-              key={i}
-              onClick={() => closeMenu(item)}
-              className={currentPage === item.path && "isActive"}
+              onClick={() => closeMenu("/")}
+              className={currentPage === "/" && "isActive"}
             >
-              {item.label}
+              {router.query.lang === "fr" ? "Accueil" : "Home"}
             </CustomNavigation>
-          ))}
-        </Items>
-        <Languages>
-          <Language
-            onClick={() => handleLocale("fr")}
-            className={router.query.lang === "fr" && "isActive"}
-          >
-            fr
-          </Language>
-          <Language
-            onClick={() => handleLocale("en")}
-            className={router.query.lang === "en" && "isActive"}
-          >
-            en
-          </Language>
-        </Languages>
-        <Absolute>
-          <Socials>
-            {socials.map((social, i) => (
-              <a key={i} href={social.url} target="_blank" rel="noopener">
-                <Social>{social.title}</Social>
-              </a>
+            {props.content.map((item, i) => (
+              <CustomNavigation
+                key={i}
+                onClick={() => closeMenu(item)}
+                className={currentPage === item.path && "isActive"}
+              >
+                {item.label}
+              </CustomNavigation>
             ))}
-          </Socials>
-        </Absolute>
-      </Container>
+          </Items>
+          <Languages>
+            <Language
+              onClick={(e) => {
+                e.preventDefault();
+                handleLocale("fr");
+              }}
+              className={router.query.lang === "fr" && "isActive"}
+            >
+              fr
+            </Language>
+            <Language
+              onClick={(e) => {
+                e.preventDefault();
+                handleLocale("en");
+              }}
+              className={router.query.lang === "en" && "isActive"}
+            >
+              en
+            </Language>
+          </Languages>
+          <Absolute>
+            <Socials>
+              {socials.map((social, i) => (
+                <a key={i} href={social.url} target="_blank" rel="noopener">
+                  <Social>{social.title}</Social>
+                </a>
+              ))}
+            </Socials>
+          </Absolute>
+        </Container>
+      </Div100vh>
       <Shape
         ref={shapeRef}
         onClick={() => closeMenu("close")}
@@ -163,7 +173,7 @@ const Shape = styled.div`
   opacity: 0.9;
   transition: all 1000ms;
   animation: ${isShowing} 700ms ease-in-out;
-  pointer-events: none;
+
   overflow: hidden;
 `;
 const Absolute = styled.div`
@@ -206,6 +216,7 @@ const Language = styled(SmallNavigation)`
   padding: 2px;
   line-height: unset;
   transition: all 500ms;
+  margin: 0px 30px 30px 0;
   &.isActive {
     background-color: ${(props) => props.theme.colors.blue};
     color: ${(props) => props.theme.colors.white};
@@ -218,9 +229,6 @@ const Language = styled(SmallNavigation)`
     color: ${(props) => props.theme.colors.white};
     background-color: ${(props) => props.theme.colors.blue};
   }
-  ${(props) => props.theme.medias.mediumPlus`
-      margin: 30px 30px 30px 0 ;
-    `}
 `;
 const Flex = styled.div`
   display: flex;

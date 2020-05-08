@@ -22,6 +22,7 @@ import { removeQuery } from "../../utils/query";
 import { Navigation } from "../../styled/typos";
 import pageName from "../../statik/pageName";
 import { ScreenSizes } from "../../config/theme/medias";
+
 const Menu = (props) => {
   const { menu } = useMocks();
   const router = useRouter();
@@ -120,7 +121,6 @@ const Menu = (props) => {
     document.querySelector("body").classList.toggle("menuIsOpen");
   };
 
-  console.log(currentPage);
   return (
     <MenuContainer
       className="menu"
@@ -168,6 +168,7 @@ const Menu = (props) => {
           alt="Burger Menu"
         />
       </MobileNavigation>
+
       <MenuMobile
         isOpen={isOpen}
         onClick={() => toggleMenu()}
@@ -181,9 +182,7 @@ const Menu = (props) => {
             return (
               <Link
                 key={i}
-                href={{
-                  pathname: `/[lang]${item.path}`,
-                }}
+                href={`/[lang]${item.path}`}
                 as={`/${currentQuerryLang}${item.path}`}
               >
                 <CustomNavigation

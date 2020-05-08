@@ -63,7 +63,6 @@ export const SmallNavigation = styled.p`
   font-weight: normal;
   font-size: 12px;
   line-height: 17px;
-
   color: ${(props) => props.theme.colors.white};
 `;
 

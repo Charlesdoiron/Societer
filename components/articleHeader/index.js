@@ -77,36 +77,17 @@ const ArticleHeader = (props) => {
         )}
         <Flex>
           <ArticleTitleHeader>{props.articleTitle}</ArticleTitleHeader>
-
-          {/* <Author>
-            <Navigation isBlack noLink>
-              <ReactMarkdown
-                source={props.authors}
-                renderers={{
-                  link: props => (
-                    <a href={props.href} target="_blank">
-                      {props.children}
-                    </a>
-                  )
-                }}
-                escapeHtml={false}
-              />
-            </Navigation>
-          </Author> */}
         </Flex>
-        {/* <Media
-          src={props.logo}
-          alt={props.alt}
-          style={{ width: "60px", marginLeft: "15px" }}
-        ></Media> */}
+
         <Date>{props.published}</Date>
       </Row>
 
-      <Line ref={lineRef} timeline={makeLine(scrollPosition)} />
+      <Line timeline={makeLine(scrollPosition)} />
       <Share isFinished={makeLine(scrollPosition) >= 100} />
     </Container>
   ) : (
-    <MobileContainer isSticky={props.isSticky}>
+    // <MobileContainer isSticky={props.isSticky}>
+    <MobileContainer>
       <Row style={{ width: "100%", padding: "0 30px" }}>
         <Row style={{ width: "unset", justifyContent: "space-around" }}>
           <Link href={`/${router.query.lang}/public-debat`}>
