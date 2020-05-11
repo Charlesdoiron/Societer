@@ -3,14 +3,14 @@ import { useTrail, useSpring, animated } from "react-spring";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import styled from "styled-components";
-import { Subtitle, BigTitle } from "../../styled/typos";
-import { Wrapper } from "../../styled/space";
-import BackgroundImage from "../../components/backgroundImage";
-import getPage from "../../endpoints/getPage";
-import { ScreenSizes } from "../../config/theme/medias";
+import { Subtitle, BigTitle } from "../styled/typos";
+import { Wrapper } from "../styled/space";
+import BackgroundImage from "../components/backgroundImage";
+import getPage from "../endpoints/getPage";
+import { ScreenSizes } from "../config/theme/medias";
 import { useMediaQuery } from "react-responsive";
 
-import { homeJsonLd, pageJsonLd } from "../../jsonLd";
+import { homeJsonLd, pageJsonLd } from "../jsonLd";
 const HomePage = (props) => {
   const {
     canonical,

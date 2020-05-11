@@ -1,6 +1,6 @@
 const withPlugins = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
-
+const withSourceMaps = require("@zeit/next-source-maps");
 module.exports = {
   experimental: {
     reactRefresh: true,
@@ -11,4 +11,11 @@ module.exports = {
     CONTENTFUL_ENV: "master",
   },
 };
-withPlugins([optimizedImages()]);
+withPlugins([
+  optimizedImages(),
+  withSourceMaps({
+    webpack(config, _options) {
+      return config;
+    },
+  }),
+]);

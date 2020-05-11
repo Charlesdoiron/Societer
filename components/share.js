@@ -137,6 +137,9 @@ const Social = styled(SmallNavigation)`
   ${(props) => props.theme.medias.mediumPlus`
       margin: 30px 30px 30px 0 ;
     `}
+  ${(props) => props.theme.medias.small`
+      margin: 18px 30px 30px 0 ;
+    `}
 `;
 
 const CustomWrapper = styled(Wrapper)`

@@ -17,6 +17,8 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@juggle/resize-observer": "^3.1.0",
+    "@sentry/browser": "^5.15.5",
+    "@zeit/next-source-maps": "^0.0.3",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "contentful": "^7.11.0",

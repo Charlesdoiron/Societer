@@ -54,12 +54,20 @@ const Article = (props) => {
       return () => window.removeEventListener("scroll", () => handleSubMenu());
     }
   });
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      window.addEventListener("touchmove", () => handleSubMenu());
+      return () =>
+        window.removeEventListener("touchmove", () => handleSubMenu());
+    }
+  });
 
   const animate = useSpring({
     top: showSubMenu ? (!isDesktopOrLaptop ? "85px" : "95px") : "-10px",
-    position: showSubMenu ? "sticky" : "sticky",
+    position: showSubMenu ? "fixed" : "sticky",
     zIndex: "10",
     visibility: showSubMenu ? "visible" : "hidden",
+    width: "100%",
   });
 
   return (

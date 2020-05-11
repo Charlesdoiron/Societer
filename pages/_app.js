@@ -7,6 +7,12 @@ import Layout from "../components/layout";
 import { MockProvider } from "../context";
 import { theme } from "../config/";
 import { withRouter } from "next/router";
+import * as Sentry from "@sentry/browser";
+
+Sentry.init({
+  dsn:
+    "https://da21e4349dfb4693b89f198f104eed6f@o389725.ingest.sentry.io/5228444",
+});
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -16,6 +22,17 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
     return { pageProps };
+  }
+  componentDidCatch(error, errorInfo) {
+    Sentry.withScope((scope) => {
+      Object.keys(errorInfo).forEach((key) => {
+        scope.setExtra(key, errorInfo[key]);
+      });
+
+      Sentry.captureException(error);
+    });
+
+    super.componentDidCatch(error, errorInfo);
   }
 
   render() {

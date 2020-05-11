@@ -108,7 +108,7 @@ const ArticleHeader = (props) => {
 
       <ArticleTitle>{props.articleTitle}</ArticleTitle>
 
-      {/* <Line ref={lineRef} timeline={makeLine(scrollPosition)} /> */}
+      <Line ref={lineRef} timeline={makeLine(scrollPosition)} />
       <Share isFinished={makeLine(scrollPosition) >= 100} />
     </MobileContainer>
   );
