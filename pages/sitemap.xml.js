@@ -17,7 +17,7 @@ const createSitemap = (pages, posts) => {
               return `
               <url>
               <loc>${`${URL}/fr/${slug}`}</loc>
-                <xhtml:link 
+               <xhtml:link 
                rel="alternate"
                hreflang="en-us"
                href="${`${URL}/en/${slug}`}"/>
@@ -30,13 +30,11 @@ const createSitemap = (pages, posts) => {
               .map((article) => {
                 return `
                     <url>
-                        <loc>${`${URL}/fr/article/${article.fields.slug}`}
+                        <loc>${`${URL}/fr/article/${article.fields.slug}`}</loc>
                            <xhtml:link 
                            rel="alternate"
                            hreflang="en-us"
-                            href="${`${URL}/en/article/${article.fields.slug}`}"/>
-                        </loc>
-                     
+                           href="${`${URL}/en/article/${article.fields.slug}`}"/>
                     </url>
                    
 

@@ -102,7 +102,7 @@ const GlobalStyles = createGlobalStyle`
       background-color:white;
 
       &.menuIsOpen{
-         position:fixed; 
+         /* position:fixed;  */
         touch-action:none;
         overflow:hidden;
       }

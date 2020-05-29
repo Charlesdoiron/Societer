@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
 
 import styled from "styled-components";
-import { Chapeau, Labor, FatTitle } from "../../styled/typos";
+import { Chapeau, Labor, FatTitle, SmallSubtitle } from "../../styled/typos";
 import { Wrapper } from "../../styled/space";
 import Accordion from "../../components/accordion";
 import getPage from "../../endpoints/getPage";
@@ -18,6 +18,7 @@ const Mission = (props) => {
     canonical,
     chapeau,
     firstPartLabor,
+    secondPartSubtitle,
     secondPartFatTitle,
     subTitle,
     subTitleTwo,
@@ -98,10 +99,17 @@ const Mission = (props) => {
       </Wrapper>
 
       <SecondPart>
-        <Wrapper isWhite ref={wrapperRef}>
-          <FatTitle dangerouslySetInnerHTML={{ __html: secondPartFatTitle }} />
-        </Wrapper>
-        <Img src={teamImg.fields.file.url} alt={teamImg.fields.description} />
+        <Row>
+          <Titles>
+            <SmallSubtitle>{secondPartSubtitle}</SmallSubtitle>
+            <FatTitle
+              dangerouslySetInnerHTML={{ __html: secondPartFatTitle }}
+            />
+          </Titles>
+
+          <Img src={teamImg.fields.file.url} alt={teamImg.fields.description} />
+        </Row>
+
         <Accordion
           subTitle={subTitle}
           subTitleTwo={subTitleTwo}
@@ -151,10 +159,17 @@ const FirstPart = styled.div`
   `}
 `;
 
+const Titles = styled.div`
+  padding: 0 10%;
+  width: 60%;
+  ${(props) => props.theme.medias.medium`
+    width:100%;
+    padding: 0 5%;
+    `}
+`;
 const Img = styled.img`
-  width: 490px;
-  position: absolute;
-  top: 300px;
+  width: 40%;
+  position: relative;
   right: 0;
 
   ${(props) => props.theme.medias.medium`
@@ -166,25 +181,40 @@ const SecondPart = styled.div`
   background-color: ${(props) => props.theme.colors.white};
   padding: 150px 0;
   position: relative;
+
   ${(props) => props.theme.medias.medium`
     padding: 60px 0;
   `}
 
   h1 {
-    margin-top: 30px;
+    margin-top: 20px;
+    width: 100%;
     color: ${(props) => props.theme.colors.black};
-    max-width: 80%;
     z-index: 9;
     position: relative;
-    margin-bottom: 270px;
+    font-size: 1.5em;
+    line-height: 1.5em;
 
     ${(props) => props.theme.medias.medium`
-     max-width: unset;
-     margin-bottom: 60px;
+
+    margin-top: 10px;
+    margin-bottom: 60px;
+    font-size: 30px;
+    line-height: 40px;
+
     `}
   }
 `;
 
-const ThirdPart = styled.div`
-  background-color: ${(props) => props.theme.colors.white};
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  padding-bottom: 220px;
+  flex-direction: row;
+  ${(props) => props.theme.medias.mediumPlus`
+    flex-direction: column;
+    `}
+  ${(props) => props.theme.medias.medium`
+    padding-bottom:0;
+  `}
 `;

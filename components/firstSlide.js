@@ -15,7 +15,7 @@ const FirstSlide = (props) => {
     query: `(min-width: ${ScreenSizes.MEDIUM}px)`,
   });
   const [toggle, set] = useState(false);
-  let items = ["Sustainable", "leadership"];
+  let items = ["sustainable", "leadership"];
   const config = { mass: 5, tension: 2000, friction: 200 };
 
   const trail = useTrail(items.length, {
@@ -125,7 +125,7 @@ const Titles = styled.div`
   cursor: pointer;
 
   ${(props) => props.theme.medias.medium`
-    margin-top: 150px;
+    margin-top: 90px;
 `}
   h1 {
     width: 50%;

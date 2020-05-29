@@ -9,7 +9,7 @@ import { ResizeObserver } from "@juggle/resize-observer";
 import { Spring, config } from "react-spring/renderprops.cjs";
 import FirstSlider from "../components/firstSlide";
 
-export const DURATION = 10000;
+export const DURATION = 6000;
 export const FAST_DURATION = DURATION / 4;
 export const ULTRA_FAST_DURATION = 900;
 
@@ -72,10 +72,10 @@ class SliderHomepage extends Component {
       autoplaySpeed: DURATION,
       pauseOnHover: false,
       draggable: false,
-      swipe: false,
-      swipeToSlide: false,
+      swipe: true,
+      swipeToSlide: true,
       fade: true,
-      touchMove: false,
+      touchMove: true,
       appendDots: (dots, i) => (
         <DotsContainer key={i}>
           <ul
@@ -110,6 +110,11 @@ class SliderHomepage extends Component {
         setTimeout(() => {
           this.setState({ startAnimation: true, navigateToSlide: false });
         }, 10);
+      },
+
+      breakpoint: 1300,
+      settings: {
+        swipeToSlide: true,
       },
     };
 

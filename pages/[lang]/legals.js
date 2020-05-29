@@ -131,6 +131,7 @@ export default Legals;
 const Paragraph = styled.div`
   margin-top: 30px;
   font-family: "garnett_regular";
+  font-size: 16px;
   span {
     text-transform: uppercase;
     display: block;

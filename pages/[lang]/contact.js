@@ -58,6 +58,8 @@ const Contact = (props) => {
     margin-bottom: -${getMenuHeight()}px;
   `;
 
+  console.log(contact);
+
   return (
     <Container>
       <NextSeo

@@ -10,11 +10,11 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
-    "/[lang]/article/[id]": [
+    "/404": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/[lang]/public-debat": [
+    "/[lang]/community": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

@@ -11,27 +11,14 @@ import { homeJsonLd, pageJsonLd } from "../../jsonLd";
 const HomePage = (props) => {
   const { quotes, metatitle, metadescription, canonical } = props.data;
 
-  useEffect(() => {
-    document.querySelector("body").style.backgroundColor = "#10101010";
-    document.querySelector("html").style.backgroundColor = "#10101010";
-
-    return () => {
-      document.querySelector("body").style.backgroundColor = "#FFFFFF";
-      document.querySelector("html").style.backgroundColor = "#FFFFFF";
-    };
-  });
   if (!props) return;
-
+  console.log(props);
   return (
     <Container>
       <NextSeo
         title={metatitle}
         description={metadescription}
         canonical={canonical}
-        languageAlternates={{
-          hrefLang: "en",
-          href: "https://www.societer.co/en",
-        }}
       />
       <Head>
         <script
