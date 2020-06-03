@@ -14,7 +14,15 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/[lang]/community": [
+    "/[lang]": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/article/[id]": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/public-debat": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

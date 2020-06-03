@@ -32,6 +32,11 @@
       "source": "/sitemap",
       "statusCode": 301,
       "destination": "https://www.societer.co/sitemap.xml"
+    },
+    {
+      "source": "/document/societer_communique-de-presse.pdf",
+      "statusCode": 301,
+      "destination": "https://www.societer.co/fr/vision"
     }
   ]
 }

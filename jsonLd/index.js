@@ -41,3 +41,20 @@ export const contactJsonLd = `
   "@type": "ContactPage",
   "inLanguage": "fr"}
 `;
+
+export const authorJsonLd = (name, url, img, jobTitle, lk) => `
+ {"@context": "https://schema.org/",
+  "@type": "Person",
+  "name": "Aurélie Motta-Rivey",
+  "url": "https://www.societer.co/fr/author/aurelie-motta-rivey",
+  "image": "https://images.ctfassets.net/86i03dw6wwwc/1guExMUHv5IOmwZVTgDTMD/9ce31fd5fc82edac9473bd848839a6b5/aurelie_motta-rivey.jpg",
+  "jobTitle": "Présidente et co-fondatrice",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Societer"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/aur%C3%A9lie-motta-rivey-0b904a33?originalSubdomain=fr"
+  ]
+}
+`;

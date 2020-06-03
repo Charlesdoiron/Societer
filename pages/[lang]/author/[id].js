@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { NextSeo } from "next-seo";
 import { Wrapper } from "../../../styled/space";
+import Head from "next/head";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import Member from "../../../components/member";
@@ -25,7 +26,7 @@ const Community = (props) => {
   if (!props) return;
 
   const { metatitle, metadescription, canonical, members } = props.data;
-
+  console.log(props.data);
   return (
     <>
       <NextSeo
@@ -33,6 +34,29 @@ const Community = (props) => {
         description={metadescription}
         canonical={canonical}
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `
+          {"@context": "https://schema.org/",
+            "@type": "Person",
+            "name": "${props.data.name}",
+            "url": "https://www.societer.co/fr/author/${props.data.slug}",
+            "image": "${props.data.img.fields.file.url}",
+            "jobTitle": "${props.data.subtitle}",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Societer"
+            },
+            "sameAs": [
+              "${props.data.linkedin}"
+            ]
+          }
+            `,
+          }}
+        />
+      </Head>
 
       <Member dataMember={props.data} even={false} />
 

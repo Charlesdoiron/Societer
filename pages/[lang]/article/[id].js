@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-
+import Head from "next/head";
 import { ResizeObserver } from "@juggle/resize-observer";
 import { NextSeo } from "next-seo";
 import ReactMarkdown from "react-markdown";
@@ -99,6 +99,56 @@ const Article = (props) => {
           cardType: "summary_large_image",
         }}
       />
+
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `
+          {
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.societer.co/fr/article/${props.data.slug}"
+          },
+          "headline": "${props.data.title}",
+          "description": "${props.data.metatitle}",
+          "image": "https://images.ctfassets.net/86i03dw6wwwc/1VlaIiAsKfprsVc7Bygrdg/705d8e433ec7b96522ebc2b966120a90/bck_image_home.jpg",  
+          "author": {
+            "@type": "Person",
+            "name": "${props.data.authors}",
+            "url" : "https://www.societer.co/fr/author/aurelie-motta-rivey",
+        "image":{        
+        "@type" : "ImageObject",
+        "url":"${
+          article.metaimage.fields.file.url !== undefined
+            ? article.metaimage.fields.file.url
+            : "https://images.ctfassets.net/86i03dw6wwwc/1guExMUHv5IOmwZVTgDTMD/9ce31fd5fc82edac9473bd848839a6b5/aurelie_motta-rivey.jpg"
+        }",
+        "height": "96",
+        "width": "96"
+                  }},  
+          "publisher": {
+            "@type": "Organization",
+            "name": "Societer",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.societer.co/og-image-01.jpg",
+              "width": 91,
+              "height": 40
+            }
+          },
+          "datePublished": "${
+            props.data.publishedAt !== undefined
+              ? props.data.publishedAt
+              : new Date().toISOString()
+          }"
+        }
+            `,
+          }}
+        />
+      </Head>
       <animated.div style={animate}>
         <Sticky ref={subMenuRef}>
           <ArticleHeader
