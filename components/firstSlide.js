@@ -30,21 +30,14 @@ const FirstSlide = (props) => {
     transform: toggle ? "translateX(10px)" : "translateX(0px)",
   });
   useEffect(() => {
-    // document.querySelector("body").style.backgroundColor = "#10101010";
-    // document.querySelector("html").style.backgroundColor = "#10101010";
-
     setTimeout(function () {
       set(true);
     }, 400);
-    // return () => {
-    //   document.querySelector("body").style.backgroundColor = "#492EFA";
-    //   document.querySelector("html").style.backgroundColor = "#492EFA";
-    // };
   }, []);
 
   return (
     <Container>
-      <Link href={props.target} as={props.target}>
+      <Link href={`/[lang]/vision`} as={`/${currentQuerryLang}/vision`}>
         <div>
           <Titles>
             <animated.div style={appear}>

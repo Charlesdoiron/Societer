@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-
+import dynamic from "next/dynamic";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import styled from "styled-components";
 import { Wrapper } from "../../styled/space";
 import getPage from "../../endpoints/getPage";
-import SliderHomepage from "../../components/sliderHomepage";
+
 import { homeJsonLd, pageJsonLd } from "../../jsonLd";
+
+const SliderHomepage = dynamic(() => import("../../components/sliderHomepage"));
 
 const HomePage = (props) => {
   const { quotes, metatitle, metadescription, canonical } = props.data;
@@ -31,6 +33,9 @@ const HomePage = (props) => {
         />
       </Head>
       <StyledWrapper>
+        <h1 style={{ color: "rgb(73, 46, 250)" }}>
+          Societer : Maison de conseil
+        </h1>
         <SliderHomepage quotes={quotes} />
       </StyledWrapper>
     </Container>
@@ -39,6 +44,7 @@ const HomePage = (props) => {
 
 HomePage.getInitialProps = async function (context) {
   const currentLocale = context.query.lang;
+
   return getPage({
     c_type_id: "4rglDhHrrnut1MGCRtPX9X",
     locale: currentLocale,

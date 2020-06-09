@@ -10,19 +10,11 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
-    "/404": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/[lang]": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/[lang]/article/[id]": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/[lang]/public-debat": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]/vision": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

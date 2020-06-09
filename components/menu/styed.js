@@ -27,13 +27,9 @@ export const MenuContainer = styled.div`
   ${(props) => props.theme.medias.mediumLarge`
     padding: 25px 30px ;
     margin-bottom: ${(props) =>
-      props.currentPage === "/[lang]/homeSlider" ||
-      props.currentPage === "/[lang]"
-        ? "-80px"
-        : "0"};
+      props.currentPage === "/[lang]" ? "-80px" : "0"};
     background-color: ${(props) =>
-      props.currentPage === "/[lang]" ||
-      props.currentPage === "/[lang]/homeSlider"
+      props.currentPage === "/[lang]"
         ? "transparent"
         : props.theme.colors.black};
     

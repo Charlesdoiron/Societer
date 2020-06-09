@@ -122,7 +122,7 @@ const Article = (props) => {
         "image":{        
         "@type" : "ImageObject",
         "url":"${
-          article.metaimage.fields.file.url !== undefined
+          article.metaimage !== undefined
             ? article.metaimage.fields.file.url
             : "https://images.ctfassets.net/86i03dw6wwwc/1guExMUHv5IOmwZVTgDTMD/9ce31fd5fc82edac9473bd848839a6b5/aurelie_motta-rivey.jpg"
         }",

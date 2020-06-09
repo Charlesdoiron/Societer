@@ -118,8 +118,6 @@ class SliderHomepage extends Component {
       },
     };
 
-    const URL = "https://www.societer.co/fr/" || "https://www.societer.co/en/";
-
     return (
       <Container>
         <ProgressBar startAnimation={this.state.startAnimation} />
@@ -193,9 +191,7 @@ class SliderHomepage extends Component {
                   <>
                     {quote.fields && (
                       <Quote
-                        url={URL}
                         target={quote.fields.link}
-                        isNextLink={quote.fields.link.includes(URL)}
                         style={{ opacity, transform }}
                         key={i}
                         content={quote.fields.quote}
@@ -277,7 +273,7 @@ const Circle = styled.div`
 `;
 const Container = styled.div`
   .slick-dots {
-    bottom: 50px;
+    bottom: 110px;
     z-index: 10;
 
     ${(props) => props.theme.medias.mediumPlus`

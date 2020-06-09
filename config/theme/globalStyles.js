@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett_italic-webfont.svg#garnett_regularitalic') format('svg');
     font-weight: normal;
     font-style: normal;
+     font-display: swap;
 
 }
 
@@ -28,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett_medium_italic-webfont.svg#garnett_mediumitalic') format('svg');
     font-weight: normal;
     font-style: normal;
+     font-display: swap;
 
 }
 
@@ -44,6 +46,7 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett_medium-webfont.svg#garnett_mediumregular') format('svg');
     font-weight: 500;
     font-style: normal;
+     font-display: swap;
 
 }
 
@@ -60,6 +63,7 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett_regular-webfont.svg#garnett_regularregular') format('svg');
     font-weight: 500;
     font-style: normal;
+     font-display: swap;
 
 }
 
@@ -76,6 +80,7 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett-bold-webfont.svg#garnettbold') format('svg');
     font-weight: bold;
     font-style: normal;
+     font-display: swap;
 
 }
 
@@ -99,7 +104,7 @@ const GlobalStyles = createGlobalStyle`
       -moz-osx-font-smoothing: grayscale;
       touch-action: manipulation;
       scroll-behavior: smooth;
-      background-color:white;
+
 
       &.menuIsOpen{
          /* position:fixed;  */

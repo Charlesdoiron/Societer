@@ -5,7 +5,7 @@ import GlobalStyles from "../config/theme/globalStyles";
 import { NextSeo } from "next-seo";
 import Layout from "../components/layout";
 import { MockProvider } from "../context";
-import { theme } from "../config/";
+import { theme } from "../config";
 import { withRouter } from "next/router";
 import * as Sentry from "@sentry/browser";
 
