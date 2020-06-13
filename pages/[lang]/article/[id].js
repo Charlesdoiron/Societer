@@ -68,6 +68,7 @@ const Article = (props) => {
     zIndex: "10",
     visibility: showSubMenu ? "visible" : "hidden",
     width: "100%",
+    display: showSubMenu ? "block" : "none",
   });
 
   return (

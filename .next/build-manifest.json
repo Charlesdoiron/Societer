@@ -10,11 +10,7 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
-    "/[lang]/public-debat": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/[lang]/vision": [
+    "/[lang]": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

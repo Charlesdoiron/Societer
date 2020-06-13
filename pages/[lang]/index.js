@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
@@ -14,7 +13,7 @@ const HomePage = (props) => {
   const { quotes, metatitle, metadescription, canonical } = props.data;
 
   if (!props) return;
-  console.log(props);
+
   return (
     <Container>
       <NextSeo
@@ -33,9 +32,6 @@ const HomePage = (props) => {
         />
       </Head>
       <StyledWrapper>
-        <h1 style={{ color: "rgb(73, 46, 250)" }}>
-          Societer : Maison de conseil
-        </h1>
         <SliderHomepage quotes={quotes} />
       </StyledWrapper>
     </Container>

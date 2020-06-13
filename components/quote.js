@@ -4,14 +4,14 @@ import ReactMarkdown from "react-markdown";
 
 const QuoteContainer = (props) => {
   return (
-    <a
-      href={props.target}
-      style={{ color: "inherit", textDecoration: "none", display: "flex" }}
-    >
-      <Quote style={props.style}>
+    <Quote style={props.style}>
+      <a
+        href={props.target}
+        style={{ color: "inherit", textDecoration: "none", display: "flex" }}
+      >
         <ReactMarkdown source={props.content} escapeHtml={false} />
-      </Quote>
-    </a>
+      </a>
+    </Quote>
   );
 };
 export default QuoteContainer;

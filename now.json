@@ -38,5 +38,6 @@
       "statusCode": 301,
       "destination": "https://www.societer.co/fr/vision"
     }
-  ]
+  ],
+  "trailingSlash": false
 }

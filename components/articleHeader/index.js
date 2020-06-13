@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import ReactMarkdown from "react-markdown";
+
 import { ArticleTitleHeader } from "../../styled/typos";
 import Share from "../share";
 import Link from "next/link";
@@ -10,13 +10,11 @@ import {
   MobileContainer,
   Line,
   Published,
-  Author,
   Flex,
   Row,
   Category,
   Date,
   Back,
-  Media,
   ArticleTitle,
 } from "./styled";
 
@@ -33,7 +31,7 @@ const ArticleHeader = (props) => {
     setScrollPosition(scroll);
   };
 
-  const makeLine = (scrollPosition) => {
+  const makeLine = () => {
     if (typeof window !== "undefined") {
       let body = document.body;
       let height = body.scrollHeight - body.offsetHeight;
@@ -75,6 +73,7 @@ const ArticleHeader = (props) => {
             {props.categories[0].fields.label}
           </Category>
         )}
+
         <Flex>
           <ArticleTitleHeader>{props.articleTitle}</ArticleTitleHeader>
         </Flex>
@@ -82,8 +81,8 @@ const ArticleHeader = (props) => {
         <Date>{props.published}</Date>
       </Row>
 
-      <Line timeline={makeLine(scrollPosition)} />
-      <Share isFinished={makeLine(scrollPosition) >= 100} />
+      <Line timeline={makeLine()} />
+      <Share isFinished={makeLine() >= 100} />
     </Container>
   ) : (
     // <MobileContainer isSticky={props.isSticky}>
@@ -108,8 +107,8 @@ const ArticleHeader = (props) => {
 
       <ArticleTitle>{props.articleTitle}</ArticleTitle>
 
-      <Line ref={lineRef} timeline={makeLine(scrollPosition)} />
-      <Share isFinished={makeLine(scrollPosition) >= 100} />
+      <Line ref={lineRef} timeline={makeLine()} />
+      <Share isFinished={makeLine() >= 100} />
     </MobileContainer>
   );
 };

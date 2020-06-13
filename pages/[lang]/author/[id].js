@@ -6,18 +6,12 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import Member from "../../../components/member";
 import WrittenArticle from "../../../components/writtenArticle";
-import { useMocks } from "../../../context/mock-context";
+
 import { Chapeau } from "../../../styled/typos";
 import getAuthor from "../../../endpoints/getAuthor";
 
 const Community = (props) => {
-  const { communaute } = useMocks();
-  const [menuHeight, setMenuHeight] = useState("");
-  const router = useRouter();
-  const currentAuthor = router.query.id;
-
   useEffect(() => {
-    setMenuHeight(document.querySelector(".menu").offsetHeight);
     if (window !== undefined) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -26,7 +20,7 @@ const Community = (props) => {
   if (!props) return;
 
   const { metatitle, metadescription, canonical, members } = props.data;
-  console.log(props.data);
+
   return (
     <>
       <NextSeo

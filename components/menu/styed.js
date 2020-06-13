@@ -39,17 +39,20 @@ export const MenuContainer = styled.div`
 export const CustomNavigation = styled(Navigation)`
   margin-right: 60px;
   white-space: nowrap;
+  transition: all 800ms;
   color: ${(props) =>
     !props.isTop && props.currentPage === "/[lang]/article/[id]"
       ? props.theme.colors.black
       : menuColor};
-
+  border-bottom: 1px solid transparent;
+  font-weight: normal;
   &:hover {
-    transition: all 400ms;
+    transition: all 800ms;
     font-weight: bold;
   }
   &.isActive {
     border-bottom: 1px solid ${menuColor};
+    transition: all 1500ms;
   }
 `;
 

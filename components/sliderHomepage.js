@@ -67,7 +67,6 @@ class SliderHomepage extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
-
       autoplay: true,
       autoplaySpeed: DURATION,
       pauseOnHover: false,
@@ -118,6 +117,7 @@ class SliderHomepage extends Component {
       },
     };
 
+    console.log(this.props.quotes);
     return (
       <Container>
         <ProgressBar startAnimation={this.state.startAnimation} />
@@ -273,7 +273,7 @@ const Circle = styled.div`
 `;
 const Container = styled.div`
   .slick-dots {
-    bottom: 110px;
+    bottom: 50px;
     z-index: 10;
 
     ${(props) => props.theme.medias.mediumPlus`
@@ -284,6 +284,9 @@ const Container = styled.div`
   .slick-dots li.slick-active button:before {
     color: #fff;
     font-size: 10px;
+  }
+  .slick-active {
+    z-index: 99999;
   }
   .slick-active {
     .circle {

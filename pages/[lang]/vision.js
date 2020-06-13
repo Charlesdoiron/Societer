@@ -15,7 +15,7 @@ import {
   ArticleInterTitle,
   Navigation,
 } from "../../styled/typos";
-import withTranslateUp from "../../components/animateHoc/translateUp";
+
 import { Manifesto } from "../../statik/vision";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
@@ -57,12 +57,6 @@ const Vision = (props) => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
-
-  // useEffect(() => {
-  //   if (titleRef.current) {
-  //     titleRef.current.style.top = `${bounds.top} px`;
-  //   }
-  // }, [bounds.top]);
 
   const handleClick = (e) => {
     setDefinition(vision.firstPart[currentQuerryLang][e]);

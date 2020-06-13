@@ -1,4 +1,4 @@
-import { css, createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -12,7 +12,8 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett_italic-webfont.svg#garnett_regularitalic') format('svg');
     font-weight: normal;
     font-style: normal;
-     font-display: swap;
+    
+    
 
 }
 
@@ -29,7 +30,8 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett_medium_italic-webfont.svg#garnett_mediumitalic') format('svg');
     font-weight: normal;
     font-style: normal;
-     font-display: swap;
+    
+    
 
 }
 
@@ -46,7 +48,8 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett_medium-webfont.svg#garnett_mediumregular') format('svg');
     font-weight: 500;
     font-style: normal;
-     font-display: swap;
+    
+    
 
 }
 
@@ -63,7 +66,8 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett_regular-webfont.svg#garnett_regularregular') format('svg');
     font-weight: 500;
     font-style: normal;
-     font-display: swap;
+    
+    
 
 }
 
@@ -80,7 +84,9 @@ const GlobalStyles = createGlobalStyle`
          url('/fonts/garnett-bold-webfont.svg#garnettbold') format('svg');
     font-weight: bold;
     font-style: normal;
-     font-display: swap;
+    
+    
+
 
 }
 
@@ -90,7 +96,6 @@ const GlobalStyles = createGlobalStyle`
       box-sizing: border-box;
       margin:0;
       padding:0;
-
       overflow-x:hidden;
     }
     body {
@@ -98,6 +103,7 @@ const GlobalStyles = createGlobalStyle`
       padding:0;
       font-weight: 400;
       line-height: 24px;
+      /* background-color: #101010; */
       font-size:2vw;
       height:100vh;
       -webkit-font-smoothing: antialiased;

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { useSpring, animated, useTransition } from "react-spring";
+import { useSpring, animated } from "react-spring";
 import {
   Burger,
   Logo,
@@ -19,9 +19,28 @@ import { useRouter } from "next/router";
 import Router from "next/router";
 import { useMocks } from "../../context/mock-context";
 import { removeQuery } from "../../utils/query";
-import { Navigation } from "../../styled/typos";
 import pageName from "../../statik/pageName";
 import { ScreenSizes } from "../../config/theme/medias";
+
+const M = styled.div`
+  background-color: ${(props) =>
+    props.currentPage !== "/[lang]" && props.currentPage !== "/[lang]/contact"
+      ? props.theme.colors.black
+      : "unset"};
+  height: ${(props) => props.menuHeight}px;
+  transform: translateY(-${(props) => props.menuHeight}px);
+  width: 100%;
+  transition: all 500ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+`;
+
+const AnimationMenu = (props, currentPage, menuHeight) => {
+  return <M currentPage={currentPage} menuHeight={menuHeight}></M>;
+};
 
 const Menu = (props) => {
   const { menu } = useMocks();
@@ -35,7 +54,7 @@ const Menu = (props) => {
 
   const [menuHeight, setMenuHeight] = useState(false);
   const [isOpen, setOpen] = useState(false);
-  const [isTop, setIsTop] = useState(false);
+  const [isTop, setIsTop] = useState(true);
   const [animationStart, setAnimationStart] = useState(false);
 
   const menuRef = useRef(null);
@@ -83,14 +102,14 @@ const Menu = (props) => {
   }, [currentPage]);
 
   useEffect(() => {
-    if (typeof window !== undefined) {
+    if (typeof window != undefined) {
       window.addEventListener("resize", () => getMenuHeight());
       return () => window.removeEventListener("resize", () => getMenuHeight());
     }
   });
 
   useEffect(() => {
-    if (typeof window !== undefined) {
+    if (typeof window != undefined) {
       window.addEventListener("scroll", () => getScroll(), { passive: true });
       return () => window.removeEventListener("scroll", () => getScroll());
     }
@@ -100,26 +119,28 @@ const Menu = (props) => {
     router.replace(`/${value}${removeQuery(asPath)}`);
   };
 
-  const AnimationMenu = styled.div`
-    background-color: ${currentPage !== "/[lang]" &&
-    currentPage !== "/[lang]/contact"
-      ? (props) => props.theme.colors.black
-      : "unset"};
-    height: ${menuHeight}px;
-    transform: translateY(-${menuHeight}px);
-    width: 100%;
-    transition: all 500ms;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-  `;
+  // const AnimationMenu = styled.div`
+  //   background-color: ${currentPage !== "/[lang]" &&
+  //   currentPage !== "/[lang]/contact"
+  //     ? (props) => props.theme.colors.black
+  //     : "unset"};
+  //   height: ${menuHeight}px;
+  //   transform: translateY(-${menuHeight}px);
+  //   width: 100%;
+  //   transition: all 500ms;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   z-index: 1;
+  // `;
 
   const toggleMenu = () => {
     setOpen(!isOpen);
     document.querySelector("body").classList.toggle("menuIsOpen");
   };
+
+  console.log(isTop, isDesktopOrLaptop);
 
   return (
     <MenuContainer
@@ -128,13 +149,16 @@ const Menu = (props) => {
       isTop={isTop}
       currentPage={currentPage}
     >
-      <AnimationMenu className="animation-menu__bkg"></AnimationMenu>
+      <AnimationMenu
+        currentPage={currentPage}
+        menuHeight={menuHeight}
+        className="animation-menu__bkg"
+      ></AnimationMenu>
       <MobileNavigation>
-        <Link href={`/[lang]`} as={`/${currentQuerryLang}/`}>
+        <Link href={`/[lang]`} as={`/${currentQuerryLang}`}>
           {currentPage === "/" ||
           currentPage === "/[lang]/" ||
-          currentPage === "/[lang]" ||
-          currentPage === "/[lang]/homeSlider" ? (
+          currentPage === "/[lang]" ? (
             <animated.div
               style={animate}
               style={{ display: "flex", alignItems: "center" }}
@@ -153,12 +177,12 @@ const Menu = (props) => {
                 }
                 alt="Societer Logo"
               />
-              <animated.div style={animateUp}>
-                <CurrentPage isTop={isTop} currentPage={currentPage}>
-                  {pageName[currentQuerryLang] &&
-                    pageName[currentQuerryLang][removeQuery(currentPage)]}
-                </CurrentPage>
-              </animated.div>
+              {/* <animated.div style={animateUp}> */}
+              <CurrentPage isTop={isTop} currentPage={currentPage}>
+                {pageName[currentQuerryLang] &&
+                  pageName[currentQuerryLang][removeQuery(currentPage)]}
+              </CurrentPage>
+              {/* </animated.div> */}
             </Flex>
           )}
         </Link>

@@ -68,6 +68,7 @@ const Community = (props) => {
         </Spring>
 
         <Space />
+
         <BackgroundImage
           heightDesktop="90vh"
           height="100%"

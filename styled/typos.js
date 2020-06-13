@@ -189,7 +189,7 @@ export const ExpertiseTitle = styled.h3`
   }
 `;
 
-export const ArticleTitle = styled.h3`
+export const ArticleTitle = styled.h1`
   font-family: "garnett_bold";
   font-style: normal;
   font-weight: bold;

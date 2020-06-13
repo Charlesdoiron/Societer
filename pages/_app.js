@@ -7,6 +7,7 @@ import Layout from "../components/layout";
 import { MockProvider } from "../context";
 import { theme } from "../config";
 import { withRouter } from "next/router";
+import { PageTransition } from "next-page-transitions";
 import * as Sentry from "@sentry/browser";
 
 Sentry.init({
@@ -37,7 +38,7 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-
+    console.log(this.props);
     return (
       <>
         <ThemeProvider theme={theme}>
@@ -73,13 +74,38 @@ class MyApp extends App {
                 cardType: "summary_large_image",
               }}
             />
-
+            {/* <PageTransition timeout={200} classNames="page-transition"> */}
             <Layout>
               <Component {...pageProps} />
-              <GlobalStyles />
             </Layout>
+            {/* </PageTransition> */}
+            <style jsx global>{`
+              .page-transition-enter {
+                opacity: 0;
+                transition: opacity 1000ms;
+              }
+              .page-transition-enter-active {
+                opacity: 1;
+                transition: opacity 1000ms;
+              }
+              .page-transition-exit {
+                opacity: 1;
+                transition: opacity 1000ms;
+              }
+              .page-transition-exit-active {
+                opacity: 0;
+                transition: opacity 1000ms;
+              }
+
+              body {
+                background: ${this.props.router.route === "/[lang]"
+                  ? "#492EFA"
+                  : "#101010"};
+              }
+            `}</style>
           </MockProvider>
         </ThemeProvider>
+        <GlobalStyles />
       </>
     );
   }

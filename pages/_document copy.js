@@ -1,31 +1,32 @@
-import React from "react";
-import { Html, Main, NextScript, Head } from "next/document";
-import NextDocument from "next/document";
+import Document, { Html, Main, NextScript, Head } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-export default class Document extends NextDocument {
-  static async getInitialProps(ctx) {
+import * as Sentry from "@sentry/browser";
+
+process.on("unhandledRejection", (err) => {
+  Sentry.captureException(err);
+});
+
+process.on("uncaughtException", (err) => {
+  Sentry.captureException(err);
+});
+
+export default class MyDocument extends Document {
+  static getInitialProps({ renderPage }) {
+    // Step 1: Create an instance of ServerStyleSheet
     const sheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
-        });
-      const initialProps = await NextDocument.getInitialProps(ctx);
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      sheet.seal();
-    }
+
+    // Step 2: Retrieve styles from components in the page
+    const page = renderPage((App) => (props) =>
+      sheet.collectStyles(<App {...props} />)
+    );
+
+    // Step 3: Extract the styles as <style> tags
+    const styleTags = sheet.getStyleElement();
+
+    // Step 4: Pass styleTags as a prop
+    return { ...page, styleTags };
   }
+
   render() {
     return (
       <Html lang="fr">

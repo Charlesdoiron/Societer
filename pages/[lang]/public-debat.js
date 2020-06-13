@@ -9,7 +9,7 @@ import { useMocks } from "../../context/mock-context";
 import Categories from "../../components/categories";
 import Article from "../../components/article";
 import { getMenuHeight } from "../../utils/menuHeight";
-
+import withTranslateUp from "../../components/animateHoc/translateUp";
 import getPage from "../../endpoints/getPage";
 const PublicDebat = (props) => {
   const { debat_public } = useMocks();
@@ -22,12 +22,6 @@ const PublicDebat = (props) => {
     }
   }, []);
 
-  const ImageContainer = styled.div`
-    position: relative;
-    height: 80vh;
-    opacity: 0.7;
-  `;
-
   return (
     <Container>
       <NextSeo
@@ -39,10 +33,10 @@ const PublicDebat = (props) => {
           href: "https://www.societer.co/en/public-debat",
         }}
       />
-
       <Titles>
-        <ContactTitle>{bigTitle}</ContactTitle>
+        <AnimatedTitle>{bigTitle}</AnimatedTitle>
       </Titles>
+
       <ImageContainer>
         <Shape />
         <BackgroundImage
@@ -93,6 +87,11 @@ const Shape = styled.div`
   opacity: 0.2;
   z-index: 100;
 `;
+const ImageContainer = styled.div`
+  position: relative;
+  height: 80vh;
+  opacity: 0.7;
+`;
 const Titles = styled.div`
   width: 100%;
   z-index: 9;
@@ -117,3 +116,4 @@ const Titles = styled.div`
   }
 `}
 `;
+const AnimatedTitle = withTranslateUp(ContactTitle);

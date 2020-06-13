@@ -24,6 +24,19 @@ const isShowing = keyframes`
      opacity:0.9;
   }
 `;
+const Container = styled.div`
+  position: fixed;
+  width: 70%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  padding: 25px 30px;
+  background-color: ${(props) => props.theme.colors.white};
+  transition: all 500ms ease-in-out;
+  animation: ${isOpening} ${TIME_TRANSITION + 100}ms ease-in-out;
+  overflow: hidden;
+  z-index: 900;
+`;
 
 const MenuMobile = (props) => {
   const router = useRouter();
@@ -67,20 +80,6 @@ const MenuMobile = (props) => {
       }, TIME_TRANSITION);
     }
   };
-
-  const Container = styled.div`
-    position: fixed;
-    width: 70%;
-    height: 100%;
-    right: 0;
-    top: 0;
-    padding: 25px 30px;
-    background-color: ${(props) => props.theme.colors.white};
-    transition: all 500ms ease-in-out;
-    animation: ${isOpening} ${TIME_TRANSITION + 100}ms ease-in-out;
-    overflow: hidden;
-    z-index: 900;
-  `;
 
   if (!props.isOpen) {
     return null;
@@ -221,6 +220,7 @@ const Language = styled(SmallNavigation)`
     background-color: ${(props) => props.theme.colors.blue};
     color: ${(props) => props.theme.colors.white};
     border: 1px solid ${(props) => props.theme.colors.blue};
+    font-family: "garnett_medium";
   }
   &:hover {
     transition: all 500ms;

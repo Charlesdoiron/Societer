@@ -2,25 +2,25 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../styled/space";
 import { Labor, PopUpTitle } from "../styled/typos";
-const PopUp = props => {
-  const Container = styled.div`
-    background-color: ${props => props.theme.colors.blue};
-    position: fixed;
-    z-index: 300;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 0;
-    ${props => props.theme.medias.medium`
+
+const Container = styled.div`
+  background-color: ${(props) => props.theme.colors.blue};
+  position: fixed;
+  z-index: 300;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 0;
+  ${(props) => props.theme.medias.medium`
     padding: 20px 0 30px 0;
   `}
-  `;
-
+`;
+const PopUp = (props) => {
   if (!props.popIsOpen) {
     return null;
   }
   return (
-    <Container>
+    <Container {...props}>
       <BlueWrapper>
         <Flex>
           <PopUpTitle>{props.content.title}</PopUpTitle>
@@ -57,19 +57,19 @@ const Close = styled.img`
   position: absolute;
   right: 40px;
   cursor: pointer;
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
    right: 10px;
   `}
 `;
 const BlueWrapper = styled(Wrapper)`
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${(props) => props.theme.colors.blue};
 `;
 
 const Link = styled(Labor)`
   margin-top: 25px;
   a {
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
     text-decoration: none;
-    border-bottom: 1px solid ${props => props.theme.colors.white};
+    border-bottom: 1px solid ${(props) => props.theme.colors.white};
   }
 `;
