@@ -8,6 +8,7 @@ export const ScreenSizes = {
   LARGE: 1224,
   LARGEPLUS: 1700,
   XLARGE: 1824,
+  XXLARGE: 2200,
 };
 const sizes = {
   small: ScreenSizes.SMALL,
@@ -17,6 +18,7 @@ const sizes = {
   large: ScreenSizes.LARGE,
   largePlus: ScreenSizes.LARGEPLUS,
   xlarge: ScreenSizes.XLARGE,
+  xxlarge: ScreenSizes.XXLARGE,
 };
 
 const media = Object.keys(sizes).reduce((acc, label) => {

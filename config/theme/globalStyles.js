@@ -103,7 +103,7 @@ const GlobalStyles = createGlobalStyle`
       padding:0;
       font-weight: 400;
       line-height: 24px;
-      /* background-color: #101010; */
+       background-color: #492EFA; 
       font-size:2vw;
       height:100vh;
       -webkit-font-smoothing: antialiased;

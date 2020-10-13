@@ -140,7 +140,7 @@ const Menu = (props) => {
     document.querySelector("body").classList.toggle("menuIsOpen");
   };
 
-  console.log(isTop, isDesktopOrLaptop);
+
 
   return (
     <MenuContainer

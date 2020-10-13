@@ -117,7 +117,7 @@ class SliderHomepage extends Component {
       },
     };
 
-    console.log(this.props.quotes);
+
     return (
       <Container>
         <ProgressBar startAnimation={this.state.startAnimation} />

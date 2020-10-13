@@ -1,5 +1,6 @@
 import App from "next/app";
 import React from "react";
+import { ApolloProvider } from "@apollo/react-hooks";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../config/theme/globalStyles";
 import { NextSeo } from "next-seo";
@@ -8,6 +9,7 @@ import { MockProvider } from "../context";
 import { theme } from "../config";
 import { withRouter } from "next/router";
 import { PageTransition } from "next-page-transitions";
+import withApolloClient from "../apollo/client";
 import * as Sentry from "@sentry/browser";
 
 Sentry.init({
@@ -37,10 +39,10 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
-    console.log(this.props);
+    const { Component, pageProps, apollo } = this.props;
+
     return (
-      <>
+      <ApolloProvider client={apollo}>
         <ThemeProvider theme={theme}>
           <MockProvider>
             <NextSeo
@@ -96,19 +98,13 @@ class MyApp extends App {
                 opacity: 0;
                 transition: opacity 1000ms;
               }
-
-              body {
-                background: ${this.props.router.route === "/[lang]"
-                  ? "#492EFA"
-                  : "#101010"};
-              }
             `}</style>
           </MockProvider>
         </ThemeProvider>
         <GlobalStyles />
-      </>
+      </ApolloProvider>
     );
   }
 }
 
-export default withRouter(MyApp);
+export default withApolloClient(withRouter(MyApp));

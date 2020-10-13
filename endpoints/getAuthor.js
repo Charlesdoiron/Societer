@@ -1,12 +1,14 @@
 import { client } from "./call";
-export default async args => {
-  const { currentAuthor, locale } = args;
-  const data = await client.getEntries({
-    query: currentAuthor,
-    include: 10,
-    locale
-  });
+export default async (args) => {
+  const { page, locale, c_type_id, currentAuthor } = args;
+  const data = await client.getEntry(c_type_id, { locale });
+  const articles = await client.getEntry("6Y1xDPclXIJWOLHsDZEQXS", { locale });
   return {
-    data: data.items[0].fields
+    data: {
+      bio: data.fields.members.filter(
+        (member) => member.fields.slug === currentAuthor
+      )[0].fields,
+      // articles: articles.fields.articles.filter(article === article),
+    },
   };
 };

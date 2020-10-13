@@ -4,15 +4,12 @@ import { Wrapper } from "../../../styled/space";
 import Head from "next/head";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import gql from "graphql-tag";
 import Member from "../../../components/member";
 import WrittenArticle from "../../../components/writtenArticle";
-import { GET_ARTICLES_BY_AUTHOR } from "../../../queries/articlesByAuthor";
+
 import { Chapeau } from "../../../styled/typos";
-import fetch from "../../../endpoints/getAuthor";
-import withApollo from "../../../apollo/client";
-import authorName from "../../../statik/authorName";
-import { isConstructorDeclaration } from "typescript";
+import getAuthor from "../../../endpoints/getAuthor";
+
 const Community = (props) => {
   useEffect(() => {
     if (window !== undefined) {
@@ -22,12 +19,8 @@ const Community = (props) => {
 
   if (!props) return;
 
-  const {
-    metatitle,
-    metadescription,
-    canonical,
-  } = props.data.memberCollection.items[0];
-  console.log(props);
+  const { metatitle, metadescription, canonical, members } = props.data;
+
   return (
     <>
       <NextSeo
@@ -59,52 +52,39 @@ const Community = (props) => {
         />
       </Head>
 
-      <Member dataMember={props.data.memberCollection.items[0]} even={false} />
+      <Member dataMember={props.data} even={false} />
 
-      {props.data.articleCollection && (
+      {props.data.articlesAuthor && (
         <CustomWrapper isWhite>
           <ShowOnMobile>
             <Chapeau isBlack>Publications</Chapeau>
           </ShowOnMobile>
 
-          {props.data.articleCollection.items.length > 0 &&
-            props.data.articleCollection.items.map((article) => (
-              <WrittenArticle
-                title={article.title}
-                slug={article.slug}
-                categorie={article.categoriesCollection.items[0].label}
-              />
-            ))}
+          {props.data.articlesAuthor.map((article) => (
+            <WrittenArticle
+              title={article.fields.title}
+              slug={article.fields.slug}
+              categories={article.fields.categories}
+            />
+          ))}
         </CustomWrapper>
       )}
     </>
   );
 };
 
-Community.getInitialProps = async (ctx) => {
-  const {
-    apolloClient,
-    query: { id },
-  } = ctx;
+Community.getInitialProps = async function (context) {
+  const currentLocale = context.query.lang;
+  const currentAuthor = context.query.id;
 
-  const { data, loading, error } = await apolloClient.query({
-    query: GET_ARTICLES_BY_AUTHOR,
-    variables: { id: authorName[id] },
+  return getAuthor({
+    currentAuthor: currentAuthor,
+    locale: currentLocale,
   });
-  return {
-    data,
-    loading,
-    error,
-  };
 };
 
 const CustomWrapper = styled(Wrapper)`
-  padding: 500px 3% 230px 3%;
-
-  ${(props) => props.theme.medias.largePlus`
-  padding: 200px 3% 350px 3%;
-`}
-
+  padding: 200px 3%;
   ${(props) => props.theme.medias.medium`
     padding: 30px ;
 `}

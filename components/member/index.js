@@ -82,6 +82,7 @@ const member = (props) => {
     }
   });
 
+  console.log(props);
   return (
     <Container ref={containerRef} even={props.even}>
       <Titles even={props.even} withWrapper>
@@ -204,7 +205,11 @@ const member = (props) => {
                     even={props.even}
                     ref={imageRef}
                     alt={dataMember.name}
-                    content={dataMember.img.fields.file.url}
+                    content={
+                      dataMember.img.fields !== undefined
+                        ? dataMember.img.fields.file.url
+                        : dataMember.img.url
+                    }
                   />
                 )}
               </Spring>
@@ -231,7 +236,11 @@ const member = (props) => {
                 {({ opacity, transform }) => (
                   <TabletImage
                     style={{ opacity, transform }}
-                    src={dataMember.img.fields.file.url}
+                    src={
+                      dataMember.img.fields !== undefined
+                        ? dataMember.img.fields.file.url
+                        : dataMember.img.url
+                    }
                     alt=""
                     even={props.even}
                   />
