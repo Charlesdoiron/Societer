@@ -10,11 +10,7 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
-    "/[lang]/article/[id]": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/[lang]/author/[id]": [
+    "/[lang]": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],

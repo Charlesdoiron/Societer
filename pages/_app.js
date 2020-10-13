@@ -8,7 +8,7 @@ import Layout from "../components/layout";
 import { MockProvider } from "../context";
 import { theme } from "../config";
 import { withRouter } from "next/router";
-import { PageTransition } from "next-page-transitions";
+
 import withApolloClient from "../apollo/client";
 import * as Sentry from "@sentry/browser";
 
@@ -76,29 +76,10 @@ class MyApp extends App {
                 cardType: "summary_large_image",
               }}
             />
-            {/* <PageTransition timeout={200} classNames="page-transition"> */}
+
             <Layout>
               <Component {...pageProps} />
             </Layout>
-            {/* </PageTransition> */}
-            <style jsx global>{`
-              .page-transition-enter {
-                opacity: 0;
-                transition: opacity 1000ms;
-              }
-              .page-transition-enter-active {
-                opacity: 1;
-                transition: opacity 1000ms;
-              }
-              .page-transition-exit {
-                opacity: 1;
-                transition: opacity 1000ms;
-              }
-              .page-transition-exit-active {
-                opacity: 0;
-                transition: opacity 1000ms;
-              }
-            `}</style>
           </MockProvider>
         </ThemeProvider>
         <GlobalStyles />

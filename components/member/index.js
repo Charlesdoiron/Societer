@@ -176,6 +176,7 @@ const member = (props) => {
               position: "relative",
               opacity: 1,
               transform: "translateY(0px)",
+              pointerEvents: "none",
             }}
             to={{
               transform: "translateY(930px)",
