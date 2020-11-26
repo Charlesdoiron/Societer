@@ -1,29 +1,54 @@
 export default {
-  seo: {
-    title: "Societer | Vision",
-    description: "Maison de conseil en sustainable leadership",
-    canonical: "https://www.societer.co/vision"
-  },
+  seo_title: "Societer | Vision",
+  seo_description: "Maison de conseil en sustainable leadership",
+  seo_canonical: "https://www.societer.co/vision",
+
   firstPart: {
-    subtitle: "Le Manifeste",
-    agenda: {
-      title: "Agenda 2030",
-      content:
-        "L’Agenda 2030 des Nations Unies correspond au Programme de développement durable à l’horizon 2030 adopté par l’Assemblée Générale des Nations Unies. A l’aide de 17 Objectifs de Développement Durables <strong> (ODD)</strong>, l’Agenda 2030 fixe un cap à la communauté internationale en termes de développement durable. <strong>Il constitue selon nous le seul agenda de référence pour définir un engagement sociétal, sous-tendu par une réelle volonté d’impact.</strong> Nous croyons que des coalitions entre tous les acteurs doivent se former autour de ces objectifs pour voir la lutte contre la pauvreté, les inégalités et le réchauffement climatique aboutir.",
-      link: {
-        label: "En savoir plus",
-        url: "https://www.un.org/sustainabledevelopment/fr/development-agenda/"
+    fr: {
+      subtitle: "Le Manifeste",
+      agenda: {
+        title: "Agenda 2030",
+        content:
+          "L’Agenda 2030 des Nations Unies correspond au Programme de développement durable à l’horizon 2030 adopté par l’Assemblée Générale des Nations Unies. A l’aide de 17 Objectifs de Développement Durables <strong> (ODD)</strong>, l’Agenda 2030 fixe un cap à la communauté internationale en termes de développement durable. <strong>Il constitue selon nous le seul agenda de référence pour définir un engagement sociétal, sous-tendu par une réelle volonté d’impact.</strong> Nous croyons que des coalitions entre tous les acteurs doivent se former autour de ces objectifs pour voir la lutte contre la pauvreté, les inégalités et le réchauffement climatique aboutir.",
+        link: {
+          label: "En savoir plus",
+          url:
+            "https://www.un.org/sustainabledevelopment/fr/development-agenda/"
+        }
+      },
+      odd: {
+        title: "17 Objectifs de Développement Durable ",
+        content:
+          "<strong>Les 17 Objectifs de Développement Durable sont issus de l’Agenda 2030 des Nations Unies </strong>:  ils indiquent la marche à suivre et les sous-objectifs à atteindre pour s’attaquer aux problématiques telles que le réchauffement climatique, la biodiversité, la pauvreté, l’assainissement de l’eau, l’égalité entre les sexes, une éducation de qualité pour tous… Le 17e objectif est celui des partenariats, qui suppose l’alliance et le dialogue de l’ensemble des acteurs au service de cet agenda commun : il est essentiel dans la réussite de tous les ODD. C’est notamment dans cette dynamique collaborative que SOCIETER s’engage.",
+
+        link: {
+          label: "En savoir plus",
+          url:
+            "https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/"
+        }
       }
     },
-    odd: {
-      title: "17 Objectifs de Développement Durable ",
-      content:
-        "<strong>Les 17 Objectifs de Développement Durable sont issus de l’Agenda 2030 des Nations Unies </strong>:  ils indiquent la marche à suivre et les sous-objectifs à atteindre pour s’attaquer aux problématiques telles que le réchauffement climatique, la biodiversité, la pauvreté, l’assainissement de l’eau, l’égalité entre les sexes, une éducation de qualité pour tous… Le 17e objectif est celui des partenariats, qui suppose l’alliance et le dialogue de l’ensemble des acteurs au service de cet agenda commun : il est essentiel dans la réussite de tous les ODD. C’est notamment dans cette dynamique collaborative que SOCIETER s’engage.",
+    en: {
+      subtitle: "Vision",
+      agenda: {
+        title: "The 2030 Agenda",
+        content:
+          "The United Nations’ 2030 Agenda is the sustainable development program adopted by the United Nations General Assembly. With 17 Sustainable Development Goals (SDGs) the 2030 Agenda sets a course for the international community. It is, in our opinion, the only benchmark agenda that constructs a shared future, and defines, for businesses and organisations, social engagement, underpinned by a true desire for impact. We believe that in order to see them succeed, coalitions between all players must build upon these objectives.",
+        link: {
+          label: "Learn More",
+          url: "https://www.un.org/sustainabledevelopment/development-agenda/"
+        }
+      },
+      odd: {
+        title: "17 Sustainable Development Goals",
+        content:
+          "The 17 Sustainable Development Goals are part of the United Nation’s 2030 Agenda; they highlight the steps to follow and the objectives to achieve in order to tackle problems such as global warming, biodiversity, poverty, water sanitation, gender equality, and good education for all. The 17th objective is for partnership and imagines the alliance and discussion among all actors towards our common agenda: it is a critical one for the success of all SDGs. It is exactly in a dynamic of collaboration that Societer places itself.",
 
-      link: {
-        label: "En savoir plus",
-        url:
-          "https://www.un.org/sustainabledevelopment/fr/objectifs-de-developpement-durable/"
+        link: {
+          label: "Learn More",
+          url:
+            "https://www.un.org/sustainabledevelopment/sustainable-development-goals/"
+        }
       }
     }
   },
@@ -32,8 +57,7 @@ export default {
     title:
       "Dirigeants d'entreprise, engagez-vous pour sauver le monde… et votre business",
     media: {
-      logo: "images/vision/les-echos.svg",
-      width: 18
+      logo: "/images/vision/les-echos.svg"
     },
     authors: [
       {

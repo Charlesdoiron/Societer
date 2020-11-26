@@ -5,6 +5,11 @@ import mission from "./mission";
 import homepage from "./homepage";
 import socials from "./socials";
 import contact from "./contact";
+import debat_public from "./debat_public";
+import categories from "./categories";
+import articles from "./articles";
+import article from "./article";
+import articleHeader from "./articleHeader";
 
 export default {
   menu,
@@ -13,5 +18,10 @@ export default {
   mission,
   vision,
   socials,
-  contact
+  contact,
+  debat_public,
+  categories,
+  articles,
+  article,
+  articleHeader
 };

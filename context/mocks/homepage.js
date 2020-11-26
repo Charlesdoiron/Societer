@@ -1,9 +1,7 @@
 export default {
-  seo: {
-    title: "Societer | Sustainable Leaders",
-    description: "Maison de conseil en sustainable leadership",
-    canonical: "https://www.societer.co"
-  },
+  seo_title: "Societer | Sustainable Leaders",
+  seo_description: "Maison de conseil en sustainable leadership",
+  seo_canonical: "https://www.societer.co",
   subtitle: "Maison de conseil en",
-  title: "sustainable leadership"
+  tagline: "sustainable leadership"
 };

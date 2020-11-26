@@ -1,48 +1,38 @@
 {
-  "devFiles": [],
+  "devFiles": [
+    "static/runtime/react-refresh.js",
+    "static/runtime/react-refresh.js.map",
+    "static/development/dll/dll_fe850393d08f72bfe67b.js",
+    "static/development/dll/dll_fe850393d08f72bfe67b.js.map"
+  ],
+  "lowPriorityFiles": [
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
+  ],
   "pages": {
     "/": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.d1ed701ad0f86aaaaa8e.js",
-      "static/runtime/main-32a1b76ba6ef07769039.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/[lang]": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/_app": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.d1ed701ad0f86aaaaa8e.js",
-      "static/runtime/main-32a1b76ba6ef07769039.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/_error": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.d1ed701ad0f86aaaaa8e.js",
-      "static/runtime/main-32a1b76ba6ef07769039.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/_polyfills": [
-      "static/runtime/polyfills-f5af81b00d12d923ec0f.js"
-    ],
-    "/communaute": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.d1ed701ad0f86aaaaa8e.js",
-      "static/runtime/main-32a1b76ba6ef07769039.js"
-    ],
-    "/contact": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.d1ed701ad0f86aaaaa8e.js",
-      "static/runtime/main-32a1b76ba6ef07769039.js"
+      "static/runtime/polyfills.js",
+      "static/runtime/polyfills.js.map"
     ],
     "/index": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.d1ed701ad0f86aaaaa8e.js",
-      "static/runtime/main-32a1b76ba6ef07769039.js"
-    ],
-    "/mission": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.d1ed701ad0f86aaaaa8e.js",
-      "static/runtime/main-32a1b76ba6ef07769039.js"
-    ],
-    "/vision": [
-      "static/runtime/webpack-035ac2b14bde147cb4a8.js",
-      "static/chunks/commons.d1ed701ad0f86aaaaa8e.js",
-      "static/runtime/main-32a1b76ba6ef07769039.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }

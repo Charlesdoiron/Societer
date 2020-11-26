@@ -4,17 +4,21 @@ export const ScreenSizes = {
   SMALL: 375,
   MEDIUM: 768,
   MEDIUMPLUS: 850,
+  MEDIUMLARGE: 1000,
   LARGE: 1224,
   LARGEPLUS: 1700,
-  XLARGE: 1824
+  XLARGE: 1824,
+  XXLARGE: 2200,
 };
 const sizes = {
   small: ScreenSizes.SMALL,
   medium: ScreenSizes.MEDIUM,
   mediumPlus: ScreenSizes.MEDIUMPLUS,
+  mediumLarge: ScreenSizes.MEDIUMLARGE,
   large: ScreenSizes.LARGE,
   largePlus: ScreenSizes.LARGEPLUS,
-  xlarge: ScreenSizes.XLARGE
+  xlarge: ScreenSizes.XLARGE,
+  xxlarge: ScreenSizes.XXLARGE,
 };
 
 const media = Object.keys(sizes).reduce((acc, label) => {

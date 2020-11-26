@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const Image = styled.div`
-  background-image: url(${props => props.image});
-
+  background-image: url(${(props) => props.image.fields.file.url});
   width: 100%;
-  height: 100vh;
-  background-position: center;
+  height: ${(props) => props.heightDesktop || "100vh"};
+  background-position: ${(props) =>
+    props.alignTop ? "top" : props.alignBottom ? "bottom" : "center"};
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -14,20 +14,20 @@ const Image = styled.div`
   left: 0;
   right: 0;
 
-  ${props => props.theme.medias.medium`
+  ${(props) => props.theme.medias.medium`
    background-image: url(${
      props.imageMobile
-       ? props.imageMobile
+       ? props.imageMobile.fields.file.url
        : props.noImageOnMobile
        ? "unset"
-       : props.image
+       : props.image.fields.file.url
    });
    background-color: ${props.noImageOnMobile && props.theme.colors.blue};
-
-   `}
+ height: ${(props) => props.height || "100vh"} ;
+   `};
 `;
 
-const BackgroundImage = props => {
+const BackgroundImage = (props) => {
   return <Image {...props} />;
 };
 

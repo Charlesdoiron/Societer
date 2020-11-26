@@ -1,16 +1,15 @@
 export default {
-  seo: {
-    title: "Societer | Contact",
-    description: "Maison de conseil en sustainable leadership",
-    canonical: "https://www.societer.co/contact"
-  },
+  seo_title: "Societer | Contact",
+  seo_description: "Maison de conseil en sustainable leadership",
+  seo_canonical: "https://www.societer.co/contact",
+
   title: "138 Haussmann 75008 Paris",
   cta: "nous localiser",
   url:
     "https://www.google.fr/maps/place/138+Boulevard+Haussmann,+75008+Paris/@48.875455,2.3114001,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66fc86a4a895b:0x8a96f42004b527a4!8m2!3d48.875455!4d2.3135888!5m1!1e1",
 
   footer: {
-    logo: "images/contact/logo_contact.svg",
+    logo: "/images/contact/logo_contact.svg",
     socials: {
       title: "Nous suivre",
       links: [

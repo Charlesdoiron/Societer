@@ -3,4 +3,4 @@ import globalStyles from "./globalStyles";
 import medias from "./medias";
 import fonts from "./fonts";
 
-export default { colors, medias, fonts };
+export default { colors, medias, fonts, globalStyles };

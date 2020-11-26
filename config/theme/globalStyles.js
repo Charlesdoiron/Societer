@@ -1,17 +1,19 @@
-import { css, createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
 @font-face {
     font-family: 'garnett_regular_italic';
-    src: url('fonts/garnett_italic-webfont.eot');
-    src: url('fonts/garnett_italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/garnett_italic-webfont.woff2') format('woff2'),
-         url('fonts/garnett_italic-webfont.woff') format('woff'),
-         url('fonts/garnett_italic-webfont.ttf') format('truetype'),
-         url('fonts/garnett_italic-webfont.svg#garnett_regularitalic') format('svg');
+    src: url('/fonts/garnett_italic-webfont.eot');
+    src: url('/fonts/garnett_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/garnett_italic-webfont.woff2') format('woff2'),
+         url('/fonts/garnett_italic-webfont.woff') format('woff'),
+         url('/fonts/garnett_italic-webfont.ttf') format('truetype'),
+         url('/fonts/garnett_italic-webfont.svg#garnett_regularitalic') format('svg');
     font-weight: normal;
     font-style: normal;
+    
+    
 
 }
 
@@ -20,14 +22,16 @@ const GlobalStyles = createGlobalStyle`
 
 @font-face {
     font-family: 'garnett_medium_italic';
-    src: url('fonts/garnett_medium_italic-webfont.eot');
-    src: url('fonts/garnett_medium_italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/garnett_medium_italic-webfont.woff2') format('woff2'),
-         url('fonts/garnett_medium_italic-webfont.woff') format('woff'),
-         url('fonts/garnett_medium_italic-webfont.ttf') format('truetype'),
-         url('fonts/garnett_medium_italic-webfont.svg#garnett_mediumitalic') format('svg');
+    src: url('/fonts/garnett_medium_italic-webfont.eot');
+    src: url('/fonts/garnett_medium_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/garnett_medium_italic-webfont.woff2') format('woff2'),
+         url('/fonts/garnett_medium_italic-webfont.woff') format('woff'),
+         url('/fonts/garnett_medium_italic-webfont.ttf') format('truetype'),
+         url('/fonts/garnett_medium_italic-webfont.svg#garnett_mediumitalic') format('svg');
     font-weight: normal;
     font-style: normal;
+    
+    
 
 }
 
@@ -36,14 +40,16 @@ const GlobalStyles = createGlobalStyle`
 
 @font-face {
     font-family: 'garnett_medium';
-    src: url('fonts/garnett_medium-webfont.eot');
-    src: url('fonts/garnett_medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/garnett_medium-webfont.woff2') format('woff2'),
-         url('fonts/garnett_medium-webfont.woff') format('woff'),
-         url('fonts/garnett_medium-webfont.ttf') format('truetype'),
-         url('fonts/garnett_medium-webfont.svg#garnett_mediumregular') format('svg');
+    src: url('/fonts/garnett_medium-webfont.eot');
+    src: url('/fonts/garnett_medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/garnett_medium-webfont.woff2') format('woff2'),
+         url('/fonts/garnett_medium-webfont.woff') format('woff'),
+         url('/fonts/garnett_medium-webfont.ttf') format('truetype'),
+         url('/fonts/garnett_medium-webfont.svg#garnett_mediumregular') format('svg');
     font-weight: 500;
     font-style: normal;
+    
+    
 
 }
 
@@ -52,14 +58,16 @@ const GlobalStyles = createGlobalStyle`
 
 @font-face {
     font-family: 'garnett_regular';
-    src: url('fonts/garnett_regular-webfont.eot');
-    src: url('fonts/garnett_regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/garnett_regular-webfont.woff2') format('woff2'),
-         url('fonts/garnett_regular-webfont.woff') format('woff'),
-         url('fonts/garnett_regular-webfont.ttf') format('truetype'),
-         url('fonts/garnett_regular-webfont.svg#garnett_regularregular') format('svg');
+    src: url('/fonts/garnett_regular-webfont.eot');
+    src: url('/fonts/garnett_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/garnett_regular-webfont.woff2') format('woff2'),
+         url('/fonts/garnett_regular-webfont.woff') format('woff'),
+         url('/fonts/garnett_regular-webfont.ttf') format('truetype'),
+         url('/fonts/garnett_regular-webfont.svg#garnett_regularregular') format('svg');
     font-weight: 500;
     font-style: normal;
+    
+    
 
 }
 
@@ -68,14 +76,17 @@ const GlobalStyles = createGlobalStyle`
 
 @font-face {
     font-family: 'garnett_bold';
-    src: url('fonts/garnett-bold-webfont.eot');
-    src: url('fonts/garnett-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/garnett-bold-webfont.woff2') format('woff2'),
-         url('fonts/garnett-bold-webfont.woff') format('woff'),
-         url('fonts/garnett-bold-webfont.ttf') format('truetype'),
-         url('fonts/garnett-bold-webfont.svg#garnettbold') format('svg');
+    src: url('/fonts/garnett-bold-webfont.eot');
+    src: url('/fonts/garnett-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/garnett-bold-webfont.woff2') format('woff2'),
+         url('/fonts/garnett-bold-webfont.woff') format('woff'),
+         url('/fonts/garnett-bold-webfont.ttf') format('truetype'),
+         url('/fonts/garnett-bold-webfont.svg#garnettbold') format('svg');
     font-weight: bold;
     font-style: normal;
+    
+    
+
 
 }
 
@@ -85,7 +96,6 @@ const GlobalStyles = createGlobalStyle`
       box-sizing: border-box;
       margin:0;
       padding:0;
-      background-color: #101010;
       overflow-x:hidden;
     }
     body {
@@ -93,14 +103,26 @@ const GlobalStyles = createGlobalStyle`
       padding:0;
       font-weight: 400;
       line-height: 24px;
+       background-color: #492EFA; 
+      font-size:2vw;
       height:100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      touch-action: manipulation;
+      scroll-behavior: smooth;
 
+
+      &.menuIsOpen{
+         /* position:fixed;  */
+        touch-action:none;
+        overflow:hidden;
+      }
     }
+
     .isBlue {
       color : #492EFA !important;
     }
+    
     html,
     body {
       min-height: 100%;

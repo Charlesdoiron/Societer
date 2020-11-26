@@ -1,15 +1,14 @@
 import { SmallSubtitle } from "../../styled/typos";
 
 export default {
-  seo: {
-    title: "Societer | Communauté",
-    description: "Maison de conseil en sustainable leadership",
-    canonical: "https://www.societer.co/communaute"
-  },
+  seo_title: "Societer | Communauté",
+  seo_description: "Maison de conseil en sustainable leadership",
+  seo_canonical: "https://www.societer.co/communaute",
+
   members: [
     {
       subTitle: "présidente et co-fondatrice",
-      img: "images/communaute/aurelie_motta-rivey.jpg",
+      img: "/images/communaute/aurelie_motta-rivey.jpg",
       name: "Aurélie Motta-Rivey",
       description:
         "Précédemment Conseillère pour la Communication et les Partenariats auprès de la Directrice générale de l’UNESCO, Audrey Azoulay, Aurélie Motta-Rivey a commencé sa carrière au Quai d’Orsay comme Conseillère presse internationale de ministres de l’Europe et des Affaires étrangères, avant de rejoindre la Mission permanente de la France auprès Nations Unies à New York comme Conseillère presse et Porte-Parole adjointe. Elle a ensuite mis son expertise en stratégie de communication au service du Ministère des Affaires sociales, notamment sur les enjeux d’égalité femmes hommes et de droits des femmes. Avant de rejoindre l’UNESCO, elle était Associée et membre du Comité exécutif du cabinet de conseil en stratégie de Communication Tilder. Diplômée de Droit et de Sciences Po Paris, elle est aujourd’hui Maître de conférences à Sciences Po dans le Master international de l’École du Management et de l’Innovation sur les sujets de stratégies d’influence et de communication de crise.",
@@ -26,7 +25,7 @@ export default {
     },
     {
       subTitle: "Directrice générale et co-fondatrice",
-      img: "images/communaute/mathilde_olivey.jpg",
+      img: "/images/communaute/mathilde_olivey.jpg",
       name: "Mathilde Oliveau",
       description:
         "Mathilde Oliveau a fondé et dirige Sensible, maison de conseil en stratégie éditoriale et de contenus dédiée à la prise de parole des dirigeants et des marques. Elle était dans ses précédentes fonctions directrice générale de la société de conseil aux dirigeants Altermind , ancrée dans le monde académique, et plume de plusieurs personnalités publiques. Auparavant, elle a été Conseiller Discours du Président de l’Assemblée nationale, et responsable de la communication de la Commission pour la libération de la croissance française présidée par Jacques Attali. Elle a également mené plusieurs missions de conseil en communication dans le champ des affaires publiques - Ministère de l’économie, Médiation du Crédit aux entreprises, et des affaires culturelles – Établissement public du musée et domaine national de Versailles, Musée du Louvre, Centre Pompidou.",
@@ -42,7 +41,7 @@ export default {
     },
     {
       subTitle: "Associée et co-fondatrice",
-      img: "images/communaute/nathalie_de_gaulle.jpg",
+      img: "/images/communaute/nathalie_de_gaulle.jpg",
       name: "Nathalie de Gaulle",
       description:
         "Nathalie de Gaulle a commencé sa carrière à la Société Générale CIB de Londres, avant de rejoindre la Direction financière du groupe Engie dans le cadre de son programme de cadres à haut potentiel. En 2012, elle crée Baynuna Economic Consulting, société d’Intelligence stratégique aux Émirats arabes Unis, en partenariat avec le groupe technologique Baynuna. En 2018, après une expérience comme Directrice des Affaires gouvernementales et Banques centrales de la start-up Ledger, elle co-fonde la société de Recherche & Développement NB-inov, une société de biotechnologie, visant à développer des bioplastiques dans des secteurs industriels à haute performance. En 2019, elle intègre le Board d’Antaeus Technologies, société américaine spécialisée en Cloud et en Intelligence Artificielle sur le secteur énergétique, et établit Princeps Strategy, société de conseil en Développement stratégique et Affaires institutionnelles. Diplômée de Sciences Po Paris et d’HEC, elle également certifiée par le Massachusetts Institute of Technology (MIT).",
@@ -58,7 +57,7 @@ export default {
     },
     {
       subTitle: "conseil",
-      img: "images/communaute/myassa_djebara.jpg",
+      img: "/images/communaute/myassa_djebara.jpg",
       name: "Myassa Djebara",
       description:
         "Diplômée de Sciences Po en Affaires publiques et de l’Université Paris-Sorbonne en Droit, Myassa Djebara a travaillé au Sénat auprès du Président de la Commission des Lois, puis au sein d’Altermind, cabinet de conseil aux dirigeants en stratégie. Elle a ensuite été nommée chargée de mission pour le European Forum For Urban Security, réseau international de collectivités locales dédié à la prévention de la criminalité. Spécialisée notamment dans la lutte contre l’extrémisme violent - en particulier dans l’espace numérique, elle a mené des études de terrain et des campagnes locales de discours alternatifs dans plusieurs pays européens (Allemagne, Espagne, France notamment). Depuis 2018, elle est partenaire de Sensible, Maison de conseil en stratégie éditoriale.",
@@ -74,7 +73,7 @@ export default {
     },
     {
       subTitle: "conseil",
-      img: "images/communaute/tess_pettavino.jpg",
+      img: "/images/communaute/tess_pettavino.jpg",
       name: "Tess Pettavino",
       description:
         "Diplômée d’un double master Sciences Po et HEC Paris en Corporate and Public Management, Tess Pettavino a une forte sensibilité internationale : de nationalités française et canadienne, elle fait ses études en milieu anglophone, apprend le mandarin, étudie et travaille à Singapour. Après une collaboration avec l’agence de communication créative Fred & Farid auprès de la Direction Luxe et International, elle rejoint le mouvement En Marche ! à ses débuts en avril 2016. Elle contribue à la structuration du mouvement et à celle de sa communication, notamment digitale. Lors de la campagne pour les élections présidentielle et législatives de 2017, elle devient responsable des Relations Adhérents & Citoyens, et se forme notamment au Nudge. À l’issue des élections, elle devient Responsable Marketing et Planning Stratégique du mouvement et coordonne les effectifs du Pôle Communication. En 2018, elle devient Directrice de la Communication d’En Marche ! et siège à ce titre au Comité de Direction du mouvement. Sous la direction du Délégué Général, elle prend la responsabilité de l'équipe Communication (presse, porte-parolat, digital, événementiel, relations publiques), qu’elle anime sur la promotion des actions du mouvement, les temps forts politiques et les séquences de crise.",
@@ -90,7 +89,7 @@ export default {
     },
     {
       subTitle: "conseil",
-      img: "images/communaute/lea_tallien_de_cabarrus.jpg",
+      img: "/images/communaute/lea_tallien_de_cabarrus.jpg",
       name: "Léa Tallien de Cabarrus",
       description:
         "Diplômée de Sciences Po Paris en International Public Management et Communication, Médias et Industries Créatives, Léa Tallien de Cabarrus a étudié les Relations Internationales à l’Université de Bath au Royaume-Uni avant de rejoindre l’Ambassade de France en Irlande en Chancellerie diplomatique. Elle a ensuite intégré la start-up Pandacraft en tant que responsable achats et logistiques, puis Orange Digital Ventures en tant qu’analyste. Avant d’intégrer Societer, Léa était à la direction de la Communication et des Affaires Publiques de General Electric France, en charge de la communication de la CEO, des réseaux sociaux, de la communication interne et des communications de crise.",
