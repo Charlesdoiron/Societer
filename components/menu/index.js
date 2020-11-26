@@ -119,28 +119,10 @@ const Menu = (props) => {
     router.replace(`/${value}${removeQuery(asPath)}`);
   };
 
-  // const AnimationMenu = styled.div`
-  //   background-color: ${currentPage !== "/[lang]" &&
-  //   currentPage !== "/[lang]/contact"
-  //     ? (props) => props.theme.colors.black
-  //     : "unset"};
-  //   height: ${menuHeight}px;
-  //   transform: translateY(-${menuHeight}px);
-  //   width: 100%;
-  //   transition: all 500ms;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   z-index: 1;
-  // `;
-
   const toggleMenu = () => {
     setOpen(!isOpen);
     document.querySelector("body").classList.toggle("menuIsOpen");
   };
-
-
 
   return (
     <MenuContainer
@@ -177,12 +159,11 @@ const Menu = (props) => {
                 }
                 alt="Societer Logo"
               />
-              {/* <animated.div style={animateUp}> */}
               <CurrentPage isTop={isTop} currentPage={currentPage}>
                 {pageName[currentQuerryLang] &&
                   pageName[currentQuerryLang][removeQuery(currentPage)]}
               </CurrentPage>
-              {/* </animated.div> */}
+
             </Flex>
           )}
         </Link>
