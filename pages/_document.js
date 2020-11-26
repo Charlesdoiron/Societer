@@ -1,34 +1,29 @@
-import React from "react";
-import { Html, Main, NextScript, Head } from "next/document";
-import NextDocument from "next/document";
+import Document, { Html, Main, NextScript, Head } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-export default class Document extends NextDocument {
-  static async getInitialProps(ctx) {
+
+export default class MyDocument extends Document {
+  static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
-        });
-      const initialProps = await NextDocument.getInitialProps(ctx);
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      sheet.seal();
-    }
+    const isProduction = process.env.NODE_ENV === "production";
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />)
+    );
+    const styleTags = sheet.getStyleElement();
+    return { ...page, styleTags, isProduction };
+  }
+  setGoogleTags() {
+    return {
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-157382765-1');`
+    };
   }
   render() {
+    const { isProduction } = this.props;
     return (
-      <Html lang="fr">
+      <Html lang="en">
         <Head>
           <link
             rel="apple-touch-icon"
@@ -52,29 +47,17 @@ export default class Document extends NextDocument {
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#492efa" />
 
-          <link
-            rel="stylesheet "
-            type="text/css"
-            charSet="UTF-8"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-          />
-          <link
-            rel="stylesheet "
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          />
-
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-157382765-1"
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments)};
-            gtag('js', new Date()); gtag('config', 'UA-157382765-1')`,
-            }}
-          ></script>
           {this.props.styleTags}
+          {isProduction && (
+            <React.Fragment>
+              <script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=UA-157382765-1"
+              />
+
+              <script dangerouslySetInnerHTML={this.setGoogleTags()} />
+            </React.Fragment>
+          )}
         </Head>
         <body>
           <Main />
