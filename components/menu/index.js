@@ -116,7 +116,7 @@ const Menu = (props) => {
   });
 
   const handleLocale = (value) => {
-    router.replace(`/${value}${removeQuery(asPath)}`);
+    router.replace(`/${value}${removeQuery(asPath.replace('/',""))}`);
   };
 
   const toggleMenu = () => {
